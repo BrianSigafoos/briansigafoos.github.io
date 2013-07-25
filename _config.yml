@@ -1,0 +1,27 @@
+auto: true
+markdown: rdiscount
+pygments: true
+
+title: Brian Sigafoos
+
+url: http://briansigafoos.com
+
+permalink: none
+
+author:
+    name: Brian Sigafoos
+    email: brian.sigafoos@gmail.com
+    github: briansigafoos
+    twitter: BrianSigafoos
+    gravatar: http://en.gravatar.com/userimage/17227089/a1d38f29b1314541b194b28ef1420b84.jpg?size=200
+
+comments:
+    provider: disqus
+    disqus:
+        short_name: intheatticuk
+        
+analytics:
+    provider: google 
+    google: 
+        tracking_id: 'UA-18015420-1'
+        domain: 'in-the-attic.com'
