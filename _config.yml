@@ -18,10 +18,10 @@ author:
 comments:
     provider: disqus
     disqus:
-        short_name: intheatticuk
+        short_name: briansigafoos
         
 analytics:
     provider: google 
     google: 
-        tracking_id: 'UA-18015420-1'
-        domain: 'in-the-attic.com'
+        tracking_id: 'UA-42740116-1'
+        domain: 'briansigafoos.com'
