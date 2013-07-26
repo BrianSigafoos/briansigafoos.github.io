@@ -18,7 +18,7 @@ tags:
 
 All thanks are due to [Garry Welding](https://github.com/gkwelding) who has an amazing blog post about [setting up Jekyll on GitHub Pages with Bootstrap](http://in-the-attic.com/2013/01/04/building-a-blog-using-jekyll-bootstrap-and-github-pages-a-beginners-guide/)
 
-Prior to finding Gary's solution I went down a number of promising paths. All of which probably would be great, except that I found it **much** easier to copy someone who had done the implementation recently.
+Prior to finding Gary's solution I went down a number of promising paths. All of which probably would be great, except that it was **much** faster to copy someone who had recently done the setup.
 
 #### First attempts
 
