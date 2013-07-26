@@ -22,74 +22,68 @@ tags:
 #### Getting Around
 - [Dubai Metro](http://dubaimetro.eu/dubai-metro-map) is cheap, easy and clean. Open 6am-11pm everyday except Fridays (2pm-12am) - don’t eat/drink on Metro or you’ll get fined! Tip: pay extra (1 time at least) to sit in front (Gold class) of the driverless train
 Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JBR (beach)
-- Dubai Taxi - call 04 208 0808 anytime for fast, great service to arrange a taxi pick-up
-- RTA Buses to other Emirates- 800 9090 for timetable / prices (Abu Dhabi E101 bus - see Abu Dhabi below)
+- [Dubai Taxi](http://dtc.dubai.ae/en/Pages/default.aspx) call 04 208 0808 anytime for fast, great service to arrange a taxi pick-up
+- [RTA Buses](http://www.rta.ae/wpsv5/wps/portal/rta/home/about/agencies/public-transport/about/inter-emirates-buses) to other Emirates- 800 9090 for timetable / prices (Abu Dhabi E101 bus - see Abu Dhabi below)
 
-#### WALKING DISTANCE FROM INDIGO TOWER
-Groceries
-Carrefour Express open 24/7 + ATM   top pick   great selection
-directions: from Indigo lobby go outside and turn right. take stairs down and cross the street, then take stairs up to Carrefour
-Red Rose Market & Cafe coffee, baked goods, outdoor patio overlooking Lake
-directions: from Indigo lobby go outside and first building on the right. go to left side of building
-Restaurants - great ethnic restaurants within 5min walk of Indigo Tower
-Soum Soum (Lebanese) $ directions: in Cluster D, 1 min walk, exit Indigo tower and walk along right side of 1st building
-Flames Grills & Curry (Indian / Kenyan) $  top pick  directions: just past Soum Soum
-The Kitchen of Thai $ directions: walk towards lake from Carrefour
-Hanoi (Vietnamese) $$ directions: on lower level, below
-Richy’s I am the Salad (salad bar) $$  directions: go to Red Rose Cafe, take stairs down to lake level, walk along lake until Cluster F, then go up stairs
-Innlay Asia (Burmese) $ next to Richy’s
-Nais (Italian) $$$ next to Richy’s
-Pubs / Bars
-McGettigan’s Irish Pub @ Bonnington Hotel - 5 min walk, behind Al Mas (BIG tower)
-Healey’s Bar & Terrace above McGettigan’s,  more sophisticated with 2-for-1 happy hour special until 8pm
-Dubai Marina Yacht Club - across the highway (via Metro walkway)
-Dubai Marina - take Metro walkway to cross over Sheikh Zayed Rd
-JBR Walk & JBR Beach - nice open air “walk” with food, shops, cafes and large public beach
+#### Around JLT
+##### Groceries
+- Carrefour Express open 24/7 + ATM   *top pick*   great selection. Directions: from Indigo lobby go outside and turn right. take stairs down and cross the street, then take stairs up to Carrefour
+- Red Rose Market & Cafe coffee, baked goods, outdoor patio overlooking Lake. Directions: from Indigo lobby go outside and first building on the right. go to left side of building
 
-#### OUT ON THE TOWN
-Restaurants
-Souk Madinat Jumeirah - 40 restaurants and bars set along canals next to the Burj Al Arab
-Rostang $$$ - French brasserie at Atlantis
-West 14th $$$$ - NYC style steakhouse on Palm Island at Oceana with outdoor cocktails, great view of Dubai Marina
-Le Traiteur $$$$ - #1 Friday brunch in Dubai, French gastronomic feast on old Dubai Creek - make reservations 7-10 days in advance
-Drinks / Dancing
-Barasti Beach Bar - voted #1 bar in the world, multiple levels, live music, relaxed dress code (sandals, shorts ok)
-Mahiki - Tiki style bar / nightclub with dancing after 11pm
-360° - sundown drinks next to Burj Al Arab, must reserve online
-Trilogy - Souk Madinat nightclub with 3 zones of music: trance, hip-hop room and outdoors rooftop lounge
-Rock Bottom - grimey but fun, no one admits to going here, but if it’s 2am and you still want to dance this place will be packed
-Concerts / clubs: check Platinum List and TimeOut Dubai for upcoming concerts, performances, DJs
+##### Restaurants
+- [Flames Grills & Curry](http://www.flames.ae) (Indian / Kenyan) $  *top pick*  directions: just past Soum Soum
+- The Kitchen of Thai $ directions: walk towards lake from Carrefour
+- Hanoi (Vietnamese) $$ directions: on lower level, below
+- Richy’s I am the Salad (salad bar) $$  directions: go to Red Rose Cafe, take stairs down to lake level, walk along lake until Cluster F, then go up stairs
+- Innlay Asia (Burmese) $ next to Richy’s
+- Nais (Italian) $$$ next to Richy’s
 
-#### DUBAI HITS
-Dubai Fountain @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa
-eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
-Dubai Aquarium @ Dubai Mall - 30,000 animals, 85 species, 400 sharks & rays.
-AED 50 for great tunnel view & underwater zoo
-At the Top Burj Khalifa - 124th floor view, entrance from Dubai Mall
-AED 100 - book online at least 6 days ahead for sunset timing
-Dubai Museum - AED 3 to get a cultural understanding of UAE, Dubai, great location next to Dubai Creek
-Then take a Dubai Creek abra (boat) to cross from near Dubai Museum to Gold Souk
-AED 1 per trip on the abra (water taxi boat)
-Ravi Restaurant - metro to World Trade Centre, then taxi - Dubai cultural landmark for cheap, great Pakistani food
-or if you prefer seafood try Bu Qtair Cafeteria - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
-Arabian Adventures Sundowner Desert Safari (tell them pick-up at Bonnington Hotel - next door)
-AED 350 for sand dune driving, camel ride, Arabic feast with drinks and belly dancer
-Aquaventure water park @ Atlantis Hotel on Palm Jumeirah AED 20 by taxi AED 220
-try Nasimi Beach or Rostang for food at the Atlantis
+##### Pubs / Bars
+- McGettigan’s Irish Pub @ Bonnington Hotel - 5 min walk, behind Al Mas (BIG tower)
+- Healey’s Bar & Terrace above McGettigan’s,  more sophisticated with 2-for-1 happy hour special until 8pm
+- Dubai Marina Yacht Club - across the highway (via Metro walkway)
+- Dubai Marina - take Metro walkway to cross over Sheikh Zayed Rd
+- JBR Walk & JBR Beach - nice open air “walk” with food, shops, cafes and large public beach
 
-#### DUBAI INDULGENCES
-Skydive Dubai - AED 1750 for jumping over the Palm Jumeirah
-Seawings plane tour - AED 1375
-Dolphin Bay @ Atlantis - AED 600 for 30min swimming with dolphins
-Ski Dubai @ Mall of the Emirates - AED 180 for 2hrs of skiing or snowboarding
+#### Out around Dubai
+###### Restaurants
+- Souk Madinat Jumeirah - 40 restaurants and bars set along canals next to the Burj Al Arab
+- Rostang $$$ - French brasserie at Atlantis
+- West 14th $$$$ - NYC style steakhouse on Palm Island at Oceana with outdoor cocktails, great view of Dubai Marina
+- Le Traiteur $$$$ - #1 Friday brunch in Dubai, French gastronomic feast on old Dubai Creek - make reservations 7-10 days in advance
+
+##### Drinks / Dancing
+- Barasti Beach Bar - voted #1 bar in the world, multiple levels, live music, relaxed dress code (sandals, shorts ok)
+- Mahiki - Tiki style bar / nightclub with dancing after 11pm
+- 360° - sundown drinks next to Burj Al Arab, must reserve online
+- Trilogy - Souk Madinat nightclub with 3 zones of music: trance, hip-hop room and outdoors rooftop lounge
+- Rock Bottom - grimey but fun, no one admits to going here, but if it’s 2am and you still want to dance this place will be packed
+- Concerts / clubs: check Platinum List and TimeOut Dubai for upcoming concerts, performances, DJs
+
+#### Dubai Top Pick
+In order of my recommendation
+- Dubai Fountain @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa. Eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
+- Dubai Aquarium @ Dubai Mall - 30,000 animals, 85 species, 400 sharks & rays. AED 50 for great tunnel view & underwater zoo
+- At the Top Burj Khalifa - 124th floor view, entrance from Dubai Mall. AED 100 - book online at least 6 days ahead for sunset timing
+- Dubai Museum - AED 3 to get a cultural understanding of UAE, Dubai, great location next to Dubai Creek. Then take a Dubai Creek abra (boat) to cross from near Dubai Museum to Gold Souk. AED 1 per trip on the abra (water taxi boat)
+- Ravi Restaurant - metro to World Trade Centre, then taxi - Dubai cultural landmark for cheap, great Pakistani food
+- or if you prefer seafood try Bu Qtair Cafeteria - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
+- Arabian Adventures Sundowner Desert Safari (tell them pick-up at Bonnington Hotel - next door), AED 350 for sand dune driving, camel ride, Arabic feast with drinks and belly dancer
+- Aquaventure water park @ Atlantis Hotel on Palm Jumeirah AED 20 by taxi AED 220, try Nasimi Beach or Rostang for food at the Atlantis
+
+#### Dubai Indulgences
+- Skydive Dubai - AED 1750 for jumping over the Palm Jumeirah
+- Seawings plane tour - AED 1375
+- Dolphin Bay @ Atlantis - AED 600 for 30min swimming with dolphins
+- Ski Dubai @ Mall of the Emirates - AED 180 for 2hrs of skiing or snowboarding
 
 #### DUBAI ALTERNATIVES
-Dubai Drums - monthly Full moon desert drumming
-Surf Dubai - stand up paddle around the Burj Al Arab
-Dubai Polo & Equestrian Club - horseback desert hacking
-CrossFit class - hardcore fitness class, 7min walk in Cluster H
-Dune Riders - AED 500 for 1hr dune buggying and sand boarding in the desert
-Dubai Autodrome - AED 110 to race go karts for 15min
+- Dubai Drums - monthly Full moon desert drumming
+- Surf Dubai - stand up paddle around the Burj Al Arab
+- Dubai Polo & Equestrian Club - horseback desert hacking
+- CrossFit class - hardcore fitness class, 7min walk in Cluster H
+- Dune Riders - AED 500 for 1hr dune buggying and sand boarding in the desert
+- Dubai Autodrome - AED 110 to race go karts for 15min
 
 #### EXPLORE ABU DHABI
 By car: 60-80 min drive from JLT - never go more than 20 kmph over posted speed limit (speed cameras = AED 700 ticket)
