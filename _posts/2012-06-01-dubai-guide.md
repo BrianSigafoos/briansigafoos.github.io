@@ -13,10 +13,10 @@ tags:
 - travel
 ---
 
-###### I wrote this guide for friends and [AirBnb](https://www.airbnb.com/users/show/1207007) guests visiting Dubai As you plan your trip, use this guide as a suggestion of what I recommend. At the bottom don't miss the link to other resources.
-<p align="center">
+###### I wrote this guide for friends and [AirBnb](https://www.airbnb.com/users/show/1207007) guests visiting Dubai. Try loading it from your phone, the design is responsive so it should look great!
 <iframe width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="http://mapsengine.google.com/map/u/0/embed?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA&amp;ll=25.073472,55.137548&amp;spn=0.013605,0.030041&amp;z=15"></iframe>
-</p>
+Try a [larger version of this map](https://mapsengine.google.com/map/edit?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA)
+
 
 ###### Getting Around
 - [Dubai Metro](http://dubaimetro.eu/dubai-metro-map) is cheap, easy and clean. Open 6am-11pm everyday except Fridays (2pm-12am) - don’t eat/drink on Metro or you’ll get fined! Tip: pay extra (1 time at least) to sit in front (Gold class) of the driverless train
@@ -24,7 +24,8 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 - [Dubai Taxi](http://dtc.dubai.ae/en/Pages/default.aspx) call 04 208 0808 anytime for fast, great service to arrange a taxi pick-up
 - [RTA Buses](http://www.rta.ae/wpsv5/wps/portal/rta/home/about/agencies/public-transport/about/inter-emirates-buses) to other Emirates- 800 9090 for timetable / prices (Abu Dhabi E101 bus - see Abu Dhabi below)
 
-##### Around JLT & Dubai Marina
+
+#### Around JLT & Dubai Marina
 ###### Groceries
 - Carrefour Express open 24/7 + ATM   *top pick*   great selection. Directions: from Indigo lobby go outside and turn right. take stairs down and cross the street, then take stairs up to Carrefour
 - Red Rose Market & Cafe coffee, baked goods, outdoor patio overlooking Lake. Directions: from Indigo lobby go outside and first building on the right. go to left side of building
@@ -44,7 +45,8 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 - Dubai Marina - take Metro walkway to cross over Sheikh Zayed Rd
 - JBR Walk & JBR Beach - nice open air “walk” with food, shops, cafes and large public beach
 
-##### All over Dubai
+
+#### Around (all of) Dubai
 ###### Restaurants
 - Souk Madinat Jumeirah - 40 restaurants and bars set along canals next to the Burj Al Arab
 - Rostang $$$ - French brasserie at Atlantis
@@ -104,12 +106,3 @@ In order of my recommendation
 - [TripAdvisor things to do in Dubai list](http://www.tripadvisor.com/Attractions-g295424-Activities-Dubai_Emirate_of_Dubai.html)
 - [WikiTravel Dubai](http://wikitravel.org/en/Dubai)
 - [Wikipedia Dubai](http://en.wikipedia.org/wiki/Dubai)
-
-
-
-
-
-
-
-
-

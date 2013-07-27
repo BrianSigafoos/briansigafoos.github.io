@@ -4,7 +4,7 @@ date: 2013-07-26 03:21:00
 layout: post
 slug: building-a-blog-using-jekyll-and-github-pages
 title: Setting up Jekyll with Bootstrap, Github pages and a custom domain
-summary: After 6 hours of poking around I found a fast and easy setup thanks to Garry Welding
+summary: Here's how I set up this blog with Jekyll, Bootstrap, GitHub pages. After trying to do it manually, I copied a working one and will customize from there.
 image: 'octojekyll.png'
 tags:
 - Jekyll
@@ -27,8 +27,8 @@ Prior to finding Gary's solution I went down a number of promising paths. All of
 - I liked their suggestion to use [Foundation](http://foundation.zurb.com/) instead of [Bootstrap](http://twitter.github.io/bootstrap/)
 
 #### Next steps
-- sleep, and then...
-- Install [Octopress](http://octopress.org/)
+- get some sleep
+- See if I should be using [Octopress](http://octopress.org/)
 - Customize the CSS
 - Learn more about [RDiscount](https://github.com/davidfstr/rdiscount) and [Markdown](http://daringfireball.net/projects/markdown/syntax)
-- Learn about [Grunt](http://gruntjs.com/)
+- Add Instagram photos and more social elements
