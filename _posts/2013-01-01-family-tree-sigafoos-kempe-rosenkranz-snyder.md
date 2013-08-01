@@ -5,14 +5,14 @@ layout: post
 slug: family-tree-sigafoos-kempe-rosenkranz-snyder
 title: Family Tree (Sigafoos, Kempe, Rosenkranz, Snyder...)
 summary: Overall family tree and date/bios for ancestors who "arrived in America" from Europe.
-image: 'octojekyll.png'
+image: 'europe-map.jpg'
 tags:
 - genealogy
 ---
 <iframe width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.ae/maps/ms?msa=0&amp;msid=211293164433517129612.0004d2015505a20a45382&amp;gl=ae&amp;hl=en&amp;ie=UTF8&amp;t=h&amp;source=embed&amp;z=2&amp;output=embed"></iframe>
 View this as a [large map](https://maps.google.com/maps/ms?msa=0&msid=211293164433517129612.0004d2015505a20a45382&gl=ae&hl=en&ie=UTF8&t=h&ll=46.55886,-34.980469&spn=36.290172,175.78125&z=3&source=embed)
 
-<a href="/img/family-tree-1.jpg">![family tree 1](/img/family-tree-1.jpg)</a>
+<a href="/img/family-tree-1.jpg">![family tree 1](family-tree-1.jpg)</a>
 Snapshot of Ancestry.com [family tree](http://trees.ancestry.com/pt/pedigree.aspx?tid=50499831) with 700 people, 200 surnames
 
 ## Rosenkranz / Snyder
@@ -93,8 +93,8 @@ Snapshot of Ancestry.com [family tree](http://trees.ancestry.com/pt/pedigree.asp
 
 
 **David Simon tree** (Dove, Armstrong, Rohrbach, Reger, Rueger, Schoch, Schaub)
-<a href="/img/family-tree-2.jpg">![family tree 1](/img/family-tree-2.jpg)</a>
+<a href="/img/family-tree-2.jpg">![family tree 2](family-tree-2.jpg)</a>
 
 
 **Clarence Leonard tree** (Wood, Godfrey, Pratt, Tinkham, Richmond, Deane, Strong, Rogers, Williams, Churchman, Cosford)
-<a href="/img/family-tree-3.jpg">![family tree 1](/img/family-tree-3.jpg)</a>
+<a href="/img/family-tree-3.jpg">![family tree 3](family-tree-3.jpg)</a>
