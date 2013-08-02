@@ -16,9 +16,9 @@ img.floatLeft {
 }
 
 img.img-rounded {
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 
 a.social {
@@ -148,7 +148,7 @@ li#search p {
 }
 
 li#search input {
-    width: 350px;
+    width: 320px;
     margin-top: 5px;
 }
 
