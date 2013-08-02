@@ -2,18 +2,16 @@
 comments: true
 date: 2013-01-01 12:21:00
 layout: post
-slug: family-tree-sigafoos-kempe-rosenkranz-snyder
-title: Family Tree (Sigafoos, Kempe, Rosenkranz, Snyder...)
-summary: Overall family tree and date/bios for ancestors who "arrived in America" from Europe.
+slug: family-tree-arrival-in-america
+title: Mapping ancestors from Europe and their arrival in America
+summary: A 2012 project to find out more about where my family came from. Spoiler alert it's mostly Germany, England and Scotland.
 image: 'europe-map.jpg'
+alias: /family/
 tags:
 - genealogy
 ---
-<iframe width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.ae/maps/ms?msa=0&amp;msid=211293164433517129612.0004d2015505a20a45382&amp;gl=ae&amp;hl=en&amp;ie=UTF8&amp;t=h&amp;source=embed&amp;z=2&amp;output=embed"></iframe>
-View this as a [large map](https://maps.google.com/maps/ms?msa=0&msid=211293164433517129612.0004d2015505a20a45382&gl=ae&hl=en&ie=UTF8&t=h&ll=46.55886,-34.980469&spn=36.290172,175.78125&z=3&source=embed)
-
-<a href="/img/posts/family-tree-1.jpg">![family tree 1](/img/posts/family-tree-1.jpg)</a>
-Snapshot of Ancestry.com [family tree](http://trees.ancestry.com/pt/pedigree.aspx?tid=50499831) with 700 people, 200 surnames
+<iframe width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.ae/maps/ms?msa=0&amp;msid=211293164433517129612.0004d2015505a20a45382&amp;gl=ae&amp;hl=en&amp;ie=UTF8&amp;t=p&amp;source=embed&amp;z=2&amp;output=embed"></iframe>
+View this as a [large map](http://mapsengine.google.com/map/u/0/embed?mid=z2e_QHRqNrV4.kHOoAIoLTSQ0) with more labels
 
 ## Rosenkranz / Snyder
 
@@ -57,7 +55,7 @@ Snapshot of Ancestry.com [family tree](http://trees.ancestry.com/pt/pedigree.asp
 - 1844 born in **Hessen Darmstadt, GERMANY**
 - 1921 died **Sterling, Rice, Kansas**
 
-
+-------
 
 ## Sigafoos / Kempe
 
@@ -90,11 +88,18 @@ Snapshot of Ancestry.com [family tree](http://trees.ancestry.com/pt/pedigree.asp
 - 1835 arrived in **New York, New York**
 - 1850 census in Yonkers, New York
 
+---
 
+**Brian Sigafoos tree** (Rosenkranz, Snyder, Simon, Pafford, Wriedt, Brown, Heibner, Woodson & Kempe, Leonard, Sutherland, Lechliter, Wright)
+<a href="/img/posts/family-tree-1.jpg">![family tree 1](/img/posts/family-tree-1.jpg)</a>
+Snapshot of Ancestry.com [family tree](http://trees.ancestry.com/pt/pedigree.aspx?tid=50499831) with 700 people, 200 surnames
+
+---
 
 **David Simon tree** (Dove, Armstrong, Rohrbach, Reger, Rueger, Schoch, Schaub)
 <a href="/img/posts/family-tree-2.jpg">![family tree 2](/img/posts/family-tree-2.jpg)</a>
 
+---
 
 **Clarence Leonard tree** (Wood, Godfrey, Pratt, Tinkham, Richmond, Deane, Strong, Rogers, Williams, Churchman, Cosford)
 <a href="/img/posts/family-tree-3.jpg">![family tree 3](/img/posts/family-tree-3.jpg)</a>
