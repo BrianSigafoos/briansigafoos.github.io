@@ -10,7 +10,6 @@ tags:
 - Jekyll
 - Bootstrap
 - GitHub
-- howto
 - setup
 ---
 
