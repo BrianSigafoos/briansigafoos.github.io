@@ -3,8 +3,9 @@ markdown: rdiscount
 pygments: true
 safe: false
 source:      .
-destination: ./_site
+destination: ./site
 plugins:     ./_plugins
+tags: ./site/tags
 
 title: Brian Sigafoos
 
