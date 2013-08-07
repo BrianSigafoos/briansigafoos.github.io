@@ -32,6 +32,3 @@ Prior to finding Gary's solution I went down a number of promising paths. All of
 - Customize the CSS
 - Learn more about [RDiscount](https://github.com/davidfstr/rdiscount) and [Markdown](http://daringfireball.net/projects/markdown/syntax)
 - Add Instagram photos and more social elements
-
-
-<iframe width="560" height="315" src="//www.youtube.com/embed/OLRRvX7xIfM" frameborder="0" allowfullscreen></iframe>
