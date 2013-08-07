@@ -1,37 +1,39 @@
 <!--<h2>About</h2>-->
 <p></p>
 <p>
-    <img src="{{ site.author.gravatar }}" alt="{{ site.author.name }}" title="Follow me on Twitter @{{ site.author.twitter }}"  class="floatLeft" />
-    Partner &amp; CTO of <a href="https://duplays.com">DUPLAYS</a>, Dubai has been home since 2008.
-    I love learning, recently diving into Ruby, Javascript, NodeJS.
-    If I'm not at a computer I'm <a href="http://crossfit.com">CrossFiting</a>,
-    eating <a href="http://en.wikipedia.org/wiki/Paleolithic_diet">paleo</a>, travelling, or playing sports.
-    <br /><br />
-    In case you were wondering, I'm 6'10" (210cm) and "yes, I play(ed) basketball".
-    Both at Harvard and as a "pro" in a few European countries that didn't fully appreciate the sport.
+  <img src="{{ site.author.gravatar }}" alt="{{ site.author.name }}" title="Follow me on Twitter @{{ site.author.twitter }}"  class="floatLeft" />
+  Partner &amp; CTO of <a href="https://duplays.com">DUPLAYS</a>, Dubai has been home since 2008.
+  I love learning, recently diving into Ruby, Javascript, NodeJS.
+  If I'm not at a computer I'm <a href="http://crossfit.com">CrossFiting</a>,
+  eating <a href="http://en.wikipedia.org/wiki/Paleolithic_diet">paleo</a>, travelling, or playing sports.
+  <br /><br />
+  In case you were wondering, I'm 6'10" (210cm) and "yes, I play(ed) basketball".
+  Both at Harvard and as a "pro" in a few European countries that didn't fully appreciate the sport.
 </p>
 <p>
-    <!--<h6>repo: briansigafoos.github.io</h6> <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user={{ site.author.github }}&repo={{ site.author.github }}.github.io&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>&nbsp;<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user={{ site.author.github }}&repo={{ site.author.github }}.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>-->
-    <a href="https://twitter.com/{{ site.author.twitter }}" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @{{ site.author.twitter }}</a>
-    <div class="fb-follow" data-href="https://www.facebook.com/brian.sigafoos" data-show-faces="true" data-width="450"></div>
+  <!--<h6>repo: briansigafoos.github.io</h6> <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user={{ site.author.github }}&repo={{ site.author.github }}.github.io&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>&nbsp;<iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user={{ site.author.github }}&repo={{ site.author.github }}.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>-->
+  <a href="https://twitter.com/{{ site.author.twitter }}" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @{{ site.author.twitter }}</a>
+  <div class="fb-follow" data-href="https://www.facebook.com/brian.sigafoos" data-show-faces="true" data-width="450"></div>
 </p>
-
-<!-- SnapWidget -->
-<iframe src="http://snapwidget.com/in/?u=YnJpYW5zaWdhZm9vc3xpbnwxNTB8M3wzfHxub3w1fG5vbmU=" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:465px; height: 465px" ></iframe>
 
 <p>
-    <ul class="buttons unstyled">
-        <li><a href="https://github.com/{{ site.author.github }}" rel="me" class="social github" title="Go to github.com/{{ site.author.github }}" target="_blank"></a></li>
-        <li><a href="http://www.twitter.com/{{ site.author.twitter }}" rel="me" class="social twitter" title="Go to twitter.com/{{ site.author.twitter }}" target="_blank"></a></li>
-        <li><a href="https://github.com/{{ site.author.github }}/feedback/issues/new" rel="me" class="social mail" title="Leave feedback for {{ site.author.name  }}"  target="_blank"></a></li>
-    </ul>
+  <script type="text/javascript">
+    var feed = new Instafeed({
+      get: 'user',
+      userId: 647166,
+      limit: 8,
+      accessToken: '647166.467ede5.8835588003db42609ab430461bd84e07'
+    });
+    feed.run();
+  </script>
+  <div id="instafeed"></div>
 </p>
 
-<!--<script type="text/javascript">-->
-    <!--var userFeed = new Instafeed({-->
-        <!--get: 'user',-->
-        <!--userId: {{ site.author.instagram }},-->
-        <!--accessToken: 'be7e9b075cfb442f8a413cb903b760a8'-->
-    <!--});-->
-    <!--userFeed.run();-->
-<!--</script>-->
+<p>
+  <ul class="buttons unstyled">
+    <li><a href="https://github.com/{{ site.author.github }}" rel="me" class="social github" title="Go to github.com/{{ site.author.github }}" target="_blank"></a></li>
+    <li><a href="http://www.twitter.com/{{ site.author.twitter }}" rel="me" class="social twitter" title="Go to twitter.com/{{ site.author.twitter }}" target="_blank"></a></li>
+    <li><a href="https://github.com/{{ site.author.github }}/feedback/issues/new" rel="me" class="social mail" title="Leave feedback for {{ site.author.name  }}"  target="_blank"></a></li>
+  </ul>
+</p>
+
