@@ -1,0 +1,43 @@
+[
+  
+    {
+  "title"    : "Setting up Jekyll with Bootstrap, Github pages and a custom domain",
+  "summary"  : "Here's how I set up this blog with Jekyll, Bootstrap, GitHub pages. After trying to do it manually, I opted to clone a working site and will customize from there.",
+  "category" : "",
+  "tags"     : ["Jekyll","Bootstrap","GitHub","howto","setup", null],
+  "url"      : "http://briansigafoos.com/2013/07/26/building-a-blog-using-jekyll-and-github-pages/",
+  "date"     : {
+    "day"   : "26",
+    "month" : "July",
+    "year"  : "2013"
+  }
+},
+  
+    {
+  "title"    : "Mapping European relatives arrival in America",
+  "summary"  : "A 2012 project to find out more about where my family came from. Spoiler alert it's mostly Germany, England and Scotland.",
+  "category" : "",
+  "tags"     : ["genealogy", null],
+  "url"      : "http://briansigafoos.com/2013/01/01/family-tree-arrival-in-america/",
+  "date"     : {
+    "day"   : "01",
+    "month" : "January",
+    "year"  : "2013"
+  }
+},
+  
+    {
+  "title"    : "Travel guide for Dubai guests",
+  "summary"  : "Quick travel tips for visitors coming to Dubai and the UAE",
+  "category" : "",
+  "tags"     : ["Dubai","UAE","travel", null],
+  "url"      : "http://briansigafoos.com/2012/06/01/dubai-guide-for-visitors-to-uae/",
+  "date"     : {
+    "day"   : "01",
+    "month" : "June",
+    "year"  : "2012"
+  }
+},
+  
+  null
+]

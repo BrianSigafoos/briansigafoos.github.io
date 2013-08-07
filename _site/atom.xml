@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Brian Sigafoos</title>
+ <link href="http://briansigafoos.com/atom.xml" rel="self"/>
+ <link href="http://briansigafoos.com/"/>
+ <updated>2013-08-07T23:13:54+04:00</updated>
+ <id>http://briansigafoos.com</id>
+ <author>
+   <name>Brian Sigafoos</name>
+ </author>
+ 
+ 
+ <entry>
+   <title>Setting up Jekyll with Bootstrap, Github pages and a custom domain</title>
+   <link href="http://briansigafoos.com/setting-up-jekyll-blog.html"/>
+   <updated>2013-07-26T03:21:00+04:00</updated>
+   <id>http://briansigafoos.com/setting-up-jekyll-blog</id>
+   <content type="html">&lt;h5&gt;After heading down a few different paths, cloning a working site worked best. Now I'm ready to customize a good-looking, working setup.&lt;/h5&gt;
+
+&lt;p&gt;All thanks are due to &lt;a href=&quot;https://github.com/gkwelding&quot;&gt;Garry Welding&lt;/a&gt; who has an amazing blog post about &lt;a href=&quot;http://in-the-attic.com/2013/01/04/building-a-blog-using-jekyll-bootstrap-and-github-pages-a-beginners-guide/&quot;&gt;setting up Jekyll on GitHub Pages with Bootstrap&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Prior to finding Gary's solution I went down a number of promising paths. All of which probably would be great, except that it was &lt;strong&gt;much&lt;/strong&gt; faster to copy someone who had recently done the setup.&lt;/p&gt;
+
+&lt;h4&gt;First attempts&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://jekyllbootstrap.com/&quot;&gt;Jekyll Bootstrap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://yeswejekyll.com/&quot;&gt;Yes We Jekyll&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I liked their suggestion to use &lt;a href=&quot;http://foundation.zurb.com/&quot;&gt;Foundation&lt;/a&gt; instead of &lt;a href=&quot;http://twitter.github.io/bootstrap/&quot;&gt;Bootstrap&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Next steps&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;get some sleep&lt;/li&gt;
+&lt;li&gt;See if I should be using &lt;a href=&quot;http://octopress.org/&quot;&gt;Octopress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Customize the CSS&lt;/li&gt;
+&lt;li&gt;Learn more about &lt;a href=&quot;https://github.com/davidfstr/rdiscount&quot;&gt;RDiscount&lt;/a&gt; and &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot;&gt;Markdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add Instagram photos and more social elements&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/OLRRvX7xIfM&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Mapping European relatives arrival in America</title>
+   <link href="http://briansigafoos.com/family-tree-arrival-in-america.html"/>
+   <updated>2013-01-01T12:21:00+04:00</updated>
+   <id>http://briansigafoos.com/family-tree-arrival-in-america</id>
+   <content type="html">&lt;iframe width=&quot;100%&quot; height=&quot;400&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;https://maps.google.ae/maps/ms?msa=0&amp;amp;msid=211293164433517129612.0004d2015505a20a45382&amp;amp;gl=ae&amp;amp;hl=en&amp;amp;ie=UTF8&amp;amp;t=p&amp;amp;source=embed&amp;amp;z=2&amp;amp;output=embed&quot;&gt;&lt;/iframe&gt;
+
+
+&lt;p&gt;View this as a &lt;a href=&quot;http://mapsengine.google.com/map/u/0/embed?mid=z2e_QHRqNrV4.kHOoAIoLTSQ0&quot;&gt;large map&lt;/a&gt; with more labels&lt;/p&gt;
+
+&lt;h2&gt;Rosenkranz / Snyder&lt;/h2&gt;
+
+&lt;h4&gt;Antoni Reger Sr&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1690 born &lt;strong&gt;Benken, Basel, SWITZERLAND&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1712 married Juditha Schaub (1694-1728) in Benken&lt;/li&gt;
+&lt;li&gt;1713 Antoni Reger Jr born in Benken&lt;/li&gt;
+&lt;li&gt;1737 &lt;strong&gt;arrived in Philadelphia, Pennsylvania&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1740 Antoni Jr married Catherine Schoch / Shook (born 1713 in Benken) in Tulpehocken, Berks, Pennsylvania&lt;/li&gt;
+&lt;li&gt;1740 Barbara Rueger / Reger born in Tulpehocken, PA&lt;/li&gt;
+&lt;li&gt;1770 Antoni Sr died in Hardy, West Virginia&lt;/li&gt;
+&lt;li&gt;1780 Antoni Jr died in Hardy&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Johann Reinhart Rohrbach&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1698 born &lt;strong&gt;Bergen, GERMANY&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1727 married Anna Margaretha Koch in Höchstädt, Germany&lt;/li&gt;
+&lt;li&gt;1740 Johann Conrad Rohrbach born in Höchstädt or Bayreuth, Germany&lt;/li&gt;
+&lt;li&gt;1743 Anna Koch died in Hochstadt&lt;/li&gt;
+&lt;li&gt;1743-1760 JRR &amp;amp; JCR arrived in &lt;strong&gt;Berks Co, Pennsylvania&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1760 married Barbara Rueger in Berks Co&lt;/li&gt;
+&lt;li&gt;1763 Barbara Rohrbach born Hampshire Co, West Virginia&lt;/li&gt;
+&lt;li&gt;1765 JRR died in Berks Co&lt;/li&gt;
+&lt;li&gt;1821 JCR died in Hardy, VA (now West Virginia)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Carl Karl Theodor Rosenkranz&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1834 born &lt;strong&gt;Demmin Mecklenburg-Vorpormmern, GERMANY&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1890 died Haddam, &lt;strong&gt;Washington, Kansas&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Dorothea Magdalena Wriedt&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1837 born in &lt;strong&gt;Hassee, Schleswig-Holstein, GERMANY&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1858 married Carl&lt;/li&gt;
+&lt;li&gt;1864 arrival how? (stated on census)&lt;/li&gt;
+&lt;li&gt;1870 &lt;strong&gt;Ross, Lake, Indiana&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1879 William Rosenkranz born in Ross, Lake, Indiana&lt;/li&gt;
+&lt;li&gt;1880 Mill Creek, &lt;strong&gt;Washington Kansas&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1885 Grant, Washington, Kansas&lt;/li&gt;
+&lt;li&gt;1910 Haddam, Washington, Kansas&lt;/li&gt;
+&lt;li&gt;1919 died Haddam, Washington, Kansas&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Barbara Heibner&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1844 born in &lt;strong&gt;Hessen Darmstadt, GERMANY&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1921 died &lt;strong&gt;Sterling, Rice, Kansas&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;hr /&gt;
+
+&lt;h2&gt;Sigafoos / Kempe&lt;/h2&gt;
+
+&lt;h4&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Thomas_Rogers_(Mayflower_passenger&quot;&gt;Thomas Rogers&lt;/a&gt;&lt;/h4&gt;
+
+&lt;h6&gt;via Leonard, Richmond, Rogers&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1587 born &lt;strong&gt;Watford, Northamptonshire, ENGLAND&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1597 married Alice Cosford in Watford&lt;/li&gt;
+&lt;li&gt;1606 John Rogers born in Watford&lt;/li&gt;
+&lt;li&gt;1614 moved 6 children to Leiden, Holland - worked as a fabric merchant&lt;/li&gt;
+&lt;li&gt;1620 &lt;strong&gt;sailed on Mayflower&lt;/strong&gt; with 102 passengers including Joseph oldest son&lt;/li&gt;
+&lt;li&gt;1620 11 Nov signed &lt;a href=&quot;http://en.wikipedia.org/wiki/Mayflower_Compact&quot;&gt;Mayflower Compact&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;1621 died during 1st winter in &lt;strong&gt;Plymouth, MA&lt;/strong&gt; /  Joseph survived and siblings come over&lt;/li&gt;
+&lt;li&gt;1622 after 1622 Alice died in Holland&lt;/li&gt;
+&lt;li&gt;1630 John Rogers came to Plymouth&lt;/li&gt;
+&lt;li&gt;1639 John married Anna Churchman, had 4 children among them Abigail Rogers&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Thomas Leonard&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1577 born in Chevening, Kent, ENGLAND&lt;/li&gt;
+&lt;li&gt;1638 died in Taunton, Bristol, Massachusetts&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Kenneth Sutherland&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1780 born in &lt;strong&gt;Meikle ferry / Muckle ferry, Sutherland (Highland), SCOTLAND&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1828 Joseph Sutherland born in Frampton Province, Quebec, Canada&lt;/li&gt;
+&lt;li&gt;1850 arrived New York, New York&lt;/li&gt;
+&lt;li&gt;1870 census&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;William Ferguson&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1794 born in &lt;strong&gt;Logierait, Perthshire, SCOTLAND&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1825 married Margaret MacDonald (born 1800 in Perth, Perthshire, Scotland)&lt;/li&gt;
+&lt;li&gt;1835 arrived in &lt;strong&gt;New York, New York&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1850 census in Yonkers, New York&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Brian Sigafoos tree&lt;/strong&gt; (Rosenkranz, Snyder, Simon, Pafford, Wriedt, Brown, Heibner, Woodson &amp;amp; Kempe, Leonard, Sutherland, Lechliter, Wright)
+&lt;a href=&quot;/img/posts/family-tree-1.jpg&quot;&gt;&lt;img src=&quot;/img/posts/family-tree-1.jpg&quot; alt=&quot;family tree 1&quot; /&gt;&lt;/a&gt;
+Snapshot of Ancestry.com &lt;a href=&quot;http://trees.ancestry.com/pt/pedigree.aspx?tid=50499831&quot;&gt;family tree&lt;/a&gt; with 700 people, 200 surnames&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;David Simon tree&lt;/strong&gt; (Dove, Armstrong, Rohrbach, Reger, Rueger, Schoch, Schaub)
+&lt;a href=&quot;/img/posts/family-tree-2.jpg&quot;&gt;&lt;img src=&quot;/img/posts/family-tree-2.jpg&quot; alt=&quot;family tree 2&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Clarence Leonard tree&lt;/strong&gt; (Wood, Godfrey, Pratt, Tinkham, Richmond, Deane, Strong, Rogers, Williams, Churchman, Cosford)
+&lt;a href=&quot;/img/posts/family-tree-3.jpg&quot;&gt;&lt;img src=&quot;/img/posts/family-tree-3.jpg&quot; alt=&quot;family tree 3&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Travel guide for Dubai guests</title>
+   <link href="http://briansigafoos.com/dubai-guide.html"/>
+   <updated>2012-06-01T12:00:00+04:00</updated>
+   <id>http://briansigafoos.com/dubai-guide</id>
+   <content type="html">&lt;h6&gt;I wrote this guide for friends and &lt;a href=&quot;https://www.airbnb.com/users/show/1207007&quot;&gt;AirBnb&lt;/a&gt; guests visiting Dubai. Try loading it from your phone, the design is responsive so it should look great on any device!&lt;/h6&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;400&quot; frameborder=&quot;0&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;http://mapsengine.google.com/map/u/0/embed?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA&amp;amp;ll=25.073472,55.137548&amp;amp;spn=0.013605,0.030041&amp;amp;z=15&quot;&gt;&lt;/iframe&gt;
+
+
+&lt;p&gt;Try a &lt;a href=&quot;https://mapsengine.google.com/map/edit?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA&quot;&gt;larger version of this map&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6&gt;Getting Around&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://dubaimetro.eu/dubai-metro-map&quot;&gt;Dubai Metro&lt;/a&gt; is cheap, easy and clean. Open 6am-11pm everyday except Fridays (2pm-12am) - don’t eat/drink on Metro or you’ll get fined! Tip: pay extra (1 time at least) to sit in front (Gold class) of the driverless train
+Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JBR (beach)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://dtc.dubai.ae/en/Pages/default.aspx&quot;&gt;Dubai Taxi&lt;/a&gt; call 04 208 0808 anytime for fast, great service to arrange a taxi pick-up&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rta.ae/wpsv5/wps/portal/rta/home/about/agencies/public-transport/about/inter-emirates-buses&quot;&gt;RTA Buses&lt;/a&gt; to other Emirates- 800 9090 for timetable / prices (Abu Dhabi E101 bus - see Abu Dhabi below)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Around JLT &amp;amp; Dubai Marina&lt;/h4&gt;
+
+&lt;h6&gt;Groceries&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Carrefour Express open 24/7 + ATM   &lt;em&gt;top pick&lt;/em&gt;   great selection. Directions: from Indigo lobby go outside and turn right. take stairs down and cross the street, then take stairs up to Carrefour&lt;/li&gt;
+&lt;li&gt;Red Rose Market &amp;amp; Cafe coffee, baked goods, outdoor patio overlooking Lake. Directions: from Indigo lobby go outside and first building on the right. go to left side of building&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h6&gt;Restaurants&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.flames.ae&quot;&gt;Flames Grills &amp;amp; Curry&lt;/a&gt; (Indian / Kenyan) $  &lt;em&gt;top pick&lt;/em&gt;  directions: just past Soum Soum&lt;/li&gt;
+&lt;li&gt;The Kitchen of Thai $ directions: walk towards lake from Carrefour&lt;/li&gt;
+&lt;li&gt;Hanoi (Vietnamese) $$ directions: on lower level, below&lt;/li&gt;
+&lt;li&gt;Richy’s I am the Salad (salad bar) $$  directions: go to Red Rose Cafe, take stairs down to lake level, walk along lake until Cluster F, then go up stairs&lt;/li&gt;
+&lt;li&gt;Innlay Asia (Burmese) $ next to Richy’s&lt;/li&gt;
+&lt;li&gt;Nais (Italian) $$$ next to Richy’s&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h6&gt;Pubs / Bars&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;McGettigan’s Irish Pub @ Bonnington Hotel - 5 min walk, behind Al Mas (BIG tower)&lt;/li&gt;
+&lt;li&gt;Healey’s Bar &amp;amp; Terrace above McGettigan’s,  more sophisticated with 2-for-1 happy hour special until 8pm&lt;/li&gt;
+&lt;li&gt;Dubai Marina Yacht Club - across the highway (via Metro walkway)&lt;/li&gt;
+&lt;li&gt;Dubai Marina - take Metro walkway to cross over Sheikh Zayed Rd&lt;/li&gt;
+&lt;li&gt;JBR Walk &amp;amp; JBR Beach - nice open air “walk” with food, shops, cafes and large public beach&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Around (all of) Dubai&lt;/h4&gt;
+
+&lt;h6&gt;Restaurants&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Souk Madinat Jumeirah - 40 restaurants and bars set along canals next to the Burj Al Arab&lt;/li&gt;
+&lt;li&gt;Rostang $$$ - French brasserie at Atlantis&lt;/li&gt;
+&lt;li&gt;West 14th $$$$ - NYC style steakhouse on Palm Island at Oceana with outdoor cocktails, great view of Dubai Marina&lt;/li&gt;
+&lt;li&gt;Le Traiteur $$$$ - #1 Friday brunch in Dubai, French gastronomic feast on old Dubai Creek - make reservations 7-10 days in advance&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h6&gt;Drinks / Dancing&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Barasti Beach Bar - voted #1 bar in the world, multiple levels, live music, relaxed dress code (sandals, shorts ok)&lt;/li&gt;
+&lt;li&gt;Mahiki - Tiki style bar / nightclub with dancing after 11pm&lt;/li&gt;
+&lt;li&gt;360° - sundown drinks next to Burj Al Arab, must reserve online&lt;/li&gt;
+&lt;li&gt;Trilogy - Souk Madinat nightclub with 3 zones of music: trance, hip-hop room and outdoors rooftop lounge&lt;/li&gt;
+&lt;li&gt;Rock Bottom - grimey but fun, no one admits to going here, but if it’s 2am and you still want to dance this place will be packed&lt;/li&gt;
+&lt;li&gt;Concerts / clubs: check Platinum List and TimeOut Dubai for upcoming concerts, performances, DJs&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h6&gt;Dubai Top Picks&lt;/h6&gt;
+
+&lt;p&gt;In order of my recommendation
+- Dubai Fountain @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa. Eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
+- Dubai Aquarium @ Dubai Mall - 30,000 animals, 85 species, 400 sharks &amp;amp; rays. AED 50 for great tunnel view &amp;amp; underwater zoo
+- At the Top Burj Khalifa - 124th floor view, entrance from Dubai Mall. AED 100 - book online at least 6 days ahead for sunset timing
+- Dubai Museum - AED 3 to get a cultural understanding of UAE, Dubai, great location next to Dubai Creek. Then take a Dubai Creek abra (boat) to cross from near Dubai Museum to Gold Souk. AED 1 per trip on the abra (water taxi boat)
+- Ravi Restaurant - metro to World Trade Centre, then taxi - Dubai cultural landmark for cheap, great Pakistani food
+- or if you prefer seafood try Bu Qtair Cafeteria - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
+- Arabian Adventures Sundowner Desert Safari (tell them pick-up at Bonnington Hotel - next door), AED 350 for sand dune driving, camel ride, Arabic feast with drinks and belly dancer
+- Aquaventure water park @ Atlantis Hotel on Palm Jumeirah AED 20 by taxi AED 220, try Nasimi Beach or Rostang for food at the Atlantis&lt;/p&gt;
+
+&lt;h6&gt;Dubai Indulgences&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Skydive Dubai - AED 1750 for jumping over the Palm Jumeirah&lt;/li&gt;
+&lt;li&gt;Seawings plane tour - AED 1375&lt;/li&gt;
+&lt;li&gt;Dolphin Bay @ Atlantis - AED 600 for 30min swimming with dolphins&lt;/li&gt;
+&lt;li&gt;Ski Dubai @ Mall of the Emirates - AED 180 for 2hrs of skiing or snowboarding&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h6&gt;Dubai Alternatives&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Dubai Drums - monthly Full moon desert drumming&lt;/li&gt;
+&lt;li&gt;Surf Dubai - stand up paddle around the Burj Al Arab&lt;/li&gt;
+&lt;li&gt;Dubai Polo &amp;amp; Equestrian Club - horseback desert hacking&lt;/li&gt;
+&lt;li&gt;CrossFit class - hardcore fitness class, 7min walk in Cluster H&lt;/li&gt;
+&lt;li&gt;Dune Riders - AED 500 for 1hr dune buggying and sand boarding in the desert&lt;/li&gt;
+&lt;li&gt;Dubai Autodrome - AED 110 to race go karts for 15min&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h6&gt;Explore Abu Dhabi&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;By car: 60-80 min drive from JLT - never go more than 20 kmph over posted speed limit (speed cameras = AED 700 ticket)&lt;/li&gt;
+&lt;li&gt;By bus: call 800 9090 for timetable / prices for RTA Buses from Ibn Battuta Metro Bus Stop (1 stop from JLT)&lt;/li&gt;
+&lt;li&gt;E101 bus goes every 10-15 from Dubai to Abu Dhabi for AED 20&lt;/li&gt;
+&lt;li&gt;Sheikh Zayed Mosque - 3rd largest mosque in the world - check timings for free guided tours&lt;/li&gt;
+&lt;li&gt;Abu Dhabi mangrove kayaking top pick&lt;/li&gt;
+&lt;li&gt;Yas Marina Circuit - F1 race track - drive a race car around the track, from AED 1250&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h6&gt;Downloads &amp;amp; Apps&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Google Maps has metro timings, 80% accurate turn-by-turn directions&lt;/li&gt;
+&lt;li&gt;Google Earth for your iPhone/iPad or Mac/PC to explore Dubai by map and 3D buildings - zoom in on the Palm Jumeirah&lt;/li&gt;
+&lt;li&gt;YaDig iPhone app for reviews of restaurants+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h6&gt;More resources&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.timeoutdubai.com/&quot;&gt;TimeOut Dubai&lt;/a&gt; weekly music / art / entertainment event listings + restaurant reviews
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.timeoutdubai.com/aroundtown/features/40912-the-dubai-bucket-list/page/1&quot;&gt;55 Dubai “bucket list” activities&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.yadig.com/Dubai/Reviews/&quot;&gt;YaDig Dubai restaurant reviews&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.tripadvisor.com/Attractions-g295424-Activities-Dubai_Emirate_of_Dubai.html&quot;&gt;TripAdvisor things to do in Dubai list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wikitravel.org/en/Dubai&quot;&gt;WikiTravel Dubai&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Dubai&quot;&gt;Wikipedia Dubai&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ 
+</feed>
