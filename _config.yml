@@ -1,6 +1,10 @@
 auto: true
 markdown: rdiscount
 pygments: true
+safe: false
+source:      .
+destination: ./_site
+plugins:     ./_plugins
 
 title: Brian Sigafoos
 

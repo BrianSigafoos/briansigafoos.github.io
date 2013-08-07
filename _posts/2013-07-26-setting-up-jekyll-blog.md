@@ -4,7 +4,7 @@ date: 2013-07-26 03:21:00
 layout: post
 slug: building-a-blog-using-jekyll-and-github-pages
 title: Setting up Jekyll with Bootstrap, Github pages and a custom domain
-summary: Here's how I set up this blog with Jekyll, Bootstrap, GitHub pages. After trying to do it manually, I opted to clone a working site and will customize from there.
+summary: Here's how I set up this blog with Jekyll, Bootstrap, GitHub pages. Tip - clone a working Jekyll site!
 image: 'octojekyll.png'
 tags:
 - Jekyll
