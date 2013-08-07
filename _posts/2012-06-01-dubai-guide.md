@@ -13,7 +13,7 @@ tags:
 - travel
 ---
 
-###### I wrote this guide for friends and [AirBnb](https://www.airbnb.com/users/show/1207007) guests visiting Dubai. Try loading it from your phone, the design is responsive so it should look great!
+###### I wrote this guide for friends and [AirBnb](https://www.airbnb.com/users/show/1207007) guests visiting Dubai. Try loading it from your phone, the design is responsive so it should look great on any device!
 <iframe width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="http://mapsengine.google.com/map/u/0/embed?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA&amp;ll=25.073472,55.137548&amp;spn=0.013605,0.030041&amp;z=15"></iframe>
 Try a [larger version of this map](https://mapsengine.google.com/map/edit?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA)
 
