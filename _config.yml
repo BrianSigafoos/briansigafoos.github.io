@@ -5,7 +5,6 @@ safe: false
 source:      .
 destination: ./site
 plugins:     ./_plugins
-tags: ./site/tags
 
 title: Brian Sigafoos
 
