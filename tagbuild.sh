@@ -14,8 +14,8 @@ jekyll build
 echo "Copying /${TAG}..."
 cp -a ${SITE}/${TAG} ./tags
 
-echo "Committing Changes..."
-git commit ${TAG} -m "Latest tags build"
+echo "Committing changes..."
+git commit ${TAG} -m "Rebuilt tags directory"
 
 echo "Pushing to Github..."
 git push origin master
