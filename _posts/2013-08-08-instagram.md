@@ -12,7 +12,7 @@ tags:
 - photos
 ---
 
-Here are my 60 latest [Instagram photos](http://instagram.com/briansigafoos) thanks to [instafeed.js](http://instafeedjs.com/).
+Thanks to [instafeed.js](http://instafeedjs.com/) here are my 60 latest [Instagram photos](http://instagram.com/briansigafoos).
 
 <script type="text/javascript">
   var feed = new Instafeed({
