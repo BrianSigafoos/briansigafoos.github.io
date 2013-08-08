@@ -2,7 +2,7 @@
 comments: true
 date: 2013-08-08 02:54:00
 layout: post
-slug: instragram
+slug: photos
 title: Instagram photo gallery
 summary: My 60 latest Instagram photos thanks to Instagram's API and instafeed.js
 image: 'inst-photos.png'
