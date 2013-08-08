@@ -15,19 +15,22 @@ tags:
 
 ##### After heading down a few different paths, cloning a working site worked best. Now I'm ready to customize a good-looking, working setup.
 
-All thanks are due to [Garry Welding](https://github.com/gkwelding) who has an amazing blog post about [setting up Jekyll on GitHub Pages with Bootstrap](http://in-the-attic.com/2013/01/04/building-a-blog-using-jekyll-bootstrap-and-github-pages-a-beginners-guide/)
+All initial thanks are due to [Garry Welding](https://github.com/gkwelding) who has an great blog post about [setting up Jekyll on GitHub Pages with Bootstrap](http://in-the-attic.com/2013/01/04/building-a-blog-using-jekyll-bootstrap-and-github-pages-a-beginners-guide/)
 
-Prior to finding Gary's solution I went down a number of promising paths. All of which probably would be great, except that it was **much** faster to copy someone who had recently done the setup.
+Prior to finding Gary's solution I went down a number of promising paths. All of which probably would be great, except that it was **much** faster to copy someone else's working Jekyll Github blog.
 
-#### First attempts
+#### What's worked for me
+- cloning [Garry's](https://github.com/gkwelding) blog, removing all content and customizing the style some
+- [alias generator for Jekyll](https://github.com/tsmango/jekyll_alias_generator) to have links like [photos](http://briansigafoos.com/photos) just work
+- [tags generator](http://charliepark.org/tags-in-jekyll/) to tag blog posts
+- tags weren't working quite right without `tagbuild.sh` thanks to [copyninja](https://github.com/copyninja/copyninja.github.com/blob/master/tagbuild.sh)
+- I modified the [tagbuild.sh](https://github.com/BrianSigafoos/briansigafoos.github.io/blob/master/tagbuild.sh) script to do a little more
+- [instafeed.js](http://instafeedjs.com/) was perfect to add a [photos](http://briansigafoos.com/photos) page and sidebar with recent Instagram photos
+
+
+##### What didn't work for me, but could be a good resource for someone starting out
 
 - [Jekyll Bootstrap](http://jekyllbootstrap.com/)
 - [Yes We Jekyll](http://yeswejekyll.com/)
-- I liked their suggestion to use [Foundation](http://foundation.zurb.com/) instead of [Bootstrap](http://twitter.github.io/bootstrap/)
-
-#### Next steps
-- get some sleep
-- See if I should be using [Octopress](http://octopress.org/)
-- Customize the CSS
-- Learn more about [RDiscount](https://github.com/davidfstr/rdiscount) and [Markdown](http://daringfireball.net/projects/markdown/syntax)
-- Add Instagram photos and more social elements
+- [Foundation](http://foundation.zurb.com/) instead of [Bootstrap](http://twitter.github.io/bootstrap/)
+- [Octopress](http://octopress.org/)
