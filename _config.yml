@@ -6,9 +6,9 @@ source:      .
 destination: ./site
 plugins:     ./_plugins
 
-title: Brian Sigafoos
-
+title: Brian's blog
 url: http://briansigafoos.com
+root: /
 
 permalink: none
 
@@ -30,4 +30,3 @@ analytics:
     google: 
         tracking_id: 'UA-42740116-1'
         domain: 'briansigafoos.com'
-
