@@ -9,12 +9,17 @@ Prior to finding Gary's solution I went down a number of promising paths. All of
 
 #### What's worked for me
 - cloning [Garry's](https://github.com/gkwelding) blog, removing all content and customizing the style some
-- [alias generator for Jekyll](https://github.com/tsmango/jekyll_alias_generator) to have links like [photos](http://briansigafoos.com/photos) just work
-- [tags generator](http://charliepark.org/tags-in-jekyll/) to tag blog posts
-- tags weren't working quite right without `tagbuild.sh` thanks to [copyninja](https://github.com/copyninja/copyninja.github.com/blob/master/tagbuild.sh)
-- I modified the [tagbuild.sh](https://github.com/BrianSigafoos/briansigafoos.github.io/blob/master/tagbuild.sh) script to do a little more
-- [instafeed.js](http://instafeedjs.com/) was perfect to add a [photos](http://briansigafoos.com/photos) page and sidebar with recent Instagram photos
+- [alias generator for Jekyll][] to have links like [photos][] just work
+- [tags generator][] to add tags to blog posts
+- [tagbuild.sh by copyninja][] to copy tags so Github shows them correctly, which I also [modified][] to have it do even more
+- [instafeed.js][] to add a [photos][] page and sidebar with recent Instagram photos
 
+[alias generator for Jekyll]: https://github.com/tsmango/jekyll_alias_generator
+[tags generator]: http://charliepark.org/tags-in-jekyll/
+[tagbuild.sh by copyninja]: https://github.com/copyninja/copyninja.github.com/blob/master/tagbuild.sh
+[modified]: https://github.com/BrianSigafoos/briansigafoos.github.io/blob/master/tagbuild.sh
+[photos]: http://briansigafoos.com/photos
+[instafeed.js]: http://instafeedjs.com/
 
 ##### What didn't work for me, but could be a good resource for someone starting out
 
