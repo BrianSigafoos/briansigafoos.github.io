@@ -13,17 +13,22 @@ tags:
 - travel
 ---
 
-###### I wrote this guide for friends and [AirBnb](https://www.airbnb.com/users/show/1207007) guests visiting Dubai. Try loading it from your phone, the design is responsive so it should look great on any device!
+###### I wrote this guide for friends and [AirBnb][] guests visiting Dubai. Try loading it from your phone, the design is responsive so it should look great on any device!
 <iframe width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="http://mapsengine.google.com/map/u/0/embed?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA&amp;ll=25.073472,55.137548&amp;spn=0.013605,0.030041&amp;z=15"></iframe>
-Try a [larger version of this map](https://mapsengine.google.com/map/edit?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA)
+Try a [larger version of this map][]
 
+[AirBnb]: https://www.airbnb.com/users/show/1207007
+[larger version of this map]: https://mapsengine.google.com/map/edit?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA
 
 ###### Getting Around
-- [Dubai Metro](http://dubaimetro.eu/dubai-metro-map) is cheap, easy and clean. Open 6am-11pm everyday except Fridays (2pm-12am) - don’t eat/drink on Metro or you’ll get fined! Tip: pay extra (1 time at least) to sit in front (Gold class) of the driverless train
+- [Dubai Metro][] is cheap, easy and clean. Open 6am-11pm everyday except Fridays (2pm-12am) - don’t eat/drink on Metro or you’ll get fined! Tip: pay extra (1 time at least) to sit in front (Gold class) of the driverless train
 Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JBR (beach)
-- [Dubai Taxi](http://dtc.dubai.ae/en/Pages/default.aspx) call 04 208 0808 anytime for fast, great service to arrange a taxi pick-up
-- [RTA Buses](http://www.rta.ae/wpsv5/wps/portal/rta/home/about/agencies/public-transport/about/inter-emirates-buses) to other Emirates- 800 9090 for timetable / prices (Abu Dhabi E101 bus - see Abu Dhabi below)
+- [Dubai Taxi][] call 04 208 0808 anytime for fast, great service to arrange a taxi pick-up
+- [RTA Buses][] to other Emirates- 800 9090 for timetable / prices (Abu Dhabi E101 bus - see Abu Dhabi below)
 
+[Dubai Metro]: http://dubaimetro.eu/dubai-metro-map
+[Dubai Taxi]: http://dtc.dubai.ae/en/Pages/default.aspx
+[RTA Buses]: http://www.rta.ae/wpsv5/wps/portal/rta/home/about/agencies/public-transport/about/inter-emirates-buses
 
 #### Around JLT & Dubai Marina
 ###### Groceries
@@ -31,19 +36,32 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 - Red Rose Market & Cafe coffee, baked goods, outdoor patio overlooking Lake. Directions: from Indigo lobby go outside and first building on the right. go to left side of building
 
 ###### Restaurants
-- [Flames Grills & Curry](http://www.flames.ae) (Indian / Kenyan) $  *top pick*  directions: just past Soum Soum
-- The Kitchen of Thai $ directions: walk towards lake from Carrefour
-- Hanoi (Vietnamese) $$ directions: on lower level, below
-- Richy’s I am the Salad (salad bar) $$  directions: go to Red Rose Cafe, take stairs down to lake level, walk along lake until Cluster F, then go up stairs
-- Innlay Asia (Burmese) $ next to Richy’s
-- Nais (Italian) $$$ next to Richy’s
+- [Flames Grills & Curry][] (Indian / Kenyan) $  *top pick*  directions: just past Soum Soum
+- [The Kitchen of Thai][] $ directions: walk towards lake from Carrefour
+- [Hanoi][] (Vietnamese) $$ directions: on lower level, below
+- [Richy’s I am the Salad][] (salad bar) $$  directions: go to Red Rose Cafe, take stairs down to lake level, walk along lake until Cluster F, then go up stairs
+- [Innlay Asia][] (Burmese) $ next to Richy’s
+- [Nais][] (Italian) $$$ next to Richy’s
 
 ###### Pubs / Bars
-- McGettigan’s Irish Pub @ Bonnington Hotel - 5 min walk, behind Al Mas (BIG tower)
-- Healey’s Bar & Terrace above McGettigan’s,  more sophisticated with 2-for-1 happy hour special until 8pm
-- Dubai Marina Yacht Club - across the highway (via Metro walkway)
-- Dubai Marina - take Metro walkway to cross over Sheikh Zayed Rd
-- JBR Walk & JBR Beach - nice open air “walk” with food, shops, cafes and large public beach
+- [McGettigan’s Irish Pub][] @ Bonnington Hotel - 5 min walk, behind Al Mas (BIG tower)
+- [Healey’s Bar & Terrace][] above McGettigan’s,  more sophisticated with 2-for-1 happy hour special until 8pm
+- [Dubai Marina Yacht Club][] - across the highway (via Metro walkway)
+
+###### Dubai Marina
+- Get there: take Metro walkway to cross over Sheikh Zayed Rd
+- [JBR Walk & JBR Beach][] - nice open air “walk” with food, shops, cafes and large public beach
+
+[Flames Grills & Curry]: http://www.flames.ae
+[The Kitchen of Thai]: http://www.tkot-restaurant.com/
+[Hanoi]: http://www.timeoutdubai.com/restaurants/reviews/33899-hanoi-cafe
+[Richy’s I am the Salad]: http://richys.ae/
+[Innlay Asia]: https://www.facebook.com/innlayasia/info
+[Nais]: http://naiskitchen.com/
+[McGettigan’s Irish Pub]: http://www.mcgettigansdubai.com/
+[Healey’s Bar & Terrace]: http://www.bonningtontower.com/healeys-bar-dubai.asp
+[Dubai Marina Yacht Club]: http://www.dubaimarinayachtclub.com/
+[JBR Walk & JBR Beach]: https://www.facebook.com/thewalkatjbr
 
 
 #### Around (all of) Dubai
@@ -62,15 +80,32 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 - Concerts / clubs: check Platinum List and TimeOut Dubai for upcoming concerts, performances, DJs
 
 ###### Dubai Top Picks
-In order of my recommendation
-- Dubai Fountain @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa. Eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
-- Dubai Aquarium @ Dubai Mall - 30,000 animals, 85 species, 400 sharks & rays. AED 50 for great tunnel view & underwater zoo
-- At the Top Burj Khalifa - 124th floor view, entrance from Dubai Mall. AED 100 - book online at least 6 days ahead for sunset timing
-- Dubai Museum - AED 3 to get a cultural understanding of UAE, Dubai, great location next to Dubai Creek. Then take a Dubai Creek abra (boat) to cross from near Dubai Museum to Gold Souk. AED 1 per trip on the abra (water taxi boat)
-- Ravi Restaurant - metro to World Trade Centre, then taxi - Dubai cultural landmark for cheap, great Pakistani food
-- or if you prefer seafood try Bu Qtair Cafeteria - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
-- Arabian Adventures Sundowner Desert Safari (tell them pick-up at Bonnington Hotel - next door), AED 350 for sand dune driving, camel ride, Arabic feast with drinks and belly dancer
-- Aquaventure water park @ Atlantis Hotel on Palm Jumeirah AED 20 by taxi AED 220, try Nasimi Beach or Rostang for food at the Atlantis
+- note: in order of my recommendation / how much time you have
+- [Dubai Fountain][] @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa
+    - Eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
+- [Dubai Aquarium][] @ Dubai Mall - 30,000 animals, 85 species, 400 sharks & rays.
+    - AED 50 for great tunnel view & underwater zoo
+- [At the Top Burj Khalifa][] - 124th floor view, entrance from Dubai Mall. AED 100
+    - book online at least 6 days ahead for sunset timing
+- [Dubai Museum][] - AED 3 to get a cultural understanding of UAE, Dubai,
+    - great location next to Dubai Creek. Then take a Dubai Creek abra (boat) to cross from near Dubai Museum to Gold Souk. AED 1 per trip on the abra (water taxi boat)
+- [Ravi Restaurant][] - metro to World Trade Centre, then taxi - Dubai cultural landmark for cheap, great Pakistani food
+    - or if you prefer seafood try [Bu Qtair Cafeteria][] - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
+- [Arabian Adventures Sundowner Desert Safari][] (tell them pick-up at Bonnington Hotel - next door)
+    - AED 350 for sand dune driving, camel ride, Arabic feast with drinks and belly dancer
+- [Aquaventure][] water park @ Atlantis Hotel on Palm Jumeirah AED 20 by taxi AED 220
+    - try [Nasimi Beach][] or [Rostang][] for food at the Atlantis
+
+[Dubai Fountain]: http://www.thedubaimall.com/en/entertainment/entertainment-section/the-dubai-fountain.html
+[Dubai Aquarium]: http://www.thedubaimall.com/en/entertainment/entertainment-section/dubai-aquarium-underwater-zoo.html
+[At the Top Burj Khalifa]: http://www.thedubaimall.com/en/entertainment/entertainment-section/experience-entertainment.html
+[Dubai Museum]: http://en.wikipedia.org/wiki/Dubai_Museum
+[Ravi Restaurant]: http://www.timeoutdubai.com/restaurants/reviews/7696-ravi-restaurant
+[Bu Qtair Cafeteria]: http://www.timeoutdubai.com/restaurants/reviews/14272-bu-qtair
+[Arabian Adventures Sundowner Desert Safari]: http://www.arabian-adventures.com/en/tours-and-safaris/find-tours-and-safaris/dubai.aspx
+[Aquaventure]: http://www.atlantisthepalm.com/marineandwaterpark/aquaventure.aspx
+[Nasimi Beach]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/nasimibeach.aspx
+[Rostang]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/rostang.aspx
 
 ###### Dubai Indulgences
 - Skydive Dubai - AED 1750 for jumping over the Palm Jumeirah
