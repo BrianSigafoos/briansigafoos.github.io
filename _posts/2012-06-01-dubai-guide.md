@@ -90,7 +90,7 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 - [Dubai Museum][] - AED 3 to get a cultural understanding of UAE, Dubai,
     - great location next to Dubai Creek. Then take a Dubai Creek abra (boat) to cross from near Dubai Museum to Gold Souk. AED 1 per trip on the abra (water taxi boat)
 - [Ravi Restaurant][] - metro to World Trade Centre, then taxi - Dubai cultural landmark for cheap, great Pakistani food
-    - or if you prefer seafood try [Bu Qtair Cafeteria][] - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
+    - or for fresh seafood served on plastic tables try [Bu Qtair Cafeteria][] - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
 - [Arabian Adventures Sundowner Desert Safari][] (tell them pick-up at Bonnington Hotel - next door)
     - AED 350 for sand dune driving, camel ride, Arabic feast with drinks and belly dancer
 - [Aquaventure][] water park @ Atlantis Hotel on Palm Jumeirah AED 20 by taxi AED 220
@@ -108,18 +108,30 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 [Rostang]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/rostang.aspx
 
 ###### Dubai Indulgences
-- Skydive Dubai - AED 1750 for jumping over the Palm Jumeirah
-- Seawings plane tour - AED 1375
-- Dolphin Bay @ Atlantis - AED 600 for 30min swimming with dolphins
-- Ski Dubai @ Mall of the Emirates - AED 180 for 2hrs of skiing or snowboarding
+- [Skydive Dubai][] - AED 1750 for jumping over the Palm Jumeirah
+- [Seawings plane tour][] - AED 1375
+- [Dolphin Bay @ Atlantis][] - AED 600 for 30min swimming with dolphins
+- [Ski Dubai @ Mall of the Emirates][] - AED 180 for 2hrs of skiing or snowboarding
+
+[Skydive Dubai]: http://www.skydivedubai.ae/
+[Seawings plane tour]: http://www.seawings.ae/packages
+[Dolphin Bay @ Atlantis]: http://www.atlantisthepalm.com/marineandwaterpark/dolphinbay.aspx
+[Ski Dubai @ Mall of the Emirates]: http://www.skidxb.com/
 
 ###### Dubai Alternatives
-- Dubai Drums - monthly Full moon desert drumming
-- Surf Dubai - stand up paddle around the Burj Al Arab
-- Dubai Polo & Equestrian Club - horseback desert hacking
-- CrossFit class - hardcore fitness class, 7min walk in Cluster H
-- Dune Riders - AED 500 for 1hr dune buggying and sand boarding in the desert
-- Dubai Autodrome - AED 110 to race go karts for 15min
+- [Dubai Drums][] - monthly Full moon desert drumming
+- [Surf Dubai][] - stand up paddle around the Burj Al Arab
+- [Dubai Polo & Equestrian Club][] - horseback desert hacking
+- [CrossFit class][] - hardcore fitness class, 7min walk in Cluster H
+- [Dune Riders][] - AED 500 for 1hr dune buggying and sand boarding in the desert
+- [Dubai Autodrome][] - AED 110 to race go karts for 15min
+
+[Dubai Drums]: http://www.dubaidrums.com/
+[Surf Dubai]: http://www.surfingdubai.com/stand-up-paddle.php
+[Dubai Polo & Equestrian Club]: http://www.poloclubdubai.com/en/category/equestrian/
+[CrossFit class]: http://reebokcrossfitlifespark.com/
+[Dune Riders]: http://www.dreamexplorerdubai.com/products/dune-buggy-adventure/dune-riders-adventure-unlimited
+[Dubai Autodrome]: http://www.dubaiautodrome.com/arrive-drive-2/
 
 ###### Explore Abu Dhabi
 - By car: 60-80 min drive from JLT - never go more than 20 kmph over posted speed limit (speed cameras = AED 700 ticket)
