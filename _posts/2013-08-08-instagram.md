@@ -3,8 +3,8 @@ comments: true
 date: 2013-08-08 02:54:00
 layout: post
 slug: instragram
-title: Instagram gallery
-summary: Using instafeed.js and Instagram API to show my 60 most recent photos
+title: Instagram photo gallery
+summary: My 60 latest Instagram photos thanks to Instagram's API and instafeed.js
 image: 'inst-photos.png'
 alias: /photos/
 tags:
