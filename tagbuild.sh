@@ -15,6 +15,7 @@ echo "Copying /${TAG}..."
 cp -a ${SITE}/${TAG} ./tags
 
 echo "Committing changes..."
+git add ${TAG}
 git commit ${TAG} -m "Rebuilt tags directory"
 
 echo "Pushing to Github..."
