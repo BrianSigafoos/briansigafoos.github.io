@@ -89,6 +89,8 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
     - book online at least 6 days ahead for sunset timing
 - [Dubai Museum][] - AED 3 to get a cultural understanding of UAE, Dubai,
     - great location next to Dubai Creek. Then take a Dubai Creek abra (boat) to cross from near Dubai Museum to Gold Souk. AED 1 per trip on the abra (water taxi boat)
+- [Sheikh Mohammed Centre Cultural Understanding][] - Near to Dubia Museum. Book ahead for "cultural meal" which includes traditional Emirati food and discussion of culture and customs.
+    - also SMCCU does daily (except Fri) tours of [Grand Jumeirah Mosque][] starting at 9:45am
 - [Ravi Restaurant][] - metro to World Trade Centre, then taxi - Dubai cultural landmark for cheap, great Pakistani food
     - or for fresh seafood served on plastic tables try [Bu Qtair Cafeteria][] - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
 - [Arabian Adventures Sundowner Desert Safari][] (tell them pick-up at Bonnington Hotel - next door)
@@ -100,6 +102,8 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 [Dubai Aquarium]: http://www.thedubaimall.com/en/entertainment/entertainment-section/dubai-aquarium-underwater-zoo.html
 [At the Top Burj Khalifa]: http://www.thedubaimall.com/en/entertainment/entertainment-section/experience-entertainment.html
 [Dubai Museum]: http://en.wikipedia.org/wiki/Dubai_Museum
+[Sheikh Mohammed Centre Cultural Understanding]: http://www.cultures.ae/index.php/ouractivities/cultural-meals
+[Grand Jumeirah Mosque]: http://goo.gl/maps/Oc9gY
 [Ravi Restaurant]: http://www.timeoutdubai.com/restaurants/reviews/7696-ravi-restaurant
 [Bu Qtair Cafeteria]: http://www.timeoutdubai.com/restaurants/reviews/14272-bu-qtair
 [Arabian Adventures Sundowner Desert Safari]: http://www.arabian-adventures.com/en/tours-and-safaris/find-tours-and-safaris/dubai.aspx
