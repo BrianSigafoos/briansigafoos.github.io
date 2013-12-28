@@ -66,18 +66,29 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 
 #### Around (all of) Dubai
 ###### Restaurants
-- Souk Madinat Jumeirah - 40 restaurants and bars set along canals next to the Burj Al Arab
-- Rostang $$$ - French brasserie at Atlantis
-- West 14th $$$$ - NYC style steakhouse on Palm Island at Oceana with outdoor cocktails, great view of Dubai Marina
-- Le Traiteur $$$$ - #1 Friday brunch in Dubai, French gastronomic feast on old Dubai Creek - make reservations 7-10 days in advance
+- [Souk Madinat Jumeirah][] - 40 restaurants and bars set along canals next to the Burj Al Arab
+- [La Brasserie][] $$$ - French brasserie at Atlantis
+- [West 14th][] $$$$ - NYC style steakhouse on Palm Island at Oceana. Get outdoor cocktails first with a great view of Dubai Marina
+- [Le Traiteur][] $$$$ - #1 Friday brunch in Dubai, French gastronomic feast on old Dubai Creek - make reservations 7-10 days in advance
 
 ###### Drinks / Dancing
-- Barasti Beach Bar - voted #1 bar in the world, multiple levels, live music, relaxed dress code (sandals, shorts ok)
-- Mahiki - Tiki style bar / nightclub with dancing after 11pm
-- 360° - sundown drinks next to Burj Al Arab, must reserve online
-- Trilogy - Souk Madinat nightclub with 3 zones of music: trance, hip-hop room and outdoors rooftop lounge
-- Rock Bottom - grimey but fun, no one admits to going here, but if it’s 2am and you still want to dance this place will be packed
-- Concerts / clubs: check Platinum List and TimeOut Dubai for upcoming concerts, performances, DJs
+- [Barasti Beach Bar][] - voted #1 bar in the world, multiple levels, live music, relaxed dress code (sandals, shorts ok)
+- Mahiki - Tiki style bar / nightclub with dancing after 11pm. Packed usually on Tue/Thu/Fri nights
+- [i2][] - 80's style dancing at Habtoor Grand in Dubai Marina
+- [360°][] - sundown drinks next to Burj Al Arab, must reserve online
+- Rock Bottom - grimey but fun; no one admits to going here, but if it’s 2am and you still want to dance this place will be packed
+- Concerts / clubs: check [Platinum List][] and TimeOut Dubai for upcoming concerts, performances, DJs
+
+[Souk Madinat Jumeirah]: https://www.jumeirah.com/en/hotels-resorts/dubai/madinat-jumeirah/restaurants--bars/
+[La Brasserie]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/labrasserie.aspx
+[West 14th]: http://west14th.ae/
+[Le Traiteur]: http://dubai.park.hyatt.com/en/hotel/dining/Traiteur.html
+
+[Barasti Beach Bar]: http://www.barastibeach.com/
+[360°][] - https://www.jumeirah.com/en/hotels-resorts/dubai/jumeirah-beach-hotel/restaurants/360/
+[i2]: http://www.yadig.com/business/Dubai/i2/1259/
+[Platinum List]: http://dubai.platinumlist.net/
+
 
 ###### Dubai Top Picks
 - note: in order of my recommendation / how much time you have
