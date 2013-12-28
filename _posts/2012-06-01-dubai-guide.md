@@ -41,9 +41,12 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 - [Hanoi][] (Vietnamese) $$ directions: on lower level, below
 - [Richy’s I am the Salad][] (salad bar) $$  directions: go to Red Rose Cafe, take stairs down to lake level, walk along lake until Cluster F, then go up stairs
 - [Innlay Asia][] (Burmese) $ next to Richy’s
+- [K-pop Chicken][] (Korean) $$ in front of to Innlay Asia
 - [Nais][] (Italian) $$$ next to Richy’s
+- [Bill's Tex-Mex][] $$ Mexican food in Cluster H, diagonally opposite from Indigo Tower on the lake level, 7min walk.
 
 ###### Pubs / Bars
+- [Jazz @ Pizza Express][] at Movenpick Hotel in Cluster A - 10min walk along the lake past Hanoi restaurant, keep going
 - [McGettigan’s Irish Pub][] @ Bonnington Hotel - 5 min walk, behind Al Mas (BIG tower)
 - [Healey’s Bar & Terrace][] above McGettigan’s,  more sophisticated with 2-for-1 happy hour special until 8pm
 - [Dubai Marina Yacht Club][] - across the highway (via Metro walkway)
@@ -57,7 +60,11 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 [Hanoi]: http://www.timeoutdubai.com/restaurants/reviews/33899-hanoi-cafe
 [Richy’s I am the Salad]: http://richys.ae/
 [Innlay Asia]: https://www.facebook.com/innlayasia/info
+[K-pop Chicken]: http://www.kpop-chicken.com/
+[Bill's Tex-Mex]: http://www.billstexmex.net/
 [Nais]: http://naiskitchen.com/
+
+[Jazz @ Pizza Express]: http://pizzaexpressuae.com/jlt/
 [McGettigan’s Irish Pub]: http://www.mcgettigansdubai.com/
 [Healey’s Bar & Terrace]: http://www.bonningtontower.com/healeys-bar-dubai.asp
 [Dubai Marina Yacht Club]: http://www.dubaimarinayachtclub.com/
@@ -73,11 +80,12 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 
 ###### Drinks / Dancing
 - [Barasti Beach Bar][] - voted #1 bar in the world, multiple levels, live music, relaxed dress code (sandals, shorts ok)
-- Mahiki - Tiki style bar / nightclub with dancing after 11pm. Packed usually on Tue/Thu/Fri nights
+- [Mahiki][] - Tiki style bar / nightclub with dancing after 11pm. Packed usually on Tue/Thu/Fri nights
 - [i2][] - 80's style dancing at Habtoor Grand in Dubai Marina
-- [360°][] - sundown drinks next to Burj Al Arab, must reserve online
-- Rock Bottom - grimey but fun; no one admits to going here, but if it’s 2am and you still want to dance this place will be packed
+- [360][] - sundown drinks next to Burj Al Arab, must reserve online
+- [Rock Bottom][] - grimey but fun; no one admits to going here, but if it’s 2am and you still want to dance this place will be packed
 - Concerts / clubs: check [Platinum List][] and TimeOut Dubai for upcoming concerts, performances, DJs
+- List of [Ladies Night] spots, every night of the week women can drink for free
 
 [Souk Madinat Jumeirah]: https://www.jumeirah.com/en/hotels-resorts/dubai/madinat-jumeirah/restaurants--bars/
 [La Brasserie]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/labrasserie.aspx
@@ -85,9 +93,12 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 [Le Traiteur]: http://dubai.park.hyatt.com/en/hotel/dining/Traiteur.html
 
 [Barasti Beach Bar]: http://www.barastibeach.com/
-[360°][] - https://www.jumeirah.com/en/hotels-resorts/dubai/jumeirah-beach-hotel/restaurants/360/
+[Mahiki]: http://www.mahiki.ae/
 [i2]: http://www.yadig.com/business/Dubai/i2/1259/
+[360]: https://www.jumeirah.com/en/hotels-resorts/dubai/jumeirah-beach-hotel/restaurants/360/
+[Rock Bottom]: http://dubai.platinumlist.net/nightlife/clubs-bars-venues/160/Rock-Bottom-Cafe-Tecom
 [Platinum List]: http://dubai.platinumlist.net/
+[Ladies' Night]: http://www.ladiesnightdubai.com/
 
 
 ###### Dubai Top Picks
