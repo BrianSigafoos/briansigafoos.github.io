@@ -13,7 +13,7 @@ tags:
 - travel
 ---
 
-###### I wrote this guide for friends and [AirBnb][] guests visiting Dubai. Try loading it from your phone, the design is responsive so it should look great on any device!
+###### I wrote this guide for friends and [AirBnb][] guests visiting Dubai. Try loading it from your phone (responsive so should look great on any device).  I recommend you bookmark this on your phone, download Google Maps and zoom in to load parts of the city you want to view later offline (Google Maps will cache the map and without cell data you should be able to navigate easily).
 <iframe width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="http://mapsengine.google.com/map/u/0/embed?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA&amp;ll=25.073472,55.137548&amp;spn=0.013605,0.030041&amp;z=15"></iframe>
 Try a [larger version of this map][]
 
@@ -75,7 +75,7 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 ###### Restaurants
 Tip: make a reservation to be sure especially on Thu or Fri nights
 
-- [Souk Madinat Jumeirah][] - 40 restaurants and bars set along canals next to the Burj Al Arab,
+- [Souk Madinat Jumeirah][] - 40 restaurants and bars set along canals next to the Burj Al Arab, use [this list][] to pick the cuisine and price you want and make a reservation
 - [West 14th][] $$$$ - NYC style steakhouse on Palm Island at Oceana. Get cocktails outdoors first with a great view of Dubai Marina
 - [Toro Toro][] $$$$ - Latin American steaks and food at the Grosvenor House in Dubai Marina
 - [Le Traiteur][] $$$$ - #1 Friday brunch in Dubai, French gastronomic feast on old Dubai Creek - make reservations 7-10 days in advance
@@ -83,6 +83,7 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 
 
 [Souk Madinat Jumeirah]: https://www.jumeirah.com/en/hotels-resorts/dubai/madinat-jumeirah/restaurants--bars/
+[this list]: http://www.zomato.com/dubai/restaurants/in/madinatjumeirah
 [La Brasserie]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/labrasserie.aspx
 [West 14th]: http://west14th.ae/
 [Le Traiteur]: http://dubai.park.hyatt.com/en/hotel/dining/Traiteur.html
