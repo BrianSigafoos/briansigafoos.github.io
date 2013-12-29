@@ -45,6 +45,15 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 - [Nais][] (Italian) $$$ next to Richy’s
 - [Bill's Tex-Mex][] $$ Mexican food in Cluster H, diagonally opposite from Indigo Tower on the lake level, 7min walk.
 
+[Flames Grills & Curry]: http://www.flames.ae
+[The Kitchen of Thai]: http://www.tkot-restaurant.com/
+[Hanoi]: http://www.timeoutdubai.com/restaurants/reviews/33899-hanoi-cafe
+[Richy’s I am the Salad]: http://richys.ae/
+[Innlay Asia]: https://www.facebook.com/innlayasia/info
+[K-pop Chicken]: http://www.kpop-chicken.com/
+[Nais]: http://naiskitchen.com/
+[Bill's Tex-Mex]: http://www.billstexmex.net/
+
 ###### Pubs / Bars
 - [Jazz @ Pizza Express][] at Movenpick Hotel in Cluster A - 10min walk along the lake past Hanoi restaurant, keep going
 - [McGettigan’s Irish Pub][] @ Bonnington Hotel - 5 min walk, behind Al Mas (BIG tower)
@@ -55,15 +64,6 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 - Get there: take Metro walkway to cross over Sheikh Zayed Rd
 - [JBR Walk & JBR Beach][] - nice open air “walk” with food, shops, cafes and large public beach
 
-[Flames Grills & Curry]: http://www.flames.ae
-[The Kitchen of Thai]: http://www.tkot-restaurant.com/
-[Hanoi]: http://www.timeoutdubai.com/restaurants/reviews/33899-hanoi-cafe
-[Richy’s I am the Salad]: http://richys.ae/
-[Innlay Asia]: https://www.facebook.com/innlayasia/info
-[K-pop Chicken]: http://www.kpop-chicken.com/
-[Bill's Tex-Mex]: http://www.billstexmex.net/
-[Nais]: http://naiskitchen.com/
-
 [Jazz @ Pizza Express]: http://pizzaexpressuae.com/jlt/
 [McGettigan’s Irish Pub]: http://www.mcgettigansdubai.com/
 [Healey’s Bar & Terrace]: http://www.bonningtontower.com/healeys-bar-dubai.asp
@@ -73,24 +73,30 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 
 #### Around (all of) Dubai
 ###### Restaurants
-- [Souk Madinat Jumeirah][] - 40 restaurants and bars set along canals next to the Burj Al Arab
-- [La Brasserie][] $$$ - French brasserie at Atlantis
-- [West 14th][] $$$$ - NYC style steakhouse on Palm Island at Oceana. Get outdoor cocktails first with a great view of Dubai Marina
+Tip: make a reservation to be sure especially on Thu or Fri nights
+
+- [Souk Madinat Jumeirah][] - 40 restaurants and bars set along canals next to the Burj Al Arab,
+- [West 14th][] $$$$ - NYC style steakhouse on Palm Island at Oceana. Get cocktails outdoors first with a great view of Dubai Marina
+- [Toro Toro][] $$$$ - Latin American steaks and food at the Grosvenor House in Dubai Marina
 - [Le Traiteur][] $$$$ - #1 Friday brunch in Dubai, French gastronomic feast on old Dubai Creek - make reservations 7-10 days in advance
+- [La Brasserie][] $$$ - French brasserie at Atlantis with unlimited mussels on Tuesday nights
+
+
+[Souk Madinat Jumeirah]: https://www.jumeirah.com/en/hotels-resorts/dubai/madinat-jumeirah/restaurants--bars/
+[La Brasserie]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/labrasserie.aspx
+[West 14th]: http://west14th.ae/
+[Le Traiteur]: http://dubai.park.hyatt.com/en/hotel/dining/Traiteur.html
+[Toro Toro]: http://www.torotoro-dubai.com/
 
 ###### Drinks / Dancing
 - [Barasti Beach Bar][] - voted #1 bar in the world, multiple levels, live music, relaxed dress code (sandals, shorts ok)
 - [Mahiki][] - Tiki style bar / nightclub with dancing after 11pm. Packed usually on Tue/Thu/Fri nights
 - [i2][] - 80's style dancing at Habtoor Grand in Dubai Marina
 - [360][] - sundown drinks next to Burj Al Arab, must reserve online
+- [Irish Village][] - next to Dubai airport in Garhoud, great if you need to kill time and get a drink before a flight. Large outdoor area with live music at night and inside full old style Irish pub
 - [Rock Bottom][] - grimey but fun; no one admits to going here, but if it’s 2am and you still want to dance this place will be packed
 - Concerts / clubs: check [Platinum List][] and TimeOut Dubai for upcoming concerts, performances, DJs
 - List of [Ladies Night] spots, every night of the week women can drink for free
-
-[Souk Madinat Jumeirah]: https://www.jumeirah.com/en/hotels-resorts/dubai/madinat-jumeirah/restaurants--bars/
-[La Brasserie]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/labrasserie.aspx
-[West 14th]: http://west14th.ae/
-[Le Traiteur]: http://dubai.park.hyatt.com/en/hotel/dining/Traiteur.html
 
 [Barasti Beach Bar]: http://www.barastibeach.com/
 [Mahiki]: http://www.mahiki.ae/
@@ -98,24 +104,24 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 [360]: https://www.jumeirah.com/en/hotels-resorts/dubai/jumeirah-beach-hotel/restaurants/360/
 [Rock Bottom]: http://dubai.platinumlist.net/nightlife/clubs-bars-venues/160/Rock-Bottom-Cafe-Tecom
 [Platinum List]: http://dubai.platinumlist.net/
-[Ladies' Night]: http://www.ladiesnightdubai.com/
+[Ladies Night]: http://www.ladiesnightdubai.com/
 
 
 ###### Dubai Top Picks
-- note: in order of my recommendation / how much time you have
+note: in order of my recommendation / how much time you have
 - [Dubai Fountain][] @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa
     - Eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
 - [Dubai Aquarium][] @ Dubai Mall - 30,000 animals, 85 species, 400 sharks & rays.
     - AED 50 for great tunnel view & underwater zoo
 - [At the Top Burj Khalifa][] - 124th floor view, entrance from Dubai Mall. AED 100
-    - book online at least 6 days ahead for sunset timing
+    - *book online at least 6 days ahead for sunset timing*
 - [Dubai Museum][] - AED 3 to get a cultural understanding of UAE, Dubai,
     - great location next to Dubai Creek. Then take a Dubai Creek abra (boat) to cross from near Dubai Museum to Gold Souk. AED 1 per trip on the abra (water taxi boat)
-- [Sheikh Mohammed Centre Cultural Understanding][] - Near to Dubia Museum. Book ahead for "cultural meal" which includes traditional Emirati food and discussion of culture and customs.
+- [Sheikh Mohammed Centre Cultural Understanding][] - Near to Dubai Museum. Book ahead for "cultural meal" which includes traditional Emirati food and discussion of culture and customs.
     - also SMCCU does daily (except Fri) tours of [Grand Jumeirah Mosque][] starting at 9:45am
 - [Ravi Restaurant][] - metro to World Trade Centre, then taxi - Dubai cultural landmark for cheap, great Pakistani food
     - or for fresh seafood served on plastic tables try [Bu Qtair Cafeteria][] - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
-- [Arabian Adventures Sundowner Desert Safari][] (tell them pick-up at Bonnington Hotel - next door)
+- [Arabian Adventures Sundowner Desert Safari][] (tell them pick-up at Bonnington Hotel, next to Al Mas tower in JLT)
     - AED 350 for sand dune driving, camel ride, Arabic feast with drinks and belly dancer
 - [Aquaventure][] water park @ Atlantis Hotel on Palm Jumeirah AED 20 by taxi AED 220
     - try [Nasimi Beach][] or [Rostang][] for food at the Atlantis
