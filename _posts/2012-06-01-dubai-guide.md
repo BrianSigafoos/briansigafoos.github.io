@@ -169,7 +169,7 @@ note: in order of my recommendation / how much time you have
 ###### Explore Abu Dhabi
 - By car: 60-80 min drive from JLT - never go more than 20 kmph over posted speed limit (speed cameras = AED 700 ticket)
 - By bus: call 800 9090 for timetable / prices for RTA Buses from Ibn Battuta Metro Bus Stop (1 stop from JLT)
-- E101 bus goes every 10-15 from Dubai to Abu Dhabi for AED 20
+- E101 bus goes every 60min from Dubai to Abu Dhabi for AED 25
 - Sheikh Zayed Mosque - 3rd largest mosque in the world - check timings for free guided tours
 - Abu Dhabi mangrove kayaking top pick
 - Yas Marina Circuit - F1 race track - drive a race car around the track, from AED 1250
