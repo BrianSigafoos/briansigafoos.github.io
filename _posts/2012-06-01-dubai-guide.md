@@ -13,7 +13,7 @@ tags:
 - travel
 ---
 
-###### I wrote this guide for friends and [AirBnb][] guests visiting Dubai. Try loading it from your phone (responsive so should look great on any device).  I recommend you bookmark this on your phone, download Google Maps and zoom in to load parts of the city you want to view later offline (Google Maps will cache the map and without cell data you should be able to navigate easily).
+I wrote this guide for friends and [AirBnb][] guests visiting Dubai. Don't miss my top picks section below. Try loading it from your phone (responsive so should look great on any device).  I recommend you bookmark this on your phone, download Google Maps and zoom in to load parts of the city you want to view later offline (Google Maps will cache the map and without cell data you should be able to navigate easily).
 <iframe width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="http://mapsengine.google.com/map/u/0/embed?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA&amp;ll=25.073472,55.137548&amp;spn=0.013605,0.030041&amp;z=15"></iframe>
 Try a [larger version of this map][]
 
@@ -109,7 +109,7 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 
 
 
-##### Dubai's Top Picks
+#### Dubai's Top Picks
  note: in order of my recommendation / how much time you have
 
 - [Dubai Fountain][] @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa
@@ -168,7 +168,7 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 [Dune Riders]: http://www.dreamexplorerdubai.com/products/dune-buggy-adventure/dune-riders-adventure-unlimited
 [Dubai Autodrome]: http://www.dubaiautodrome.com/arrive-drive-2/
 
-##### Explore Abu Dhabi
+#### Explore Abu Dhabi
 - By car: 60-80 min drive from JLT - never go more than 20 kmph over posted speed limit (speed cameras = AED 700 ticket)
 - By bus: call 800 9090 for timetable / prices for RTA Buses from Ibn Battuta Metro Bus Stop (1 stop from JLT)
 - E101 bus goes every 60min from Dubai to Abu Dhabi for AED 25
@@ -176,7 +176,7 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 - Abu Dhabi mangrove kayaking top pick
 - Yas Marina Circuit - F1 race track - drive a race car around the track, from AED 1250
 
-##### Downloads & Apps
+#### Downloads & Apps
 - Google Maps has metro timings, 80% accurate turn-by-turn directions
 - Google Earth for your iPhone/iPad or Mac/PC to explore Dubai by map and 3D buildings - zoom in on the Palm Jumeirah
 - YaDig iPhone app for reviews of restaurants+
