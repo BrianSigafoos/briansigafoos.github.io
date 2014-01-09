@@ -110,6 +110,7 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 
 ###### Dubai Top Picks
 note: in order of my recommendation / how much time you have
+
 - [Dubai Fountain][] @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa
     - Eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
 - [Dubai Aquarium][] @ Dubai Mall - 30,000 animals, 85 species, 400 sharks & rays.
