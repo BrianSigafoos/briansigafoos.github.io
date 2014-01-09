@@ -108,8 +108,9 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 [Ladies Night]: http://www.ladiesnightdubai.com/
 
 
-###### Dubai Top Picks
-note: in order of my recommendation / how much time you have
+
+##### Dubai's Top Picks
+ note: in order of my recommendation / how much time you have
 
 - [Dubai Fountain][] @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa
     - Eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
@@ -167,7 +168,7 @@ note: in order of my recommendation / how much time you have
 [Dune Riders]: http://www.dreamexplorerdubai.com/products/dune-buggy-adventure/dune-riders-adventure-unlimited
 [Dubai Autodrome]: http://www.dubaiautodrome.com/arrive-drive-2/
 
-###### Explore Abu Dhabi
+##### Explore Abu Dhabi
 - By car: 60-80 min drive from JLT - never go more than 20 kmph over posted speed limit (speed cameras = AED 700 ticket)
 - By bus: call 800 9090 for timetable / prices for RTA Buses from Ibn Battuta Metro Bus Stop (1 stop from JLT)
 - E101 bus goes every 60min from Dubai to Abu Dhabi for AED 25
@@ -175,7 +176,7 @@ note: in order of my recommendation / how much time you have
 - Abu Dhabi mangrove kayaking top pick
 - Yas Marina Circuit - F1 race track - drive a race car around the track, from AED 1250
 
-###### Downloads & Apps
+##### Downloads & Apps
 - Google Maps has metro timings, 80% accurate turn-by-turn directions
 - Google Earth for your iPhone/iPad or Mac/PC to explore Dubai by map and 3D buildings - zoom in on the Palm Jumeirah
 - YaDig iPhone app for reviews of restaurants+
