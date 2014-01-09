@@ -14,11 +14,38 @@ tags:
 ---
 
 I wrote this guide for friends and [AirBnb][] guests visiting Dubai. Don't miss my top picks section below. Try loading it from your phone (responsive so should look great on any device).  I recommend you bookmark this on your phone, download Google Maps and zoom in to load parts of the city you want to view later offline (Google Maps will cache the map and without cell data you should be able to navigate easily).
-<iframe width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="http://mapsengine.google.com/map/u/0/embed?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA&amp;ll=25.073472,55.137548&amp;spn=0.013605,0.030041&amp;z=15"></iframe>
-Try a [larger version of this map][]
-
 [AirBnb]: https://www.airbnb.com/users/show/1207007
-[larger version of this map]: https://mapsengine.google.com/map/edit?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA
+
+#### Dubai's Top Picks
+- [Dubai Fountain][] @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa
+    - Eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
+- [Dubai Aquarium][] @ Dubai Mall - 30,000 animals, 85 species, 400 sharks & rays.
+    - AED 50 for great tunnel view & underwater zoo
+- [At the Top Burj Khalifa][] - 124th floor view, entrance from Dubai Mall. AED 100
+    - *book online at least 6 days ahead for sunset timing*
+- [Dubai Museum][] - AED 3 to get a cultural understanding of UAE, Dubai,
+    - great location next to Dubai Creek. Then take a Dubai Creek abra (boat) to cross from near Dubai Museum to Gold Souk. AED 1 per trip on the abra (water taxi boat)
+- [Sheikh Mohammed Centre Cultural Understanding][] - Near to Dubai Museum. Book ahead for "cultural meal" which includes traditional Emirati food and discussion of culture and customs.
+    - also SMCCU does daily (except Fri) tours of [Grand Jumeirah Mosque][] starting at 9:45am
+- [Ravi Restaurant][] - metro to World Trade Centre, then taxi - Dubai cultural landmark for cheap, great Pakistani food
+    - or for fresh seafood served on plastic tables try [Bu Qtair Cafeteria][] - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
+- [Arabian Adventures Sundowner Desert Safari][] (tell them pick-up at Bonnington Hotel, next to Al Mas tower in JLT)
+    - AED 350 for sand dune driving, camel ride, Arabic feast with drinks and belly dancer
+- [Aquaventure][] water park @ Atlantis Hotel on Palm Jumeirah AED 20 by taxi AED 220
+    - try [Nasimi Beach][] or [Rostang][] for food at the Atlantis
+
+[Dubai Fountain]: http://www.thedubaimall.com/en/entertainment/entertainment-section/the-dubai-fountain.html
+[Dubai Aquarium]: http://www.thedubaimall.com/en/entertainment/entertainment-section/dubai-aquarium-underwater-zoo.html
+[At the Top Burj Khalifa]: http://www.thedubaimall.com/en/entertainment/entertainment-section/experience-entertainment.html
+[Dubai Museum]: http://en.wikipedia.org/wiki/Dubai_Museum
+[Sheikh Mohammed Centre Cultural Understanding]: http://www.cultures.ae/index.php/ouractivities/cultural-meals
+[Grand Jumeirah Mosque]: http://goo.gl/maps/Oc9gY
+[Ravi Restaurant]: http://www.timeoutdubai.com/restaurants/reviews/7696-ravi-restaurant
+[Bu Qtair Cafeteria]: http://www.timeoutdubai.com/restaurants/reviews/14272-bu-qtair
+[Arabian Adventures Sundowner Desert Safari]: http://www.arabian-adventures.com/en/tours-and-safaris/find-tours-and-safaris/dubai.aspx
+[Aquaventure]: http://www.atlantisthepalm.com/marineandwaterpark/aquaventure.aspx
+[Nasimi Beach]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/nasimibeach.aspx
+[Rostang]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/rostang.aspx
 
 ###### Getting Around
 - [Dubai Metro][] is cheap, easy and clean. Open 6am-11pm everyday except Fridays (2pm-12am) - don’t eat/drink on Metro or you’ll get fined! Tip: pay extra (1 time at least) to sit in front (Gold class) of the driverless train
@@ -29,6 +56,14 @@ Metro walkway: use  to cross Sheikh Zayed Road (highway) for Dubai Marina and JB
 [Dubai Metro]: http://dubaimetro.eu/dubai-metro-map
 [Dubai Taxi]: http://dtc.dubai.ae/en/Pages/default.aspx
 [RTA Buses]: http://www.rta.ae/wpsv5/wps/portal/rta/home/about/agencies/public-transport/about/inter-emirates-buses
+
+
+<iframe width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="http://mapsengine.google.com/map/u/0/embed?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA&amp;ll=25.073472,55.137548&amp;spn=0.013605,0.030041&amp;z=15"></iframe>
+Try a [larger version of this map][]
+
+
+[larger version of this map]: https://mapsengine.google.com/map/edit?mid=z2e_QHRqNrV4.kKA9u0-Zm9AA
+
 
 #### Around JLT & Dubai Marina
 ###### Groceries
@@ -108,39 +143,6 @@ Tip: make a reservation to be sure especially on Thu or Fri nights
 [Ladies Night]: http://www.ladiesnightdubai.com/
 
 
-
-#### Dubai's Top Picks
- note: in order of my recommendation / how much time you have
-
-- [Dubai Fountain][] @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa
-    - Eat at Dubai Mall or Souk Al Bahar restaurant or cafe to watch 3-4 fountain shows with dinner
-- [Dubai Aquarium][] @ Dubai Mall - 30,000 animals, 85 species, 400 sharks & rays.
-    - AED 50 for great tunnel view & underwater zoo
-- [At the Top Burj Khalifa][] - 124th floor view, entrance from Dubai Mall. AED 100
-    - *book online at least 6 days ahead for sunset timing*
-- [Dubai Museum][] - AED 3 to get a cultural understanding of UAE, Dubai,
-    - great location next to Dubai Creek. Then take a Dubai Creek abra (boat) to cross from near Dubai Museum to Gold Souk. AED 1 per trip on the abra (water taxi boat)
-- [Sheikh Mohammed Centre Cultural Understanding][] - Near to Dubai Museum. Book ahead for "cultural meal" which includes traditional Emirati food and discussion of culture and customs.
-    - also SMCCU does daily (except Fri) tours of [Grand Jumeirah Mosque][] starting at 9:45am
-- [Ravi Restaurant][] - metro to World Trade Centre, then taxi - Dubai cultural landmark for cheap, great Pakistani food
-    - or for fresh seafood served on plastic tables try [Bu Qtair Cafeteria][] - next to Burj Al Arab - no frills fried fish and shrimp in curry sauce
-- [Arabian Adventures Sundowner Desert Safari][] (tell them pick-up at Bonnington Hotel, next to Al Mas tower in JLT)
-    - AED 350 for sand dune driving, camel ride, Arabic feast with drinks and belly dancer
-- [Aquaventure][] water park @ Atlantis Hotel on Palm Jumeirah AED 20 by taxi AED 220
-    - try [Nasimi Beach][] or [Rostang][] for food at the Atlantis
-
-[Dubai Fountain]: http://www.thedubaimall.com/en/entertainment/entertainment-section/the-dubai-fountain.html
-[Dubai Aquarium]: http://www.thedubaimall.com/en/entertainment/entertainment-section/dubai-aquarium-underwater-zoo.html
-[At the Top Burj Khalifa]: http://www.thedubaimall.com/en/entertainment/entertainment-section/experience-entertainment.html
-[Dubai Museum]: http://en.wikipedia.org/wiki/Dubai_Museum
-[Sheikh Mohammed Centre Cultural Understanding]: http://www.cultures.ae/index.php/ouractivities/cultural-meals
-[Grand Jumeirah Mosque]: http://goo.gl/maps/Oc9gY
-[Ravi Restaurant]: http://www.timeoutdubai.com/restaurants/reviews/7696-ravi-restaurant
-[Bu Qtair Cafeteria]: http://www.timeoutdubai.com/restaurants/reviews/14272-bu-qtair
-[Arabian Adventures Sundowner Desert Safari]: http://www.arabian-adventures.com/en/tours-and-safaris/find-tours-and-safaris/dubai.aspx
-[Aquaventure]: http://www.atlantisthepalm.com/marineandwaterpark/aquaventure.aspx
-[Nasimi Beach]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/nasimibeach.aspx
-[Rostang]: http://www.atlantisthepalm.com/restaurants/barsandrestaurants/rostang.aspx
 
 ###### Dubai Indulgences
 - [Skydive Dubai][] - AED 1750 for jumping over the Palm Jumeirah
