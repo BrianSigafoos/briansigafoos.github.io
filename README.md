@@ -6,7 +6,7 @@ briansigafoos.github.io
   - Setup site using notes below then here's a command line cheatsheet for my workflow
 
 
-        gem install jekyll      # if you haven't yet installed jekyll
+        bundle install          # to install jekyll and any dependencies
 
         jekyll serve --watch    # lets you view site locally http://0.0.0.0:4000 and see your changes auto-regenerated
 
@@ -50,7 +50,3 @@ Prior to finding Gary's solution I went down a number of promising paths. All of
 
 Everything in `_posts` is mine.
 Feel free to clone this repository, strip out my personal content on `about.html`, `_config.yml` and all `_posts/` content
-
-
-
-
