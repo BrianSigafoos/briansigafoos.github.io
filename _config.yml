@@ -21,15 +21,15 @@ author:
     facebook: brian.sigafoos
     linkedin: sigafoos
     instagram: briansigafoos
-    gravatar: http://en.gravatar.com/userimage/17227089/a1d38f29b1314541b194b28ef1420b84.jpg?size=100
+    gravatar: http://www.gravatar.com/avatar/82b3838be93c845a7e139fa951bafd07?s=400
 
 comments:
     provider: disqus
     disqus:
         short_name: briansigafoos
-        
+
 analytics:
-    provider: google 
-    google: 
+    provider: google
+    google:
         tracking_id: 'UA-42740116-1'
         domain: 'briansigafoos.com'
