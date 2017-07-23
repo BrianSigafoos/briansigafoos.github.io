@@ -1,42 +1,27 @@
 <!DOCTYPE html>
-<html class="fuelux" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-    <title>{{ page.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog">
-    <meta name="author" content="{{ site.author.name  }}">
-    <script src="/js/all.js" type="text/javascript"></script>
-    <script src="/js/instafeed.js" type="text/javascript"></script>
-	  <link href="/css/all.css" rel="stylesheet">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blog">
+  <meta name="author" content="{{ site.author.name  }}">
+  <link href="/css/all.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <!-- favicon and touch icon -->
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
 
-    <!-- favicon and touch icon -->
-    <link rel="shortcut icon" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
-  </head>
-  <body data-spy="scroll" data-target=".subnav" data-offset="50">
-    {% include navigation.html %}
-
-    <div class="container">
-        <div class="content">
-            <div class="row">
-                <div class="span7 columns">
-                    {{ content }}
-                </div>
-                <div class="span4 columns">
-                     {% include about.html %}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {% include footer.html %}
-  </body>
+<body class="pt2 pb4">
+<div class="max-width-2-5 mx-auto">
+  <div>
+    {% include header.html %}
+  </div>
+  <div class="clearfix">
+    {{ content }}
+  </div>
+</div>
+</body>
 </html>

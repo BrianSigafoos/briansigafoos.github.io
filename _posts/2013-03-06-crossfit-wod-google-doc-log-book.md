@@ -6,8 +6,6 @@ slug: crossfit-wod-log
 title: CrossFit WOD log book
 summary: Here's a template of the Google Doc I use to keep track of CrossFit WOD's and PR's.
 image: 'wod-log.png'
-tags:
-- crossfit
 ---
 
 This WOD log helps me keep track of CrossFit PR’s. Click to [view the

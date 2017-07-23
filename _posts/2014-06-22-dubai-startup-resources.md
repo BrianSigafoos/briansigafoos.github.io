@@ -3,18 +3,14 @@ comments: true
 date: 2014-06-22 12:21:12
 layout: post
 slug: dubai-startup-resources
-title: Dubai Startup Resources
+title: Dubai startup resources
 summary: Crash course on Dubai's startup ecosystem from co-working spaces to accelerators and a list of Dubai startups
 image: 'dubai-burj-al-arab.jpg'
-tags:
-- Dubai
-- startup
-
 ---
 
 ### Crash course on Dubai's startup ecosystem
 
-Times have changed from 6 years ago when our startup [DUPLAYS](http://duplays.com) was just getting off the ground, holding meetings at Caribou Coffee. Today Dubai has a number of co-working spaces, accelerators and an overall much more vibrant startup scene.
+Times have changed from 6 years ago (2008) when our startup [DUPLAYS](http://duplays.com) was just getting off the ground, holding meetings at Caribou Coffee. Today Dubai has a number of co-working spaces, accelerators and an overall much more vibrant startup scene.
 
 ### Co-working spaces
 
@@ -25,14 +21,8 @@ Times have changed from 6 years ago when our startup [DUPLAYS](http://duplays.co
 - [The Pavilion](http://www.pavilion.ae/) - sadly closing/closed
 - [Astrolabs](http://www.astrolabs.me/coworking/) - coming soon!
 
-
-
-
 #### Startup news
 - [Wamda](http://www.wamda.com/) - the source for MENA startup news, that also has a fund, and does great events like Mix N Mentor
-
-
-
 
 #### Accelerators
 - [i360 Accelerator](http://i360accelerator.com/)
@@ -41,9 +31,6 @@ Times have changed from 6 years ago when our startup [DUPLAYS](http://duplays.co
 - [Seed Startup](http://seedstartup.com/)
 - [Sicilon Oasis](http://www.siliconoasisfounders.com/)
 - [Afkar.me](http://afkar.me/)
-
-
-
 
 #### Startups
 - [Dubizzle](http://dubizzle.com) - Buy, sell, find anything in Dubai
