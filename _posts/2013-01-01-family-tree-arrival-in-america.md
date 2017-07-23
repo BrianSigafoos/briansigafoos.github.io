@@ -3,8 +3,8 @@ comments: true
 date: 2013-01-01 12:21:00
 layout: post
 slug: family-tree-arrival-in-america
-title: Mapping European relatives' arrival to America
-summary: A 2012 project to find out more about where my family came from. Spoiler alert it's mostly Germany, England and Scotland.
+title: Mapping relatives from Europe to America
+summary: A 2012 project to find out where my family came from in Germany, England, and Scotland and where they ended up in the US
 image: 'europe-map.jpg'
 ---
 
