@@ -6,9 +6,6 @@ slug: lists
 title: NorCal Frozen Berry Margaritas
 summary: Recipe for a variation of Robb Wolf's paleo NorCal Margarita with frozen berries instead of ice cubes
 image: 'berry-norcal-margarita.jpg'
-tags:
-- recipe
-- paleo
 ---
 
 After reading Robb Wolf's great paleo primer ["The Paleo Solution"](http://robbwolf.com/shop/products/the-paleo-solution-the-original-human-diet/) I wanted to recreate his paleo cocktail of choice the NorCal Margarita but didn't have any ice. My roommate had frozen berries in the fridge, so I used them and the NorCal Frozen Berry Margarita was born!

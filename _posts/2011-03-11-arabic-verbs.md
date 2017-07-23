@@ -6,10 +6,6 @@ slug: english-palestinian-arabic-colloquial-verbs
 title: Verbs in Arabic - English - French
 summary: 250+ colloquial Palestinian Arabic verbs with English and French translations
 image: 'arabic-verbs.png'
-tags:
-- learning
-- Arabic
-- language
 ---
 
 I started making this in 2006 when I was living in Jerusalem and taking an Arabic class at Birzeit University in the West Bank.

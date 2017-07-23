@@ -6,11 +6,6 @@ slug: sports-phrasebook-english-arabic-french-spanish-italian-tagalog
 title: Arabic - English Sports Phrasebook
 summary: 6 languages total - English, Arabic, French, Spanish, Italian and Tagalog translations for sports phrases
 image: 'sport-phrasebook.png'
-tags:
-- learning
-- Arabic
-- language
-- DUPLAYS
 ---
 
 We made this at DUPLAYS with help from Berlitz to list common Arabic, English, French (plus Spanish, Italian and Tagalog) phrases used when playing in DUPLAYS social sport leagues in Dubai.

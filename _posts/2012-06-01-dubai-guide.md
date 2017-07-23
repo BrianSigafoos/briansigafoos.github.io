@@ -7,10 +7,6 @@ title: Travel guide for Dubai guests
 summary: Quick travel tips for visitors coming to Dubai and the UAE
 image: 'dubai-fountains.jpg'
 alias: /indigo/
-tags:
-- Dubai
-- UAE
-- travel
 ---
 
 I wrote this guide for friends and [AirBnb][] guests visiting Dubai. Don't miss my top picks section below. Try loading it from your phone (responsive so should look great on any device).  I recommend you bookmark this on your phone, download Google Maps and zoom in to load parts of the city you want to view later offline (Google Maps will cache the map and without cell data you should be able to navigate easily).

@@ -6,8 +6,6 @@ slug: online-mooc-learning
 title: Learning with MOOC's
 summary: Mass Open Online Courses are all the rage. Here's a list of some great free courses.
 image: 'mooc-learn.jpg'
-tags:
-- learning
 ---
 
 Massive open online courses (MOOCs) bring more and more of the world’s best teachers to anyone with an internet connection, for free. Background on MOOCs in this [NYTimes article][].

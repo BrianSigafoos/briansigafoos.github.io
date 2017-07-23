@@ -1,10 +1,9 @@
-auto: true
 markdown: rdiscount
 highlighter: pygments
 safe: false
 source:      .
 destination: ./site
-plugins:     ./_plugins
+plugins_dir:  _plugins
 
 title: Brian's blog
 url: http://briansigafoos.com
