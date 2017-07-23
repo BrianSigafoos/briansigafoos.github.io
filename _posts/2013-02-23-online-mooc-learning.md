@@ -4,7 +4,7 @@ date: 2013-02-23 23:29:00
 layout: post
 slug: online-mooc-learning
 title: Learning with MOOC's
-summary: Mass Open Online Courses are all the rage. Here's a list of some great free courses.
+summary: Mass Open Online Courses are an amazing way to learn online, for free. Here's a list of some great free courses.
 image: 'mooc-learn.jpg'
 ---
 

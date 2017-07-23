@@ -4,13 +4,12 @@ date: 2012-06-01 12:00:00
 layout: post
 slug: dubai-guide-for-visitors-to-uae
 title: Travel guide for Dubai guests
-summary: Quick travel tips for visitors coming to Dubai and the UAE
+summary: My Airbnb guidebook of travel tips for visitors to Dubai and the UAE
 image: 'dubai-fountains.jpg'
-alias: /indigo/
 ---
 
-I wrote this guide for friends and [AirBnb][] guests visiting Dubai. Don't miss my top picks section below. Try loading it from your phone (responsive so should look great on any device).  I recommend you bookmark this on your phone, download Google Maps and zoom in to load parts of the city you want to view later offline (Google Maps will cache the map and without cell data you should be able to navigate easily).
-[AirBnb]: https://www.airbnb.com/users/show/1207007
+I wrote this guide for friends and [Airbnb][] guests visiting Dubai. Don't miss my top picks section below. Also bookmark this page on your phone. Before you head out download Google Maps and zoom in to load parts of the city you want to view later offline. Google Maps will cache the map and without cell data you should be able to navigate easily.
+[Airbnb]: https://www.airbnb.com/users/show/1207007
 
 #### Dubai's Top Picks
 - [Dubai Fountain][] @ Dubai Mall - free shows every 30min - 6-11pm in front of the Burj Khalifa
