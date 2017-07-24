@@ -1,7 +1,7 @@
 briansigafoos.github.io
 =======================
 
-## Workflow
+#### Workflow
 * To publish on Github pages just merge a Pull Request into master and Github handles the rest.
 
         # Local development
