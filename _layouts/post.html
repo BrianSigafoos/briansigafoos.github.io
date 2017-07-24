@@ -8,11 +8,7 @@ layout: layout
   {% endunless %}
 
   <h2 class="color-red font-size-xl">
-    {% if page.custom_title %}
-      {{ page.custom_title }}
-    {% else %}
-      {{ page.title }}
-    {% endif %}
+    {{ page.title }}
   </h2>
 
   {{content}}
