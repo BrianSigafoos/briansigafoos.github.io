@@ -12,7 +12,7 @@ image: 'octojekyll.png'
 
 ### UPDATE July 2017
 
-I simplified everything, replacing Bootstrap with [Basscss](http://basscss.com/) and removing a lot of things I don't need: tags, search, and all Javascript.  
+I simplified everything. Replaced Bootstrap with [Basscss](http://basscss.com/) and removed everything I wasn't really using: tags, search, and all Javascript.  
 
 ---
 
