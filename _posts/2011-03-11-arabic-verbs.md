@@ -9,7 +9,7 @@ image: 'arabic-verbs.png'
 hide_image: true
 ---
 
-I started making this in 2006 when I was living in Jerusalem and studying Arabic class at Birzeit University in the West Bank.
+I started this spreadsheet in 2006 while living in Jerusalem and studying Arabic at Birzeit University in the West Bank.
 Since then I've added more verbs and Arabic script. Feel free to [download it][], use it for your own study, or send me suggestions.
 
 <iframe width='100%' height='400' frameborder='0'

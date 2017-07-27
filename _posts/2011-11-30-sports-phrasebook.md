@@ -9,7 +9,7 @@ image: 'sport-phrasebook.png'
 hide_image: true
 ---
 
-We made this at DUPLAYS with help from Berlitz to list common Arabic, English, French (plus Spanish, Italian and Tagalog) phrases used when playing in DUPLAYS social sport leagues in Dubai.
+These sports phrases are a from project at [DUPLAYS](https://duplays.com) in partnership with Berlitz. Our goal was to list common phrases anyone in our Dubai social sport leagues might say in Arabic, English, French, Spanish, Italian and Tagalog.
 
 <iframe width='100%' height='400' frameborder='0'
 src='https://docs.google.com/spreadsheet/pub?key=0AmF22gEI8vjtdHhOdEQ1T0I5eFM2ODRtcTR4MVNZa2c&output=html&widget=true'></iframe>
