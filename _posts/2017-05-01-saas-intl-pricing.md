@@ -23,7 +23,7 @@ But how should I set the price for each currency?
 
 We could just charge everyone a fixed USD amount, converted to their local currency. Playpass is a Rails app and we use [Ruby Money](https://github.com/RubyMoney/money) for everything money related. Thanks to Ruby Money' exchange rate stores, we could get daily exchange rates from the EU Central Bank or Google Currency.
 
-But using exchange rates has to two problems:
+But using exchange rates has two problems:
 
 1. Prices will change too often as exchange rates change
 2. Prices will be too high in less developed countries
