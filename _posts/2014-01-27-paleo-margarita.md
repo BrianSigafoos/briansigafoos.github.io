@@ -11,7 +11,7 @@ hide_image: true
 
 After reading Robb Wolf's great paleo primer ["The Paleo Solution"](http://robbwolf.com/shop/products/the-paleo-solution-the-original-human-diet/) I wanted to recreate his paleo cocktail of choice the NorCal Margarita but didn't have any ice. My roommate had frozen berries in the fridge, so I used them and the NorCal Frozen Berry Margarita was born!
 
-<a href="/img/posts/berry-norcal-1.jpg">![Frozen Berry NorCal Margarita](/img/posts/berry-norcal-1.jpg)</a>
+![Frozen Berry NorCal Margarita](/img/posts/berry-norcal-1.jpg)
 
 ### NorCal Margarita (regular)
 - 1-2 shots of 100% agave tequila

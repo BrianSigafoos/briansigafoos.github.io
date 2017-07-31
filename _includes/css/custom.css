@@ -47,3 +47,23 @@ h1, h2, .color-red {
 .max-width-2-5 {
   max-width: 40rem;
 }
+
+blockquote {
+  padding: 0 1em;
+  color: rgba(0, 0, 0, 0.6);
+  border-left: 0.25em solid rgba(0, 0, 0, 0.45);
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+code {
+  background-color: #f8f8f8;
+}
