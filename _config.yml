@@ -9,7 +9,7 @@ title: Brian's blog
 url: http://briansigafoos.com
 root: /
 
-permalink: none
+permalink: /:slug
 
 author:
     name: Brian Sigafoos

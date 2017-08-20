@@ -4,8 +4,9 @@ date: 2013-03-06 20:29:00
 layout: post
 slug: crossfit-wod-log
 title: CrossFit WOD log book
-summary: Here's a template of the Google Doc I use to keep track of CrossFit WOD's and PR's.
+summary: Template of a Google Sheet spreadsheet to track of CrossFit WOD's and PB's
 image: 'wod-log.png'
+hide_image: true
 ---
 
 This WOD log helps me keep track of CrossFit PR’s. Click to [view the
