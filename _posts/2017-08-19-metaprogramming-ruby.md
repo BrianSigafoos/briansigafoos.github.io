@@ -9,7 +9,7 @@ hide_image: true
 comments: true
 ---
 
-What is metaprogramming? Here a definition from [Metapgramming Ruby 2](https://www.amazon.com/dp/B00N9I0RMQ):
+What is metaprogramming? Here's a definition from [Metapgramming Ruby 2](https://www.amazon.com/dp/B00N9I0RMQ):
 
 > Metaprogramming is writing code that manipulates language constructs at runtime.
 
