@@ -55,15 +55,18 @@ blockquote {
 }
 
 pre {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  font-size: 13px;
-  line-height: 19px;
+  background-color: #f6f8fa;
+  font-size: 100% !important;
+  line-height: 1.45;
   overflow: auto;
-  padding: 6px 10px;
+  padding: 16px;
   border-radius: 3px;
 }
 
 code {
-  background-color: #f8f8f8;
+  background-color: #f6f8fa;
+}
+
+.gist .gist-file {
+  border: none !important;
 }
