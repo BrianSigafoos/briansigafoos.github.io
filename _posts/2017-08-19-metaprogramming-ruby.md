@@ -4,7 +4,7 @@ layout: post
 slug: metaprogramming-ruby
 title: Metaprogramming in Ruby
 summary: Some patterns, approaches, and "spells" for metaprogramming in Ruby
-image: 'github.png'
+image: 'ruby-logo.png'
 hide_image: true
 comments: true
 ---
