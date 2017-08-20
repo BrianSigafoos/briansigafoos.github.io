@@ -4,7 +4,7 @@ date: 2017-07-30 21:41:14
 layout: post
 slug: saas-pricing-using-ppp-rates
 title: Better international SaaS pricing thanks to PPP rates
-summary: How I made our prices more fair in less developed countries by using country PPP rates (purchasing power parity) instead of currency exchange rates
+summary: How I made Playpass pricing more fair in less developed countries by using country PPP rates (purchasing power parity) instead of currency exchange rates
 image: 'saas-intl-pricing.png'
 hide_image: true
 ---

@@ -1,15 +1,16 @@
 ---
 date: 2017-08-17 00:00:00
 layout: post
-slug: gists
-title: Code gists
-summary: Snippets of code I use for faster setup and development. Especially useful for new projects.
-image: 'github.png'
+slug: rails-gists
+title: Ruby code gists for Rails
+summary: Snippets of Ruby code for faster Rails setup, development, and testing
+image: 'rails-logo.png'
 hide_image: true
 comments: true
 ---
 
-[Github Gists](https://gist.github.com/) are a great way to share code snippets and notes. Here are a few of [mine](https://gist.github.com/BrianSigafoos). 
+[Github Gists](https://gist.github.com/) are a great way to share code snippets and notes. 
+Here are a few of [mine](https://gist.github.com/BrianSigafoos) for faster [Ruby on Rails](http://rubyonrails.org/) setup, development, and testing.
 
 &nbsp;
 
