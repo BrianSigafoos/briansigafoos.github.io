@@ -26,4 +26,8 @@ Here are a few of [mine](https://gist.github.com/BrianSigafoos) for faster [Ruby
 
 &nbsp;
 
+<script src="https://gist.github.com/BrianSigafoos/605befba6b388e2a1c7e4ec2fb806a0b.js"></script>
+
+&nbsp;
+
 From [gist.github.com/BrianSigafoos](https://gist.github.com/BrianSigafoos)
