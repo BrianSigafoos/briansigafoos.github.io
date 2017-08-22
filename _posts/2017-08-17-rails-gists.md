@@ -30,4 +30,8 @@ Here are a few of [mine](https://gist.github.com/BrianSigafoos) for faster [Ruby
 
 &nbsp;
 
+<script src="https://gist.github.com/BrianSigafoos/f0fe5e6417b0acf70ffe1bc6b6498796.js"></script>
+
+&nbsp;
+
 From [gist.github.com/BrianSigafoos](https://gist.github.com/BrianSigafoos)
