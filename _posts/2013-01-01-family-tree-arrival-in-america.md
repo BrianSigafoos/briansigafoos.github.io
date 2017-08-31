@@ -57,14 +57,14 @@ View this as a [large map](http://mapsengine.google.com/map/u/0/embed?mid=z2e_QH
 
 ## Sigafoos / Kempe
 
-#### [Thomas Rogers](http://en.wikipedia.org/wiki/Thomas_Rogers_(Mayflower_passenger)
+#### [Thomas Rogers](https://en.wikipedia.org/wiki/Thomas_Rogers_(Mayflower_passenger))
 ###### via Leonard, Richmond, Rogers
 - 1587 born **Watford, Northamptonshire, ENGLAND**
 - 1597 married Alice Cosford in Watford
 - 1606 John Rogers born in Watford
 - 1614 moved 6 children to Leiden, Holland - worked as a fabric merchant
 - 1620 **sailed on Mayflower** with 102 passengers including Joseph oldest son
-- 1620 11 Nov signed [Mayflower Compact](http://en.wikipedia.org/wiki/Mayflower_Compact)
+- 1620 11 Nov signed [Mayflower Compact](https://en.wikipedia.org/wiki/Mayflower_Compact)
 - 1621 died during 1st winter in **Plymouth, MA** /  Joseph survived and siblings come over
 - 1622 after 1622 Alice died in Holland
 - 1630 John Rogers came to Plymouth
