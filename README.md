@@ -8,7 +8,7 @@ https://briansigafoos.com.
 
 ---
 
-*prior to August 2019*
+_prior to August 2019_
 
 ## Workflow
 
