@@ -6,6 +6,8 @@
     <description>Recent content on Brian Sigafoos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>brian.sigafoos@gmail.com (Brian Sigafoos)</managingEditor>
+    <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster>
     <lastBuildDate>Sat, 10 Aug 2019 08:03:18 -0700</lastBuildDate>
     
 	<atom:link href="https://briansigafoos.com/index.xml" rel="self" type="application/rss+xml" />
@@ -15,7 +17,7 @@
       <title>Learning Go</title>
       <link>https://briansigafoos.com/learn-go/</link>
       <pubDate>Sat, 10 Aug 2019 08:03:18 -0700</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/learn-go/</guid>
       <description>Some resources I&amp;rsquo;ve found incredibly useful in learning Go, aka Golang.</description>
     </item>
@@ -24,7 +26,7 @@
       <title>Metaprogramming in Ruby</title>
       <link>https://briansigafoos.com/metaprogramming-ruby/</link>
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/metaprogramming-ruby/</guid>
       <description>Some patterns, approaches, and &amp;ldquo;spells&amp;rdquo; for metaprogramming in Ruby.</description>
     </item>
@@ -33,7 +35,7 @@
       <title>Ruby code gists for Rails</title>
       <link>https://briansigafoos.com/rails-gists/</link>
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/rails-gists/</guid>
       <description>Snippets of Ruby code for faster Rails setup, development, and testing.</description>
     </item>
@@ -42,7 +44,7 @@
       <title>Better international SaaS pricing with PPP rates</title>
       <link>https://briansigafoos.com/saas-pricing-using-ppp-rates/</link>
       <pubDate>Sun, 30 Jul 2017 21:41:14 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/saas-pricing-using-ppp-rates/</guid>
       <description>How I made Playpass pricing more fair in less developed countries by using country PPP rates (purchasing power parity) instead of currency exchange rates.</description>
     </item>
@@ -51,7 +53,7 @@
       <title>Dubai startup resources</title>
       <link>https://briansigafoos.com/dubai-startup-resources/</link>
       <pubDate>Sun, 22 Jun 2014 12:21:12 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/dubai-startup-resources/</guid>
       <description>Crash course on Dubai&amp;rsquo;s startup ecosystem from co-working spaces to accelerators and a list of Dubai startups.</description>
     </item>
@@ -60,7 +62,7 @@
       <title>NorCal frozen berry margarita recipe</title>
       <link>https://briansigafoos.com/paleo-norcal-margarita-recipe/</link>
       <pubDate>Mon, 27 Jan 2014 19:50:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/paleo-norcal-margarita-recipe/</guid>
       <description>Recipe for a variation of Robb Wolf&amp;rsquo;s paleo NorCal Margarita with frozen berries instead of ice cubes.</description>
     </item>
@@ -69,7 +71,7 @@
       <title>2013 lists of favorites</title>
       <link>https://briansigafoos.com/2013-lists/</link>
       <pubDate>Fri, 27 Dec 2013 19:50:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/2013-lists/</guid>
       <description>My favorite podcasts, charities, software, websites, apps, music and more for 2013.</description>
     </item>
@@ -78,7 +80,7 @@
       <title>Setting up Jekyll with Bootstrap, Github pages and a custom domain</title>
       <link>https://briansigafoos.com/building-a-blog-using-jekyll-and-github-pages/</link>
       <pubDate>Fri, 26 Jul 2013 03:21:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/building-a-blog-using-jekyll-and-github-pages/</guid>
       <description>Here&amp;rsquo;s how I set up this blog with Jekyll, Bootstrap, GitHub pages. Tip - clone a working Jekyll site!</description>
     </item>
@@ -87,7 +89,7 @@
       <title>CrossFit WOD log book</title>
       <link>https://briansigafoos.com/crossfit-wod-log/</link>
       <pubDate>Wed, 06 Mar 2013 20:29:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/crossfit-wod-log/</guid>
       <description>Template of a Google Sheet spreadsheet to track of CrossFit WOD&amp;rsquo;s and PB&amp;rsquo;s.</description>
     </item>
@@ -96,7 +98,7 @@
       <title>Learning with MOOC&#39;s</title>
       <link>https://briansigafoos.com/online-mooc-learning/</link>
       <pubDate>Sat, 23 Feb 2013 23:29:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/online-mooc-learning/</guid>
       <description>Mass Open Online Courses are an amazing way to learn online, for free. Here&amp;rsquo;s a list of some great free courses.</description>
     </item>
@@ -105,7 +107,7 @@
       <title>Mapping relatives from Europe to America</title>
       <link>https://briansigafoos.com/family-tree-arrival-in-america/</link>
       <pubDate>Tue, 01 Jan 2013 12:21:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/family-tree-arrival-in-america/</guid>
       <description>A 2012 project to find out where my family came from in Germany, England, and Scotland and where they ended up in the US</description>
     </item>
@@ -114,7 +116,7 @@
       <title>Travel guide for Dubai guests</title>
       <link>https://briansigafoos.com/dubai-guide-for-visitors-to-uae/</link>
       <pubDate>Fri, 01 Jun 2012 12:00:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/dubai-guide-for-visitors-to-uae/</guid>
       <description>My Airbnb guidebook of travel tips for visitors to Dubai.</description>
     </item>
@@ -123,7 +125,7 @@
       <title>Arabic to English sports phrasebook</title>
       <link>https://briansigafoos.com/sports-phrasebook-english-arabic-french-spanish-italian-tagalog/</link>
       <pubDate>Wed, 30 Nov 2011 12:00:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/sports-phrasebook-english-arabic-french-spanish-italian-tagalog/</guid>
       <description>Sports phrases in 6 languages - English, Arabic, French, Spanish, Italian and Tagalog.</description>
     </item>
@@ -132,7 +134,7 @@
       <title>Verbs in Arabic, English, and French</title>
       <link>https://briansigafoos.com/english-palestinian-arabic-colloquial-verbs/</link>
       <pubDate>Sun, 06 Mar 2011 12:00:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/english-palestinian-arabic-colloquial-verbs/</guid>
       <description>250+ colloquial Palestinian Arabic verbs with English and French translations.</description>
     </item>
@@ -141,7 +143,7 @@
       <title>About me</title>
       <link>https://briansigafoos.com/about/</link>
       <pubDate>Mon, 01 Jan 2001 00:00:00 +0000</pubDate>
-      
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/about/</guid>
       <description>I love building products that try to make the world better and bring people together.</description>
     </item>
