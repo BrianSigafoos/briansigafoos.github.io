@@ -3,8 +3,8 @@ date: 2017-07-30 21:41:14
 slug: saas-pricing-using-ppp-rates
 title: Better international SaaS pricing with PPP rates
 summary: How I made Playpass pricing more fair in less developed countries by
-         using country PPP rates (purchasing power parity) instead of
-         currency exchange rates.
+  using country PPP rates (purchasing power parity) instead of
+  currency exchange rates.
 ---
 
 ### A good problem to solve
@@ -41,7 +41,7 @@ I wanted prices that would be stable and fair.
 solves this for us.
 
 > **Purchasing power parity** (PPP) is an economic theory that states that the
- exchange rate between two currencies is equal to the ratio of the currencies' respective purchasing power.
+> exchange rate between two currencies is equal to the ratio of the currencies' respective purchasing power.
 
 PPP can be easier to understand through the
 [Big Mac Index](https://en.wikipedia.org/wiki/Big_Mac_Index), tracking how much
@@ -61,7 +61,7 @@ calculated by Google Finance.
 ### Sanity checking prices
 
 If we solely used PPP rates the range in prices would be too large. Per $100
-we'd typically charge we'd receive less than $15 in Egypt and over $150 in
+we'd typically charge we'd receive less than $15 in Egypt and over 150 in
 Bermuda. In poorest countries, PPP rates reflect staggering levels of poverty.
 The don't take into account what our potential customer with a smartphone or
 computer can afford to pay. PPP rates also don't take into account local
@@ -113,7 +113,7 @@ end
 
 Next, I'll write more about:
 
-* Storing PPP rates
-* Dynamically calculating prices
-* Dynamically creating Stripe Plans at checkout
-* Dealing with currencies without a decimal place (Japanese yen, ¥1 is the smallest amount) or currencies with 1/1000 cents (Jordanian dinars) instead of 1/100 cents
+- Storing PPP rates
+- Dynamically calculating prices
+- Dynamically creating Stripe Plans at checkout
+- Dealing with currencies without a decimal place (Japanese yen, ¥1 is the smallest amount) or currencies with 1/1000 cents (Jordanian dinars) instead of 1/100 cents

@@ -3,7 +3,7 @@ date: 2013-07-26 03:21:00
 slug: building-a-blog-using-jekyll-and-github-pages
 title: Setting up Jekyll with Bootstrap, Github pages and a custom domain
 summary: Here's how I set up this blog with Jekyll, Bootstrap, GitHub pages.
-         Tip - clone a working Jekyll site!
+  Tip - clone a working Jekyll site!
 ---
 
 ### Update: August 2019
@@ -38,7 +38,7 @@ someone else's working Jekyll Github blog.
 - [tagbuild.sh by copyninja][] to copy tags so Github shows them correctly, which I also [modified][] to have it do even more
 - [instafeed.js][] to add a [photos][] page and sidebar with recent Instagram photos
 
-[alias generator for Jekyll]: https://github.com/tsmango/jekyll_alias_generator
+[alias generator for jekyll]: https://github.com/tsmango/jekyll_alias_generator
 [tags generator]: http://charliepark.org/tags-in-jekyll/
 [tagbuild.sh by copyninja]: https://github.com/copyninja/copyninja.github.com/blob/master/tagbuild.sh
 [modified]: https://github.com/BrianSigafoos/briansigafoos.github.io/blob/master/tagbuild.sh

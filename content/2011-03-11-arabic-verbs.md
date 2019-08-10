@@ -3,7 +3,7 @@ date: 2011-03-06 12:00:00
 slug: english-palestinian-arabic-colloquial-verbs
 title: Verbs in Arabic, English, and French
 summary: 250+ colloquial Palestinian Arabic verbs with English and French
-         translations.
+  translations.
 ---
 
 ### Learning spoken Arabic

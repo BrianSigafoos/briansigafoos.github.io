@@ -1,11 +1,12 @@
 /* See tailwind.config.js for color primary: 'var(--color-primary)'
    and .container setup. */
-@import "node_modules/tailwindcss/base";
-@import "node_modules/tailwindcss/components";
-@import "node_modules/tailwindcss/utilities";
+@import 'node_modules/tailwindcss/base';
+@import 'node_modules/tailwindcss/components';
+@import 'node_modules/tailwindcss/utilities';
 
 /* Site's custom CSS */
-@import "assets/css/color_schemes";
-@import "assets/css/type";
+@import 'assets/css/color_schemes';
+@import 'assets/css/type';
+
 /* Overrides of imported styles like gists */
-@import "assets/css/overrides";
+@import 'assets/css/overrides';

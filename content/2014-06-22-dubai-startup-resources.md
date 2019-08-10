@@ -3,7 +3,7 @@ date: 2014-06-22 12:21:12
 slug: dubai-startup-resources
 title: Dubai startup resources
 summary: Crash course on Dubai's startup ecosystem from co-working spaces to
-         accelerators and a list of Dubai startups.
+  accelerators and a list of Dubai startups.
 ---
 
 ### Crash course on Dubai's startup ecosystem

@@ -3,7 +3,7 @@ date: 2011-11-30 12:00:00
 slug: sports-phrasebook-english-arabic-french-spanish-italian-tagalog
 title: Arabic to English sports phrasebook
 summary: Sports phrases in 6 languages - English, Arabic, French, Spanish,
-         Italian and Tagalog.
+  Italian and Tagalog.
 ---
 
 ### بحب إلعب رياضة
