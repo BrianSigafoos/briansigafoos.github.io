@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Learning Go - Brian Sigafoos</title>
+
+  
+  
+    
+    <link rel="stylesheet" href="https://briansigafoos.com/css/styles.min.90c4cbe03bbc0c3eb4fc1869e4f9cc93353ccae29553c77ea7ecc98f08ab8941.css" integrity="sha256-kMTL4Du8DD60/Bhp5PnMkzU8yuKVU8d&#43;p&#43;zJjwiriUE=" />
+  
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42740116-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+  <link rel="shortcut icon" href="/favicon.png?20190809" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?20190809" />
+</head>
+
+<body class="antialiased leading-normal">
+  <div class="border-b border-gray py-4 w-full">
+  <div class="container max-w-4xl">
+    <div class="flex items-center justify-between font-mono">
+      <a href="https://briansigafoos.com/" class="font-black">
+        Brian Sigafoos
+      </a>
+
+      <a href="/about" class="font-bold">About me</a>
+    </div>
+  </div>
+</div>
+
+  <div class="container my-16 max-w-4xl">
+    <h1 class="title">
+      Learning Go
+    </h1>
+
+    <h3 class="subtitle">
+      Some resources I&rsquo;ve found incredibly useful in learning Go, aka Golang.
+    </h3>
+
+    <p class="font-mono text-faint text-sm">
+      
+        <time class="inline-block" datetime="2019-08-10 08:03:18 -0700 PDT">Aug 10, 2019</time>
+        ·
+      
+
+      
+        1 min read
+      
+    </p>
+
+    <div class="border-t border-gray text-readable my-8 pt-4">
+      
+
+<h3 id="ready-to-learn-go">Ready to learn Go?</h3>
+
+<p>Above all, I&rsquo;d recommend the
+<a href="https://www.amazon.com/dp/B0184N7WWS/">The Go Programming Language</a> book.
+It was published in 2015, but thanks to the stability of the Go language,
+this is still the best book for picking up Go.</p>
+
+<h3 id="watch">Watch</h3>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=bmZNaUcwBt4">The Why of Go</a></li>
+<li><a href="https://www.youtube.com/watch?v=rFejpH_tAHM">Simplicity Is Complicated, Rob Pike</a></li>
+<li><a href="https://vimeo.com/49718712">Concurrency Is Not Parallelism, Rob Pike</a></li>
+<li><a href="https://research.swtch.com/gotour">A Tour of Go, Russ Cox</a></li>
+<li><a href="https://www.youtube.com/watch?v=sX8r6zATHGU">Go: building on the shoulders of giants and stepping on a few toes</a></li>
+</ul>
+
+<h3 id="read-and-do">Read and do</h3>
+
+<ul>
+<li><a href="https://www.amazon.com/dp/B0184N7WWS/"><strong>The Go Programming Language</strong></a> ⭑</li>
+<li><a href="https://tour.golang.org/welcome/1">A Tour of Go</a></li>
+<li><a href="https://golang.org/doc/effective_go.html">Effective Go</a></li>
+<li><a href="https://golang.org/pkg/">Package Docs</a></li>
+<li><a href="https://golang.org/ref/spec">Language Specification</a></li>
+<li><a href="https://golang.org/doc/">Many links on golang.org Documentation</a>
+
+<ul>
+<li>Especially see: <strong>codewalks</strong></li>
+</ul></li>
+</ul>
+
+<h3 id="cheatsheets">Cheatsheets</h3>
+
+<ul>
+<li><a href="https://learnxinyminutes.com/docs/go/">Learn Go in Y Minutes</a></li>
+<li><a href="https://github.com/a8m/go-lang-cheat-sheet">a8m/go-lang-cheat-sheet</a></li>
+<li><a href="https://devhints.io/go">devhints.io/go</a></li>
+</ul>
+
+<h3 id="practice">Practice</h3>
+
+<ul>
+<li><a href="https://gophercises.com">Gophercieses</a></li>
+</ul>
+
+<h3 id="podcasts-and-video-series">Podcasts and video series</h3>
+
+<ul>
+<li><a href="https://changelog.com/gotime">Go Time</a></li>
+<li><a href="https://www.youtube.com/c/justforfunc">Just for Func</a></li>
+</ul>
+
+<h3 id="linting">Linting</h3>
+
+<ul>
+<li><a href="https://github.com/golangci/golangci-lint">golangci-lint</a>
+
+<ul>
+<li>Configurable meta linter</li>
+</ul></li>
+</ul>
+
+<h3 id="development">Development</h3>
+
+<ul>
+<li><p>Versions of Go</p>
+
+<ul>
+<li>Use gimme for easy version switching: <code>brew install gimme; eval &quot;$(gimme 1.12.7)&quot;</code></li>
+
+<li><p>Add this to your shell init script (~/.bash_profile, ~/.profile, etc)</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#24909d">export</span> <span style="color:#40ffff">GOPATH</span>=~/go
+<span style="color:#24909d">export</span> <span style="color:#40ffff">PATH</span>=<span style="color:#ed9d13">&#34;</span><span style="color:#40ffff">$GOPATH</span><span style="color:#ed9d13">/bin:</span><span style="color:#40ffff">$PATH</span><span style="color:#ed9d13">&#34;</span>
+<span style="color:#24909d">eval</span> <span style="color:#ed9d13">&#34;</span><span style="color:#6ab825;font-weight:bold">$(</span>gimme <span style="color:#3677a9">1</span>.12.7<span style="color:#6ab825;font-weight:bold">)</span><span style="color:#ed9d13">&#34;</span></code></pre></div></li>
+</ul></li>
+
+<li><p>Use Go modules (<a href="https://github.com/golang/go/wiki/Modules">read this wiki</a>)</p>
+
+<ul>
+<li>You can either:</li>
+<li>A: git clone the code outside your GOPATH (ie, next to your other code) to use go modules automatically (recommended)</li>
+<li>B: set <code>GO111MODULE=on</code> and keep your Go code in your GOPATH</li>
+</ul></li>
+</ul>
+
+<h3 id="ide-tools">IDE Tools</h3>
+
+<ul>
+<li>VS Code
+
+<ul>
+<li><a href="https://github.com/Microsoft/vscode-go/wiki/Go-modules-support-in-Visual-Studio-Code">Go modules in VS Code</a></li>
+</ul></li>
+</ul>
+
+    </div>
+
+    
+      <div class="my-8">
+        <a href="/" class="btn btn-default">
+          Visit homepage
+        </a>
+      </div>
+    
+
+    
+      
+        <div class="my-8">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "briansigafoos" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+  </div>
+
+
+  <div class="border-t border-gray py-4 my-16 w-full text-sm text-faint">
+  <div class="container max-w-4xl text-center font-mono">
+    <div class="md:flex items-center justify-between">
+      <span>
+        Made with
+        <a href="https://gohugo.io" rel="nofollow">Hugo</a>
+        &
+        <a href="https://tailwindcss.com" rel="nofollow">TailwindCSS</a>
+        ·
+
+        <a href="https://github.com/BrianSigafoos/hugo_site" class="text-faint" rel="nofollow">
+          Source code
+        </a>
+      </span>
+
+      <span class="block md:inline">
+        By <a href="https://briansigafoos.com//about" class="font-bold">Brian Sigafoos</a>
+      </span>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

@@ -6,10 +6,19 @@
     <description>Recent content on Brian Sigafoos</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2019 08:03:18 -0700</lastBuildDate>
     
 	<atom:link href="https://briansigafoos.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Learning Go</title>
+      <link>https://briansigafoos.com/learning-golang/</link>
+      <pubDate>Sat, 10 Aug 2019 08:03:18 -0700</pubDate>
+      
+      <guid>https://briansigafoos.com/learning-golang/</guid>
+      <description>Some resources I&amp;rsquo;ve found incredibly useful in learning Go, aka Golang.</description>
+    </item>
     
     <item>
       <title>Metaprogramming in Ruby</title>
