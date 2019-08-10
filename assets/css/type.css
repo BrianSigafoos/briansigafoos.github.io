@@ -1,0 +1,126 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold mt-4 mb-2;
+}
+
+h1 {
+  @apply text-3xl;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-xl;
+}
+
+h4 {
+  @apply text-xl;
+}
+
+@screen sm {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold mt-6 mb-4;
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-4xl;
+  }
+
+  h3 {
+    @apply text-3xl;
+  }
+
+  h4 {
+    @apply text-2xl;
+  }
+}
+
+.gist h1,
+.gist h2,
+.gist h3,
+.gist h4 {
+  color: var(--color-primary);
+}
+
+.title {
+  @apply leading-none mb-0;
+}
+
+.subtitle {
+  @apply font-light leading-snug mt-2;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover,
+a:focus {
+  @apply underline;
+}
+
+.text-readable p,
+.text-readable blockquote,
+.text-readable ul,
+.text-readable ol {
+  @apply text-lg mb-2;
+
+  line-height: 1.58;
+}
+
+@screen sm {
+  .text-readable p,
+  .text-readable blockquote,
+  .text-readable ul,
+  .text-readable ol {
+    @apply text-xl mb-4;
+  }
+}
+
+.text-readable ul {
+  @apply list-disc list-inside;
+}
+
+.text-readable ol {
+  @apply list-decimal list-inside;
+}
+
+.text-readable p:last-child {
+  @apply mb-0;
+}
+
+blockquote {
+  @apply border-l-4 border-primary pl-4 py-2 text-sm text-muted bg-gray;
+}
+
+pre {
+  @apply text-sm bg-gray p-4 overflow-auto;
+}
+
+.btn {
+  @apply inline-block mb-1 py-2 px-6 rounded-full cursor-pointer font-bold;
+}
+
+.btn-default {
+  @apply text-primary border border-solid border-primary;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--text-bright);
+}

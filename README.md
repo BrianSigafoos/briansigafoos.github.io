@@ -2,6 +2,18 @@
 
 ## Workflow
 
+- Add posts to `content/` using `hugo new <post-name>`
+- Run `hugo server --disableFastRender --gc` locally
+- Publish by running `hugo --gc --cleanDestinationDir` and open a PR
+
+## Setup
+
+- Coming soon
+
+---
+
+## Workflow
+
 - To publish on Github pages just merge a Pull Request into master and Github handles the rest.
 
 ```shell

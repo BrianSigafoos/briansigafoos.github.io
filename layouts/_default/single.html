@@ -1,0 +1,33 @@
+{{ define "main" }}
+  <h1 class="title">
+    {{ .Title }}
+  </h1>
+
+  <h3 class="subtitle">
+    {{ .Summary }}
+  </h3>
+
+  <p class="font-mono text-faint text-sm">
+    {{ if not (.Params.hide_date) }}
+      <time class="inline-block" datetime="{{ .Date }}">
+        {{- .Date.Format "2-Jan-2006" -}}
+      </time>
+      ·
+    {{ end }}
+    {{ if not (.Params.hide_read_time) }}
+      {{add .ReadingTime 1 }} minutes to read
+    {{ end }}
+  </p>
+
+  <div class="border-t border-gray text-readable mt-8 pt-4">
+    {{ .Content }}
+  </div>
+
+  {{ if not (.Params.hide_comments) }}
+    {{ if .Site.DisqusShortname }}
+      <div class="mt-8">
+        {{ template "_internal/disqus.html" . }}
+      </div>
+    {{ end }}
+  {{ end }}
+{{ end }}
