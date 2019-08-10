@@ -1,0 +1,81 @@
+:root {
+  --color-primary: #17bf63;
+  --bg-bright: #fff; /* bg-white */
+  --bg-gray: #edf2f7; /* gray-200 */
+  --border-gray: #e2e8f0; /* gray-300 */
+  --text-bright: #1a202c; /* gray-900 */
+  --text-color: #4a5568; /* gray-700 */
+  --text-muted: #718096; /* gray-600 */
+  --text-faint: #a0aec0; /* gray-500 */
+  --shadow-color-a: rgba(0, 0, 0, 0.1);
+  --shadow-color-b: rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-bright: #1a202c; /* gray-900 */
+    --bg-gray: #0a0b10; /* bg-gray-970 */
+    --border-gray: #4a5568; /* gray-700 */
+    --text-bright: #f7fafc; /* gray-100 */
+    --text-color: #cbd5e0; /* gray-400 */
+    --text-muted: #a0aec0; /* gray-500 */
+    --text-faint: #718096; /* gray-600 */
+    --shadow-color-a: rgba(255, 255, 255, 0.2);
+    --shadow-color-b: rgba(255, 255, 255, 0.12);
+  }
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-bright);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-bright);
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
+.bg-bright {
+  background-color: var(--bg-bright);
+}
+
+.bg-gray {
+  background-color: var(--bg-gray);
+}
+
+.border-gray {
+  border-color: var(--border-gray);
+}
+
+.text-bright {
+  color: var(--text-bright);
+}
+
+.text-color {
+  color: var(--text-color);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-faint {
+  color: var(--text-faint);
+}
+
+.btn-default {
+  background-color: var(--bg-bright);
+}
+
+/* prettier-ignore */
+.shadow {
+  box-shadow:
+    0 1px 3px 0 var(--shadow-color-a),
+    0 1px 2px 0 var(--shadow-color-b);
+}

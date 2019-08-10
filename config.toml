@@ -1,0 +1,11 @@
+baseURL = "https://briansigafoos.com"
+languageCode = "en-us"
+title = "Brian Sigafoos"
+
+googleAnalytics = "UA-42740116-1"
+disqusShortname = "briansigafoos"
+
+[params]
+  twitter = "https://twitter.com/BrianSigafoos"
+  github = "https://github.com/BrianSigafoos"
+  linkedin = "https://linkedin.com/in/sigafoos"

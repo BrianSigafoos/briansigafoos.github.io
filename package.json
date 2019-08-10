@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "description": "Weblog v2",
+  "license": "MIT",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "autoprefixer": "^9.6.1",
+    "postcss": "^7.0.17",
+    "postcss-cli": "^6.1.3",
+    "postcss-import": "^12.0.1",
+    "prettier": "^1.18.2",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-scss": "^3.9.3",
+    "tailwindcss": "^1.1.0"
+  },
+  "scripts": {
+    "fix:css": "yarn prettier --write 'assets/**/*.css'; yarn stylelint --fix 'assets/**/*.css'",
+    "fix:md": "yarn prettier --write './*.md'; yarn prettier --write './**/*.md'",
+    "fix": "yarn run fix:css; yarn run fix:md"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
+}
