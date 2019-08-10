@@ -2,8 +2,9 @@
 
 In August 2019, I changed this from Jekyll + basecss to Hugo + TailwindCSS.
 
-See [BrianSigafoos/hugo_site](https://github.com/BrianSigafoos/hugo_site) for
-the code that builds this GitHub page deployed to https://briansigafoos.com
+Visit [github.com/BrianSigafoos/hugo_site](https://github.com/BrianSigafoos/hugo_site) for
+the code that builds this GitHub page and is deployed to
+https://briansigafoos.com.
 
 ---
 
