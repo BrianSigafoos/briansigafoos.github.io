@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Scrum notes - Brian Sigafoos</title>
+  <title>Practicing Scrum - Brian Sigafoos</title>
 
   
   
@@ -48,11 +48,11 @@ if (!doNotTrack) {
 
   <div class="container my-16 max-w-4xl">
     <h1 class="title">
-      Scrum notes
+      Practicing Scrum
     </h1>
 
     <h3 class="subtitle">
-      My Agile training notes from a Scrum workshop by Ron Lichty
+      Agile training notes from a Scrum workshop by Ron Lichty
     </h3>
 
     <p class="font-mono text-faint text-sm">
@@ -62,7 +62,7 @@ if (!doNotTrack) {
       
 
       
-        4 min read
+        5 min read
       
     </p>
 
@@ -70,9 +70,18 @@ if (!doNotTrack) {
       
 
 <p>I recently attended an <a href="https://ronlichty.com/">Agile training by Ron Lichty</a>.
-These notes are my attempt to digest and process this outstanding Scrum workshop.
-The notes focus on specifics to make our Engineering and Product teams more
-successful.</p>
+These notes are my attempt to digest and process this outstanding Scrum workshop,
+focused on delighting customers and team happiness for our Engineering and
+Product teams.</p>
+
+<h3 id="defining-scrum">Defining Scrum</h3>
+
+<p><a href="https://en.wikipedia.org/wiki/Scrum_%28software_development%29">Scrum</a> is an
+<a href="https://en.wikipedia.org/wiki/Agile_software_development">Agile</a>
+process framework for teams of ten or fewer members. Teams break their work
+into goals that can be completed within time-boxed iterations, called <strong>sprints</strong>
+(usually two weeks). They track progress and re-plan in 15-minute time-boxed
+stand-up meetings, called daily <strong>scrums</strong>.</p>
 
 <p><br /></p>
 
@@ -84,18 +93,31 @@ successful.</p>
 
 <p><br /></p>
 
-<h2 id="ideal-team">Ideal team</h2>
+<h3 id="ideal-team">Ideal team</h3>
 
 <ul>
 <li>5-9 people (max)</li>
-<li>Colocated</li>
+<li>Collocated</li>
 <li>Dedicated</li>
 <li>Focused</li>
 <li>Cross-functional</li>
 <li>Self-organizing</li>
 </ul>
 
-<h2 id="project-planning">Project Planning</h2>
+<h3 id="definition-of-done">Definition of done</h3>
+
+<ul>
+<li>Entire team participates, including Product Owner</li>
+<li>Prior to coding a single line</li>
+<li>Post it where team can see it</li>
+<li>Agile: it can change
+
+<ul>
+<li>Of getting in the way or not effective the team can change it at a retro</li>
+</ul></li>
+</ul>
+
+<h3 id="project-planning">Project planning</h3>
 
 <ul>
 <li>Entire team participates
@@ -107,14 +129,15 @@ successful.</p>
 </ul></li>
 <li><sup>1</sup>&frasl;<sub>2</sub> day, covering 50-150 stories, 3-6 months of backlog</li>
 <li>Always size stories relative to other stories</li>
-<li>Use two-pass relative sizing
+<li>Snake sizing / two-pass relative sizing
 
 <ul>
-<li>AKA the Snake, the Steve Bockman method, the <a href="https://www.agilelearninglabs.com/2012/05/how-to-play-the-team-estimation-game/">Team Estimation Game</a></li>
+<li>Ron Lichty&rsquo;s adaptation of the Steve Bockman method, aka
+the <a href="https://www.agilelearninglabs.com/2012/05/how-to-play-the-team-estimation-game/">Team Estimation Game</a></li>
 </ul></li>
 </ul>
 
-<h3 id="two-pass-relative-sizing">Two-pass relative sizing</h3>
+<h4 id="snake-sizing-two-pass-relative-sizing">Snake sizing / two-pass relative sizing</h4>
 
 <ul>
 <li>First pass: order all stories by relative size</li>
@@ -131,7 +154,7 @@ successful.</p>
 <li>if others don&rsquo;t consent, it&rsquo;s an opportunity for discussion and learning from each other&rsquo;s perspectives</li>
 </ul></li>
 <li>Second pass: start at easiest to find dividing line for points</li>
-<li>Use modified Fibonacci: 1 2 3 5 8 13 20 40 100
+<li>Use modified Fibonacci: 1, 2, 3, 5, 8, 13, 20, 40, 100
 
 <ul>
 <li>20, 40, and 100 are just huge, huger, hugest.</li>
@@ -145,48 +168,78 @@ successful.</p>
 </ul></li>
 </ul>
 
-<h3 id="product-business-value-sizing">Product business value sizing</h3>
+<h4 id="product-business-value-sizing">Product business value sizing</h4>
 
 <ul>
 <li>Product Owner, with input as needed from Architects and Tech Leads</li>
 <li>Use same two-pass relative sizing approach, with another deck of cards</li>
 <li>This time ordered by value to business</li>
-<li>Use regular Fibonacci: 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597&hellip;
+<li>Use regular Fibonacci: 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597&hellip;
 
 <ul>
 <li>Business value for a story can be 1000x more than another story</li>
 </ul></li>
 </ul>
 
-<h2 id="sprint-planning">Sprint Planning</h2>
+<h4 id="product-backlog-items-pbi-s">Product Backlog Items (PBI&rsquo;s)</h4>
 
 <ul>
-<li>Before sprint planning, backlog has 2-3 sprints worth of cards ordered by ROI (business value / points)</li>
-<li>Team pulls cards from backlog, not Scrum Master or Product Owner</li>
-<li>Team decides what&rsquo;s the most productive they can be and asks Product Owner if that&rsquo;s acceptible</li>
-<li>Team breaks stories into tasks and estimates tasks in days or hours</li>
-<li>May write names on tasks</li>
-<li>Project Owner, if hears team is falling behind can choose what not to do</li>
+<li>User PBI, aka User Stories
+
+<ul>
+<li>Product assesses value</li>
+</ul></li>
+<li>Technical PBI
+
+<ul>
+<li>For value pointing, Architect assesses value, and can bring in Tech Leads</li>
+<li>As a team keep the codebase malleable, paying down technical debt</li>
+</ul></li>
 </ul>
 
-<h2 id="user-stories">User stories</h2>
+<h3 id="backlog">Backlog</h3>
+
+<ul>
+<li>Before sprint planning, backlog needs 2 <sup>1</sup>&frasl;<sub>2</sub> sprints worth of stories ordered
+by ROI (business value / points)</li>
+<li>Order by ROI, dependencies, and &ldquo;judgement&rdquo; of opportunities to learn by
+consulting with Architect, Tech Leads</li>
+</ul>
+
+<h3 id="sprints">Sprints</h3>
+
+<ul>
+<li>Starts with sprint planning</li>
+<li>Ends with demos to stakeholders and a sprint retrospective, aka sprint retro</li>
+</ul>
+
+<h4 id="sprint-planning">Sprint planning</h4>
+
+<ul>
+<li>Team pulls cards from backlog, not Scrum Master or Product Owner</li>
+<li>Team decides what&rsquo;s the most productive they can be and asks Product Owner if that&rsquo;s acceptable</li>
+<li>Team breaks stories into tasks and estimates tasks in days, smallest <sup>1</sup>&frasl;<sub>2</sub> day</li>
+<li>May write names on tasks</li>
+</ul>
+
+<h3 id="user-stories">User stories</h3>
 
 <ul>
 <li>A unit of business value</li>
 <li>&ldquo;As a [user type] I want [to do X] so that [I get value]&rdquo;</li>
 <li>Testable</li>
-<li>Fit in a sprint (an epic is a story that doesn’t fit)</li>
+<li>Fits in a sprint (an epic is a story that doesn’t fit)</li>
 <li>A placeholder for communication</li>
 </ul>
 
-<h2 id="technical-debt-stories">Technical debt stories</h2>
+<h3 id="technical-debt-stories">Technical debt stories</h3>
 
 <ul>
 <li>20% of each sprint&rsquo;s points, or there will be technical bankruptcy</li>
 <li>Can have separate swimlane or same user story backlog</li>
 </ul>
 
-<h2 id="agile-disciplines">Agile disciplines</h2>
+<h3 id="agile-disciplines">Agile disciplines</h3>
 
 <ul>
 <li>Self-organizing teams means 1 leader at a time</li>
@@ -199,31 +252,99 @@ successful.</p>
 <li>Trust and respect are key</li>
 </ul>
 
-<h2 id="standups">Standups</h2>
+<h3 id="standups">Standups</h3>
 
 <ul>
-<li>Daily, 15 min timboxed</li>
+<li>Daily, 15 min time-boxed</li>
 <li>3 questions, in context of current sprint:
 
 <ul>
 <li>What did I accomplish yesterday?</li>
-<li>What will I accompoish today?</li>
+<li>What will I accomplish today?</li>
 <li>What is blocking me?</li>
 </ul></li>
-<li>Team moves cards as done, updates card with time left</li>
-<li>&ldquo;Fist to Five&rdquo; vote: are we on track for our Sprint Plan</li>
+<li>Team moves cards as done, updates card with time spent and time left</li>
+<li>&ldquo;Fist to Five&rdquo; vote: are we on track for our Sprint Plan
+
+<ul>
+<li>If less than 4&rsquo;s and 5&rsquo;s, it&rsquo;s a discussion on where team might fall short.</li>
+<li>Project Owner can then choose what not to do</li>
+</ul></li>
 </ul>
 
-<h2 id="scrum-ceremonies-and-events">Scrum ceremonies and events</h2>
+<h3 id="sprint-retrospectives">Sprint Retrospectives</h3>
+
+<ul>
+<li>Team only: product and engineers. No engineering managers.</li>
+<li>Key questions:
+
+<ul>
+<li>What&rsquo;s getting in our way?</li>
+<li>What can we experiment with?</li>
+</ul></li>
+</ul>
+
+<h3 id="scrum-ceremonies-and-events">Scrum ceremonies and events</h3>
 
 <ul>
 <li>Standup: 15 min daily</li>
 <li>Sprint: 2 week duration</li>
-<li>Retrospectives: 1 hour on last day of sprint (team, no managers)</li>
+<li>Retrospectives: 1 hour on last day of sprint</li>
 <li>Demos: 15min per team on last day of sprint</li>
 <li>Project planning: <sup>1</sup>&frasl;<sub>2</sub> day relative sizing with 6 months of stories (team and managers)</li>
 <li>Sprint planning: 2 hours on first day of new sprint (team and managers)</li>
 </ul>
+
+<h3 id="project-workflow">Project Workflow</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">Stage</th>
+<th align="left">Product / Overall</th>
+<th align="left">Technical</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Listing:</td>
+<td align="left">Epics and stories user PBI</td>
+<td align="left">Technical PBI</td>
+</tr>
+
+<tr>
+<td align="left">Sizing:</td>
+<td align="left">Snake sizing, two-pass relative sizing</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">Ordering:</td>
+<td align="left">ROI/Dependencies/Risk</td>
+<td align="left">Urgency/Risk</td>
+</tr>
+
+<tr>
+<td align="left">Integrating:</td>
+<td align="left">1-2 backlogs with 2 <sup>1</sup>&frasl;<sub>2</sub> sprints detailed</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">Planning:</td>
+<td align="left">Sprint Plan, team pulls from 1 or 2 backlogs</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="focus">Focus</h3>
+
+<ol>
+<li>Delight customer</li>
+<li>Team happiness</li>
+</ol>
 
 <p><br /></p>
 
