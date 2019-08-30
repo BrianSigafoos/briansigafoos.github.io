@@ -62,7 +62,7 @@ if (!doNotTrack) {
       
 
       
-        2 min read
+        3 min read
       
     </p>
 
@@ -148,6 +148,34 @@ and <code>ROLLBACK</code>:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">BEGIN</span>;
 <span style="color:#6ab825;font-weight:bold">EXPLAIN</span> <span style="color:#6ab825;font-weight:bold">ANALYZE</span> ...;
 <span style="color:#6ab825;font-weight:bold">ROLLBACK</span>;</code></pre></div>
+<h3 id="vacuum">VACUUM</h3>
+
+<p>Why <code>VACUUM</code>?</p>
+
+<blockquote>
+<p>In normal PostgreSQL operation, tuples that are deleted or obsoleted by an
+update are not physically removed from their table; they remain present until
+a VACUUM is done. Therefore it&rsquo;s necessary to do VACUUM periodically,
+especially on frequently-updated tables.
+(<a href="https://www.postgresql.org/docs/11/sql-vacuum.html">reference</a>)</p>
+</blockquote>
+
+<p><code>VACUUM ANALYZE</code> performs a <code>VACUUM</code> and then an <code>ANALYZE</code> for each selected
+table.</p>
+
+<p><code>ANALYZE</code> updates statistics used by the planner to determine the most efficient
+way to execute a query.</p>
+
+<p><code>VACUUM FULL</code> reclaims more space, but takes much longer and <strong>exclusively locks
+the table</strong>. This method also requires extra disk space, since it writes a new
+copy of the table and doesn&rsquo;t release the old copy until the operation is
+complete.</p>
+
+<h3 id="rails-console-sql-commands">Rails console SQL commands</h3>
+
+<p>From the Rails console, call <code>ActiveRecord::Base.connection.execute &quot;...&quot;</code>
+to execute arbitrary SQL commands:</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#40ffff">ActiveRecord</span>::<span style="color:#40ffff">Base</span>.connection.execute <span style="color:#ed9d13">&#34;VACUUM VERBOSE ANALYZE users&#34;</span></code></pre></div>
     </div>
 
     
