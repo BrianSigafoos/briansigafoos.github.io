@@ -32,6 +32,15 @@
     </item>
     
     <item>
+      <title>Postgres cheatsheet</title>
+      <link>https://briansigafoos.com/postgresql/</link>
+      <pubDate>Mon, 15 Oct 2018 05:49:44 -0700</pubDate>
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
+      <guid>https://briansigafoos.com/postgresql/</guid>
+      <description>A quick reference for working with PostgreSQL databases</description>
+    </item>
+    
+    <item>
       <title>Metaprogramming in Ruby</title>
       <link>https://briansigafoos.com/metaprogramming-ruby/</link>
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
