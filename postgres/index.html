@@ -73,8 +73,8 @@ if (!doNotTrack) {
 
 <p>Get an estimate of the number of rows for an enormous table called &ldquo;events&rdquo;.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span> reltuples::<span style="color:#24909d">bigint</span> <span style="color:#6ab825;font-weight:bold">AS</span> rows_estimate <span style="color:#6ab825;font-weight:bold">FROM</span> pg_class <span style="color:#6ab825;font-weight:bold">WHERE</span> relname=<span style="color:#ed9d13">&#34;events&#34;</span>;</code></pre></div>
-<p>Or get a nice table with the largest N relations (<code>LIMIT 200</code>) and their
-total size in bytes, total size pretty, and estimate of the number of rows.</p>
+<p>Or get a table of a database&rsquo;s largest relations and their total size in bytes,
+total size pretty, and rows estimate.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span>
     nspname || <span style="color:#ed9d13">&#39;.&#39;</span> || relname <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;relation&#34;</span>,
     pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;total_size_bytes&#34;</span>,
@@ -108,14 +108,34 @@ scp <span style="color:#40ffff">$SERVER_USER</span>@<span style="color:#40ffff">
 <p>Simple pg_restore for local development</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat .../&lt;your-app&gt;/.../database.yml
 <span style="color:#40ffff">DB_NAME</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_DUMP_FILE</span>=
-<span style="color:#999;font-style:italic"># -Fc format custom, -v verbose</span>
+<span style="color:#40ffff">DB_DUMP_FILE</span>=db.dump
+
+<span style="color:#999;font-style:italic"># -Fc --format=custom, -v --verbose</span>
+<span style="color:#999;font-style:italic"># -c --clean (clean/drop database objects before recreating them!)</span>
 <span style="color:#24909d">time</span> (pg_restore -Fc -v -c -d <span style="color:#40ffff">$DB_NAME</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)</code></pre></div>
 <p>More realistic scenario on production or staging server, using a <code>pg_restore.list</code>
 option with <code>-L pg_restore.list</code></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pg_restore -l db.dump | grep -Fv -e <span style="color:#ed9d13">&#39;COMMENT - EXTENSION&#39;</span> -e <span style="color:#ed9d13">&#39;master&#39;</span> -e <span style="color:#ed9d13">&#39;rdsadmin&#39;</span> &gt; pg_restore.list
-<span style="color:#999;font-style:italic"># -Fc format custom, -v verbose, -1 single-transaction, -e exit on error</span>
-<span style="color:#24909d">time</span> (pg_restore -Fc -O -v -1 -e -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -U <span style="color:#40ffff">$DB_USER</span> -L pg_restore.list <span style="color:#40ffff">$DB_DUMP_FILE</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">DB_HOST</span>=&lt;from database.yml&gt;
+<span style="color:#40ffff">DB_NAME</span>=&lt;from database.yml&gt;
+<span style="color:#40ffff">DB_USER</span>=&lt;from database.yml&gt;
+<span style="color:#40ffff">DB_DUMP_FILE</span>=db.dump
+<span style="color:#40ffff">PG_RESTORE_LIST</span>=pg_restore.list
+
+pg_restore -l db.dump | grep -Fv -e <span style="color:#ed9d13">&#39;COMMENT - EXTENSION&#39;</span> -e <span style="color:#ed9d13">&#39;master&#39;</span> -e <span style="color:#ed9d13">&#39;rdsadmin&#39;</span> &gt; <span style="color:#40ffff">$PG_RESTORE_LIST</span>
+<span style="color:#999;font-style:italic"># -Fc --format=custom, -v --verbose, -O --no-owner, -1 --single-transaction</span>
+<span style="color:#999;font-style:italic"># -e --exit-on-error</span>
+<span style="color:#24909d">time</span> (pg_restore -Fc -v -O -1 -e -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -U <span style="color:#40ffff">$DB_USER</span> -L <span style="color:#40ffff">$PG_RESTORE_LIST</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)</code></pre></div>
+<h4 id="restore-specific-table-s">Restore specific table(s)</h4>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">DB_HOST</span>=&lt;from database.yml&gt;
+<span style="color:#40ffff">DB_NAME</span>=&lt;from database.yml&gt;
+<span style="color:#40ffff">DB_USER</span>=&lt;from database.yml&gt;
+<span style="color:#40ffff">DB_DUMP_FILE</span>=db.dump
+<span style="color:#40ffff">DB_TABLE1</span>=&lt;ie users&gt;
+<span style="color:#40ffff">DB_TABLE2</span>=&lt;ie accounts&gt;
+
+<span style="color:#999;font-style:italic"># -Fc --format=custom, -v --verbose, -a --data-only, -1 --single-transaction</span>
+<span style="color:#999;font-style:italic"># -e --exit-on-error, -t --table (as many as needed)</span>
+<span style="color:#24909d">time</span> (pg_restore -Fc -v -a -1 -e -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -U <span style="color:#40ffff">$DB_USER</span> -t <span style="color:#40ffff">$DB_TABLE1</span> -t <span style="color:#40ffff">$DB_TABLE2</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)</code></pre></div>
 <h3 id="explain">EXPLAIN</h3>
 
 <p>Add <code>EXPLAIN</code> before a query to get its execution plan.
