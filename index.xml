@@ -33,10 +33,10 @@
     
     <item>
       <title>Postgres tips</title>
-      <link>https://briansigafoos.com/postgresql/</link>
+      <link>https://briansigafoos.com/postgres/</link>
       <pubDate>Mon, 15 Oct 2018 05:49:44 -0700</pubDate>
       <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
-      <guid>https://briansigafoos.com/postgresql/</guid>
+      <guid>https://briansigafoos.com/postgres/</guid>
       <description>A quick reference for working with PostgreSQL databases</description>
     </item>
     
