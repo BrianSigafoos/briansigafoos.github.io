@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Postgres cheatsheet - Brian Sigafoos</title>
+  <title>Postgres tips - Brian Sigafoos</title>
 
   
   
@@ -48,7 +48,7 @@ if (!doNotTrack) {
 
   <div class="container my-16 max-w-4xl">
     <h1 class="title">
-      Postgres cheatsheet
+      Postgres tips
     </h1>
 
     <h3 class="subtitle">
@@ -116,27 +116,18 @@ option with <code>-L pg_restore.list</code></p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pg_restore -l db.dump | grep -Fv -e <span style="color:#ed9d13">&#39;COMMENT - EXTENSION&#39;</span> -e <span style="color:#ed9d13">&#39;master&#39;</span> -e <span style="color:#ed9d13">&#39;rdsadmin&#39;</span> &gt; pg_restore.list
 <span style="color:#999;font-style:italic"># -Fc format custom, -v verbose, -1 single-transaction, -e exit on error</span>
 <span style="color:#24909d">time</span> (pg_restore -Fc -O -v -1 -e -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -U <span style="color:#40ffff">$DB_USER</span> -L pg_restore.list <span style="color:#40ffff">$DB_DUMP_FILE</span>)</code></pre></div>
-<h3 id="explain-a-query">EXPLAIN a query</h3>
+<h3 id="explain">EXPLAIN</h3>
 
-<ul>
-<li>Add <code>EXPLAIN</code> before a query to get its execution plan
+<p>Add <code>EXPLAIN</code> before a query to get its execution plan.
+Example: <code>EXPLAIN SELECT * FROM users WHERE id = 42;</code></p>
 
-<ul>
-<li>Example: <code>EXPLAIN SELECT * FROM users WHERE id = 42;</code></li>
-</ul></li>
-
-<li><p>Add <code>EXPLAIN ANALYZE</code> for the statement to be actually executed, not only
-planned.</p>
-
-<ul>
-<li><p>This is fine for <code>SELECT</code> but since the query is executed be careful with
-<code>INSERT, UPDATE, DELETE, CREATE TABLE AS,</code> and wrap it with this:</p>
+<p>Add <code>EXPLAIN ANALYZE</code> for the statement to be actually executed, not only
+planned. This is fine for <code>SELECT</code>. But, since the query is executed, be careful
+with <code>INSERT, UPDATE, DELETE, CREATE TABLE AS</code>. Wrap those with a <code>BEGIN</code>
+and <code>ROLLBACK</code>:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">BEGIN</span>;
 <span style="color:#6ab825;font-weight:bold">EXPLAIN</span> <span style="color:#6ab825;font-weight:bold">ANALYZE</span> ...;
-<span style="color:#6ab825;font-weight:bold">ROLLBACK</span>;</code></pre></div></li>
-</ul></li>
-</ul>
-
+<span style="color:#6ab825;font-weight:bold">ROLLBACK</span>;</code></pre></div>
     </div>
 
     
