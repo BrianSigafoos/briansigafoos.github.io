@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Better international SaaS pricing with PPP rates - Brian Sigafoos</title>
+  <title>SaaS pricing using PPP rates - Brian Sigafoos</title>
 
   
   
@@ -48,11 +48,11 @@ if (!doNotTrack) {
 
   <div class="container my-16 max-w-4xl">
     <h1 class="title">
-      Better international SaaS pricing with PPP rates
+      SaaS pricing using PPP rates
     </h1>
 
     <h3 class="subtitle">
-      How I made Playpass pricing more fair in less developed countries by using country PPP rates (purchasing power parity) instead of currency exchange rates.
+      How we made Playpass pricing more fair in all countries by using country purchasing power parity (PPP) rates instead of currency exchange rates.
     </h3>
 
     <p class="font-mono text-faint text-sm">
@@ -69,7 +69,7 @@ if (!doNotTrack) {
     <div class="border-t border-gray text-readable my-8 pt-4">
       
 
-<h3 id="a-good-problem-to-solve">A good problem to solve</h3>
+<h3 id="a-good-problem-to-have-to-solve">A good problem to have to solve</h3>
 
 <p>At the beginning of 2017, my startup <a href="https://playpass.com">Playpass</a> had a
 good problem. We had customers outside the US who wanted to pay for our service,
@@ -77,17 +77,17 @@ but they weren&rsquo;t sure how much it would cost in their local currency. At t
 time, we only listed prices in USD. So these customers had to mentally convert
 our prices to their currency, plus factor in any credit card exchange fees.</p>
 
-<p>Since we use <a href="https://stripe.com">Stripe</a> to process payments, I knew we could
+<p>Since we use <a href="https://stripe.com">Stripe</a> to process payments, we knew we could
 charge customers in <a href="https://stripe.com/docs/currencies">135 currencies</a>.</p>
 
-<p>But how should I set the price for each currency?</p>
+<p>But how should we set the price for each currency?</p>
 
 <h3 id="using-exchange-rates">Using exchange rates</h3>
 
 <p>We could just charge everyone a fixed USD amount, converted to their local
 currency. Playpass is a Rails app and we use
 <a href="https://github.com/RubyMoney/money">Ruby Money</a> for everything money related.
-Thanks to Ruby Money&rsquo; exchange rate stores, we could get daily exchange rates
+Thanks to Ruby Money&rsquo;s exchange rate stores, we could get daily exchange rates
 from the EU Central Bank or Google Currency.</p>
 
 <p>But using exchange rates has two problems:</p>
@@ -97,12 +97,12 @@ from the EU Central Bank or Google Currency.</p>
 <li>Prices will be too high in less developed countries</li>
 </ol>
 
-<p>I wanted prices that would be stable and fair.</p>
+<p>We wanted prices that would be stable and fair.</p>
 
 <h3 id="using-ppp-rates">Using PPP rates</h3>
 
 <p><a href="https://en.wikipedia.org/wiki/Purchasing_power_parity">Purchasing power parity</a>
-solves this for us.</p>
+(PPP) solves this for us.</p>
 
 <blockquote>
 <p><strong>Purchasing power parity</strong> (PPP) is an economic theory that states that the
@@ -117,7 +117,7 @@ $5.06 in the US vs $1.62 (100 INR) in India.</p>
 <p>You can download PPP rates from the
 <a href="http://data.worldbank.org/indicator/PA.NUS.PPP?locations=US-IN">World Bank</a></p>
 
-<p>To make things easier, here&rsquo;s a version of the spreadsheet I created. It has
+<p>To make things easier, here&rsquo;s a version of the spreadsheet we created. It has
 Stripe&rsquo;s 135 currencies, 2016 PPP rates, and exchange rates dynamically
 calculated by Google Finance.
 <a href="https://docs.google.com/spreadsheets/d/1hue3cBocKY3Kom2QZy7oHrzm4zKjMIOShy4dIgOMY4A/edit?usp=sharing">Google doc link</a>.</p>
@@ -126,28 +126,31 @@ calculated by Google Finance.
 
 <h3 id="sanity-checking-prices">Sanity checking prices</h3>
 
-<p>If we solely used PPP rates the range in prices would be too large. Per $100
+<p>If we solely used PPP rates, the range in prices would be too large. Per $100
 we&rsquo;d typically charge we&rsquo;d receive less than $15 in Egypt and over 150 in
-Bermuda. In poorest countries, PPP rates reflect staggering levels of poverty.
-The don&rsquo;t take into account what our potential customer with a smartphone or
+Bermuda. In poorer countries, PPP rates reflect staggering levels of poverty.
+They don&rsquo;t take into account what our potential customer with a smartphone or
 computer can afford to pay. PPP rates also don&rsquo;t take into account local
-alternatives or competitors prices in that market.</p>
+alternatives or competitor pricing in a market.</p>
 
 <p><img src="/img/posts/saas-intl-prices.png" alt="SaaS international prices" /></p>
 
 <h3 id="integrating-ppp-rates-into-rails">Integrating PPP rates into Rails</h3>
 
 <p>Next we use our own formula to adjust PPP rates in column J of the spreadsheet
-(for you to fill in). Then I paste the results into a YAML file for our Rails
+(for you to fill in). Then we paste the results into a YAML file for our Rails
 app. Note that PPP rates are multiplied by 1,000 and stored as integers. This
 follows the pattern of how to store all money related database columns, as
 integers.</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#999;font-style:italic"># config/currency_ppp.yml</span><span style="color:#666">
-</span><span style="color:#666"></span>aed:<span style="color:#666"> </span><span style="color:#3677a9">2367</span><span style="color:#666">
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#999;font-style:italic"># config/currency_ppp.yml</span><span style="color:#666">
+</span><span style="color:#666"></span>aed:<span style="color:#666"> </span><span style="color:#3677a9">2478</span><span style="color:#666">
+</span><span style="color:#666"></span>afn:<span style="color:#666"> </span><span style="color:#3677a9">31613</span><span style="color:#666">
 </span><span style="color:#666"></span><span style="color:#999;font-style:italic"># ...</span><span style="color:#666">
+</span><span style="color:#666"></span>ugx:<span style="color:#666"> </span><span style="color:#3677a9">1540403</span><span style="color:#666">
 </span><span style="color:#666"></span>usd:<span style="color:#666"> </span><span style="color:#3677a9">1000</span><span style="color:#666">
 </span><span style="color:#666"></span><span style="color:#999;font-style:italic"># ...</span><span style="color:#666">
-</span><span style="color:#666"></span>zmw:<span style="color:#666"> </span><span style="color:#3677a9">4106</span></code></pre></div>
+</span><span style="color:#666"></span>zar:<span style="color:#666"> </span><span style="color:#3677a9">7611</span><span style="color:#666">
+</span><span style="color:#666"></span>zmw:<span style="color:#666"> </span><span style="color:#3677a9">4796</span></code></pre></div>
 <h3 id="rake-task-for-updating-a-currency-model">Rake task for updating a Currency model</h3>
 
 <p>Then with a rake task <code>bundle exec rails currencies:update_ppp_rates</code> we grab
@@ -157,8 +160,9 @@ the data from the .yml file and save it to <code>Currency.ppp_rate</code>.</p>
 namespace <span style="color:#ed9d13">:currencies</span> <span style="color:#6ab825;font-weight:bold">do</span>
  desc <span style="color:#ed9d13">&#39;Update PPP rates&#39;</span>
   task <span style="color:#ed9d13">update_ppp_rates</span>: <span style="color:#ed9d13">:environment</span> <span style="color:#6ab825;font-weight:bold">do</span>
-    ppp_rates = <span style="color:#40ffff">ActiveSupport</span>::<span style="color:#40ffff">HashWithIndifferentAccess</span>.new(<span style="color:#40ffff">YAML</span>.load_file(<span style="color:#ed9d13">&#39;config/currency_ppp.yml&#39;</span>))
-
+    ppp_rates = <span style="color:#40ffff">ActiveSupport</span>::<span style="color:#40ffff">HashWithIndifferentAccess</span>.new(
+      <span style="color:#40ffff">YAML</span>.load_file(<span style="color:#ed9d13">&#39;config/currency_ppp.yml&#39;</span>)
+    )
     keys = ppp_rates.keys
     <span style="color:#24909d">puts</span> <span style="color:#ed9d13">&#34;Updating </span><span style="color:#ed9d13">#{</span>keys.size<span style="color:#ed9d13">}</span><span style="color:#ed9d13"> currencies&#39; PPP rates for SaaS pricing&#34;</span>
 
