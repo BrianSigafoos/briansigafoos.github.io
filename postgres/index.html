@@ -69,10 +69,12 @@ if (!doNotTrack) {
     <div class="border-t border-gray text-readable my-8 pt-4">
       
 
-<h3 id="total-size">Total size</h3>
+<h3 id="total-rows">Total rows</h3>
 
 <p>Get an estimate of the number of rows for an enormous table called &ldquo;events&rdquo;.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span> reltuples::<span style="color:#24909d">bigint</span> <span style="color:#6ab825;font-weight:bold">AS</span> rows_estimate <span style="color:#6ab825;font-weight:bold">FROM</span> pg_class <span style="color:#6ab825;font-weight:bold">WHERE</span> relname=<span style="color:#ed9d13">&#34;events&#34;</span>;</code></pre></div>
+<h3 id="total-size">Total size</h3>
+
 <p>Or get a table of a database&rsquo;s largest relations and their total size in bytes,
 total size pretty, and rows estimate.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span>
@@ -87,6 +89,37 @@ total size pretty, and rows estimate.</p>
     <span style="color:#6ab825;font-weight:bold">AND</span> nspname !~ <span style="color:#ed9d13">&#39;^pg_toast&#39;</span>
   <span style="color:#6ab825;font-weight:bold">ORDER</span> <span style="color:#6ab825;font-weight:bold">BY</span> pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid) <span style="color:#6ab825;font-weight:bold">DESC</span>
   <span style="color:#6ab825;font-weight:bold">LIMIT</span> <span style="color:#3677a9">200</span>;</code></pre></div>
+<h3 id="more-size-queries">More size queries</h3>
+
+<p>Get table, index, and total size.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span>
+  <span style="color:#6ab825;font-weight:bold">table_name</span>,
+  pg_size_pretty(table_size) <span style="color:#6ab825;font-weight:bold">AS</span> table_size,
+  pg_size_pretty(indexes_size) <span style="color:#6ab825;font-weight:bold">AS</span> indexes_size,
+  pg_size_pretty(total_size) <span style="color:#6ab825;font-weight:bold">AS</span> total_size
+<span style="color:#6ab825;font-weight:bold">FROM</span> (
+  <span style="color:#6ab825;font-weight:bold">SELECT</span>
+    <span style="color:#6ab825;font-weight:bold">table_name</span>,
+    pg_table_size(<span style="color:#6ab825;font-weight:bold">table_name</span>) <span style="color:#6ab825;font-weight:bold">AS</span> table_size,
+    pg_indexes_size(<span style="color:#6ab825;font-weight:bold">table_name</span>) <span style="color:#6ab825;font-weight:bold">AS</span> indexes_size,
+    pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">table_name</span>) <span style="color:#6ab825;font-weight:bold">AS</span> total_size
+  <span style="color:#6ab825;font-weight:bold">FROM</span> (
+    <span style="color:#6ab825;font-weight:bold">SELECT</span> (<span style="color:#ed9d13">&#39;&#34;&#39;</span> || table_schema || <span style="color:#ed9d13">&#39;&#34;.&#34;&#39;</span> || <span style="color:#6ab825;font-weight:bold">table_name</span> || <span style="color:#ed9d13">&#39;&#34;&#39;</span>) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#6ab825;font-weight:bold">table_name</span>, table_catalog
+    <span style="color:#6ab825;font-weight:bold">FROM</span> information_schema.tables
+  ) <span style="color:#6ab825;font-weight:bold">AS</span> all_tables
+  <span style="color:#6ab825;font-weight:bold">ORDER</span> <span style="color:#6ab825;font-weight:bold">BY</span> total_size <span style="color:#6ab825;font-weight:bold">DESC</span>
+) <span style="color:#6ab825;font-weight:bold">AS</span> pretty_sizes;</code></pre></div>
+<p>Or get the size of the largest relations.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span> nspname || <span style="color:#ed9d13">&#39;.&#39;</span> || relname <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;relation&#34;</span>,
+    pg_size_pretty(pg_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid)) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;size&#34;</span>
+  <span style="color:#6ab825;font-weight:bold">FROM</span> pg_class <span style="color:#6ab825;font-weight:bold">C</span>
+  <span style="color:#6ab825;font-weight:bold">LEFT</span> <span style="color:#6ab825;font-weight:bold">JOIN</span> pg_namespace N <span style="color:#6ab825;font-weight:bold">ON</span> (N.oid = <span style="color:#6ab825;font-weight:bold">C</span>.relnamespace)
+  <span style="color:#6ab825;font-weight:bold">WHERE</span> nspname <span style="color:#6ab825;font-weight:bold">NOT</span> <span style="color:#6ab825;font-weight:bold">IN</span> (<span style="color:#ed9d13">&#39;pg_catalog&#39;</span>, <span style="color:#ed9d13">&#39;information_schema&#39;</span>)
+  <span style="color:#6ab825;font-weight:bold">ORDER</span> <span style="color:#6ab825;font-weight:bold">BY</span> pg_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid) <span style="color:#6ab825;font-weight:bold">DESC</span>
+  <span style="color:#6ab825;font-weight:bold">LIMIT</span> <span style="color:#3677a9">20</span>;</code></pre></div>
+<p>Find more disk usage related queries at
+<a href="https://wiki.postgresql.org/wiki/Disk_Usage">PostgreSQL Disk Usage</a></p>
+
 <h3 id="pg-dump">pg_dump</h3>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat .../&lt;your-app&gt;/.../database.yml
 <span style="color:#40ffff">DB_HOST</span>=&lt;from database.yml&gt;
