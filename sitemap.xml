@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://briansigafoos.com/</loc>
     <lastmod>2019-08-27T19:38:23-07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -36,6 +35,11 @@
   <url>
     <loc>https://briansigafoos.com/saas-pricing-using-ppp-rates/</loc>
     <lastmod>2017-07-30T21:41:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://briansigafoos.com/nature/</loc>
+    <lastmod>2015-11-15T12:00:00-07:00</lastmod>
   </url>
   
   <url>
@@ -95,12 +99,10 @@
   
   <url>
     <loc>https://briansigafoos.com/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://briansigafoos.com/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
