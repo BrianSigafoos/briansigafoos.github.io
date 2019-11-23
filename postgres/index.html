@@ -62,7 +62,7 @@ if (!doNotTrack) {
       
 
       
-        3 min read
+        4 min read
       
     </p>
 
@@ -209,6 +209,55 @@ complete.</p>
 <p>From the Rails console, call <code>ActiveRecord::Base.connection.execute &quot;...&quot;</code>
 to execute arbitrary SQL commands:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#40ffff">ActiveRecord</span>::<span style="color:#40ffff">Base</span>.connection.execute <span style="color:#ed9d13">&#34;VACUUM VERBOSE ANALYZE users&#34;</span></code></pre></div>
+<h3 id="maintaining-a-database">Maintaining a Database</h3>
+
+<p>Find unused indexes that can be pruned.</p>
+
+<blockquote>
+<p>Since indexes add significant overhead to any table change operation,
+they should be removed if they are not being used for either queries or
+constraint enforcement (such as making sure a value is unique).</p>
+</blockquote>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span>
+    t.schemaname,
+    t.tablename,
+    indexname,
+    <span style="color:#6ab825;font-weight:bold">c</span>.reltuples <span style="color:#6ab825;font-weight:bold">AS</span> num_rows,
+    pg_size_pretty(pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;.&#39;</span> || quote_ident(t.tablename)::<span style="color:#24909d">text</span>)) <span style="color:#6ab825;font-weight:bold">AS</span> table_size,
+    pg_size_pretty(pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;.&#39;</span> || quote_ident(indexrelname)::<span style="color:#24909d">text</span>)) <span style="color:#6ab825;font-weight:bold">AS</span> index_size,
+    pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;.&#39;</span> || quote_ident(t.tablename)::<span style="color:#24909d">text</span>) <span style="color:#6ab825;font-weight:bold">AS</span> table_size_raw,
+    pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;.&#39;</span> || quote_ident(indexrelname)::<span style="color:#24909d">text</span>) <span style="color:#6ab825;font-weight:bold">AS</span> index_size_raw,
+    <span style="color:#6ab825;font-weight:bold">CASE</span> <span style="color:#6ab825;font-weight:bold">WHEN</span> indisunique <span style="color:#6ab825;font-weight:bold">THEN</span> <span style="color:#ed9d13">&#39;Y&#39;</span>
+        <span style="color:#6ab825;font-weight:bold">ELSE</span> <span style="color:#ed9d13">&#39;N&#39;</span>
+    <span style="color:#6ab825;font-weight:bold">END</span> <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#6ab825;font-weight:bold">UNIQUE</span>,
+    number_of_scans,
+    tuples_read,
+    tuples_fetched
+<span style="color:#6ab825;font-weight:bold">FROM</span> pg_tables t
+<span style="color:#6ab825;font-weight:bold">LEFT</span> <span style="color:#6ab825;font-weight:bold">OUTER</span> <span style="color:#6ab825;font-weight:bold">JOIN</span> pg_class <span style="color:#6ab825;font-weight:bold">c</span> <span style="color:#6ab825;font-weight:bold">ON</span> t.tablename = <span style="color:#6ab825;font-weight:bold">c</span>.relname
+<span style="color:#6ab825;font-weight:bold">LEFT</span> <span style="color:#6ab825;font-weight:bold">OUTER</span> <span style="color:#6ab825;font-weight:bold">JOIN</span> (
+    <span style="color:#6ab825;font-weight:bold">SELECT</span>
+        <span style="color:#6ab825;font-weight:bold">c</span>.relname <span style="color:#6ab825;font-weight:bold">AS</span> ctablename,
+        ipg.relname <span style="color:#6ab825;font-weight:bold">AS</span> indexname,
+        x.indnatts <span style="color:#6ab825;font-weight:bold">AS</span> number_of_columns,
+        idx_scan <span style="color:#6ab825;font-weight:bold">AS</span> number_of_scans,
+        idx_tup_read <span style="color:#6ab825;font-weight:bold">AS</span> tuples_read,
+        idx_tup_fetch <span style="color:#6ab825;font-weight:bold">AS</span> tuples_fetched,
+        indexrelname,
+        indisunique,
+        schemaname
+    <span style="color:#6ab825;font-weight:bold">FROM</span> pg_index x
+    <span style="color:#6ab825;font-weight:bold">JOIN</span> pg_class <span style="color:#6ab825;font-weight:bold">c</span> <span style="color:#6ab825;font-weight:bold">ON</span> <span style="color:#6ab825;font-weight:bold">c</span>.oid = x.indrelid
+    <span style="color:#6ab825;font-weight:bold">JOIN</span> pg_class ipg <span style="color:#6ab825;font-weight:bold">ON</span> ipg.oid = x.indexrelid
+    <span style="color:#6ab825;font-weight:bold">JOIN</span> pg_stat_all_indexes psai <span style="color:#6ab825;font-weight:bold">ON</span> x.indexrelid = psai.indexrelid
+) <span style="color:#6ab825;font-weight:bold">AS</span> foo <span style="color:#6ab825;font-weight:bold">ON</span> t.tablename = foo.ctablename <span style="color:#6ab825;font-weight:bold">AND</span> t.schemaname = foo.schemaname
+<span style="color:#6ab825;font-weight:bold">WHERE</span> t.schemaname
+    <span style="color:#6ab825;font-weight:bold">NOT</span> <span style="color:#6ab825;font-weight:bold">IN</span> (<span style="color:#ed9d13">&#39;pg_catalog&#39;</span>, <span style="color:#ed9d13">&#39;information_schema&#39;</span>)
+<span style="color:#999;font-style:italic">--    AND number_of_scans &lt; 200
+</span><span style="color:#999;font-style:italic"></span><span style="color:#6ab825;font-weight:bold">ORDER</span> <span style="color:#6ab825;font-weight:bold">BY</span> number_of_scans, <span style="color:#3677a9">1</span>, <span style="color:#3677a9">2</span>, <span style="color:#3677a9">3</span>;</code></pre></div>
+<p>Find more index maintenance related queries at
+<a href="https://wiki.postgresql.org/wiki/Index_Maintenance">PostgreSQL Disk Usage</a></p>
+
     </div>
 
     
