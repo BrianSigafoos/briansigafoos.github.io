@@ -67,30 +67,25 @@ if (!doNotTrack) {
     </p>
 
     <div class="border-t border-gray text-readable my-8 pt-4">
-      
-
-<h3 id="total-rows">Total rows</h3>
-
+      <h3 id="total-rows">Total rows</h3>
 <p>Get an estimate of the number of rows for an enormous table called &ldquo;events&rdquo;.</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span> reltuples::<span style="color:#24909d">bigint</span> <span style="color:#6ab825;font-weight:bold">AS</span> rows_estimate <span style="color:#6ab825;font-weight:bold">FROM</span> pg_class <span style="color:#6ab825;font-weight:bold">WHERE</span> relname=<span style="color:#ed9d13">&#34;events&#34;</span>;</code></pre></div>
-<h3 id="total-size">Total size</h3>
-
-<p>Or get a table of a database&rsquo;s largest relations and their total size in bytes,
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span> reltuples::<span style="color:#24909d">bigint</span> <span style="color:#6ab825;font-weight:bold">AS</span> rows_estimate <span style="color:#6ab825;font-weight:bold">FROM</span> pg_class <span style="color:#6ab825;font-weight:bold">WHERE</span> relname=<span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">events</span><span style="color:#ed9d13">&#34;</span>;
+</code></pre></div><h3 id="total-size">Total size</h3>
+<p>Or get a table of a database's largest relations and their total size in bytes,
 total size pretty, and rows estimate.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span>
-    nspname || <span style="color:#ed9d13">&#39;.&#39;</span> || relname <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;relation&#34;</span>,
-    pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;total_size_bytes&#34;</span>,
-    pg_size_pretty(pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid)) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;total_size_pretty&#34;</span>,
-    reltuples::<span style="color:#24909d">BIGINT</span> <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;rows_estimate&#34;</span>
+    nspname || <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">.</span><span style="color:#ed9d13">&#39;</span> || relname <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">relation</span><span style="color:#ed9d13">&#34;</span>,
+    pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">total_size_bytes</span><span style="color:#ed9d13">&#34;</span>,
+    pg_size_pretty(pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid)) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">total_size_pretty</span><span style="color:#ed9d13">&#34;</span>,
+    reltuples::<span style="color:#24909d">BIGINT</span> <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">rows_estimate</span><span style="color:#ed9d13">&#34;</span>
   <span style="color:#6ab825;font-weight:bold">FROM</span> pg_class <span style="color:#6ab825;font-weight:bold">C</span>
   <span style="color:#6ab825;font-weight:bold">LEFT</span> <span style="color:#6ab825;font-weight:bold">JOIN</span> pg_namespace N <span style="color:#6ab825;font-weight:bold">ON</span> (N.oid = <span style="color:#6ab825;font-weight:bold">C</span>.relnamespace)
-  <span style="color:#6ab825;font-weight:bold">WHERE</span> nspname <span style="color:#6ab825;font-weight:bold">NOT</span> <span style="color:#6ab825;font-weight:bold">IN</span> (<span style="color:#ed9d13">&#39;pg_catalog&#39;</span>, <span style="color:#ed9d13">&#39;information_schema&#39;</span>)
-    <span style="color:#6ab825;font-weight:bold">AND</span> <span style="color:#6ab825;font-weight:bold">C</span>.relkind &lt;&gt; <span style="color:#ed9d13">&#39;i&#39;</span>
-    <span style="color:#6ab825;font-weight:bold">AND</span> nspname !~ <span style="color:#ed9d13">&#39;^pg_toast&#39;</span>
+  <span style="color:#6ab825;font-weight:bold">WHERE</span> nspname <span style="color:#6ab825;font-weight:bold">NOT</span> <span style="color:#6ab825;font-weight:bold">IN</span> (<span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">pg_catalog</span><span style="color:#ed9d13">&#39;</span>, <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">information_schema</span><span style="color:#ed9d13">&#39;</span>)
+    <span style="color:#6ab825;font-weight:bold">AND</span> <span style="color:#6ab825;font-weight:bold">C</span>.relkind &lt;&gt; <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">i</span><span style="color:#ed9d13">&#39;</span>
+    <span style="color:#6ab825;font-weight:bold">AND</span> nspname !~ <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">^pg_toast</span><span style="color:#ed9d13">&#39;</span>
   <span style="color:#6ab825;font-weight:bold">ORDER</span> <span style="color:#6ab825;font-weight:bold">BY</span> pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid) <span style="color:#6ab825;font-weight:bold">DESC</span>
-  <span style="color:#6ab825;font-weight:bold">LIMIT</span> <span style="color:#3677a9">200</span>;</code></pre></div>
-<h3 id="more-size-queries">More size queries</h3>
-
+  <span style="color:#6ab825;font-weight:bold">LIMIT</span> <span style="color:#3677a9">200</span>;
+</code></pre></div><h3 id="more-size-queries">More size queries</h3>
 <p>Get table, index, and total size.</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span>
   <span style="color:#6ab825;font-weight:bold">table_name</span>,
@@ -104,22 +99,21 @@ total size pretty, and rows estimate.</p>
     pg_indexes_size(<span style="color:#6ab825;font-weight:bold">table_name</span>) <span style="color:#6ab825;font-weight:bold">AS</span> indexes_size,
     pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">table_name</span>) <span style="color:#6ab825;font-weight:bold">AS</span> total_size
   <span style="color:#6ab825;font-weight:bold">FROM</span> (
-    <span style="color:#6ab825;font-weight:bold">SELECT</span> (<span style="color:#ed9d13">&#39;&#34;&#39;</span> || table_schema || <span style="color:#ed9d13">&#39;&#34;.&#34;&#39;</span> || <span style="color:#6ab825;font-weight:bold">table_name</span> || <span style="color:#ed9d13">&#39;&#34;&#39;</span>) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#6ab825;font-weight:bold">table_name</span>, table_catalog
+    <span style="color:#6ab825;font-weight:bold">SELECT</span> (<span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span> || table_schema || <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;.&#34;</span><span style="color:#ed9d13">&#39;</span> || <span style="color:#6ab825;font-weight:bold">table_name</span> || <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">&#39;</span>) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#6ab825;font-weight:bold">table_name</span>, table_catalog
     <span style="color:#6ab825;font-weight:bold">FROM</span> information_schema.tables
   ) <span style="color:#6ab825;font-weight:bold">AS</span> all_tables
   <span style="color:#6ab825;font-weight:bold">ORDER</span> <span style="color:#6ab825;font-weight:bold">BY</span> total_size <span style="color:#6ab825;font-weight:bold">DESC</span>
-) <span style="color:#6ab825;font-weight:bold">AS</span> pretty_sizes;</code></pre></div>
-<p>Or get the size of the largest relations.</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span> nspname || <span style="color:#ed9d13">&#39;.&#39;</span> || relname <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;relation&#34;</span>,
-    pg_size_pretty(pg_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid)) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;size&#34;</span>
+) <span style="color:#6ab825;font-weight:bold">AS</span> pretty_sizes;
+</code></pre></div><p>Or get the size of the largest relations.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span> nspname || <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">.</span><span style="color:#ed9d13">&#39;</span> || relname <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">relation</span><span style="color:#ed9d13">&#34;</span>,
+    pg_size_pretty(pg_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid)) <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">size</span><span style="color:#ed9d13">&#34;</span>
   <span style="color:#6ab825;font-weight:bold">FROM</span> pg_class <span style="color:#6ab825;font-weight:bold">C</span>
   <span style="color:#6ab825;font-weight:bold">LEFT</span> <span style="color:#6ab825;font-weight:bold">JOIN</span> pg_namespace N <span style="color:#6ab825;font-weight:bold">ON</span> (N.oid = <span style="color:#6ab825;font-weight:bold">C</span>.relnamespace)
-  <span style="color:#6ab825;font-weight:bold">WHERE</span> nspname <span style="color:#6ab825;font-weight:bold">NOT</span> <span style="color:#6ab825;font-weight:bold">IN</span> (<span style="color:#ed9d13">&#39;pg_catalog&#39;</span>, <span style="color:#ed9d13">&#39;information_schema&#39;</span>)
+  <span style="color:#6ab825;font-weight:bold">WHERE</span> nspname <span style="color:#6ab825;font-weight:bold">NOT</span> <span style="color:#6ab825;font-weight:bold">IN</span> (<span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">pg_catalog</span><span style="color:#ed9d13">&#39;</span>, <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">information_schema</span><span style="color:#ed9d13">&#39;</span>)
   <span style="color:#6ab825;font-weight:bold">ORDER</span> <span style="color:#6ab825;font-weight:bold">BY</span> pg_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid) <span style="color:#6ab825;font-weight:bold">DESC</span>
-  <span style="color:#6ab825;font-weight:bold">LIMIT</span> <span style="color:#3677a9">20</span>;</code></pre></div>
-<p>Find more disk usage related queries at
+  <span style="color:#6ab825;font-weight:bold">LIMIT</span> <span style="color:#3677a9">20</span>;
+</code></pre></div><p>Find more disk usage related queries at
 <a href="https://wiki.postgresql.org/wiki/Disk_Usage">PostgreSQL Disk Usage</a></p>
-
 <h3 id="pg-dump">pg_dump</h3>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat .../&lt;your-app&gt;/.../database.yml
 <span style="color:#40ffff">DB_HOST</span>=&lt;from database.yml&gt;
@@ -127,17 +121,17 @@ total size pretty, and rows estimate.</p>
 <span style="color:#40ffff">DB_USER</span>=&lt;from database.yml&gt;
 <span style="color:#40ffff">DB_DUMP_FILE</span>=db.dump
 <span style="color:#999;font-style:italic"># -Fc format custom, -v verbose</span>
-<span style="color:#24909d">time</span> (pg_dump -Fc -v -U <span style="color:#40ffff">$DB_USER</span> -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -f <span style="color:#40ffff">$DB_DUMP_FILE</span>)</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">SERVER_USER</span>=&lt;ie deploy&gt;
-<span style="color:#40ffff">SERVER_IP</span>=&lt;ie <span style="color:#3677a9">1</span>.2.3.4 &gt;
+<span style="color:#24909d">time</span> (pg_dump -Fc -v -U <span style="color:#40ffff">$DB_USER</span> -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -f <span style="color:#40ffff">$DB_DUMP_FILE</span>)
+</code></pre></div><div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">SERVER_USER</span>=&lt;ie deploy&gt;
+<span style="color:#40ffff">SERVER_IP</span>=&lt;ie 1.2.3.4 &gt;
 <span style="color:#40ffff">DB_NAME</span>=&lt;ie database_prod&gt;
 <span style="color:#40ffff">REMOTE_DB_DUMP_FILE</span>=db.dump
 <span style="color:#40ffff">DATE</span>=<span style="color:#6ab825;font-weight:bold">$(</span>date +<span style="color:#ed9d13">&#34;%Y%m%d%H%M&#34;</span><span style="color:#6ab825;font-weight:bold">)</span>
 <span style="color:#40ffff">LOCAL_DB_DUMP</span>=<span style="color:#40ffff">$HOME</span>/.../<span style="color:#40ffff">$DB_NAME</span><span style="color:#ed9d13">\-</span><span style="color:#40ffff">$DATE</span>.dump
 
 <span style="color:#24909d">echo</span> Fetching production database dump
-scp <span style="color:#40ffff">$SERVER_USER</span>@<span style="color:#40ffff">$SERVER_IP</span>:<span style="color:#40ffff">$REMOTE_DB_DUMP_FILE</span> <span style="color:#40ffff">$LOCAL_DB_DUMP</span></code></pre></div>
-<h3 id="pg-restore">pg_restore</h3>
-
+scp <span style="color:#40ffff">$SERVER_USER</span>@<span style="color:#40ffff">$SERVER_IP</span>:<span style="color:#40ffff">$REMOTE_DB_DUMP_FILE</span> <span style="color:#40ffff">$LOCAL_DB_DUMP</span>
+</code></pre></div><h3 id="pg-restore">pg_restore</h3>
 <p>Simple pg_restore for local development</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat .../&lt;your-app&gt;/.../database.yml
 <span style="color:#40ffff">DB_NAME</span>=&lt;from database.yml&gt;
@@ -145,8 +139,8 @@ scp <span style="color:#40ffff">$SERVER_USER</span>@<span style="color:#40ffff">
 
 <span style="color:#999;font-style:italic"># -Fc --format=custom, -v --verbose</span>
 <span style="color:#999;font-style:italic"># -c --clean (clean/drop database objects before recreating them!)</span>
-<span style="color:#24909d">time</span> (pg_restore -Fc -v -c -d <span style="color:#40ffff">$DB_NAME</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)</code></pre></div>
-<p>More realistic scenario on production or staging server, using a <code>pg_restore.list</code>
+<span style="color:#24909d">time</span> (pg_restore -Fc -v -c -d <span style="color:#40ffff">$DB_NAME</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)
+</code></pre></div><p>More realistic scenario on production or staging server, using a <code>pg_restore.list</code>
 option with <code>-L pg_restore.list</code></p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">DB_HOST</span>=&lt;from database.yml&gt;
 <span style="color:#40ffff">DB_NAME</span>=&lt;from database.yml&gt;
@@ -157,8 +151,8 @@ option with <code>-L pg_restore.list</code></p>
 pg_restore -l db.dump | grep -Fv -e <span style="color:#ed9d13">&#39;COMMENT - EXTENSION&#39;</span> -e <span style="color:#ed9d13">&#39;master&#39;</span> -e <span style="color:#ed9d13">&#39;rdsadmin&#39;</span> &gt; <span style="color:#40ffff">$PG_RESTORE_LIST</span>
 <span style="color:#999;font-style:italic"># -Fc --format=custom, -v --verbose, -O --no-owner, -1 --single-transaction</span>
 <span style="color:#999;font-style:italic"># -e --exit-on-error</span>
-<span style="color:#24909d">time</span> (pg_restore -Fc -v -O -1 -e -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -U <span style="color:#40ffff">$DB_USER</span> -L <span style="color:#40ffff">$PG_RESTORE_LIST</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)</code></pre></div>
-<h4 id="restore-specific-table-s">Restore specific table(s)</h4>
+<span style="color:#24909d">time</span> (pg_restore -Fc -v -O -1 -e -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -U <span style="color:#40ffff">$DB_USER</span> -L <span style="color:#40ffff">$PG_RESTORE_LIST</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)
+</code></pre></div><h4 id="restore-specific-tables">Restore specific table(s)</h4>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">DB_HOST</span>=&lt;from database.yml&gt;
 <span style="color:#40ffff">DB_NAME</span>=&lt;from database.yml&gt;
 <span style="color:#40ffff">DB_USER</span>=&lt;from database.yml&gt;
@@ -168,51 +162,40 @@ pg_restore -l db.dump | grep -Fv -e <span style="color:#ed9d13">&#39;COMMENT - E
 
 <span style="color:#999;font-style:italic"># -Fc --format=custom, -v --verbose, -a --data-only, -1 --single-transaction</span>
 <span style="color:#999;font-style:italic"># -e --exit-on-error, -t --table (as many as needed)</span>
-<span style="color:#24909d">time</span> (pg_restore -Fc -v -a -1 -e -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -U <span style="color:#40ffff">$DB_USER</span> -t <span style="color:#40ffff">$DB_TABLE1</span> -t <span style="color:#40ffff">$DB_TABLE2</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)</code></pre></div>
-<h3 id="explain">EXPLAIN</h3>
-
+<span style="color:#24909d">time</span> (pg_restore -Fc -v -a -1 -e -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -U <span style="color:#40ffff">$DB_USER</span> -t <span style="color:#40ffff">$DB_TABLE1</span> -t <span style="color:#40ffff">$DB_TABLE2</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)
+</code></pre></div><h3 id="explain">EXPLAIN</h3>
 <p>Add <code>EXPLAIN</code> before a query to get its execution plan.
 Example: <code>EXPLAIN SELECT * FROM users WHERE id = 42;</code></p>
-
 <p>Add <code>EXPLAIN ANALYZE</code> for the statement to be actually executed, not only
 planned. This is fine for <code>SELECT</code>. But, since the query is executed, be careful
 with <code>INSERT, UPDATE, DELETE, CREATE TABLE AS</code>. Wrap those with a <code>BEGIN</code>
 and <code>ROLLBACK</code>:</p>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">BEGIN</span>;
 <span style="color:#6ab825;font-weight:bold">EXPLAIN</span> <span style="color:#6ab825;font-weight:bold">ANALYZE</span> ...;
-<span style="color:#6ab825;font-weight:bold">ROLLBACK</span>;</code></pre></div>
-<h3 id="vacuum">VACUUM</h3>
-
+<span style="color:#6ab825;font-weight:bold">ROLLBACK</span>;
+</code></pre></div><h3 id="vacuum">VACUUM</h3>
 <p>Why <code>VACUUM</code>?</p>
-
 <blockquote>
 <p>In normal PostgreSQL operation, tuples that are deleted or obsoleted by an
 update are not physically removed from their table; they remain present until
-a VACUUM is done. Therefore it&rsquo;s necessary to do VACUUM periodically,
+a VACUUM is done. Therefore it's necessary to do VACUUM periodically,
 especially on frequently-updated tables.
 (<a href="https://www.postgresql.org/docs/11/sql-vacuum.html">reference</a>)</p>
 </blockquote>
-
 <p><code>VACUUM ANALYZE</code> performs a <code>VACUUM</code> and then an <code>ANALYZE</code> for each selected
 table.</p>
-
 <p><code>ANALYZE</code> updates statistics used by the planner to determine the most efficient
 way to execute a query.</p>
-
 <p><code>VACUUM FULL</code> reclaims more space, but takes much longer and <strong>exclusively locks
 the table</strong>. This method also requires extra disk space, since it writes a new
-copy of the table and doesn&rsquo;t release the old copy until the operation is
+copy of the table and doesn't release the old copy until the operation is
 complete.</p>
-
 <h3 id="rails-console-sql-commands">Rails console SQL commands</h3>
-
 <p>From the Rails console, call <code>ActiveRecord::Base.connection.execute &quot;...&quot;</code>
 to execute arbitrary SQL commands:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#40ffff">ActiveRecord</span>::<span style="color:#40ffff">Base</span>.connection.execute <span style="color:#ed9d13">&#34;VACUUM VERBOSE ANALYZE users&#34;</span></code></pre></div>
-<h3 id="maintaining-a-database">Maintaining a Database</h3>
-
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#40ffff">ActiveRecord</span>::<span style="color:#40ffff">Base</span>.connection.execute <span style="color:#ed9d13">&#34;</span><span style="color:#ed9d13">VACUUM VERBOSE ANALYZE users</span><span style="color:#ed9d13">&#34;</span>
+</code></pre></div><h3 id="maintaining-a-database">Maintaining a Database</h3>
 <p>Find unused indexes that can be pruned.</p>
-
 <blockquote>
 <p>Since indexes add significant overhead to any table change operation,
 they should be removed if they are not being used for either queries or
@@ -223,12 +206,12 @@ constraint enforcement (such as making sure a value is unique).</p>
     t.tablename,
     indexname,
     <span style="color:#6ab825;font-weight:bold">c</span>.reltuples <span style="color:#6ab825;font-weight:bold">AS</span> num_rows,
-    pg_size_pretty(pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;.&#39;</span> || quote_ident(t.tablename)::<span style="color:#24909d">text</span>)) <span style="color:#6ab825;font-weight:bold">AS</span> table_size,
-    pg_size_pretty(pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;.&#39;</span> || quote_ident(indexrelname)::<span style="color:#24909d">text</span>)) <span style="color:#6ab825;font-weight:bold">AS</span> index_size,
-    pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;.&#39;</span> || quote_ident(t.tablename)::<span style="color:#24909d">text</span>) <span style="color:#6ab825;font-weight:bold">AS</span> table_size_raw,
-    pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;.&#39;</span> || quote_ident(indexrelname)::<span style="color:#24909d">text</span>) <span style="color:#6ab825;font-weight:bold">AS</span> index_size_raw,
-    <span style="color:#6ab825;font-weight:bold">CASE</span> <span style="color:#6ab825;font-weight:bold">WHEN</span> indisunique <span style="color:#6ab825;font-weight:bold">THEN</span> <span style="color:#ed9d13">&#39;Y&#39;</span>
-        <span style="color:#6ab825;font-weight:bold">ELSE</span> <span style="color:#ed9d13">&#39;N&#39;</span>
+    pg_size_pretty(pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">.</span><span style="color:#ed9d13">&#39;</span> || quote_ident(t.tablename)::<span style="color:#24909d">text</span>)) <span style="color:#6ab825;font-weight:bold">AS</span> table_size,
+    pg_size_pretty(pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">.</span><span style="color:#ed9d13">&#39;</span> || quote_ident(indexrelname)::<span style="color:#24909d">text</span>)) <span style="color:#6ab825;font-weight:bold">AS</span> index_size,
+    pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">.</span><span style="color:#ed9d13">&#39;</span> || quote_ident(t.tablename)::<span style="color:#24909d">text</span>) <span style="color:#6ab825;font-weight:bold">AS</span> table_size_raw,
+    pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span> || <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">.</span><span style="color:#ed9d13">&#39;</span> || quote_ident(indexrelname)::<span style="color:#24909d">text</span>) <span style="color:#6ab825;font-weight:bold">AS</span> index_size_raw,
+    <span style="color:#6ab825;font-weight:bold">CASE</span> <span style="color:#6ab825;font-weight:bold">WHEN</span> indisunique <span style="color:#6ab825;font-weight:bold">THEN</span> <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">Y</span><span style="color:#ed9d13">&#39;</span>
+        <span style="color:#6ab825;font-weight:bold">ELSE</span> <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">N</span><span style="color:#ed9d13">&#39;</span>
     <span style="color:#6ab825;font-weight:bold">END</span> <span style="color:#6ab825;font-weight:bold">AS</span> <span style="color:#6ab825;font-weight:bold">UNIQUE</span>,
     number_of_scans,
     tuples_read,
@@ -252,10 +235,10 @@ constraint enforcement (such as making sure a value is unique).</p>
     <span style="color:#6ab825;font-weight:bold">JOIN</span> pg_stat_all_indexes psai <span style="color:#6ab825;font-weight:bold">ON</span> x.indexrelid = psai.indexrelid
 ) <span style="color:#6ab825;font-weight:bold">AS</span> foo <span style="color:#6ab825;font-weight:bold">ON</span> t.tablename = foo.ctablename <span style="color:#6ab825;font-weight:bold">AND</span> t.schemaname = foo.schemaname
 <span style="color:#6ab825;font-weight:bold">WHERE</span> t.schemaname
-    <span style="color:#6ab825;font-weight:bold">NOT</span> <span style="color:#6ab825;font-weight:bold">IN</span> (<span style="color:#ed9d13">&#39;pg_catalog&#39;</span>, <span style="color:#ed9d13">&#39;information_schema&#39;</span>)
+    <span style="color:#6ab825;font-weight:bold">NOT</span> <span style="color:#6ab825;font-weight:bold">IN</span> (<span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">pg_catalog</span><span style="color:#ed9d13">&#39;</span>, <span style="color:#ed9d13">&#39;</span><span style="color:#ed9d13">information_schema</span><span style="color:#ed9d13">&#39;</span>)
 <span style="color:#999;font-style:italic">--    AND number_of_scans &lt; 200
-</span><span style="color:#999;font-style:italic"></span><span style="color:#6ab825;font-weight:bold">ORDER</span> <span style="color:#6ab825;font-weight:bold">BY</span> number_of_scans, <span style="color:#3677a9">1</span>, <span style="color:#3677a9">2</span>, <span style="color:#3677a9">3</span>;</code></pre></div>
-<p>Find more index maintenance related queries at
+</span><span style="color:#999;font-style:italic"></span><span style="color:#6ab825;font-weight:bold">ORDER</span> <span style="color:#6ab825;font-weight:bold">BY</span> number_of_scans, <span style="color:#3677a9">1</span>, <span style="color:#3677a9">2</span>, <span style="color:#3677a9">3</span>;
+</code></pre></div><p>Find more index maintenance related queries at
 <a href="https://wiki.postgresql.org/wiki/Index_Maintenance">PostgreSQL Disk Usage</a></p>
 
     </div>

@@ -52,7 +52,7 @@ if (!doNotTrack) {
     </h1>
 
     <h3 class="subtitle">
-      Some resources I&rsquo;ve found incredibly useful in learning Go, aka Golang.
+      Some resources I've found incredibly useful in learning Go, aka Golang.
     </h3>
 
     <p class="font-mono text-faint text-sm">
@@ -67,20 +67,14 @@ if (!doNotTrack) {
     </p>
 
     <div class="border-t border-gray text-readable my-8 pt-4">
-      
-
-<h3 id="ready-to-learn-go">Ready to learn Go?</h3>
-
+      <h3 id="ready-to-learn-go">Ready to learn Go?</h3>
 <p>Start exploring Go by writing tests with
 <a href="https://github.com/quii/learn-go-with-tests">Learn Go with Tests</a>.</p>
-
-<p>Above all, I&rsquo;d recommend the
+<p>Above all, I'd recommend the
 <a href="https://www.amazon.com/dp/B0184N7WWS/">The Go Programming Language</a> book.
 It was published in 2015, but thanks to the stability of the Go language,
 this is still the best book for picking up Go.</p>
-
 <h3 id="watch">Watch</h3>
-
 <ul>
 <li><a href="https://www.youtube.com/watch?v=bmZNaUcwBt4">The Why of Go</a></li>
 <li><a href="https://www.youtube.com/watch?v=rFejpH_tAHM">Simplicity Is Complicated, Rob Pike</a></li>
@@ -88,9 +82,7 @@ this is still the best book for picking up Go.</p>
 <li><a href="https://research.swtch.com/gotour">A Tour of Go, Russ Cox</a></li>
 <li><a href="https://www.youtube.com/watch?v=sX8r6zATHGU">Go: building on the shoulders of giants and stepping on a few toes</a></li>
 </ul>
-
 <h3 id="read-and-do">Read and do</h3>
-
 <ul>
 <li><a href="https://www.amazon.com/dp/B0184N7WWS/"><strong>The Go Programming Language</strong></a> ⭑</li>
 <li><a href="https://github.com/quii/learn-go-with-tests"><strong>Learn Go with Tests</strong></a> ⭑</li>
@@ -100,9 +92,7 @@ this is still the best book for picking up Go.</p>
 <li><a href="https://golang.org/ref/spec">Language Specification</a></li>
 <li><a href="https://golang.org/doc/">Many links on golang.org Documentation</a>. Especially the <strong>codewalks</strong>.</li>
 </ul>
-
 <h3 id="golang-news-and-updates">Golang news and updates</h3>
-
 <ul>
 <li><a href="https://blog.golang.org">Official blog</a></li>
 <li><a href="http://www.go-gazette.com/">The Go Gazette</a></li>
@@ -110,79 +100,66 @@ this is still the best book for picking up Go.</p>
 <li><a href="https://www.reddit.com/r/golang/">r/golang</a> on Reddit</li>
 <li>My <a href="https://twitter.com/BrianSigafoos/lists/golang">Twitter list of Golang folks</a></li>
 </ul>
-
 <h3 id="cheatsheets">Cheatsheets</h3>
-
 <ul>
 <li><a href="https://learnxinyminutes.com/docs/go/">Learn Go in Y Minutes</a></li>
 <li><a href="https://github.com/a8m/go-lang-cheat-sheet">a8m/go-lang-cheat-sheet</a></li>
 <li><a href="https://devhints.io/go">devhints.io/go</a></li>
 </ul>
-
 <h3 id="practice">Practice</h3>
-
 <ul>
 <li><a href="https://gophercises.com">Gophercieses</a></li>
 </ul>
-
 <h3 id="podcasts-and-video-series">Podcasts and video series</h3>
-
 <ul>
 <li><a href="https://changelog.com/gotime">Go Time</a></li>
 <li><a href="https://www.youtube.com/c/justforfunc">Just for Func</a></li>
 </ul>
-
 <h3 id="linting">Linting</h3>
-
 <ul>
 <li><a href="https://github.com/golangci/golangci-lint">golangci-lint</a>
-
 <ul>
 <li>Configurable meta linter</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="development">Development</h3>
 <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#24909d">export</span> <span style="color:#40ffff">GOPATH</span>=~/go
 <span style="color:#24909d">export</span> <span style="color:#40ffff">PATH</span>=<span style="color:#ed9d13">&#34;</span><span style="color:#40ffff">$GOPATH</span><span style="color:#ed9d13">/bin:</span><span style="color:#40ffff">$PATH</span><span style="color:#ed9d13">&#34;</span>
-<span style="color:#24909d">eval</span> <span style="color:#ed9d13">&#34;</span><span style="color:#6ab825;font-weight:bold">$(</span>gimme <span style="color:#3677a9">1</span>.12.7<span style="color:#6ab825;font-weight:bold">)</span><span style="color:#ed9d13">&#34;</span></code></pre></div>
-<ul>
+<span style="color:#24909d">eval</span> <span style="color:#ed9d13">&#34;</span><span style="color:#6ab825;font-weight:bold">$(</span>gimme 1.12.7<span style="color:#6ab825;font-weight:bold">)</span><span style="color:#ed9d13">&#34;</span>
+</code></pre></div><ul>
 <li>Versions of Go
-
 <ul>
 <li>Use gimme for easy version switching: <code>brew install gimme; eval &quot;$(gimme 1.12.7)&quot;</code></li>
 <li>Add the code above to your shell init script: ~/.bash_profile, ~/.profile, etc</li>
-</ul></li>
+</ul>
+</li>
 <li>Use Go modules (<a href="https://github.com/golang/go/wiki/Modules">read this wiki</a>)
-
 <ul>
-<li>You can either:</li>
+<li>You can either:
+<ul>
 <li>A: git clone the code outside your GOPATH (ie, next to your other code) to use go modules automatically (recommended)</li>
 <li>B: set <code>GO111MODULE=on</code> and keep your Go code in your GOPATH</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="ide-tools">IDE Tools</h3>
-
 <ul>
 <li>VS Code
-
 <ul>
 <li><a href="https://github.com/Microsoft/vscode-go/wiki/Go-modules-support-in-Visual-Studio-Code">Go modules in VS Code</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="and-finally-the-go-gopher">And finally&hellip; the Go Gopher!</h3>
-
 <ul>
-<li><a href="https://blog.golang.org/gopher">Learn about Go&rsquo;s adorable mascot, the Go Gopher, created by Renee French</a>.</li>
+<li><a href="https://blog.golang.org/gopher">Learn about Go's adorable mascot, the Go Gopher, created by Renee French</a>.</li>
 </ul>
-
-<p><img src="https://blog.golang.org/store/gophers.jpg" alt="Gophers" /></p>
-
-<p><img src="https://golang.org/doc/gopher/fiveyears.jpg" alt="5 years" /></p>
-
-<p><img src="https://golang.org/doc/gopher/modelsheet.jpg" alt="Go Gopher" /></p>
+<p><img src="https://blog.golang.org/store/gophers.jpg" alt="Gophers"></p>
+<p><img src="https://golang.org/doc/gopher/fiveyears.jpg" alt="5 years"></p>
+<p><img src="https://golang.org/doc/gopher/modelsheet.jpg" alt="Go Gopher"></p>
 
     </div>
 
