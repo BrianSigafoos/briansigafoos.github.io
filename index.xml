@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>brian.sigafoos@gmail.com (Brian Sigafoos)</managingEditor>
     <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster>
-    <lastBuildDate>Tue, 27 Aug 2019 19:38:23 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2019 20:14:13 +0200</lastBuildDate>
     
 	<atom:link href="https://briansigafoos.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reading list</title>
+      <link>https://briansigafoos.com/reading/</link>
+      <pubDate>Tue, 31 Dec 2019 20:14:13 +0200</pubDate>
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
+      <guid>https://briansigafoos.com/reading/</guid>
+      <description>My favorite books</description>
+    </item>
     
     <item>
       <title>Practicing Scrum</title>
