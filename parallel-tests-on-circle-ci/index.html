@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Parallel tests on CircleCI - Brian Sigafoos</title>
+
+  
+  
+    
+    <link rel="stylesheet" href="https://briansigafoos.com/css/styles.min.9d7cb5f8cbe270b0258dfc6d3b15ff58f349167ba19813ae6bd2bbcd743352d4.css" integrity="sha256-nXy1&#43;MvicLAljfxtOxX/WPNJFnuhmBOua9K7zXQzUtQ=" />
+  
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42740116-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+  <link rel="shortcut icon" href="/favicon.png?20190809" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?20190809" />
+</head>
+
+<body class="antialiased leading-normal">
+  <div class="border-b border-gray py-4 w-full">
+  <div class="container max-w-4xl">
+    <div class="flex items-center justify-between font-mono">
+      <a href="https://briansigafoos.com/" class="font-black">
+        Brian Sigafoos
+      </a>
+
+      <a href="/about">About me</a>
+    </div>
+  </div>
+</div>
+
+  <div class="container my-16 max-w-4xl">
+    <h1 class="title">
+      Parallel tests on CircleCI
+    </h1>
+
+    <h3 class="subtitle">
+      Speed up builds by running Rails tests in parallel and learn more about CircleCI 2.1 features
+    </h3>
+
+    <p class="font-mono text-faint text-sm">
+      
+        Jan 12, 2020
+        ·
+      
+
+      
+        2 min read
+      
+    </p>
+
+    <div class="border-t border-gray text-readable my-8 pt-4">
+      <p>By running tests in parallel on
+<a href="https://circleci.com/docs/2.0/getting-started/#section=getting-started">CircleCI</a>,
+almost any test suite can go from tens of minutes to single minutes.</p>
+<p>Below is an example CircleCI config that demonstrates how to set up parallelism.
+See <code>parallelism: 4</code> in the <code>test</code> job.</p>
+<p>It also demostrates how to use the most useful CircleCI 2.1 features: orbs,
+commands, executors, jobs, workflows, and context.</p>
+<p>Tip: to save time, download the
+<a href="https://circleci.com/docs/2.0/local-cli/#section=configuration">CircleCI CLI</a>.
+Then validate your repository's
+<code>.circleci/config.yml</code> config file locally by running: <code>circleci config validate</code>.</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#999;font-style:italic"># .circleci/config.yml</span><span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666"></span>version:<span style="color:#666"> </span><span style="color:#3677a9">2.1</span><span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666"></span>aliases:<span style="color:#666">
+</span><span style="color:#666">  </span>-<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">&amp;bundle_path</span><span style="color:#666"> </span>vendor/bundle<span style="color:#666">
+</span><span style="color:#666">  </span><span style="color:#999;font-style:italic"># Default path of gem &#39;minitest-ci&#39; https://github.com/circleci/minitest-ci</span><span style="color:#666">
+</span><span style="color:#666">  </span>-<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">&amp;results_path</span><span style="color:#666"> </span>test/reports<span style="color:#666">
+</span><span style="color:#666">  </span><span style="color:#999;font-style:italic"># Default path for screenshots from Rails system tests</span><span style="color:#666">
+</span><span style="color:#666">  </span>-<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">&amp;screenshots_path</span><span style="color:#666"> </span>tmp/screenshots<span style="color:#666">
+</span><span style="color:#666">  </span>-<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">&amp;working_directory</span><span style="color:#666"> </span>~/repo<span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666"></span><span style="color:#999;font-style:italic">#</span><span style="color:#666">
+</span><span style="color:#666"></span><span style="color:#999;font-style:italic"># Orbs are packages of config that you can import by name or configure inline.</span><span style="color:#666">
+</span><span style="color:#666"></span>orbs:<span style="color:#666">
+</span><span style="color:#666">  </span><span style="color:#999;font-style:italic"># https://circleci.com/orbs/registry/orb/codecov/codecov</span><span style="color:#666">
+</span><span style="color:#666">  </span>codecov:<span style="color:#666"> </span>codecov/codecov@<span style="color:#3677a9">1.0</span><span style="color:#3677a9">.5</span><span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666">  </span><span style="color:#999;font-style:italic"># https://circleci.com/orbs/registry/orb/valimail/dependency-manager</span><span style="color:#666">
+</span><span style="color:#666">  </span><span style="color:#999;font-style:italic"># Aliased as &#34;dm&#34; throughout</span><span style="color:#666">
+</span><span style="color:#666">  </span>dm:<span style="color:#666"> </span>valimail/dependency-manager@<span style="color:#3677a9">0.4</span><span style="color:#3677a9">.1</span><span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666"></span><span style="color:#999;font-style:italic">#</span><span style="color:#666">
+</span><span style="color:#666"></span><span style="color:#999;font-style:italic"># Commands are reusable sets of steps invokable with parameters inside a job.</span><span style="color:#666">
+</span><span style="color:#666"></span>commands:<span style="color:#666">
+</span><span style="color:#666">  </span>prepare_workspace:<span style="color:#666">
+</span><span style="color:#666">    </span>steps:<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>dm/install-yarn<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>dm/update-bundler<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>attach_workspace:<span style="color:#666">
+</span><span style="color:#666">          </span>at:<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">*working_directory</span><span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>dm/bundle-gems<span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666"></span><span style="color:#999;font-style:italic">#</span><span style="color:#666">
+</span><span style="color:#666"></span><span style="color:#999;font-style:italic"># Executors define the environment in which the steps of a job will be run.</span><span style="color:#666">
+</span><span style="color:#666"></span>executors:<span style="color:#666">
+</span><span style="color:#666">  </span>ruby-postgres-redis:<span style="color:#666">
+</span><span style="color:#666">    </span>docker:<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>image:<span style="color:#666"> </span>circleci/ruby:<span style="color:#3677a9">2.6</span><span style="color:#3677a9">.5</span>-browsers<span style="color:#666">
+</span><span style="color:#666">        </span>environment:<span style="color:#666">
+</span><span style="color:#666">          </span>BUNDLE_PATH:<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">*bundle_path</span><span style="color:#666">
+</span><span style="color:#666">          </span>RESULTS_PATH:<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">*results_path</span><span style="color:#666">
+</span><span style="color:#666">          </span>PGHOST:<span style="color:#666"> </span><span style="color:#3677a9">127.0</span><span style="color:#3677a9">.0</span><span style="color:#3677a9">.1</span><span style="color:#666">
+</span><span style="color:#666">          </span>PG_USER:<span style="color:#666"> </span>ubuntu<span style="color:#666">
+</span><span style="color:#666">          </span>RAILS_ENV:<span style="color:#666"> </span>test<span style="color:#666">
+</span><span style="color:#666">          </span>RACK_ENV:<span style="color:#666"> </span>test<span style="color:#666">
+</span><span style="color:#666">          </span>NODE_ENV:<span style="color:#666"> </span>test<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>image:<span style="color:#666"> </span>circleci/postgres:<span style="color:#3677a9">11.4</span>-alpine-postgis<span style="color:#666">
+</span><span style="color:#666">        </span>environment:<span style="color:#666">
+</span><span style="color:#666">          </span>POSTGRES_USER:<span style="color:#666"> </span>ubuntu<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>image:<span style="color:#666"> </span>redis:<span style="color:#3677a9">5.0</span><span style="color:#666">
+</span><span style="color:#666">    </span>working_directory:<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">*working_directory</span><span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666"></span><span style="color:#999;font-style:italic">#</span><span style="color:#666">
+</span><span style="color:#666"></span><span style="color:#999;font-style:italic"># Jobs have two parts: the execution environment and a set of steps.</span><span style="color:#666">
+</span><span style="color:#666"></span>jobs:<span style="color:#666">
+</span><span style="color:#666">  </span>setup:<span style="color:#666">
+</span><span style="color:#666">    </span>resource_class:<span style="color:#666"> </span>small<span style="color:#666">
+</span><span style="color:#666">    </span>executor:<span style="color:#666"> </span>ruby-postgres-redis<span style="color:#666">
+</span><span style="color:#666">    </span>steps:<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>checkout<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>dm/install-yarn<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>dm/install-gems:<span style="color:#666">
+</span><span style="color:#666">          </span>cache-version:<span style="color:#666"> </span>v1<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>dm/install-packages:<span style="color:#666">
+</span><span style="color:#666">          </span>cache-version:<span style="color:#666"> </span>v1<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Set<span style="color:#666"> </span>up<span style="color:#666"> </span>database.yml<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">|
+</span><span style="color:#ed9d13">           </span><span style="color:#ed9d13"> </span><span style="color:#ed9d13">mv config/database.yml.example config/database.yml</span><span style="color:#666">
+</span><span style="color:#666">            </span>sed<span style="color:#666"> </span>-i<span style="color:#666"> </span><span style="color:#ed9d13">&#39;s/\$USER/ubuntu/g&#39;</span><span style="color:#666"> </span>config/database.yml<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Compile<span style="color:#666"> </span>webpacker<span style="color:#666"> </span>packs<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span>bundle<span style="color:#666"> </span>exec<span style="color:#666"> </span>rails<span style="color:#666"> </span>webpacker:compile<span style="color:#666"> </span>--trace<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Save<span style="color:#666"> </span>test<span style="color:#666"> </span>filenames,<span style="color:#666"> </span>splitting<span style="color:#666"> </span>out<span style="color:#666"> </span>slower<span style="color:#666"> </span>system<span style="color:#666"> </span>tests<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">|
+</span><span style="color:#ed9d13">           </span><span style="color:#ed9d13"> </span><span style="color:#ed9d13">circleci tests glob &#34;test/**/*_test.rb&#34; &gt; test_all.txt</span><span style="color:#666">
+</span><span style="color:#666">            </span>grep<span style="color:#666"> </span>-v<span style="color:#666"> </span><span style="color:#ed9d13">&#34;test/system&#34;</span><span style="color:#666"> </span>test_all.txt<span style="color:#666"> </span>&gt;<span style="color:#666"> </span>test_main.txt<span style="color:#666">
+</span><span style="color:#666">            </span>grep<span style="color:#666"> </span><span style="color:#ed9d13">&#34;test/system&#34;</span><span style="color:#666"> </span>test_all.txt<span style="color:#666"> </span>&gt;<span style="color:#666"> </span>test_system.txt<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>persist_to_workspace:<span style="color:#666">
+</span><span style="color:#666">          </span>root:<span style="color:#666"> </span>.<span style="color:#666">
+</span><span style="color:#666">          </span>paths:<span style="color:#666">
+</span><span style="color:#666">            </span>-<span style="color:#666"> </span>.<span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666">  </span>lint:<span style="color:#666">
+</span><span style="color:#666">    </span>resource_class:<span style="color:#666"> </span>small<span style="color:#666">
+</span><span style="color:#666">    </span>executor:<span style="color:#666"> </span>ruby-postgres-redis<span style="color:#666">
+</span><span style="color:#666">    </span>steps:<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>prepare_workspace<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Lint<span style="color:#666"> </span>JS<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span>yarn<span style="color:#666"> </span>lint:js<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Lint<span style="color:#666"> </span>Ruby<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span>bundle<span style="color:#666"> </span>exec<span style="color:#666"> </span>rubocop<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Scan<span style="color:#666"> </span>for<span style="color:#666"> </span>Rails<span style="color:#666"> </span>code<span style="color:#666"> </span>vulnerabilities<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">|
+</span><span style="color:#ed9d13">           </span><span style="color:#ed9d13"> </span><span style="color:#ed9d13">gem install brakeman</span><span style="color:#666">
+</span><span style="color:#666">            </span>brakeman<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Scan<span style="color:#666"> </span>for<span style="color:#666"> </span>bundled<span style="color:#666"> </span>Ruby<span style="color:#666"> </span>gem<span style="color:#666"> </span>vulnerabilties<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">|
+</span><span style="color:#ed9d13">           </span><span style="color:#ed9d13"> </span><span style="color:#ed9d13">gem install bundler-audit</span><span style="color:#666">
+</span><span style="color:#666">            </span>bundle<span style="color:#666"> </span>audit<span style="color:#666"> </span>check<span style="color:#666"> </span>--update<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Scan<span style="color:#666"> </span>for<span style="color:#666"> </span>Ruby<span style="color:#666"> </span>and<span style="color:#666"> </span>RubyGems<span style="color:#666"> </span>system<span style="color:#666"> </span>vulnerabilities<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">|
+</span><span style="color:#ed9d13">           </span><span style="color:#ed9d13"> </span><span style="color:#ed9d13">bundle add ruby_audit --group &#34;test&#34;</span><span style="color:#666">
+</span><span style="color:#666">            </span>bundle<span style="color:#666"> </span>exec<span style="color:#666"> </span>ruby-audit<span style="color:#666"> </span>check<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Analyze<span style="color:#666"> </span>Ruby<span style="color:#666"> </span>code<span style="color:#666"> </span>quality<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">|
+</span><span style="color:#ed9d13">           </span><span style="color:#ed9d13"> </span><span style="color:#ed9d13">gem install rubycritic</span><span style="color:#666">
+</span><span style="color:#666">            </span>rubycritic<span style="color:#666"> </span>--minimum-score<span style="color:#666"> </span><span style="color:#3677a9">90</span><span style="color:#666"> </span>--format<span style="color:#666"> </span>json<span style="color:#666"> </span>--no-browser<span style="color:#666"> </span>app<span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666">  </span>test:<span style="color:#666">
+</span><span style="color:#666">    </span>resource_class:<span style="color:#666"> </span>small<span style="color:#666">
+</span><span style="color:#666">    </span>executor:<span style="color:#666"> </span>ruby-postgres-redis<span style="color:#666">
+</span><span style="color:#666">    </span>parallelism:<span style="color:#666"> </span><span style="color:#3677a9">4</span><span style="color:#666">
+</span><span style="color:#666">    </span>steps:<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>prepare_workspace<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Create<span style="color:#666"> </span>and<span style="color:#666"> </span>load<span style="color:#666"> </span>database<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">|
+</span><span style="color:#ed9d13">           </span><span style="color:#ed9d13"> </span><span style="color:#ed9d13">bundle exec rails db:create --trace</span><span style="color:#666">
+</span><span style="color:#666">            </span>bundle<span style="color:#666"> </span>exec<span style="color:#666"> </span>rails<span style="color:#666"> </span>db:schema:load<span style="color:#666"> </span>--trace<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Run<span style="color:#666"> </span>Rails<span style="color:#666"> </span>non-system<span style="color:#666"> </span>tests<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">|
+</span><span style="color:#ed9d13">           </span><span style="color:#ed9d13"> </span><span style="color:#ed9d13">TEST_FILES=&#34;$(circleci tests split test_main.txt --split-by=timings)&#34;</span><span style="color:#666">
+</span><span style="color:#666">            </span>bundle<span style="color:#666"> </span>exec<span style="color:#666"> </span>rails<span style="color:#666"> </span>test<span style="color:#666"> </span>$TEST_FILES<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>store_test_results:<span style="color:#666">
+</span><span style="color:#666">          </span>path:<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">*results_path</span><span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>run:<span style="color:#666">
+</span><span style="color:#666">          </span>name:<span style="color:#666"> </span>Run<span style="color:#666"> </span>Rails<span style="color:#666"> </span>system<span style="color:#666"> </span>tests<span style="color:#666">
+</span><span style="color:#666">          </span>command:<span style="color:#666"> </span><span style="color:#ed9d13">|
+</span><span style="color:#ed9d13">           </span><span style="color:#ed9d13"> </span><span style="color:#ed9d13">TEST_FILES=&#34;$(circleci tests split test_system.txt --split-by=timings)&#34;</span><span style="color:#666">
+</span><span style="color:#666">            </span>bundle<span style="color:#666"> </span>exec<span style="color:#666"> </span>rails<span style="color:#666"> </span>test<span style="color:#666"> </span>$TEST_FILES<span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666">            </span><span style="color:#999;font-style:italic"># Want to use RSpec instead of minitest? Try this:</span><span style="color:#666">
+</span><span style="color:#666">            </span><span style="color:#999;font-style:italic"># bundle exec rspec --format progress --format RspecJunitFormatter --out $RESULTS_PATH/rspec/core_results.xml $TEST_FILES</span><span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>store_test_results:<span style="color:#666">
+</span><span style="color:#666">          </span>path:<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">*results_path</span><span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>store_artifacts:<span style="color:#666">
+</span><span style="color:#666">          </span>path:<span style="color:#666"> </span><span style="color:#cd2828;font-weight:bold">*screenshots_path</span><span style="color:#666">
+</span><span style="color:#666">
+</span><span style="color:#666"></span><span style="color:#999;font-style:italic">#</span><span style="color:#666">
+</span><span style="color:#666"></span><span style="color:#999;font-style:italic"># Workflows are sequences of jobs.</span><span style="color:#666">
+</span><span style="color:#666"></span>workflows:<span style="color:#666">
+</span><span style="color:#666">  </span>build:<span style="color:#666">
+</span><span style="color:#666">    </span>jobs:<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>setup<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>lint:<span style="color:#666">
+</span><span style="color:#666">          </span>requires:<span style="color:#666">
+</span><span style="color:#666">            </span>-<span style="color:#666"> </span>setup<span style="color:#666">
+</span><span style="color:#666">      </span>-<span style="color:#666"> </span>test:<span style="color:#666">
+</span><span style="color:#666">          </span>context:<span style="color:#666"> </span>saas-tokens<span style="color:#666">
+</span><span style="color:#666">          </span>requires:<span style="color:#666">
+</span><span style="color:#666">            </span>-<span style="color:#666"> </span>setup<span style="color:#666">
+</span></code></pre></div>
+    </div>
+
+    
+
+    
+      
+      <div class="my-8">
+        <a href="https://briansigafoos.com/" class="btn btn-default">
+          Visit homepage
+        </a>
+      </div>
+    
+
+    
+      
+        
+        <div class="my-8">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "briansigafoos" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+  </div>
+
+
+  <div class="border-t border-gray py-4 my-16 w-full text-sm text-faint">
+  <div class="container max-w-4xl text-center font-mono">
+    <div class="sm:flex items-center justify-between">
+      <span>
+        Made with
+        <a href="https://gohugo.io" rel="nofollow" target="hugo">Hugo</a> &
+        <a href="https://tailwindcss.com" rel="nofollow" target="tw">TailwindCSS</a>
+        ·
+        <a href="https://github.com/BrianSigafoos/hugo_site" class="text-faint" rel="nofollow" target="source">
+          Source code
+        </a>
+      </span>
+
+      <span class="block sm:inline mt-2 sm:mt-0">
+        By <a href="/about" class="font-black">Brian Sigafoos</a>
+      </span>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>brian.sigafoos@gmail.com (Brian Sigafoos)</managingEditor>
     <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster>
-    <lastBuildDate>Tue, 31 Dec 2019 20:14:13 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jan 2020 06:09:51 -0800</lastBuildDate>
     
 	<atom:link href="https://briansigafoos.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Parallel tests on CircleCI</title>
+      <link>https://briansigafoos.com/parallel-tests-on-circle-ci/</link>
+      <pubDate>Sun, 12 Jan 2020 06:09:51 -0800</pubDate>
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
+      <guid>https://briansigafoos.com/parallel-tests-on-circle-ci/</guid>
+      <description>Speed up builds by running Rails tests in parallel and learn more about CircleCI 2.1 features</description>
+    </item>
     
     <item>
       <title>Reading list</title>
