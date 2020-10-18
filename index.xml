@@ -9,12 +9,21 @@
     <managingEditor>brian.sigafoos@gmail.com (Brian Sigafoos)</managingEditor>
     <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster><atom:link href="https://briansigafoos.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>US county ratings</title>
+      <link>https://briansigafoos.com/us-county-ratings/</link>
+      <pubDate>Sat, 17 Oct 2020 18:00:28 -0700</pubDate>
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
+      <guid>https://briansigafoos.com/us-county-ratings/</guid>
+      <description>Rate US counties using data from &amp;ldquo;Best Places To Live&amp;rdquo; (Niche.com), climate change risks (Pro Publica), and earthquake risk (FEMA).</description>
+    </item>
+    
+    <item>
       <title>Parallel tests on CircleCI</title>
       <link>https://briansigafoos.com/parallel-tests-on-circle-ci/</link>
       <pubDate>Sun, 12 Jan 2020 06:09:51 -0800</pubDate>
       <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/parallel-tests-on-circle-ci/</guid>
-      <description>Speed up builds by running Rails tests in parallel and learn more about CircleCI 2.1 features</description>
+      <description>Speed up builds by running Rails tests in parallel and learn more about CircleCI 2.1 features.</description>
     </item>
     
     <item>
