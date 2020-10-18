@@ -7,12 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>brian.sigafoos@gmail.com (Brian Sigafoos)</managingEditor>
-    <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster>
-    <lastBuildDate>Sun, 12 Jan 2020 06:09:51 -0800</lastBuildDate>
-    
-	<atom:link href="https://briansigafoos.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster><atom:link href="https://briansigafoos.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Parallel tests on CircleCI</title>
       <link>https://briansigafoos.com/parallel-tests-on-circle-ci/</link>
@@ -28,7 +23,7 @@
       <pubDate>Tue, 31 Dec 2019 20:14:13 +0200</pubDate>
       <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/reading/</guid>
-      <description>My favorite books and what I&#39;m currently reading.</description>
+      <description>My favorite books and what I&amp;rsquo;m currently reading.</description>
     </item>
     
     <item>
@@ -46,7 +41,7 @@
       <pubDate>Sat, 10 Aug 2019 08:03:18 -0700</pubDate>
       <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/learn-go/</guid>
-      <description>Some resources I&#39;ve found incredibly useful in learning Go, aka Golang.</description>
+      <description>Some resources I&amp;rsquo;ve found incredibly useful in learning Go, aka Golang.</description>
     </item>
     
     <item>
@@ -100,7 +95,7 @@
       <pubDate>Sun, 22 Jun 2014 12:21:12 +0000</pubDate>
       <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/dubai-startup-resources/</guid>
-      <description>Crash course on Dubai&#39;s startup ecosystem from co-working spaces to accelerators and a list of Dubai startups.</description>
+      <description>Crash course on Dubai&amp;rsquo;s startup ecosystem from co-working spaces to accelerators and a list of Dubai startups.</description>
     </item>
     
     <item>
@@ -109,7 +104,7 @@
       <pubDate>Mon, 27 Jan 2014 19:50:00 +0000</pubDate>
       <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/paleo-norcal-margarita-recipe/</guid>
-      <description>Recipe for a variation of Robb Wolf&#39;s paleo NorCal Margarita with frozen berries instead of ice cubes.</description>
+      <description>Recipe for a variation of Robb Wolf&amp;rsquo;s paleo NorCal Margarita with frozen berries instead of ice cubes.</description>
     </item>
     
     <item>
@@ -127,7 +122,7 @@
       <pubDate>Fri, 26 Jul 2013 03:21:00 +0000</pubDate>
       <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/building-a-blog-using-jekyll-and-github-pages/</guid>
-      <description>Here&#39;s how I set up this blog with Jekyll, Bootstrap, GitHub pages. Tip - clone a working Jekyll site!</description>
+      <description>Here&amp;rsquo;s how I set up this blog with Jekyll, Bootstrap, GitHub pages. Tip - clone a working Jekyll site!</description>
     </item>
     
     <item>
@@ -136,7 +131,7 @@
       <pubDate>Wed, 06 Mar 2013 20:29:00 +0000</pubDate>
       <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/crossfit-wod-log/</guid>
-      <description>Template of a Google Sheet spreadsheet to track of CrossFit WOD&#39;s and PB&#39;s.</description>
+      <description>Template of a Google Sheet spreadsheet to track of CrossFit WOD&amp;rsquo;s and PB&amp;rsquo;s.</description>
     </item>
     
     <item>
@@ -145,7 +140,7 @@
       <pubDate>Sat, 23 Feb 2013 23:29:00 +0000</pubDate>
       <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
       <guid>https://briansigafoos.com/online-mooc-learning/</guid>
-      <description>Mass Open Online Courses are an amazing way to learn online, for free. Here&#39;s a list of some great free courses.</description>
+      <description>Mass Open Online Courses are an amazing way to learn online, for free. Here&amp;rsquo;s a list of some great free courses.</description>
     </item>
     
     <item>

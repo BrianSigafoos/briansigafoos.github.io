@@ -7,10 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>brian.sigafoos@gmail.com (Brian Sigafoos)</managingEditor>
-    <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster>
-    
-	<atom:link href="https://briansigafoos.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster><atom:link href="https://briansigafoos.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
