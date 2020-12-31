@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://briansigafoos.com/2020/</loc>
+    <lastmod>2020-12-30T19:38:04-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://briansigafoos.com/ruby-gems/</loc>
     <lastmod>2020-12-06T18:54:19-05:00</lastmod>
   </url>
@@ -73,7 +78,7 @@
   </url>
   
   <url>
-    <loc>https://briansigafoos.com/2013-lists/</loc>
+    <loc>https://briansigafoos.com/2013/</loc>
     <lastmod>2013-12-27T19:50:00+00:00</lastmod>
   </url>
   
