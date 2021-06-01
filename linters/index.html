@@ -76,7 +76,7 @@ if (!doNotTrack) {
 <li>Use keybindings in your IDE to auto-format code with a few key strokes</li>
 <li>Add <code>lint-staged</code> to automatically format and lint code before every commit</li>
 <li>Have CI, Circle CI or Github Actions, run full linters and vulnerability scanners in parallel with your test suite</li>
-<li>Require Pull Requests have the lint and security scan jobs pass, in order to be merged</li>
+<li>Require all Pull Requests have your lint jobs pass before merging</li>
 </ol>
 <h3 id="add-essential-linters-and-auto-formatters">Add essential linters and auto-formatters</h3>
 <p>Good linters and auto-formatters have sane defaults, allow some customization, and integrate with your automated test suite / CI setup.</p>
@@ -290,7 +290,7 @@ if (!doNotTrack) {
 </span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">test</span>:<span style="color:#666">
 </span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">requires</span>:<span style="color:#666">
 </span><span style="color:#666">            </span>- setup<span style="color:#666">
-</span></code></pre></div><h3 id="require-pull-requests-have-the-lint-and-security-scan-jobs-pass-in-order-to-be-merged">Require Pull Requests have the lint and security scan jobs pass, in order to be merged</h3>
+</span></code></pre></div><h3 id="require-all-pull-requests-have-your-lint-jobs-pass-before-merging">Require all Pull Requests have your lint jobs pass before merging</h3>
 <p>Update your GitHub repository Settings for Branches to &ldquo;Require status checks to pass before merging&rdquo;. Select the check that only passes in the lint job in your CI passes.</p>
 <p>This ensures your team writes consistent code, even as the team grows.</p>
 
