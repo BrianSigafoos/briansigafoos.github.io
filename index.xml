@@ -9,6 +9,15 @@
     <managingEditor>brian.sigafoos@gmail.com (Brian Sigafoos)</managingEditor>
     <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster><atom:link href="https://briansigafoos.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Principles for engineers</title>
+      <link>https://briansigafoos.com/engineer-principles/</link>
+      <pubDate>Sun, 06 Jun 2021 07:37:35 -0400</pubDate>
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
+      <guid>https://briansigafoos.com/engineer-principles/</guid>
+      <description>Focus on delivering value to customers, communicate proactively, encourage critique, take initiative, debug scientifically, and practice habits.</description>
+    </item>
+    
+    <item>
       <title>Auto-format and lint everything</title>
       <link>https://briansigafoos.com/linters/</link>
       <pubDate>Sun, 30 May 2021 09:28:12 -0400</pubDate>
