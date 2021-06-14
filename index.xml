@@ -9,6 +9,15 @@
     <managingEditor>brian.sigafoos@gmail.com (Brian Sigafoos)</managingEditor>
     <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster><atom:link href="https://briansigafoos.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>A modern app tech stack, built for speed</title>
+      <link>https://briansigafoos.com/app-stack/</link>
+      <pubDate>Sun, 13 Jun 2021 12:06:27 -0400</pubDate>
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
+      <guid>https://briansigafoos.com/app-stack/</guid>
+      <description>Iterate more quickly using Rails with ViewComponents + Tailwind CSS + Hotwire. Build faster with no custom CSS and limited JS.</description>
+    </item>
+    
+    <item>
       <title>Principles for engineers</title>
       <link>https://briansigafoos.com/principles-for-engineers/</link>
       <pubDate>Sun, 06 Jun 2021 07:37:35 -0400</pubDate>
