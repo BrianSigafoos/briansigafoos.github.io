@@ -10,10 +10,10 @@
     <webMaster>brian.sigafoos@gmail.com (Brian Sigafoos)</webMaster><atom:link href="https://briansigafoos.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A modern app tech stack, built for speed</title>
-      <link>https://briansigafoos.com/app-stack/</link>
+      <link>https://briansigafoos.com/app-tech-stack-2021/</link>
       <pubDate>Sun, 13 Jun 2021 12:06:27 -0400</pubDate>
       <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
-      <guid>https://briansigafoos.com/app-stack/</guid>
+      <guid>https://briansigafoos.com/app-tech-stack-2021/</guid>
       <description>Iterate more quickly using Rails with ViewComponent + Tailwind CSS + Hotwire. Build faster with no custom CSS and limited JS.</description>
     </item>
     
