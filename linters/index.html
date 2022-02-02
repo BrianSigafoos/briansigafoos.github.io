@@ -12,7 +12,7 @@
 
 
   
-  <link rel="stylesheet" href="/css/main.min.7f91320fbc12987bf35c344f8a86aabaaf6ff13e33eeb0fcf401bdfeeca430b8.css" integrity="sha256-f5EyD7wSmHvzXDRPioaquq9v8T4z7rD89AG9/uykMLg="/>
+  <link rel="stylesheet" href="/css/main.min.f06fe96c2656acd6eeeb6f07d3c03c832fb4bce7f4202e4131b48ff7595e6367.css" integrity="sha256-8G/pbCZWrNbu628H08A8gy+0vOf0IC5BMbSP91leY2c="/>
 
 
 
@@ -95,7 +95,7 @@ if (!doNotTrack) {
 </ul>
 <h4 id="rubocop-config">Rubocop config</h4>
 <p>In your <code>.rubocop.yml</code> setup, enable <code>NewCops</code> by default:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#999;font-style:italic">#`rubocop` to run normally</span><span style="color:#666">
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#999;font-style:italic">#`rubocop` to run normally</span><span style="color:#666">
 </span><span style="color:#666"></span><span style="color:#999;font-style:italic">#`rubocop --auto-gen-config` to update .rubocop_todo.yml</span><span style="color:#666">
 </span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">inherit_from</span>:<span style="color:#666"> </span>.rubocop_todo.yml<span style="color:#666">
 </span><span style="color:#666">
@@ -119,11 +119,11 @@ if (!doNotTrack) {
 </span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">Enabled</span>:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">true</span><span style="color:#666">
 </span></code></pre></div><h4 id="prettier-eslint-and-stylelint-configs">Prettier, ESLint, and Stylelint configs</h4>
 <p>In your <code>package.json</code></p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#a61717;background-color:#e3d2d2">//</span> <span style="color:#a61717;background-color:#e3d2d2">...</span>
-  <span style="color:#6ab825;font-weight:bold">&#34;eslintConfig&#34;</span>: {
-    <span style="color:#a61717;background-color:#e3d2d2">//</span> <span style="color:#6ab825;font-weight:bold">&#34;env&#34;</span>: {<span style="color:#a61717;background-color:#e3d2d2">...</span>}
-    <span style="color:#ed9d13">&#34;extends&#34;</span>: [<span style="color:#ed9d13">&#34;eslint:recommended&#34;</span>, <span style="color:#ed9d13">&#34;prettier&#34;</span>],
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#999;font-style:italic">// ...
+</span><span style="color:#999;font-style:italic"></span>  <span style="color:#6ab825;font-weight:bold">&#34;eslintConfig&#34;</span>: {
+    <span style="color:#999;font-style:italic">// &#34;env&#34;: {...}
+</span><span style="color:#999;font-style:italic"></span>    <span style="color:#6ab825;font-weight:bold">&#34;extends&#34;</span>: [<span style="color:#ed9d13">&#34;eslint:recommended&#34;</span>, <span style="color:#ed9d13">&#34;prettier&#34;</span>],
     <span style="color:#6ab825;font-weight:bold">&#34;parser&#34;</span>: <span style="color:#ed9d13">&#34;@babel/eslint-parser&#34;</span>,
     <span style="color:#6ab825;font-weight:bold">&#34;rules&#34;</span>: {
       <span style="color:#6ab825;font-weight:bold">&#34;class-methods-use-this&#34;</span>: <span style="color:#3677a9">2</span>,
@@ -144,7 +144,7 @@ if (!doNotTrack) {
 }
 </code></pre></div><h3 id="use-keybindings-in-your-ide-to-auto-format-code-with-a-few-key-strokes">Use keybindings in your IDE to auto-format code with a few key strokes</h3>
 <p>For VS Code <code>.vscode/tasks.json</code>:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#6ab825;font-weight:bold">&#34;version&#34;</span>: <span style="color:#ed9d13">&#34;2.0.0&#34;</span>,
   <span style="color:#6ab825;font-weight:bold">&#34;tasks&#34;</span>: [
     {
@@ -180,7 +180,7 @@ if (!doNotTrack) {
   ]
 }
 </code></pre></div><p>And your VS Code <code>keybindings.json</code> to set up autocorrect from pressing a combination of keys when looking at a file.</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
   {
     <span style="color:#6ab825;font-weight:bold">&#34;key&#34;</span>: <span style="color:#ed9d13">&#34;ctrl+cmd+shift+r&#34;</span>,
     <span style="color:#6ab825;font-weight:bold">&#34;command&#34;</span>: <span style="color:#ed9d13">&#34;workbench.action.tasks.runTask&#34;</span>,
@@ -198,9 +198,9 @@ if (!doNotTrack) {
   }
 ]
 </code></pre></div><p>And in your <code>package.json</code> add these <code>&quot;scripts&quot;</code>:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#a61717;background-color:#e3d2d2">//</span> <span style="color:#a61717;background-color:#e3d2d2">...</span>
-  <span style="color:#6ab825;font-weight:bold">&#34;scripts&#34;</span>: {
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#999;font-style:italic">// ...
+</span><span style="color:#999;font-style:italic"></span>  <span style="color:#6ab825;font-weight:bold">&#34;scripts&#34;</span>: {
     <span style="color:#6ab825;font-weight:bold">&#34;fix&#34;</span>: <span style="color:#ed9d13">&#34;yarn css:fix; yarn js:fix; yarn md:fix; yarn json:fix&#34;</span>,
     <span style="color:#6ab825;font-weight:bold">&#34;lint&#34;</span>: <span style="color:#ed9d13">&#34;yarn css:lint; yarn js:lint; yarn md:lint; yarn json:lint&#34;</span>,
     <span style="color:#6ab825;font-weight:bold">&#34;css:fix&#34;</span>: <span style="color:#ed9d13">&#34;yarn prettier --write &#39;app/**/*.scss&#39;; yarn stylelint --fix &#39;app/**/*.scss&#39;&#34;</span>,
@@ -224,7 +224,7 @@ if (!doNotTrack) {
 }
 </code></pre></div><h3 id="add-lint-staged-to-automatically-format-and-lint-code-before-every-commit">Add lint-staged to automatically format and lint code before every commit</h3>
 <p>Install with <code>yarn add -D lint-staged</code> and add a <code>lint-staged.config.js</code> file:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#999;font-style:italic">// lint-staged.config.js
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#999;font-style:italic">// lint-staged.config.js
 </span><span style="color:#999;font-style:italic"></span>module.exports = {
   <span style="color:#ed9d13">&#39;(app|config|lib|test)/**/*.rb&#39;</span>: (files) =&gt;
     <span style="color:#ed9d13">`bundle exec rubocop </span><span style="color:#ed9d13">${</span>files.join(<span style="color:#ed9d13">&#39; &#39;</span>)<span style="color:#ed9d13">}</span><span style="color:#ed9d13">`</span>,
@@ -235,7 +235,7 @@ if (!doNotTrack) {
   <span style="color:#ed9d13">&#39;./**/*.scss&#39;</span>: [<span style="color:#ed9d13">&#39;stylelint --fix&#39;</span>, <span style="color:#ed9d13">&#39;prettier --write&#39;</span>]
 }
 </code></pre></div><h3 id="have-ci-circle-ci-or-github-actions-run-full-linters-and-vulnerability-scanners-in-parallel-with-your-test-suite">Have CI, Circle CI or Github Actions, run full linters and vulnerability scanners in parallel with your test suite</h3>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#999;font-style:italic"># .circleci/config.yml</span><span style="color:#666">
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#999;font-style:italic"># .circleci/config.yml</span><span style="color:#666">
 </span><span style="color:#666">
 </span><span style="color:#666"></span><span style="color:#999;font-style:italic">#</span><span style="color:#666">
 </span><span style="color:#666"></span><span style="color:#999;font-style:italic"># Jobs have two parts: the execution environment and a set of steps.</span><span style="color:#666">
