@@ -12,7 +12,7 @@ _prior to August 2019_
 
 ## Workflow
 
-- To publish on Github pages just merge a Pull Request into master and Github handles the rest.
+- To publish on Github pages just merge a Pull Request into main and Github handles the rest.
 
 ```shell
 # Local development
