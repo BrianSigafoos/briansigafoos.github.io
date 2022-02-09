@@ -104,13 +104,12 @@ if (!doNotTrack) {
 <ul>
 <li>
 <p>Automate setting up Docker/local development with VS Code tasks.</p>
-<ul>
-<li>Run &ldquo;build&rdquo; tasks in VS Code that open/reload multiple shells for either:
+</li>
+<li>
+<p>Run &ldquo;build&rdquo; tasks in VS Code that open/reload multiple shells for either:</p>
 <ul>
 <li>Docker development</li>
 <li>Local development</li>
-</ul>
-</li>
 </ul>
 <p>See <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.vscode/tasks.json">tasks setup in the demo app repo</a>.</p>
 </li>
@@ -393,7 +392,7 @@ activity</li>
 </ul>
 <p>The <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app">demo app</a> does the checked ones above and everyone really should. They&rsquo;re straightforward to implement.
 See the Dockerfile for &ldquo;nonroot&rdquo; USER setup and USER_ID</p>
-<p>The other parts are as simple as passing some options in the K8s Deployment spec</p>
+<p>The other parts are as simple as passing some options in the <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/kubernetes/base/deployment-app.yaml">K8s Deployment spec</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#6ab825;font-weight:bold">spec</span>:<span style="color:#666">
 </span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">securityContext</span>:<span style="color:#666">
 </span><span style="color:#666">    </span><span style="color:#999;font-style:italic"># Must match Dockerfile&#39;s USER_ID for User and Group</span><span style="color:#666">
