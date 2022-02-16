@@ -100,6 +100,15 @@
     </item>
     
     <item>
+      <title>API design patterns</title>
+      <link>https://briansigafoos.com/api-design/</link>
+      <pubDate>Tue, 01 Sep 2020 14:00:00 -0700</pubDate>
+      <author>brian.sigafoos@gmail.com (Brian Sigafoos)</author>
+      <guid>https://briansigafoos.com/api-design/</guid>
+      <description>Key principles and learnings for API design</description>
+    </item>
+    
+    <item>
       <title>Parallel tests on CircleCI</title>
       <link>https://briansigafoos.com/parallel-tests-on-circle-ci/</link>
       <pubDate>Sun, 12 Jan 2020 06:09:51 -0800</pubDate>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>API design patterns - Brian Sigafoos</title>
+
+
+
+
+  
+  <link rel="stylesheet" href="/css/main.min.353aab6684825e00f8b27a26b10de1e3426ce5b375bc534dbb4e14e25d1a18f3.css" integrity="sha256-NTqrZoSCXgD4snomsQ3h40Js5bN1vFNNu04U4l0aGPM="/>
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-42740116-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<link rel="shortcut icon" href="/favicon.png?20190809" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?20190809" />
+
+</head>
+
+<body class="antialiased leading-normal">
+  <div class="border-b border-gray py-4 w-full">
+  <div class="container max-w-4xl">
+    <div class="flex items-center justify-between font-mono">
+      <a href="https://briansigafoos.com/" class="font-black">
+        Brian Sigafoos
+      </a>
+
+      <a href="/about">About me</a>
+    </div>
+  </div>
+</div>
+
+  <div class="container my-16 max-w-4xl">
+    <h1 class="title">
+      API design patterns
+    </h1>
+
+    <h3 class="subtitle">
+      Key principles and learnings for API design
+    </h3>
+
+    <p class="font-mono text-faint text-sm">
+      
+        Sep 1, 2020
+        ·
+      
+
+      
+        4 min read
+      
+    </p>
+
+    <div class="border-t border-gray text-readable my-8 pt-4">
+      <p>Update 2022: I&rsquo;m glad I captured these notes in 2020 for reference in future API design work. But, from 2021-2022, I saw 2-5x faster product development without an API. See this post:
+<a href="/app-tech-stack-2021">A modern app tech stack, built for speed</a></p>
+<hr>
+<h3 id="principles">Principles</h3>
+<ul>
+<li>RESTful API only</li>
+<li>URL-based API version, ex: <code>/api/v2/</code>, and not sent in the request header</li>
+<li>Use underscore formatting for all attributes, ex: <code>created_at</code>, and not <code>createdAt</code> (camelCase)</li>
+<li>Decide ahead of time on nested vs shallow routes use cases</li>
+<li>HATEOAS returns API permissions via links for <code>{ create: ..., update: ..., delete: ... }</code></li>
+<li>Frontend I18n lookups based on sensible symbol/keys returned in English only</li>
+<li>Uniform HTTP status error codes (see section below)</li>
+<li>Error objects are returned in a standard format</li>
+<li>Standardize data formats (see section below)</li>
+<li>Meaningful attributes returned to client
+<ul>
+<li>Replace <code>status</code> or <code>state</code> with something more descriptive and clear, like <code>payment_status</code></li>
+<li>In OpenAPI schema, always provide possible values returned in the enum: to let the client know what to expect.</li>
+</ul>
+</li>
+<li>POST/PUT params MUST be
+<ul>
+<li>Passed as a nested hash in the body</li>
+<li>Underneath the snake cased resource name as a key (e.g. <code>{ user: {} }</code>)</li>
+</ul>
+</li>
+<li>All actions returning a collection (INDEX) have pagination
+<ul>
+<li>Sorting is determined per endpoint and is optional. If sorting is not allowed the default sort MUST be explicit in the documentation.</li>
+</ul>
+</li>
+<li>Never serialize has_many of relationships data (see section below)</li>
+<li>Reserve the <code>page</code> query parameter for pagination: <code>?page[per_page]=25</code> / <code>?page[number]=1</code></li>
+<li>Reserve the <code>sort</code> query parameter for sorting: <code>?sort=field1,-field2</code> / <code>?sort=name</code>
+<ul>
+<li>A sort field MUST be ascending unless marked with a minus (-) prefix to be descending</li>
+</ul>
+</li>
+<li>Reserve the <code>filter</code> query parameter for filtering: <code>?filter[field1]=value1&amp;filter[field2]=value2</code> (see below)</li>
+<li>Reporting endpoints should have their own namespace <code>reporting</code> and use the SHOW action</li>
+<li>Define and follow a &ldquo;blueprint&rdquo; for releasing new API endpoints (see below)</li>
+</ul>
+<h3 id="uniform-http-status-error-codes">Uniform HTTP status error codes</h3>
+<p>Decision tree for error handling logic MUST be followed:</p>
+<ul>
+<li>Return 401 only if login and not authenticated</li>
+<li>Return 404, to prevent leaking information, if any condition is not met:
+<ul>
+<li>authenticated</li>
+<li>resource found</li>
+<li>access to view resource</li>
+</ul>
+</li>
+<li>Return 403 if can’t perform action on resource, but has access to view resource</li>
+<li>Return 400 if there are parameter errors</li>
+<li>Return 422 if validation error</li>
+</ul>
+<h3 id="error-objects">Error objects</h3>
+<p>Always in English only, the frontend will be responsible for I18n using the code key to lookup the I18n value:</p>
+<ul>
+<li><code>status</code> HTTP status code</li>
+<li><code>code</code> meaningful error code underscored. Ex: already_exists</li>
+<li><code>title</code></li>
+<li><code>source</code>
+ex: for a request parameter - <code>password</code>
+ex: for a query parameter - <code>filter[first_name]</code></li>
+<li><code>meta</code> for returning user inputted values or other things needed for i18n</li>
+</ul>
+<h3 id="standardize-data-formats">Standardize data formats</h3>
+<p>Standardize data formats</p>
+<ul>
+<li>Date/time attributes have the suffix <code>_at</code> like <code>created_at</code> or <code>received_at</code></li>
+<li>Date/time return using ISO8601, powered by time_formats.rb initializer</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">date_formats = {
+  <span style="color:#ed9d13">api_date</span>:     <span style="color:#ed9d13">&#39;%F&#39;</span>,     <span style="color:#999;font-style:italic"># 2020-09-01,          - ISO8601 date</span>
+  <span style="color:#ed9d13">api_datetime</span>: <span style="color:#ed9d13">&#39;%FT%TZ&#39;</span>  <span style="color:#999;font-style:italic"># 2018-09-01T04:05:06Z - ISO8601 timestamp - UTC</span>
+}
+
+<span style="color:#40ffff">Time</span>::<span style="color:#40ffff">DATE_FORMATS</span>.merge! date_formats
+<span style="color:#40ffff">Date</span>::<span style="color:#40ffff">DATE_FORMATS</span>.merge! date_formats
+</code></pre></div><ul>
+<li>Servers and clients MUST use this standard date format for the API.</li>
+<li>Boolean attributes should fill in the blank &ldquo;This is …&rdquo; or &ldquo;This has …&rdquo;. Should not be prefixed with <code>is_</code> or <code>has_</code> like is_configured or <code>has_two_factor_enabled</code>. Instead: &ldquo;This is <code>configured</code>&rdquo; and &ldquo;This has <code>two_factor_enabled</code>&rdquo;</li>
+<li>Integer counts end in <code>_count</code>, not <code>_ct</code></li>
+</ul>
+<h3 id="serialization-of-relationships">Serialization of relationships</h3>
+<ul>
+<li>has_many
+<ul>
+<li>Never serialize attributes</li>
+<li>Always include &ldquo;links&rdquo;: { &ldquo;related&rdquo;: { &ldquo;href&rdquo;: …, &ldquo;meta&rdquo;: { … } }
+<ul>
+<li>&ldquo;href&rdquo; HATEOAS links for create: if permission allows</li>
+<li>&ldquo;meta&rdquo; includes total_count
+<ul>
+<li>Always add a database counter_cache to support this total_count</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>has_one / belongs_to
+<ul>
+<li>Option per endpoint to:
+<ul>
+<li>fully serialize attributes, or</li>
+<li>serialize a summary of attributes, or</li>
+<li>return nothing for this relation</li>
+</ul>
+</li>
+<li>Add HATEOAS links for optional singular resources, per permission:
+<ul>
+<li>If exists already, show/update/destroy</li>
+<li>If doesn’t exist yet, only create</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="filtering">Filtering</h3>
+<ul>
+<li>Filtering is additive. Each filter is applied to the resource.</li>
+<li>A parameter may take multiple values through comma separated values.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">?filter[job_status]=[complete,queued] # job_status of complete or queued
+</code></pre></div><ul>
+<li>If advanced features beyond equality with a value are required, the use of operators may be implemented.</li>
+<li>Shorthand representation of operators SHOULD be used. These include but are not limited to:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">ne = not equals
+lt = less than
+gt = greater than
+lte = less than or equals
+gte = greater than or equals
+</code></pre></div><p>Right Hand Side (RHS) Colon MUST be used to convey additional operators and values for a parameter</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">?filter[balance]=gt:1000        # filter for balances greater than 1000.
+</code></pre></div><h3 id="blueprint-for-releasing-new-api-endpoints">Blueprint for releasing new API endpoints</h3>
+<p>Each step should be a separate PR to quickly get the changes in to the main branch.</p>
+<ol>
+<li>Define RESTful routes + routing specs</li>
+<li>Define OpenAPI schema</li>
+<li>Define Resource policy + policy specs</li>
+<li>Define serializer + serializer specs</li>
+<li>Define controller + request specs</li>
+</ol>
+
+    </div>
+
+    
+
+    
+      
+      <div class="my-8">
+        <a href="https://briansigafoos.com/" class="btn btn-default">
+          Visit homepage
+        </a>
+      </div>
+    
+
+    
+      
+        
+        <div class="my-8">
+          <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "briansigafoos" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      
+    
+  </div>
+
+
+  <div class="border-t border-gray py-4 my-16 w-full text-sm text-faint">
+  <div class="container max-w-4xl text-center font-mono">
+    <div class="sm:flex items-center justify-between">
+      <span>
+        Made with
+        <a href="https://gohugo.io" rel="nofollow" target="hugo">Hugo</a> &
+        <a href="https://tailwindcss.com" rel="nofollow" target="tw">TailwindCSS</a>
+        ·
+        <a href="https://github.com/BrianSigafoos/hugo_site" class="text-faint" rel="nofollow" target="source">
+          Source code
+        </a>
+      </span>
+
+      <span class="block sm:inline mt-2 sm:mt-0">
+        By <a href="/about" class="font-black">Brian Sigafoos</a>
+      </span>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
