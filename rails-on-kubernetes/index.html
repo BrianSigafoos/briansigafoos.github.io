@@ -1,106 +1,71 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
+<!doctype html><html lang=en-us>
 <head>
-  <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1">
 <title>Rails on Kubernetes - Brian Sigafoos</title>
-
-
-
-
-  
-  <link rel="stylesheet" href="/css/main.min.e6e8b99c028ec02238e47aa30146afa808df5116459c3f5efb81b0f96c74389a.css" integrity="sha256-5ui5nAKOwCI45HqjAUavqAjfURZFnD9e+4Gw+Wx0OJo="/>
-
-
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-42740116-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-<link rel="shortcut icon" href="/favicon.png?20190809" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?20190809" />
-
+<link rel=stylesheet href="/css/main.min.e6e8b99c028ec02238e47aa30146afa808df5116459c3f5efb81b0f96c74389a.css" integrity="sha256-5ui5nAKOwCI45HqjAUavqAjfURZFnD9e+4Gw+Wx0OJo=">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-42740116-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<link rel="shortcut icon" href=/favicon.png?20190809>
+<link rel=apple-touch-icon href=/apple-touch-icon.png?20190809>
 </head>
-
 <body class="antialiased leading-normal">
-  <div class="border-b border-gray py-4 w-full">
-  <div class="container max-w-4xl">
-    <div class="flex items-center justify-between font-mono">
-      <a href="https://briansigafoos.com/" class="font-black">
-        Brian Sigafoos
-      </a>
-
-      <a href="/about">About me</a>
-    </div>
-  </div>
+<div class="border-b border-gray py-4 w-full">
+<div class="container max-w-4xl">
+<div class="flex items-center justify-between font-mono">
+<a href=https://briansigafoos.com/ class=font-black>
+Brian Sigafoos
+</a>
+<a href=/about>About me</a>
 </div>
-
-  <div class="container my-16 max-w-4xl">
-    <h1 class="title">
-      Rails on Kubernetes
-    </h1>
-
-    <h3 class="subtitle">
-      Build a CI/CD pipeline with Github Actions to Kubernetes for a Ruby on Rails app
-    </h3>
-
-    <p class="font-mono text-faint text-sm">
-      
-        Sep 1, 2021
-        ·
-      
-
-      
-        9 min read
-      
-    </p>
-
-    <div class="border-t border-gray text-readable my-8 pt-4">
-      <h3 id="tldr">TL;DR</h3>
+</div>
+</div>
+<div class="container my-16 max-w-4xl">
+<h1 class=title>
+Rails on Kubernetes
+</h1>
+<h3 class=subtitle>
+Build a CI/CD pipeline with Github Actions to Kubernetes for a Ruby on Rails app
+</h3>
+<p class="font-mono text-faint text-sm">
+Sep 1, 2021
+·
+9 min read
+</p>
+<div class="border-t border-gray text-readable my-8 pt-4">
+<h3 id=tldr>TL;DR</h3>
 <ul>
 <li>Invest the time to learn Kubernetes and move to CD (Continuous Deployment)</li>
 <li>Streamline your Docker setup with 1 Dockerfile and 1 docker-compose targeting the &ldquo;development&rdquo; stage of the Dockerfile&rsquo;s multi-stage build</li>
 <li>Use Kustomize, and not Helm, to simplify your Kubernetes configuration</li>
 <li>Github Actions makes CI/CD easy (Continuous Integration / Continuous Deployment)</li>
-<li>Handle database migrations with: deploy new code, then migrate. This will require &ldquo;safe&rdquo; migrations and more deployments, which thanks to K8s are now trivially easy. Always follow the recommendations in the <a href="https://github.com/ankane/strong_migrations#removing-a-column">strong_migrations</a> gem</li>
+<li>Handle database migrations with: deploy new code, then migrate. This will require &ldquo;safe&rdquo; migrations and more deployments, which thanks to K8s are now trivially easy. Always follow the recommendations in the <a href=https://github.com/ankane/strong_migrations#removing-a-column>strong_migrations</a> gem</li>
 <li>Switch to PUMA app server, from Passenger or anything else</li>
-<li>Use Liveness probes to ensure unresponsive containers are killed and replaced, including for Sidekiq thanks to the <a href="https://github.com/arturictus/sidekiq_alive">sidekiq_alive</a> gem.</li>
+<li>Use Liveness probes to ensure unresponsive containers are killed and replaced, including for Sidekiq thanks to the <a href=https://github.com/arturictus/sidekiq_alive>sidekiq_alive</a> gem.</li>
 <li>Do as many of the published security best practices as possible for Kubernetes, starting with non-root user, read-only file system, and no privilege escalation.</li>
 </ul>
-<h3 id="why-kubernetes-and-why-docker">Why Kubernetes, and why Docker?</h3>
+<h3 id=why-kubernetes-and-why-docker>Why Kubernetes, and why Docker?</h3>
 <p>It&rsquo;s essential to learn how to use containerize apps (Docker) and deploy using Kubernetes. Going from a few scheduled deploys a week to multiple adhoc deploys a day feels revolutionary.</p>
 <p>At my work, we deployed more in the first 3 days using Kubernetes than in the previous 3 months using Terraform blue/green deployments.</p>
-<h3 id="docker-principles">Docker principles</h3>
-<p>Follow these guidelines and check out the <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app">demo app repo</a> to see how it works.</p>
+<h3 id=docker-principles>Docker principles</h3>
+<p>Follow these guidelines and check out the <a href=https://github.com/BrianSigafoos/docker-rails-webpacker-app>demo app repo</a> to see how it works.</p>
 <ul>
 <li>One <code>Dockerfile</code> with multi-stage builds to support both development and production builds.
 <ul>
-<li>Thanks to <a href="https://docs.docker.com/develop/develop-images/multistage-build/">Docker multi-stage builds</a>, we can target both development and production builds in 1 easy to maintain Dockerfile</li>
+<li>Thanks to <a href=https://docs.docker.com/develop/develop-images/multistage-build/>Docker multi-stage builds</a>, we can target both development and production builds in 1 easy to maintain Dockerfile</li>
 </ul>
 </li>
 <li>One <code>docker-compose.yml</code> to target only the &ldquo;development&rdquo; stage of the Dockerfile, optimized for development speed, aka engineer happiness.
 <ul>
 <li>Make Docker fast enough for development with persisted volumes for all dependencies and generated content (bundle node_modules, packs, etc)</li>
 <li>Get as close as possible to local / non-Docker development speed with separate webpack-dev-server and HMR - hot module reloading</li>
-<li>All credit goes to <a href="https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development">Ruby on Whales</a> for this and much of the Dockerfile development target</li>
+<li>All credit goes to <a href=https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development>Ruby on Whales</a> for this and much of the Dockerfile development target</li>
 </ul>
 </li>
 </ul>
-<h3 id="automate-everything-for-local-development">Automate everything for local development</h3>
-<p>This goes along with my post to <a href="/linters">Auto-format and lint everything</a></p>
+<h3 id=automate-everything-for-local-development>Automate everything for local development</h3>
+<p>This goes along with my post to <a href=/linters>Auto-format and lint everything</a></p>
 <ul>
 <li>Automate setting up Docker/local development with VS Code tasks.</li>
 <li>Run &ldquo;build&rdquo; tasks in VS Code that open/reload multiple shells for either.
@@ -110,197 +75,197 @@ if (!doNotTrack) {
 </ul>
 </li>
 </ul>
-<p>See <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.vscode/tasks.json">tasks setup in the demo app repo</a>.</p>
-<h3 id="kubernetes-pre-requisites">Kubernetes pre-requisites</h3>
+<p>See <a href=https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.vscode/tasks.json>tasks setup in the demo app repo</a>.</p>
+<h3 id=kubernetes-pre-requisites>Kubernetes pre-requisites</h3>
 <p>Getting Kubneretes running on a hosted cloud provider like AWS via their EKS is thankfully getting easier over time..</p>
 <p>Still, there&rsquo;s a lot to set up. A production AWS EKS cluster will have something like this:</p>
 <ul>
 <li>deploy user in EKS</li>
-<li><a href="https://github.com/kubernetes/autoscaler">cluster autoscaler</a></li>
-<li><a href="https://github.com/kubernetes-sigs/aws-load-balancer-controller">AWS load balancer controller</a></li>
-<li><a href="https://github.com/kubernetes-sigs/aws-load-balancer-controller">external DNS</a></li>
-<li><a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret">image_pull_secrets</a></li>
-<li><a href="https://github.com/emberstack/kubernetes-reflector">reflector</a></li>
-<li><a href="https://github.com/kubernetes-sigs/metrics-server/">metrics server</a></li>
-<li><a href="https://github.com/grafana/grafana">Grafana</a></li>
-<li><a href="https://github.com/grafana/loki">Loki</a></li>
-<li><a href="https://grafana.com/docs/loki/latest/clients/promtail/">Promtail</a></li>
+<li><a href=https://github.com/kubernetes/autoscaler>cluster autoscaler</a></li>
+<li><a href=https://github.com/kubernetes-sigs/aws-load-balancer-controller>AWS load balancer controller</a></li>
+<li><a href=https://github.com/kubernetes-sigs/aws-load-balancer-controller>external DNS</a></li>
+<li><a href=https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-pod-that-uses-your-secret>image_pull_secrets</a></li>
+<li><a href=https://github.com/emberstack/kubernetes-reflector>reflector</a></li>
+<li><a href=https://github.com/kubernetes-sigs/metrics-server/>metrics server</a></li>
+<li><a href=https://github.com/grafana/grafana>Grafana</a></li>
+<li><a href=https://github.com/grafana/loki>Loki</a></li>
+<li><a href=https://grafana.com/docs/loki/latest/clients/promtail/>Promtail</a></li>
 </ul>
-<p>Install <a href="https://ohmyz.sh/">Oh My Zsh</a> and add the <code>kubernetes</code> plugin
+<p>Install <a href=https://ohmyz.sh/>Oh My Zsh</a> and add the <code>kubernetes</code> plugin
 to benefit from all the shortcuts below like <code>k ...</code> and <code>kgp</code>, etc.</p>
-<p>Here&rsquo;s a <a href="https://gist.github.com/BrianSigafoos/ad634a5be27b42a27c7222f813ec19bd">gist with the list of K8s Oh My Zsh aliases</a></p>
-<h3 id="kubernetes-configuration-secrets">Kubernetes configuration secrets</h3>
+<p>Here&rsquo;s a <a href=https://gist.github.com/BrianSigafoos/ad634a5be27b42a27c7222f813ec19bd>gist with the list of K8s Oh My Zsh aliases</a></p>
+<h3 id=kubernetes-configuration-secrets>Kubernetes configuration secrets</h3>
 <p>Store in your password manager, as something like &ldquo;demoapp k8s .env.production.local&rdquo;.
 Copy and paste the contents to a <code>.env.production.local</code> file.</p>
 <p>Next, create a secret using that new file (do not commit it!):</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#999;font-style:italic"># Create namespace</span>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#999;font-style:italic># Create namespace</span>
 kubectl create namespace demoapp
 
-<span style="color:#999;font-style:italic"># Add secret named &#34;demoapp-secrets&#34; as a generic type of secret from file</span>
-<span style="color:#999;font-style:italic"># with many entries.</span>
-<span style="color:#999;font-style:italic"># https://kubernetes.io/docs/concepts/configuration/secret/</span>
-kubectl -n demoapp create secret generic demoapp-secrets --from-env-file=<span style="color:#ed9d13">&#39;.env.production.local&#39;</span>
+<span style=color:#999;font-style:italic># Add secret named &#34;demoapp-secrets&#34; as a generic type of secret from file</span>
+<span style=color:#999;font-style:italic># with many entries.</span>
+<span style=color:#999;font-style:italic># https://kubernetes.io/docs/concepts/configuration/secret/</span>
+kubectl -n demoapp create secret generic demoapp-secrets --from-env-file=<span style=color:#ed9d13>&#39;.env.production.local&#39;</span>
 
-<span style="color:#999;font-style:italic"># Show this secret</span>
+<span style=color:#999;font-style:italic># Show this secret</span>
 kubectl -n demoapp describe secret demoapp-secrets
 
-<span style="color:#999;font-style:italic"># Clean up prod secrets from local machine</span>
+<span style=color:#999;font-style:italic># Clean up prod secrets from local machine</span>
 rm .env.production.local
 </code></pre></div><p>Editing secrets</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#999;font-style:italic"># Check secrets</span>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#999;font-style:italic># Check secrets</span>
 kubectl get secret
-<span style="color:#999;font-style:italic"># List all secrets</span>
+<span style=color:#999;font-style:italic># List all secrets</span>
 kubectl describe secret
-<span style="color:#999;font-style:italic"># Show this secret</span>
+<span style=color:#999;font-style:italic># Show this secret</span>
 kubectl describe secret demoapp-secrets
 
-<span style="color:#999;font-style:italic"># Delete secret</span>
+<span style=color:#999;font-style:italic># Delete secret</span>
 kubectl delete secrets demoapp-secrets
 
-<span style="color:#999;font-style:italic"># Edit secrets to change/update</span>
+<span style=color:#999;font-style:italic># Edit secrets to change/update</span>
 kubectl edit secrets demoapp-secrets
-</code></pre></div><h2 id="kubernetes-configuration-using-kustomize">Kubernetes configuration using Kustomize</h2>
+</code></pre></div><h2 id=kubernetes-configuration-using-kustomize>Kubernetes configuration using Kustomize</h2>
 <ul>
-<li>Use <a href="https://kustomize.io/">kustomize</a> to management a base set of K8s objects and then have overlays per environment (production, canary, staging). This is much simpler than using Helm, with it&rsquo;s templates.</li>
+<li>Use <a href=https://kustomize.io/>kustomize</a> to management a base set of K8s objects and then have overlays per environment (production, canary, staging). This is much simpler than using Helm, with it&rsquo;s templates.</li>
 </ul>
-<p>Try the commands in the next section from the demo app root and see the <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app/tree/main/kubernetes">kustomize example with base and overlays</a>.</p>
+<p>Try the commands in the next section from the demo app root and see the <a href=https://github.com/BrianSigafoos/docker-rails-webpacker-app/tree/main/kubernetes>kustomize example with base and overlays</a>.</p>
 <ul>
 <li>Make changes to a folder in /overlays or to the /base and then check the output manually:</li>
 </ul>
-<h3 id="kubernetes-deployments-manually">Kubernetes deployments manually</h3>
+<h3 id=kubernetes-deployments-manually>Kubernetes deployments manually</h3>
 <p>You&rsquo;ll only do these if you&rsquo;re making changes to the /kubernetes/base or overlays files. Once everything is set up, for app code changes you&rsquo;ll let Github Actions deploy for you in the next section.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#999;font-style:italic"># 1. Set env</span>
-<span style="color:#40ffff">K8S_ENV</span>=canary
-<span style="color:#999;font-style:italic"># K8S_ENV=prod (!! update SHA in step 2!!)</span>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#999;font-style:italic># 1. Set env</span>
+<span style=color:#40ffff>K8S_ENV</span>=canary
+<span style=color:#999;font-style:italic># K8S_ENV=prod (!! update SHA in step 2!!)</span>
 
-<span style="color:#999;font-style:italic"># 2. Set SHA</span>
-<span style="color:#999;font-style:italic"># Update newTag SHA in kubernetes/overlays/$K8S_ENV/kustomization.yaml</span>
+<span style=color:#999;font-style:italic># 2. Set SHA</span>
+<span style=color:#999;font-style:italic># Update newTag SHA in kubernetes/overlays/$K8S_ENV/kustomization.yaml</span>
 
-<span style="color:#999;font-style:italic"># 3. Check diff</span>
-k diff -k kubernetes/overlays/<span style="color:#40ffff">$K8S_ENV</span>
+<span style=color:#999;font-style:italic># 3. Check diff</span>
+k diff -k kubernetes/overlays/<span style=color:#40ffff>$K8S_ENV</span>
 
-<span style="color:#999;font-style:italic"># 4. Apply and watch</span>
-k apply -k kubernetes/overlays/<span style="color:#40ffff">$K8S_ENV</span> --validate; kgpwide -w
+<span style=color:#999;font-style:italic># 4. Apply and watch</span>
+k apply -k kubernetes/overlays/<span style=color:#40ffff>$K8S_ENV</span> --validate; kgpwide -w
 
-<span style="color:#999;font-style:italic"># 5. Visit URL&#39;s to validate</span>
-<span style="color:#999;font-style:italic"># https://canary-deploy.&lt;YOUR-APP-DOMAIN.com&gt;</span>
+<span style=color:#999;font-style:italic># 5. Visit URL&#39;s to validate</span>
+<span style=color:#999;font-style:italic># https://canary-deploy.&lt;YOUR-APP-DOMAIN.com&gt;</span>
 
-<span style="color:#999;font-style:italic"># 6. Check pod distribution and utilization on nodes</span>
+<span style=color:#999;font-style:italic># 6. Check pod distribution and utilization on nodes</span>
 k resource-capacity --pods --util
 
-<span style="color:#999;font-style:italic"># 7. Debug a running pod. Get pods: kgp; POD=...</span>
-keti <span style="color:#40ffff">$POD</span> -- /bin/bash
+<span style=color:#999;font-style:italic># 7. Debug a running pod. Get pods: kgp; POD=...</span>
+keti <span style=color:#40ffff>$POD</span> -- /bin/bash
 
-<span style="color:#999;font-style:italic"># 8. Rollout history and rollback</span>
-<span style="color:#999;font-style:italic"># kubectl rollout history deployment/...</span>
+<span style=color:#999;font-style:italic># 8. Rollout history and rollback</span>
+<span style=color:#999;font-style:italic># kubectl rollout history deployment/...</span>
 krh deployment/demo-app-canary
-<span style="color:#999;font-style:italic"># kubectl rollout undo deployment/...</span>
+<span style=color:#999;font-style:italic># kubectl rollout undo deployment/...</span>
 kru deployment/demo-app-canary
-</code></pre></div><h3 id="kubernetes-debugging">Kubernetes debugging</h3>
+</code></pre></div><h3 id=kubernetes-debugging>Kubernetes debugging</h3>
 <p>This is essential when you&rsquo;re just getting started or making and K8s config changes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#999;font-style:italic"># Be sure to read:</span>
-<span style="color:#999;font-style:italic"># https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/</span>
-<span style="color:#999;font-style:italic"># https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/</span>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#999;font-style:italic># Be sure to read:</span>
+<span style=color:#999;font-style:italic># https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/</span>
+<span style=color:#999;font-style:italic># https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/</span>
 
-<span style="color:#999;font-style:italic"># Get pod name</span>
-<span style="color:#999;font-style:italic"># kubectl get pod</span>
+<span style=color:#999;font-style:italic># Get pod name</span>
+<span style=color:#999;font-style:italic># kubectl get pod</span>
 kgp
 
-<span style="color:#999;font-style:italic"># Set env vars</span>
-<span style="color:#40ffff">POD</span>=<span style="color:#6ab825;font-weight:bold">$(</span>kgp -o=<span style="color:#40ffff">jsonpath</span>=<span style="color:#ed9d13">&#39;{.items[0].metadata.name}&#39;</span><span style="color:#6ab825;font-weight:bold">)</span>
-<span style="color:#40ffff">CONTAINER</span>=demoapp-container
+<span style=color:#999;font-style:italic># Set env vars</span>
+<span style=color:#40ffff>POD</span>=<span style=color:#6ab825;font-weight:700>$(</span>kgp -o=<span style=color:#40ffff>jsonpath</span>=<span style=color:#ed9d13>&#39;{.items[0].metadata.name}&#39;</span><span style=color:#6ab825;font-weight:700>)</span>
+<span style=color:#40ffff>CONTAINER</span>=demoapp-container
 
-<span style="color:#999;font-style:italic"># Describe the pod to target. Shows Events on that pod</span>
-<span style="color:#999;font-style:italic"># kubectl describe pod $POD</span>
-kdp <span style="color:#40ffff">$POD</span>
+<span style=color:#999;font-style:italic># Describe the pod to target. Shows Events on that pod</span>
+<span style=color:#999;font-style:italic># kubectl describe pod $POD</span>
+kdp <span style=color:#40ffff>$POD</span>
 
-<span style="color:#999;font-style:italic"># View logs</span>
-<span style="color:#999;font-style:italic"># kubectl logs</span>
-<span style="color:#999;font-style:italic"># kl $POD $CONTAINER</span>
-kl <span style="color:#40ffff">$POD</span>
-<span style="color:#999;font-style:italic"># If failed</span>
-<span style="color:#999;font-style:italic"># kl $POD $CONTAINER --previous</span>
-kl <span style="color:#40ffff">$POD</span> --previous
+<span style=color:#999;font-style:italic># View logs</span>
+<span style=color:#999;font-style:italic># kubectl logs</span>
+<span style=color:#999;font-style:italic># kl $POD $CONTAINER</span>
+kl <span style=color:#40ffff>$POD</span>
+<span style=color:#999;font-style:italic># If failed</span>
+<span style=color:#999;font-style:italic># kl $POD $CONTAINER --previous</span>
+kl <span style=color:#40ffff>$POD</span> --previous
 
-<span style="color:#999;font-style:italic"># Get interactive shell into the pod for debugging</span>
-<span style="color:#999;font-style:italic"># kubectl exec --stdin --tty $POD -- /bin/bash</span>
-keti <span style="color:#40ffff">$POD</span> -- /bin/bash
+<span style=color:#999;font-style:italic># Get interactive shell into the pod for debugging</span>
+<span style=color:#999;font-style:italic># kubectl exec --stdin --tty $POD -- /bin/bash</span>
+keti <span style=color:#40ffff>$POD</span> -- /bin/bash
 
-<span style="color:#999;font-style:italic"># Create temporary debug pod copied from running pod</span>
-<span style="color:#999;font-style:italic"># k debug $POD -it --image=ubuntu --share-processes --copy-to=app-debug</span>
+<span style=color:#999;font-style:italic># Create temporary debug pod copied from running pod</span>
+<span style=color:#999;font-style:italic># k debug $POD -it --image=ubuntu --share-processes --copy-to=app-debug</span>
 
-<span style="color:#999;font-style:italic"># Debug a container that fails to start</span>
-<span style="color:#999;font-style:italic"># https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/#copying-a-pod-while-changing-its-command</span>
-k debug <span style="color:#40ffff">$POD</span> -it --copy-to=app-debug --container=<span style="color:#40ffff">$CONTAINER</span> -- sh
+<span style=color:#999;font-style:italic># Debug a container that fails to start</span>
+<span style=color:#999;font-style:italic># https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/#copying-a-pod-while-changing-its-command</span>
+k debug <span style=color:#40ffff>$POD</span> -it --copy-to=app-debug --container=<span style=color:#40ffff>$CONTAINER</span> -- sh
 
-k attach app-debug -c <span style="color:#40ffff">$CONTAINER</span> -it
+k attach app-debug -c <span style=color:#40ffff>$CONTAINER</span> -it
 
-<span style="color:#999;font-style:italic"># Try running commands on container</span>
-<span style="color:#999;font-style:italic"># kubectl exec ${POD} -c ${CONTAINER} -- ${CMD} ${ARG1} ${ARG2} ... ${ARGN}</span>
-k <span style="color:#24909d">exec</span> <span style="color:#40ffff">$POD</span> -c <span style="color:#40ffff">$CONTAINER</span> --
+<span style=color:#999;font-style:italic># Try running commands on container</span>
+<span style=color:#999;font-style:italic># kubectl exec ${POD} -c ${CONTAINER} -- ${CMD} ${ARG1} ${ARG2} ... ${ARGN}</span>
+k <span style=color:#24909d>exec</span> <span style=color:#40ffff>$POD</span> -c <span style=color:#40ffff>$CONTAINER</span> --
 
-<span style="color:#999;font-style:italic"># Clean up the debug pod</span>
+<span style=color:#999;font-style:italic># Clean up the debug pod</span>
 k delete pod app-debug
-</code></pre></div><h3 id="using-github-actions-to-deploy">Using Github Actions to deploy</h3>
+</code></pre></div><h3 id=using-github-actions-to-deploy>Using Github Actions to deploy</h3>
 <ul>
 <li>Add a Github Action &ldquo;workflow&rdquo; to release (build, then deploy)
 <ul>
-<li>Example: <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.github/workflows/release_canary.yml">.github/workflows/release_canary.yml</a></li>
+<li>Example: <a href=https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.github/workflows/release_canary.yml>.github/workflows/release_canary.yml</a></li>
 </ul>
 </li>
 </ul>
-<p>This is pretty simple overall. For the <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.github/actions/deploy/action.yml">&ldquo;deploy&rdquo; action</a>, it simply sets the &ldquo;image&rdquo; (SHA) to be deployed via <code>kustomize edit set image &quot;${{inputs.image}}&quot;</code> and then runs <code>kubectl apply -k kubernetes/overlays/${{ inputs.k8s_env }}</code> to use kustomize to apply the change.</p>
+<p>This is pretty simple overall. For the <a href=https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/.github/actions/deploy/action.yml>&ldquo;deploy&rdquo; action</a>, it simply sets the &ldquo;image&rdquo; (SHA) to be deployed via <code>kustomize edit set image "${{inputs.image}}"</code> and then runs <code>kubectl apply -k kubernetes/overlays/${{ inputs.k8s_env }}</code> to use kustomize to apply the change.</p>
 <p>Kubernetes itself then takes care of the rest.</p>
-<h3 id="sample-deployment-script">Sample deployment script</h3>
+<h3 id=sample-deployment-script>Sample deployment script</h3>
 <p>Add a simple script <code>/scripts/deploy_prod.sh</code> or <code>/scripts/deploy_canary.sh</code> to deploy the latest code.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#cd2828;font-weight:bold">#!/bin/bash
-</span><span style="color:#cd2828;font-weight:bold"></span><span style="color:#24909d">set</span> -e
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#cd2828;font-weight:700>#!/bin/bash
+</span><span style=color:#cd2828;font-weight:700></span><span style=color:#24909d>set</span> -e
 
-<span style="color:#999;font-style:italic"># Helper function to ask to confirm with y/n</span>
+<span style=color:#999;font-style:italic># Helper function to ask to confirm with y/n</span>
 confirm() {
-    <span style="color:#24909d">local</span> <span style="color:#40ffff">PROMPT</span>=<span style="color:#40ffff">$1</span>
-    [[ -z <span style="color:#40ffff">$PROMPT</span> ]] &amp;&amp; <span style="color:#40ffff">PROMPT</span>=<span style="color:#ed9d13">&#34;OK to continue?&#34;</span>
-    <span style="color:#24909d">local</span> <span style="color:#40ffff">REPLY</span>=
-    <span style="color:#6ab825;font-weight:bold">while</span> [[ ! <span style="color:#40ffff">$REPLY</span> =~ ^[YyNn]$ ]]; <span style="color:#6ab825;font-weight:bold">do</span>
-        <span style="color:#24909d">echo</span> -n <span style="color:#ed9d13">&#34;</span><span style="color:#40ffff">$PROMPT</span><span style="color:#ed9d13"> (y/n) &#34;</span>
-        <span style="color:#24909d">read</span> -r
-    <span style="color:#6ab825;font-weight:bold">done</span>
-    <span style="color:#999;font-style:italic"># The result of this comparison is the return value of the function</span>
-    [[ <span style="color:#40ffff">$REPLY</span> =~ ^[Yy]$ ]]
+    <span style=color:#24909d>local</span> <span style=color:#40ffff>PROMPT</span>=<span style=color:#40ffff>$1</span>
+    [[ -z <span style=color:#40ffff>$PROMPT</span> ]] &amp;&amp; <span style=color:#40ffff>PROMPT</span>=<span style=color:#ed9d13>&#34;OK to continue?&#34;</span>
+    <span style=color:#24909d>local</span> <span style=color:#40ffff>REPLY</span>=
+    <span style=color:#6ab825;font-weight:700>while</span> [[ ! <span style=color:#40ffff>$REPLY</span> =~ ^[YyNn]$ ]]; <span style=color:#6ab825;font-weight:700>do</span>
+        <span style=color:#24909d>echo</span> -n <span style=color:#ed9d13>&#34;</span><span style=color:#40ffff>$PROMPT</span><span style=color:#ed9d13> (y/n) &#34;</span>
+        <span style=color:#24909d>read</span> -r
+    <span style=color:#6ab825;font-weight:700>done</span>
+    <span style=color:#999;font-style:italic># The result of this comparison is the return value of the function</span>
+    [[ <span style=color:#40ffff>$REPLY</span> =~ ^[Yy]$ ]]
 }
 
-<span style="color:#999;font-style:italic"># Stash work, checkout main, and pull latest</span>
-<span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;Stashing work, checking out main/master, and pulling latest&#34;</span>
+<span style=color:#999;font-style:italic># Stash work, checkout main, and pull latest</span>
+<span style=color:#24909d>echo</span> <span style=color:#ed9d13>&#34;Stashing work, checking out main/master, and pulling latest&#34;</span>
 git stash push
 git checkout main
 git pull --rebase --autostash
 
-<span style="color:#40ffff">CURRENT_SHA</span>=<span style="color:#6ab825;font-weight:bold">$(</span>git rev-parse --short HEAD<span style="color:#6ab825;font-weight:bold">)</span>
-<span style="color:#6ab825;font-weight:bold">if</span> ! confirm <span style="color:#ed9d13">&#34;Deploy latest SHA (</span><span style="color:#40ffff">$CURRENT_SHA</span><span style="color:#ed9d13">) to prod?&#34;</span>; <span style="color:#6ab825;font-weight:bold">then</span>
-  <span style="color:#24909d">echo</span> -n <span style="color:#ed9d13">&#34;Enter prod deploy SHA (e.g. </span><span style="color:#40ffff">$CURRENT_SHA</span><span style="color:#ed9d13">) &gt; &#34;</span>
-  <span style="color:#24909d">read</span> -r DEPLOY_SHA
-<span style="color:#6ab825;font-weight:bold">else</span>
-  <span style="color:#40ffff">DEPLOY_SHA</span>=<span style="color:#40ffff">$CURRENT_SHA</span>
-<span style="color:#6ab825;font-weight:bold">fi</span>
+<span style=color:#40ffff>CURRENT_SHA</span>=<span style=color:#6ab825;font-weight:700>$(</span>git rev-parse --short HEAD<span style=color:#6ab825;font-weight:700>)</span>
+<span style=color:#6ab825;font-weight:700>if</span> ! confirm <span style=color:#ed9d13>&#34;Deploy latest SHA (</span><span style=color:#40ffff>$CURRENT_SHA</span><span style=color:#ed9d13>) to prod?&#34;</span>; <span style=color:#6ab825;font-weight:700>then</span>
+  <span style=color:#24909d>echo</span> -n <span style=color:#ed9d13>&#34;Enter prod deploy SHA (e.g. </span><span style=color:#40ffff>$CURRENT_SHA</span><span style=color:#ed9d13>) &gt; &#34;</span>
+  <span style=color:#24909d>read</span> -r DEPLOY_SHA
+<span style=color:#6ab825;font-weight:700>else</span>
+  <span style=color:#40ffff>DEPLOY_SHA</span>=<span style=color:#40ffff>$CURRENT_SHA</span>
+<span style=color:#6ab825;font-weight:700>fi</span>
 
-<span style="color:#40ffff">TAG_NAME</span>=deploy/prod/<span style="color:#40ffff">$DEPLOY_SHA</span>
+<span style=color:#40ffff>TAG_NAME</span>=deploy/prod/<span style=color:#40ffff>$DEPLOY_SHA</span>
 
-<span style="color:#6ab825;font-weight:bold">if</span> ! confirm <span style="color:#ed9d13">&#34;Confirm to deploy </span><span style="color:#40ffff">$DEPLOY_SHA</span><span style="color:#ed9d13"> to prod (</span><span style="color:#40ffff">$TAG_NAME</span><span style="color:#ed9d13">)?&#34;</span>; <span style="color:#6ab825;font-weight:bold">then</span>
-  <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;Not deploying ❌&#34;</span>
-  <span style="color:#24909d">exit</span> <span style="color:#3677a9">1</span>
-<span style="color:#6ab825;font-weight:bold">else</span>
-  <span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;Deploying... 🚀&#34;</span>
-  git tag <span style="color:#40ffff">$TAG_NAME</span> <span style="color:#40ffff">$DEPLOY_SHA</span>
+<span style=color:#6ab825;font-weight:700>if</span> ! confirm <span style=color:#ed9d13>&#34;Confirm to deploy </span><span style=color:#40ffff>$DEPLOY_SHA</span><span style=color:#ed9d13> to prod (</span><span style=color:#40ffff>$TAG_NAME</span><span style=color:#ed9d13>)?&#34;</span>; <span style=color:#6ab825;font-weight:700>then</span>
+  <span style=color:#24909d>echo</span> <span style=color:#ed9d13>&#34;Not deploying ❌&#34;</span>
+  <span style=color:#24909d>exit</span> <span style=color:#3677a9>1</span>
+<span style=color:#6ab825;font-weight:700>else</span>
+  <span style=color:#24909d>echo</span> <span style=color:#ed9d13>&#34;Deploying... 🚀&#34;</span>
+  git tag <span style=color:#40ffff>$TAG_NAME</span> <span style=color:#40ffff>$DEPLOY_SHA</span>
   git push origin --tags
-<span style="color:#6ab825;font-weight:bold">fi</span>
+<span style=color:#6ab825;font-weight:700>fi</span>
 
-<span style="color:#999;font-style:italic"># Back to previous branch</span>
-<span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;Checking out previous branch&#34;</span>
+<span style=color:#999;font-style:italic># Back to previous branch</span>
+<span style=color:#24909d>echo</span> <span style=color:#ed9d13>&#34;Checking out previous branch&#34;</span>
 git checkout -
-<span style="color:#24909d">echo</span> <span style="color:#ed9d13">&#34;If needed, run: git stash pop (gstp)&#34;</span>
-</code></pre></div><h3 id="rails-in-kubernetes">Rails in Kubernetes</h3>
-<h4 id="database-migrations">Database migrations</h4>
-<p>Always check and use recommendations from <a href="https://github.com/ankane/strong_migrations#removing-a-column">strong_migrations</a> for removing a column, and more.</p>
+<span style=color:#24909d>echo</span> <span style=color:#ed9d13>&#34;If needed, run: git stash pop (gstp)&#34;</span>
+</code></pre></div><h3 id=rails-in-kubernetes>Rails in Kubernetes</h3>
+<h4 id=database-migrations>Database migrations</h4>
+<p>Always check and use recommendations from <a href=https://github.com/ankane/strong_migrations#removing-a-column>strong_migrations</a> for removing a column, and more.</p>
 <p>Because of the way Kubernetes deployments roll out pods (your containerized app), one by one and removing the old version there can often be a state with 2 versions of your code running at once.</p>
 <p>The best way I&rsquo;ve seen (so far) to handle this is to have the database migration be triggered manually, post deploy. This is also known as: Deploy new code, then migrate.</p>
 <p>Because ActiveRecord caches the database schema, you&rsquo;ll need to ignore columns and do a few more steps of code change + deploy.</p>
@@ -321,38 +286,38 @@ git checkout -
 <li>Remove <code>ignored_columns</code> code</li>
 <li>Deploy</li>
 </ol>
-<h3 id="puma-app-server">PUMA app server</h3>
+<h3 id=puma-app-server>PUMA app server</h3>
 <p>We switched from Passenger to PUMA in production after exploring some options and it has worked perfectly.</p>
 <ul>
-<li><a href="https://dev.to/anilmaurya/why-to-use-puma-in-production-for-your-rails-app-44ga">PUMA in production for Rails</a>
+<li><a href=https://dev.to/anilmaurya/why-to-use-puma-in-production-for-your-rails-app-44ga>PUMA in production for Rails</a>
 <ul>
-<li><a href="https://github.com/anilmaurya/puma-benchmark">anilmaurya/puma-benchmark - determine Puma config</a></li>
+<li><a href=https://github.com/anilmaurya/puma-benchmark>anilmaurya/puma-benchmark - determine Puma config</a></li>
 </ul>
 </li>
-<li><a href="https://about.gitlab.com/blog/2020/07/08/migrating-to-puma-on-gitlab/">Gitlab migrate to Puma from Unicorn</a></li>
-<li><a href="https://github.com/puma/puma/blob/master/docs/kubernetes.md">Puma docs: Kubernetes on Puma</a></li>
+<li><a href=https://about.gitlab.com/blog/2020/07/08/migrating-to-puma-on-gitlab/>Gitlab migrate to Puma from Unicorn</a></li>
+<li><a href=https://github.com/puma/puma/blob/master/docs/kubernetes.md>Puma docs: Kubernetes on Puma</a></li>
 </ul>
-<h4 id="sidekiq-workers">Sidekiq workers</h4>
-<p>Liveness probes are a great feature of K8s that will automatically replace any dead (non-responsive) containers with new ones. To get this working for a sidekiq worker container simply use this excellent gem: <a href="https://github.com/arturictus/sidekiq_alive">sidekiq_alive</a></p>
-<p>More code examples in the <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/kubernetes/base/deployment-sidekiq.yaml">demo app</a></p>
-<h3 id="kubernetes-security-best-practices">Kubernetes security best practices</h3>
-<p>These were published as <a href="https://www.nsa.gov/News-Features/Feature-Stories/Article-View/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/">NSA/CISA Kubernetes Hardening Guidance</a></p>
+<h4 id=sidekiq-workers>Sidekiq workers</h4>
+<p>Liveness probes are a great feature of K8s that will automatically replace any dead (non-responsive) containers with new ones. To get this working for a sidekiq worker container simply use this excellent gem: <a href=https://github.com/arturictus/sidekiq_alive>sidekiq_alive</a></p>
+<p>More code examples in the <a href=https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/kubernetes/base/deployment-sidekiq.yaml>demo app</a></p>
+<h3 id=kubernetes-security-best-practices>Kubernetes security best practices</h3>
+<p>These were published as <a href=https://www.nsa.gov/News-Features/Feature-Stories/Article-View/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/>NSA/CISA Kubernetes Hardening Guidance</a></p>
 <p>A summary of the key recommendations from each section are:</p>
 <ul>
 <li>Kubernetes Pod security
 <ul>
-<li><input checked="" disabled="" type="checkbox"> Use containers built to run applications as non-root users</li>
-<li><input checked="" disabled="" type="checkbox"> Where possible, run containers with immutable file systems</li>
-<li><input disabled="" type="checkbox"> Scan container images for possible vulnerabilities or misconfigurations</li>
-<li><input disabled="" type="checkbox"> Use a <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/">Pod Security Policy (deprecated 1.21)</a> -&gt; <a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">Pod Security admission controller (new 1.22)</a> to enforce a minimum level of security
+<li><input checked disabled type=checkbox> Use containers built to run applications as non-root users</li>
+<li><input checked disabled type=checkbox> Where possible, run containers with immutable file systems</li>
+<li><input disabled type=checkbox> Scan container images for possible vulnerabilities or misconfigurations</li>
+<li><input disabled type=checkbox> Use a <a href=https://kubernetes.io/docs/concepts/policy/pod-security-policy/>Pod Security Policy (deprecated 1.21)</a> -> <a href=https://kubernetes.io/docs/concepts/security/pod-security-admission/>Pod Security admission controller (new 1.22)</a> to enforce a minimum level of security
 including:
 <ul>
-<li><input checked="" disabled="" type="checkbox"> Preventing privileged containers</li>
-<li><input disabled="" type="checkbox"> Denying container features frequently exploited to breakout, such
+<li><input checked disabled type=checkbox> Preventing privileged containers</li>
+<li><input disabled type=checkbox> Denying container features frequently exploited to breakout, such
 as hostPID, hostIPC, hostNetwork, allowedHostPath</li>
-<li><input checked="" disabled="" type="checkbox"> Rejecting containers that execute as the root user or allow
+<li><input checked disabled type=checkbox> Rejecting containers that execute as the root user or allow
 elevation to root</li>
-<li><input disabled="" type="checkbox"> Hardening applications against exploitation using security services
+<li><input disabled type=checkbox> Hardening applications against exploitation using security services
 such as SELinux®, AppArmor®, and seccomp</li>
 </ul>
 </li>
@@ -360,127 +325,94 @@ such as SELinux®, AppArmor®, and seccomp</li>
 </li>
 <li>Network separation and hardening
 <ul>
-<li><input disabled="" type="checkbox"> Lock down access to control plane nodes using a firewall and role-based
+<li><input disabled type=checkbox> Lock down access to control plane nodes using a firewall and role-based
 access control (RBAC)</li>
-<li><input disabled="" type="checkbox"> Further limit access to the Kubernetes etcd server</li>
-<li><input disabled="" type="checkbox"> Configure control plane components to use authenticated, encrypted
+<li><input disabled type=checkbox> Further limit access to the Kubernetes etcd server</li>
+<li><input disabled type=checkbox> Configure control plane components to use authenticated, encrypted
 communications using Transport Layer Security (TLS) certificates</li>
-<li><input disabled="" type="checkbox"> Set up network policies to isolate resources. Pods and services in different
+<li><input disabled type=checkbox> Set up network policies to isolate resources. Pods and services in different
 namespaces can still communicate with each other unless additional
 separation is enforced, such as network policies</li>
-<li><input disabled="" type="checkbox"> Place all credentials and sensitive information in Kubernetes Secrets
+<li><input disabled type=checkbox> Place all credentials and sensitive information in Kubernetes Secrets
 rather than in configuration files. Encrypt Secrets using a strong
 encryption method</li>
 </ul>
 </li>
 <li>Authentication and authorization
 <ul>
-<li><input disabled="" type="checkbox"> Disable anonymous login (enabled by default)</li>
-<li><input disabled="" type="checkbox"> Use strong user authentication</li>
-<li><input disabled="" type="checkbox"> Create RBAC policies to limit administrator, user, and service account
+<li><input disabled type=checkbox> Disable anonymous login (enabled by default)</li>
+<li><input disabled type=checkbox> Use strong user authentication</li>
+<li><input disabled type=checkbox> Create RBAC policies to limit administrator, user, and service account
 activity</li>
 </ul>
 </li>
 <li>Log auditing
 <ul>
-<li><input disabled="" type="checkbox"> Enable audit logging (disabled by default)</li>
+<li><input disabled type=checkbox> Enable audit logging (disabled by default)</li>
 </ul>
 </li>
 </ul>
-<p>The <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app">demo app</a> does the checked ones above and everyone really should. They&rsquo;re straightforward to implement.
+<p>The <a href=https://github.com/BrianSigafoos/docker-rails-webpacker-app>demo app</a> does the checked ones above and everyone really should. They&rsquo;re straightforward to implement.
 See the Dockerfile for &ldquo;nonroot&rdquo; USER setup and USER_ID</p>
-<p>The other parts are as simple as passing some options in the <a href="https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/kubernetes/base/deployment-app.yaml">K8s Deployment spec</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#6ab825;font-weight:bold">spec</span>:<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">securityContext</span>:<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#999;font-style:italic"># Must match Dockerfile&#39;s USER_ID for User and Group</span><span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">runAsUser</span>:<span style="color:#666"> </span><span style="color:#3677a9">1001</span><span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">runAsGroup</span>:<span style="color:#666"> </span><span style="color:#3677a9">1001</span><span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#999;font-style:italic"># Set ownership of mounted volumes to the user running the container</span><span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">fsGroup</span>:<span style="color:#666"> </span><span style="color:#3677a9">1001</span><span style="color:#666">
-</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#999;font-style:italic"># https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#container-v1-core</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">containers</span>:<span style="color:#666">
-</span><span style="color:#666">    </span>- <span style="color:#6ab825;font-weight:bold">name</span>:<span style="color:#666"> </span>demoapp-container<span style="color:#666">
-</span><span style="color:#666">      </span><span style="color:#6ab825;font-weight:bold">image</span>:<span style="color:#666"> </span>ghcr.io/briansigafoos/docker-rails-webpacker-app<span style="color:#666">
-</span><span style="color:#666">      </span><span style="color:#6ab825;font-weight:bold">securityContext</span>:<span style="color:#666">
-</span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">allowPrivilegeEscalation</span>:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">false</span><span style="color:#666">
-</span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">readOnlyRootFilesystem</span>:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">true</span><span style="color:#666">
-</span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">runAsNonRoot</span>:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">true</span><span style="color:#666">
-</span></code></pre></div><h3 id="resources">Resources</h3>
+<p>The other parts are as simple as passing some options in the <a href=https://github.com/BrianSigafoos/docker-rails-webpacker-app/blob/main/kubernetes/base/deployment-app.yaml>K8s Deployment spec</a></p>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#6ab825;font-weight:700>spec</span>:<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>securityContext</span>:<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#999;font-style:italic># Must match Dockerfile&#39;s USER_ID for User and Group</span><span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>runAsUser</span>:<span style=color:#666> </span><span style=color:#3677a9>1001</span><span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>runAsGroup</span>:<span style=color:#666> </span><span style=color:#3677a9>1001</span><span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#999;font-style:italic># Set ownership of mounted volumes to the user running the container</span><span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>fsGroup</span>:<span style=color:#666> </span><span style=color:#3677a9>1001</span><span style=color:#666>
+</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#999;font-style:italic># https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#container-v1-core</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>containers</span>:<span style=color:#666>
+</span><span style=color:#666>    </span>- <span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>demoapp-container<span style=color:#666>
+</span><span style=color:#666>      </span><span style=color:#6ab825;font-weight:700>image</span>:<span style=color:#666> </span>ghcr.io/briansigafoos/docker-rails-webpacker-app<span style=color:#666>
+</span><span style=color:#666>      </span><span style=color:#6ab825;font-weight:700>securityContext</span>:<span style=color:#666>
+</span><span style=color:#666>        </span><span style=color:#6ab825;font-weight:700>allowPrivilegeEscalation</span>:<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>false</span><span style=color:#666>
+</span><span style=color:#666>        </span><span style=color:#6ab825;font-weight:700>readOnlyRootFilesystem</span>:<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>true</span><span style=color:#666>
+</span><span style=color:#666>        </span><span style=color:#6ab825;font-weight:700>runAsNonRoot</span>:<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>true</span><span style=color:#666>
+</span></code></pre></div><h3 id=resources>Resources</h3>
 <ul>
-<li><a href="https://geshan.com.np/blog/2019/11/how-to-use-docker-multi-stage-build/">How to use docker multi-stage build to create optimal images for dev and production</a></li>
-<li><a href="https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development">Ruby on Whales: Dockerizing Ruby and Rails development</a></li>
-<li><a href="https://medium.com/@dirkdk/running-a-rails-app-with-webpacker-and-docker-8d29153d3446">Running a Rails app with Webpacker and Docker</a></li>
-<li><a href="https://github.com/ValiMail/valikube-actions">Github Actions to deploy to K8s - Valikube Actions</a></li>
+<li><a href=https://geshan.com.np/blog/2019/11/how-to-use-docker-multi-stage-build/>How to use docker multi-stage build to create optimal images for dev and production</a></li>
+<li><a href=https://evilmartians.com/chronicles/ruby-on-whales-docker-for-ruby-rails-development>Ruby on Whales: Dockerizing Ruby and Rails development</a></li>
+<li><a href=https://medium.com/@dirkdk/running-a-rails-app-with-webpacker-and-docker-8d29153d3446>Running a Rails app with Webpacker and Docker</a></li>
+<li><a href=https://github.com/ValiMail/valikube-actions>Github Actions to deploy to K8s - Valikube Actions</a></li>
 </ul>
-<h2 id="more-reading">More Reading</h2>
+<h2 id=more-reading>More Reading</h2>
 <ul>
-<li><a href="https://evilmartians.com/chronicles/build-images-on-github-actions-with-docker-layer-caching">Build images on GitHub Actions with Docker layer caching</a></li>
-<li><a href="https://blog.cloud66.com/deploying-rails-6-assets-with-docker/">Deploying Rails 6 Assets with Docker and Kubernetes</a></li>
+<li><a href=https://evilmartians.com/chronicles/build-images-on-github-actions-with-docker-layer-caching>Build images on GitHub Actions with Docker layer caching</a></li>
+<li><a href=https://blog.cloud66.com/deploying-rails-6-assets-with-docker/>Deploying Rails 6 Assets with Docker and Kubernetes</a></li>
 </ul>
-
-    </div>
-
-    
-
-    
-      
-      <div class="my-8">
-        <a href="https://briansigafoos.com/" class="btn btn-default">
-          Visit homepage
-        </a>
-      </div>
-    
-
-    
-      
-        
-        <div class="my-8">
-          <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "briansigafoos" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        </div>
-      
-    
-  </div>
-
-
-  <div class="border-t border-gray py-4 my-16 w-full text-sm text-faint">
-  <div class="container max-w-4xl text-center font-mono">
-    <div class="sm:flex items-center justify-between">
-      <span>
-        Made with
-        <a href="https://gohugo.io" rel="nofollow" target="hugo">Hugo</a> &
-        <a href="https://tailwindcss.com" rel="nofollow" target="tw">TailwindCSS</a>
-        ·
-        <a href="https://github.com/BrianSigafoos/hugo_site" class="text-faint" rel="nofollow" target="source">
-          Source code
-        </a>
-      </span>
-
-      <span class="block sm:inline mt-2 sm:mt-0">
-        By <a href="/about" class="font-black">Brian Sigafoos</a>
-      </span>
-    </div>
-  </div>
+</div>
+<div class=my-8>
+<a href=https://briansigafoos.com/ class="btn btn-default">
+Visit homepage
+</a>
+</div>
+<div class=my-8>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//briansigafoos.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+</div>
+<div class="border-t border-gray py-4 my-16 w-full text-sm text-faint">
+<div class="container max-w-4xl text-center font-mono">
+<div class="sm:flex items-center justify-between">
+<span>
+Made with
+<a href=https://gohugo.io rel=nofollow target=hugo>Hugo</a> &
+        <a href=https://tailwindcss.com rel=nofollow target=tw>TailwindCSS</a>
+·
+<a href=https://github.com/BrianSigafoos/hugo_site class=text-faint rel=nofollow target=source>
+Source code
+</a>
+</span>
+<span class="block sm:inline mt-2 sm:mt-0">
+By <a href=/about class=font-black>Brian Sigafoos</a>
+</span>
+</div>
+</div>
 </div>
 </body>
-
 </html>

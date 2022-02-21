@@ -1,78 +1,43 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
+<!doctype html><html lang=en-us>
 <head>
-  <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1">
 <title>Auto-format and lint everything - Brian Sigafoos</title>
-
-
-
-
-  
-  <link rel="stylesheet" href="/css/main.min.e6e8b99c028ec02238e47aa30146afa808df5116459c3f5efb81b0f96c74389a.css" integrity="sha256-5ui5nAKOwCI45HqjAUavqAjfURZFnD9e+4Gw+Wx0OJo="/>
-
-
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-42740116-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-<link rel="shortcut icon" href="/favicon.png?20190809" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?20190809" />
-
+<link rel=stylesheet href="/css/main.min.e6e8b99c028ec02238e47aa30146afa808df5116459c3f5efb81b0f96c74389a.css" integrity="sha256-5ui5nAKOwCI45HqjAUavqAjfURZFnD9e+4Gw+Wx0OJo=">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-42740116-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<link rel="shortcut icon" href=/favicon.png?20190809>
+<link rel=apple-touch-icon href=/apple-touch-icon.png?20190809>
 </head>
-
 <body class="antialiased leading-normal">
-  <div class="border-b border-gray py-4 w-full">
-  <div class="container max-w-4xl">
-    <div class="flex items-center justify-between font-mono">
-      <a href="https://briansigafoos.com/" class="font-black">
-        Brian Sigafoos
-      </a>
-
-      <a href="/about">About me</a>
-    </div>
-  </div>
+<div class="border-b border-gray py-4 w-full">
+<div class="container max-w-4xl">
+<div class="flex items-center justify-between font-mono">
+<a href=https://briansigafoos.com/ class=font-black>
+Brian Sigafoos
+</a>
+<a href=/about>About me</a>
 </div>
-
-  <div class="container my-16 max-w-4xl">
-    <h1 class="title">
-      Auto-format and lint everything
-    </h1>
-
-    <h3 class="subtitle">
-      Build faster with automated formatting, linting, and vulnerability scanning
-    </h3>
-
-    <p class="font-mono text-faint text-sm">
-      
-        May 30, 2021
-        ·
-      
-
-      
-        4 min read
-      
-    </p>
-
-    <div class="border-t border-gray text-readable my-8 pt-4">
-      <p>When building software I want to automate everything possible.</p>
+</div>
+</div>
+<div class="container my-16 max-w-4xl">
+<h1 class=title>
+Auto-format and lint everything
+</h1>
+<h3 class=subtitle>
+Build faster with automated formatting, linting, and vulnerability scanning
+</h3>
+<p class="font-mono text-faint text-sm">
+May 30, 2021
+·
+4 min read
+</p>
+<div class="border-t border-gray text-readable my-8 pt-4">
+<p>When building software I want to automate everything possible.</p>
 <p>Automated code formatting, linting, and vulnerability scanning helps teams I work with write better code, faster.</p>
 <p>Critically, these automations make it easier to write, read, and maintain code.</p>
-<h3 id="overview">Overview</h3>
+<h3 id=overview>Overview</h3>
 <ol>
 <li>Add essential linters and auto-formatters for your code</li>
 <li>Use keybindings in your IDE to auto-format code with a few key strokes</li>
@@ -80,284 +45,251 @@ if (!doNotTrack) {
 <li>Have CI, Circle CI or Github Actions, run full linters and vulnerability scanners in parallel with your test suite</li>
 <li>Require all Pull Requests have your lint jobs pass before merging</li>
 </ol>
-<h3 id="add-essential-linters-and-auto-formatters">Add essential linters and auto-formatters</h3>
+<h3 id=add-essential-linters-and-auto-formatters>Add essential linters and auto-formatters</h3>
 <p>Good linters and auto-formatters have sane defaults, allow some customization, and integrate with your automated test suite / CI setup.</p>
 <ul>
-<li><a href="https://rubocop.org">Rubocop</a> - Ruby</li>
-<li><a href="https://github.com/Shopify/erb-lint">ERB Lint</a> - Rails .html.erb templates</li>
-<li><a href="https://eslint.org">ESLint</a> - Javascript</li>
-<li><a href="https://prettier.io">Prettier</a> - Javascript, Markdown, JSON, CSS</li>
-<li><a href="https://stylelint.io">Stylelint</a> - CSS, including SCSS, Sass, etc</li>
-<li><a href="https://github.com/glebm/i18n-tasks">i18n-tasks</a> - For I18n (internationalization) files</li>
-<li><a href="https://github.com/okonet/lint-staged">lint-staged</a> - Run linters against staged git files</li>
-<li><a href="https://golang.org/cmd/gofmt/">gofmt</a> - Go, built into th language!</li>
-<li><a href="https://github.com/golangci/golangci-lint">golangci-lint</a> - Go</li>
+<li><a href=https://rubocop.org>Rubocop</a> - Ruby</li>
+<li><a href=https://github.com/Shopify/erb-lint>ERB Lint</a> - Rails .html.erb templates</li>
+<li><a href=https://eslint.org>ESLint</a> - Javascript</li>
+<li><a href=https://prettier.io>Prettier</a> - Javascript, Markdown, JSON, CSS</li>
+<li><a href=https://stylelint.io>Stylelint</a> - CSS, including SCSS, Sass, etc</li>
+<li><a href=https://github.com/glebm/i18n-tasks>i18n-tasks</a> - For I18n (internationalization) files</li>
+<li><a href=https://github.com/okonet/lint-staged>lint-staged</a> - Run linters against staged git files</li>
+<li><a href=https://golang.org/cmd/gofmt/>gofmt</a> - Go, built into th language!</li>
+<li><a href=https://github.com/golangci/golangci-lint>golangci-lint</a> - Go</li>
 </ul>
-<h4 id="rubocop-config">Rubocop config</h4>
+<h4 id=rubocop-config>Rubocop config</h4>
 <p>In your <code>.rubocop.yml</code> setup, enable <code>NewCops</code> by default:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#999;font-style:italic">#`rubocop` to run normally</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#999;font-style:italic">#`rubocop --auto-gen-config` to update .rubocop_todo.yml</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">inherit_from</span>:<span style="color:#666"> </span>.rubocop_todo.yml<span style="color:#666">
-</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">require</span>:<span style="color:#666">
-</span><span style="color:#666">  </span>- rubocop-minitest<span style="color:#666">
-</span><span style="color:#666">  </span>- rubocop-performance<span style="color:#666">
-</span><span style="color:#666">  </span>- rubocop-rails<span style="color:#666">
-</span><span style="color:#666">  </span>- rubocop-rake<span style="color:#666">
-</span><span style="color:#666">  </span>- rubocop-thread_safety<span style="color:#666">
-</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">AllCops</span>:<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">TargetRubyVersion</span>:<span style="color:#666"> </span><span style="color:#3677a9">2.7</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">TargetRailsVersion</span>:<span style="color:#666"> </span><span style="color:#3677a9">6.1</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">Exclude</span>:<span style="color:#666">
-</span><span style="color:#666">    </span>- <span style="color:#ed9d13">&#39;db/**/*&#39;</span><span style="color:#666">
-</span><span style="color:#666">    </span>- <span style="color:#ed9d13">&#39;node_modules/**/*&#39;</span><span style="color:#666">
-</span><span style="color:#666">    </span>- <span style="color:#ed9d13">&#39;vendor/bundle/**/*&#39;</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">NewCops</span>:<span style="color:#666"> </span>enable<span style="color:#666">
-</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">Rails</span>:<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">Enabled</span>:<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">true</span><span style="color:#666">
-</span></code></pre></div><h4 id="prettier-eslint-and-stylelint-configs">Prettier, ESLint, and Stylelint configs</h4>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#999;font-style:italic>#`rubocop` to run normally</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#999;font-style:italic>#`rubocop --auto-gen-config` to update .rubocop_todo.yml</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>inherit_from</span>:<span style=color:#666> </span>.rubocop_todo.yml<span style=color:#666>
+</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>require</span>:<span style=color:#666>
+</span><span style=color:#666>  </span>- rubocop-minitest<span style=color:#666>
+</span><span style=color:#666>  </span>- rubocop-performance<span style=color:#666>
+</span><span style=color:#666>  </span>- rubocop-rails<span style=color:#666>
+</span><span style=color:#666>  </span>- rubocop-rake<span style=color:#666>
+</span><span style=color:#666>  </span>- rubocop-thread_safety<span style=color:#666>
+</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>AllCops</span>:<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>TargetRubyVersion</span>:<span style=color:#666> </span><span style=color:#3677a9>2.7</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>TargetRailsVersion</span>:<span style=color:#666> </span><span style=color:#3677a9>6.1</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>Exclude</span>:<span style=color:#666>
+</span><span style=color:#666>    </span>- <span style=color:#ed9d13>&#39;db/**/*&#39;</span><span style=color:#666>
+</span><span style=color:#666>    </span>- <span style=color:#ed9d13>&#39;node_modules/**/*&#39;</span><span style=color:#666>
+</span><span style=color:#666>    </span>- <span style=color:#ed9d13>&#39;vendor/bundle/**/*&#39;</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>NewCops</span>:<span style=color:#666> </span>enable<span style=color:#666>
+</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>Rails</span>:<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>Enabled</span>:<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>true</span><span style=color:#666>
+</span></code></pre></div><h4 id=prettier-eslint-and-stylelint-configs>Prettier, ESLint, and Stylelint configs</h4>
 <p>In your <code>package.json</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#999;font-style:italic">// ...
-</span><span style="color:#999;font-style:italic"></span>  <span style="color:#6ab825;font-weight:bold">&#34;eslintConfig&#34;</span>: {
-    <span style="color:#999;font-style:italic">// &#34;env&#34;: {...}
-</span><span style="color:#999;font-style:italic"></span>    <span style="color:#6ab825;font-weight:bold">&#34;extends&#34;</span>: [<span style="color:#ed9d13">&#34;eslint:recommended&#34;</span>, <span style="color:#ed9d13">&#34;prettier&#34;</span>],
-    <span style="color:#6ab825;font-weight:bold">&#34;parser&#34;</span>: <span style="color:#ed9d13">&#34;@babel/eslint-parser&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;rules&#34;</span>: {
-      <span style="color:#6ab825;font-weight:bold">&#34;class-methods-use-this&#34;</span>: <span style="color:#3677a9">2</span>,
-      <span style="color:#6ab825;font-weight:bold">&#34;no-console&#34;</span>: <span style="color:#3677a9">2</span>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#999;font-style:italic>// ...
+</span><span style=color:#999;font-style:italic></span>  <span style=color:#6ab825;font-weight:700>&#34;eslintConfig&#34;</span>: {
+    <span style=color:#999;font-style:italic>// &#34;env&#34;: {...}
+</span><span style=color:#999;font-style:italic></span>    <span style=color:#6ab825;font-weight:700>&#34;extends&#34;</span>: [<span style=color:#ed9d13>&#34;eslint:recommended&#34;</span>, <span style=color:#ed9d13>&#34;prettier&#34;</span>],
+    <span style=color:#6ab825;font-weight:700>&#34;parser&#34;</span>: <span style=color:#ed9d13>&#34;@babel/eslint-parser&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;rules&#34;</span>: {
+      <span style=color:#6ab825;font-weight:700>&#34;class-methods-use-this&#34;</span>: <span style=color:#3677a9>2</span>,
+      <span style=color:#6ab825;font-weight:700>&#34;no-console&#34;</span>: <span style=color:#3677a9>2</span>
     },
-    <span style="color:#6ab825;font-weight:bold">&#34;reportUnusedDisableDirectives&#34;</span>: <span style="color:#6ab825;font-weight:bold">true</span>
+    <span style=color:#6ab825;font-weight:700>&#34;reportUnusedDisableDirectives&#34;</span>: <span style=color:#6ab825;font-weight:700>true</span>
   },
-  <span style="color:#6ab825;font-weight:bold">&#34;prettier&#34;</span>: {
-    <span style="color:#6ab825;font-weight:bold">&#34;semi&#34;</span>: <span style="color:#6ab825;font-weight:bold">false</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;singleQuote&#34;</span>: <span style="color:#6ab825;font-weight:bold">true</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;trailingComma&#34;</span>: <span style="color:#ed9d13">&#34;none&#34;</span>
+  <span style=color:#6ab825;font-weight:700>&#34;prettier&#34;</span>: {
+    <span style=color:#6ab825;font-weight:700>&#34;semi&#34;</span>: <span style=color:#6ab825;font-weight:700>false</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;singleQuote&#34;</span>: <span style=color:#6ab825;font-weight:700>true</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;trailingComma&#34;</span>: <span style=color:#ed9d13>&#34;none&#34;</span>
   },
-  <span style="color:#6ab825;font-weight:bold">&#34;stylelint&#34;</span>: {
-    <span style="color:#6ab825;font-weight:bold">&#34;extends&#34;</span>: [<span style="color:#ed9d13">&#34;stylelint-config-standard&#34;</span>, <span style="color:#ed9d13">&#34;stylelint-config-prettier&#34;</span>],
-    <span style="color:#6ab825;font-weight:bold">&#34;plugins&#34;</span>: [<span style="color:#ed9d13">&#34;stylelint-scss&#34;</span>]
+  <span style=color:#6ab825;font-weight:700>&#34;stylelint&#34;</span>: {
+    <span style=color:#6ab825;font-weight:700>&#34;extends&#34;</span>: [<span style=color:#ed9d13>&#34;stylelint-config-standard&#34;</span>, <span style=color:#ed9d13>&#34;stylelint-config-prettier&#34;</span>],
+    <span style=color:#6ab825;font-weight:700>&#34;plugins&#34;</span>: [<span style=color:#ed9d13>&#34;stylelint-scss&#34;</span>]
   },
-  <span style="color:#6ab825;font-weight:bold">&#34;pre-commit&#34;</span>: [<span style="color:#ed9d13">&#34;lint-staged&#34;</span>]
+  <span style=color:#6ab825;font-weight:700>&#34;pre-commit&#34;</span>: [<span style=color:#ed9d13>&#34;lint-staged&#34;</span>]
 }
-</code></pre></div><h3 id="use-keybindings-in-your-ide-to-auto-format-code-with-a-few-key-strokes">Use keybindings in your IDE to auto-format code with a few key strokes</h3>
+</code></pre></div><h3 id=use-keybindings-in-your-ide-to-auto-format-code-with-a-few-key-strokes>Use keybindings in your IDE to auto-format code with a few key strokes</h3>
 <p>For VS Code <code>.vscode/tasks.json</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#6ab825;font-weight:bold">&#34;version&#34;</span>: <span style="color:#ed9d13">&#34;2.0.0&#34;</span>,
-  <span style="color:#6ab825;font-weight:bold">&#34;tasks&#34;</span>: [
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#6ab825;font-weight:700>&#34;version&#34;</span>: <span style=color:#ed9d13>&#34;2.0.0&#34;</span>,
+  <span style=color:#6ab825;font-weight:700>&#34;tasks&#34;</span>: [
     {
-      <span style="color:#6ab825;font-weight:bold">&#34;label&#34;</span>: <span style="color:#ed9d13">&#34;rubocop auto-correct file&#34;</span>,
-      <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;shell&#34;</span>,
-      <span style="color:#6ab825;font-weight:bold">&#34;command&#34;</span>: <span style="color:#ed9d13">&#34;bundle exec rubocop -A ${relativeFile}&#34;</span>,
-      <span style="color:#6ab825;font-weight:bold">&#34;problemMatcher&#34;</span>: [],
-      <span style="color:#6ab825;font-weight:bold">&#34;presentation&#34;</span>: {
-        <span style="color:#6ab825;font-weight:bold">&#34;reveal&#34;</span>: <span style="color:#ed9d13">&#34;always&#34;</span>,
-        <span style="color:#6ab825;font-weight:bold">&#34;panel&#34;</span>: <span style="color:#ed9d13">&#34;dedicated&#34;</span>
+      <span style=color:#6ab825;font-weight:700>&#34;label&#34;</span>: <span style=color:#ed9d13>&#34;rubocop auto-correct file&#34;</span>,
+      <span style=color:#6ab825;font-weight:700>&#34;type&#34;</span>: <span style=color:#ed9d13>&#34;shell&#34;</span>,
+      <span style=color:#6ab825;font-weight:700>&#34;command&#34;</span>: <span style=color:#ed9d13>&#34;bundle exec rubocop -A ${relativeFile}&#34;</span>,
+      <span style=color:#6ab825;font-weight:700>&#34;problemMatcher&#34;</span>: [],
+      <span style=color:#6ab825;font-weight:700>&#34;presentation&#34;</span>: {
+        <span style=color:#6ab825;font-weight:700>&#34;reveal&#34;</span>: <span style=color:#ed9d13>&#34;always&#34;</span>,
+        <span style=color:#6ab825;font-weight:700>&#34;panel&#34;</span>: <span style=color:#ed9d13>&#34;dedicated&#34;</span>
       }
     },
     {
-      <span style="color:#6ab825;font-weight:bold">&#34;label&#34;</span>: <span style="color:#ed9d13">&#34;erblint auto-correct file&#34;</span>,
-      <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;shell&#34;</span>,
-      <span style="color:#6ab825;font-weight:bold">&#34;command&#34;</span>: <span style="color:#ed9d13">&#34;bundle exec erblint -a ${relativeFile}&#34;</span>,
-      <span style="color:#6ab825;font-weight:bold">&#34;problemMatcher&#34;</span>: [],
-      <span style="color:#6ab825;font-weight:bold">&#34;presentation&#34;</span>: {
-        <span style="color:#6ab825;font-weight:bold">&#34;reveal&#34;</span>: <span style="color:#ed9d13">&#34;always&#34;</span>,
-        <span style="color:#6ab825;font-weight:bold">&#34;panel&#34;</span>: <span style="color:#ed9d13">&#34;dedicated&#34;</span>
+      <span style=color:#6ab825;font-weight:700>&#34;label&#34;</span>: <span style=color:#ed9d13>&#34;erblint auto-correct file&#34;</span>,
+      <span style=color:#6ab825;font-weight:700>&#34;type&#34;</span>: <span style=color:#ed9d13>&#34;shell&#34;</span>,
+      <span style=color:#6ab825;font-weight:700>&#34;command&#34;</span>: <span style=color:#ed9d13>&#34;bundle exec erblint -a ${relativeFile}&#34;</span>,
+      <span style=color:#6ab825;font-weight:700>&#34;problemMatcher&#34;</span>: [],
+      <span style=color:#6ab825;font-weight:700>&#34;presentation&#34;</span>: {
+        <span style=color:#6ab825;font-weight:700>&#34;reveal&#34;</span>: <span style=color:#ed9d13>&#34;always&#34;</span>,
+        <span style=color:#6ab825;font-weight:700>&#34;panel&#34;</span>: <span style=color:#ed9d13>&#34;dedicated&#34;</span>
       }
     },
     {
-      <span style="color:#6ab825;font-weight:bold">&#34;label&#34;</span>: <span style="color:#ed9d13">&#34;prettier auto-correct file&#34;</span>,
-      <span style="color:#6ab825;font-weight:bold">&#34;type&#34;</span>: <span style="color:#ed9d13">&#34;shell&#34;</span>,
-      <span style="color:#6ab825;font-weight:bold">&#34;command&#34;</span>: <span style="color:#ed9d13">&#34;yarn prettier --write ${relativeFile}&#34;</span>,
-      <span style="color:#6ab825;font-weight:bold">&#34;problemMatcher&#34;</span>: [],
-      <span style="color:#6ab825;font-weight:bold">&#34;presentation&#34;</span>: {
-        <span style="color:#6ab825;font-weight:bold">&#34;reveal&#34;</span>: <span style="color:#ed9d13">&#34;always&#34;</span>,
-        <span style="color:#6ab825;font-weight:bold">&#34;panel&#34;</span>: <span style="color:#ed9d13">&#34;dedicated&#34;</span>
+      <span style=color:#6ab825;font-weight:700>&#34;label&#34;</span>: <span style=color:#ed9d13>&#34;prettier auto-correct file&#34;</span>,
+      <span style=color:#6ab825;font-weight:700>&#34;type&#34;</span>: <span style=color:#ed9d13>&#34;shell&#34;</span>,
+      <span style=color:#6ab825;font-weight:700>&#34;command&#34;</span>: <span style=color:#ed9d13>&#34;yarn prettier --write ${relativeFile}&#34;</span>,
+      <span style=color:#6ab825;font-weight:700>&#34;problemMatcher&#34;</span>: [],
+      <span style=color:#6ab825;font-weight:700>&#34;presentation&#34;</span>: {
+        <span style=color:#6ab825;font-weight:700>&#34;reveal&#34;</span>: <span style=color:#ed9d13>&#34;always&#34;</span>,
+        <span style=color:#6ab825;font-weight:700>&#34;panel&#34;</span>: <span style=color:#ed9d13>&#34;dedicated&#34;</span>
       }
     }
   ]
 }
 </code></pre></div><p>And your VS Code <code>keybindings.json</code> to set up autocorrect from pressing a combination of keys when looking at a file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>[
   {
-    <span style="color:#6ab825;font-weight:bold">&#34;key&#34;</span>: <span style="color:#ed9d13">&#34;ctrl+cmd+shift+r&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;command&#34;</span>: <span style="color:#ed9d13">&#34;workbench.action.tasks.runTask&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;args&#34;</span>: <span style="color:#ed9d13">&#34;rubocop auto-correct file&#34;</span>
+    <span style=color:#6ab825;font-weight:700>&#34;key&#34;</span>: <span style=color:#ed9d13>&#34;ctrl+cmd+shift+r&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;command&#34;</span>: <span style=color:#ed9d13>&#34;workbench.action.tasks.runTask&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;args&#34;</span>: <span style=color:#ed9d13>&#34;rubocop auto-correct file&#34;</span>
   },
   {
-    <span style="color:#6ab825;font-weight:bold">&#34;key&#34;</span>: <span style="color:#ed9d13">&#34;ctrl+cmd+shift+e&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;command&#34;</span>: <span style="color:#ed9d13">&#34;workbench.action.tasks.runTask&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;args&#34;</span>: <span style="color:#ed9d13">&#34;erblint auto-correct file&#34;</span>
+    <span style=color:#6ab825;font-weight:700>&#34;key&#34;</span>: <span style=color:#ed9d13>&#34;ctrl+cmd+shift+e&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;command&#34;</span>: <span style=color:#ed9d13>&#34;workbench.action.tasks.runTask&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;args&#34;</span>: <span style=color:#ed9d13>&#34;erblint auto-correct file&#34;</span>
   },
   {
-    <span style="color:#6ab825;font-weight:bold">&#34;key&#34;</span>: <span style="color:#ed9d13">&#34;ctrl+cmd+shift+p&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;command&#34;</span>: <span style="color:#ed9d13">&#34;workbench.action.tasks.runTask&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;args&#34;</span>: <span style="color:#ed9d13">&#34;prettier auto-correct file&#34;</span>
+    <span style=color:#6ab825;font-weight:700>&#34;key&#34;</span>: <span style=color:#ed9d13>&#34;ctrl+cmd+shift+p&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;command&#34;</span>: <span style=color:#ed9d13>&#34;workbench.action.tasks.runTask&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;args&#34;</span>: <span style=color:#ed9d13>&#34;prettier auto-correct file&#34;</span>
   }
 ]
-</code></pre></div><p>And in your <code>package.json</code> add these <code>&quot;scripts&quot;</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#999;font-style:italic">// ...
-</span><span style="color:#999;font-style:italic"></span>  <span style="color:#6ab825;font-weight:bold">&#34;scripts&#34;</span>: {
-    <span style="color:#6ab825;font-weight:bold">&#34;fix&#34;</span>: <span style="color:#ed9d13">&#34;yarn css:fix; yarn js:fix; yarn md:fix; yarn json:fix&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;lint&#34;</span>: <span style="color:#ed9d13">&#34;yarn css:lint; yarn js:lint; yarn md:lint; yarn json:lint&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;css:fix&#34;</span>: <span style="color:#ed9d13">&#34;yarn prettier --write &#39;app/**/*.scss&#39;; yarn stylelint --fix &#39;app/**/*.scss&#39;&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;css:lint&#34;</span>: <span style="color:#ed9d13">&#34;stylelint &#39;app/**/*.scss&#39;&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;erb:fix&#34;</span>: <span style="color:#ed9d13">&#34;bundle exec erblint -a --lint-all&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;erb:lint&#34;</span>: <span style="color:#ed9d13">&#34;bundle exec erblint --lint-all&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;i18n:fix&#34;</span>: <span style="color:#ed9d13">&#34;i18n-tasks normalize&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;i18n:lint&#34;</span>: <span style="color:#ed9d13">&#34;i18n-tasks health&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;md:fix&#34;</span>: <span style="color:#ed9d13">&#34;yarn prettier --write &#39;./**/*.md&#39;&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;md:lint&#34;</span>: <span style="color:#ed9d13">&#34;yarn prettier --check &#39;./**/*.md&#39;&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;json:fix&#34;</span>: <span style="color:#ed9d13">&#34;yarn prettier --write &#39;*.json&#39;; yarn prettier --write &#39;config/**/*.json&#39;&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;json:lint&#34;</span>: <span style="color:#ed9d13">&#34;yarn prettier --check &#39;*.json&#39;; yarn prettier --check &#39;config/**/*.json&#39;&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;js:fix&#34;</span>: <span style="color:#ed9d13">&#34;yarn prettier --write &#39;./**/*.js&#39;; yarn eslint --fix app&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;js:lint&#34;</span>: <span style="color:#ed9d13">&#34;yarn prettier --check &#39;./**/*.js&#39;; yarn eslint app&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;ruby:fix&#34;</span>: <span style="color:#ed9d13">&#34;bundle exec rubocop -a&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;ruby:lint&#34;</span>: <span style="color:#ed9d13">&#34;bundle exec rubocop&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;eslint&#34;</span>: <span style="color:#ed9d13">&#34;eslint&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;prettier&#34;</span>: <span style="color:#ed9d13">&#34;prettier&#34;</span>,
-    <span style="color:#6ab825;font-weight:bold">&#34;lint-staged&#34;</span>: <span style="color:#ed9d13">&#34;$(yarn bin)/lint-staged&#34;</span>
+</code></pre></div><p>And in your <code>package.json</code> add these <code>"scripts"</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#999;font-style:italic>// ...
+</span><span style=color:#999;font-style:italic></span>  <span style=color:#6ab825;font-weight:700>&#34;scripts&#34;</span>: {
+    <span style=color:#6ab825;font-weight:700>&#34;fix&#34;</span>: <span style=color:#ed9d13>&#34;yarn css:fix; yarn js:fix; yarn md:fix; yarn json:fix&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;lint&#34;</span>: <span style=color:#ed9d13>&#34;yarn css:lint; yarn js:lint; yarn md:lint; yarn json:lint&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;css:fix&#34;</span>: <span style=color:#ed9d13>&#34;yarn prettier --write &#39;app/**/*.scss&#39;; yarn stylelint --fix &#39;app/**/*.scss&#39;&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;css:lint&#34;</span>: <span style=color:#ed9d13>&#34;stylelint &#39;app/**/*.scss&#39;&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;erb:fix&#34;</span>: <span style=color:#ed9d13>&#34;bundle exec erblint -a --lint-all&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;erb:lint&#34;</span>: <span style=color:#ed9d13>&#34;bundle exec erblint --lint-all&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;i18n:fix&#34;</span>: <span style=color:#ed9d13>&#34;i18n-tasks normalize&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;i18n:lint&#34;</span>: <span style=color:#ed9d13>&#34;i18n-tasks health&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;md:fix&#34;</span>: <span style=color:#ed9d13>&#34;yarn prettier --write &#39;./**/*.md&#39;&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;md:lint&#34;</span>: <span style=color:#ed9d13>&#34;yarn prettier --check &#39;./**/*.md&#39;&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;json:fix&#34;</span>: <span style=color:#ed9d13>&#34;yarn prettier --write &#39;*.json&#39;; yarn prettier --write &#39;config/**/*.json&#39;&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;json:lint&#34;</span>: <span style=color:#ed9d13>&#34;yarn prettier --check &#39;*.json&#39;; yarn prettier --check &#39;config/**/*.json&#39;&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;js:fix&#34;</span>: <span style=color:#ed9d13>&#34;yarn prettier --write &#39;./**/*.js&#39;; yarn eslint --fix app&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;js:lint&#34;</span>: <span style=color:#ed9d13>&#34;yarn prettier --check &#39;./**/*.js&#39;; yarn eslint app&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;ruby:fix&#34;</span>: <span style=color:#ed9d13>&#34;bundle exec rubocop -a&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;ruby:lint&#34;</span>: <span style=color:#ed9d13>&#34;bundle exec rubocop&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;eslint&#34;</span>: <span style=color:#ed9d13>&#34;eslint&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;prettier&#34;</span>: <span style=color:#ed9d13>&#34;prettier&#34;</span>,
+    <span style=color:#6ab825;font-weight:700>&#34;lint-staged&#34;</span>: <span style=color:#ed9d13>&#34;$(yarn bin)/lint-staged&#34;</span>
   }
 }
-</code></pre></div><h3 id="add-lint-staged-to-automatically-format-and-lint-code-before-every-commit">Add lint-staged to automatically format and lint code before every commit</h3>
+</code></pre></div><h3 id=add-lint-staged-to-automatically-format-and-lint-code-before-every-commit>Add lint-staged to automatically format and lint code before every commit</h3>
 <p>Install with <code>yarn add -D lint-staged</code> and add a <code>lint-staged.config.js</code> file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#999;font-style:italic">// lint-staged.config.js
-</span><span style="color:#999;font-style:italic"></span>module.exports = {
-  <span style="color:#ed9d13">&#39;(app|config|lib|test)/**/*.rb&#39;</span>: (files) =&gt;
-    <span style="color:#ed9d13">`bundle exec rubocop </span><span style="color:#ed9d13">${</span>files.join(<span style="color:#ed9d13">&#39; &#39;</span>)<span style="color:#ed9d13">}</span><span style="color:#ed9d13">`</span>,
-  <span style="color:#ed9d13">&#39;**/*.html.erb&#39;</span>: (files) =&gt; <span style="color:#ed9d13">`bundle exec erblint </span><span style="color:#ed9d13">${</span>files.join(<span style="color:#ed9d13">&#39; &#39;</span>)<span style="color:#ed9d13">}</span><span style="color:#ed9d13">`</span>,
-  <span style="color:#ed9d13">&#39;config/locales/**/*.yml&#39;</span>: () =&gt; <span style="color:#ed9d13">&#39;yarn i18n:fix&#39;</span>,
-  <span style="color:#ed9d13">&#39;./**/*.md&#39;</span>: [<span style="color:#ed9d13">&#39;prettier --write&#39;</span>],
-  <span style="color:#ed9d13">&#39;./**/*.js&#39;</span>: [<span style="color:#ed9d13">&#39;prettier --write&#39;</span>, <span style="color:#ed9d13">&#39;eslint --fix&#39;</span>],
-  <span style="color:#ed9d13">&#39;./**/*.scss&#39;</span>: [<span style="color:#ed9d13">&#39;stylelint --fix&#39;</span>, <span style="color:#ed9d13">&#39;prettier --write&#39;</span>]
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#999;font-style:italic>// lint-staged.config.js
+</span><span style=color:#999;font-style:italic></span>module.exports = {
+  <span style=color:#ed9d13>&#39;(app|config|lib|test)/**/*.rb&#39;</span>: (files) =&gt;
+    <span style=color:#ed9d13>`bundle exec rubocop </span><span style=color:#ed9d13>${</span>files.join(<span style=color:#ed9d13>&#39; &#39;</span>)<span style=color:#ed9d13>}</span><span style=color:#ed9d13>`</span>,
+  <span style=color:#ed9d13>&#39;**/*.html.erb&#39;</span>: (files) =&gt; <span style=color:#ed9d13>`bundle exec erblint </span><span style=color:#ed9d13>${</span>files.join(<span style=color:#ed9d13>&#39; &#39;</span>)<span style=color:#ed9d13>}</span><span style=color:#ed9d13>`</span>,
+  <span style=color:#ed9d13>&#39;config/locales/**/*.yml&#39;</span>: () =&gt; <span style=color:#ed9d13>&#39;yarn i18n:fix&#39;</span>,
+  <span style=color:#ed9d13>&#39;./**/*.md&#39;</span>: [<span style=color:#ed9d13>&#39;prettier --write&#39;</span>],
+  <span style=color:#ed9d13>&#39;./**/*.js&#39;</span>: [<span style=color:#ed9d13>&#39;prettier --write&#39;</span>, <span style=color:#ed9d13>&#39;eslint --fix&#39;</span>],
+  <span style=color:#ed9d13>&#39;./**/*.scss&#39;</span>: [<span style=color:#ed9d13>&#39;stylelint --fix&#39;</span>, <span style=color:#ed9d13>&#39;prettier --write&#39;</span>]
 }
-</code></pre></div><h3 id="have-ci-circle-ci-or-github-actions-run-full-linters-and-vulnerability-scanners-in-parallel-with-your-test-suite">Have CI, Circle CI or Github Actions, run full linters and vulnerability scanners in parallel with your test suite</h3>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#999;font-style:italic"># .circleci/config.yml</span><span style="color:#666">
-</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#999;font-style:italic">#</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#999;font-style:italic"># Jobs have two parts: the execution environment and a set of steps.</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">jobs</span>:<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">setup</span>:<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#999;font-style:italic"># Install libraries like gems, packages and cache for next steps in parallel</span><span style="color:#666">
-</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">test</span>:<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#999;font-style:italic"># Run test suite...</span><span style="color:#666">
-</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">lint</span>:<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#999;font-style:italic"># resource_class: ...</span><span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#999;font-style:italic"># executor: ...</span><span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">steps</span>:<span style="color:#666">
-</span><span style="color:#666">      </span>- prepare-workspace<span style="color:#666">
-</span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">run</span>:<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">name</span>:<span style="color:#666"> </span>Lint JS<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">command</span>:<span style="color:#666"> </span>yarn js:lint<span style="color:#666">
-</span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">run</span>:<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">name</span>:<span style="color:#666"> </span>Lint CSS<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">command</span>:<span style="color:#666"> </span>yarn css:lint<span style="color:#666">
-</span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">run</span>:<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">name</span>:<span style="color:#666"> </span>Lint Ruby<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">command</span>:<span style="color:#666"> </span>bundle exec rubocop<span style="color:#666">
-</span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">run</span>:<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">name</span>:<span style="color:#666"> </span>Lint Rails erb templates<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">command</span>:<span style="color:#666"> </span>bundle exec erblint --lint-all<span style="color:#666">
-</span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">run</span>:<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">name</span>:<span style="color:#666"> </span>Scan for Rails code vulnerabilities<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">command</span>:<span style="color:#666"> </span>|<span style="color:#ed9d13">
-</span><span style="color:#ed9d13">            gem install brakeman
-</span><span style="color:#ed9d13">            brakeman</span><span style="color:#666">            
-</span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">run</span>:<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">name</span>:<span style="color:#666"> </span>Scan for bundled Ruby gem vulnerabilities<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">command</span>:<span style="color:#666"> </span>|<span style="color:#ed9d13">
-</span><span style="color:#ed9d13">            gem install bundler-audit
-</span><span style="color:#ed9d13">            bundle audit check --update</span><span style="color:#666">            
-</span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">run</span>:<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">name</span>:<span style="color:#666"> </span>Scan for Ruby and RubyGems system vulnerabilities<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">command</span>:<span style="color:#666"> </span>|<span style="color:#ed9d13">
-</span><span style="color:#ed9d13">            bundle add ruby_audit --group &#34;test&#34;
-</span><span style="color:#ed9d13">            bundle exec ruby-audit check</span><span style="color:#666">            
-</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#999;font-style:italic">#</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#999;font-style:italic"># Workflows are sequences of jobs. Both lint and test will run in parallel once</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#999;font-style:italic"># setup completes.</span><span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">workflows</span>:<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">build</span>:<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">jobs</span>:<span style="color:#666">
-</span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">setup</span>:<span style="color:#666">
-</span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">lint</span>:<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">requires</span>:<span style="color:#666">
-</span><span style="color:#666">            </span>- setup<span style="color:#666">
-</span><span style="color:#666">      </span>- <span style="color:#6ab825;font-weight:bold">test</span>:<span style="color:#666">
-</span><span style="color:#666">          </span><span style="color:#6ab825;font-weight:bold">requires</span>:<span style="color:#666">
-</span><span style="color:#666">            </span>- setup<span style="color:#666">
-</span></code></pre></div><h3 id="require-all-pull-requests-have-your-lint-jobs-pass-before-merging">Require all Pull Requests have your lint jobs pass before merging</h3>
+</code></pre></div><h3 id=have-ci-circle-ci-or-github-actions-run-full-linters-and-vulnerability-scanners-in-parallel-with-your-test-suite>Have CI, Circle CI or Github Actions, run full linters and vulnerability scanners in parallel with your test suite</h3>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#999;font-style:italic># .circleci/config.yml</span><span style=color:#666>
+</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#999;font-style:italic>#</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#999;font-style:italic># Jobs have two parts: the execution environment and a set of steps.</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>jobs</span>:<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>setup</span>:<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#999;font-style:italic># Install libraries like gems, packages and cache for next steps in parallel</span><span style=color:#666>
+</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>test</span>:<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#999;font-style:italic># Run test suite...</span><span style=color:#666>
+</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>lint</span>:<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#999;font-style:italic># resource_class: ...</span><span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#999;font-style:italic># executor: ...</span><span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>steps</span>:<span style=color:#666>
+</span><span style=color:#666>      </span>- prepare-workspace<span style=color:#666>
+</span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Lint JS<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>yarn js:lint<span style=color:#666>
+</span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Lint CSS<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>yarn css:lint<span style=color:#666>
+</span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Lint Ruby<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>bundle exec rubocop<span style=color:#666>
+</span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Lint Rails erb templates<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>bundle exec erblint --lint-all<span style=color:#666>
+</span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Scan for Rails code vulnerabilities<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
+</span><span style=color:#ed9d13>            gem install brakeman
+</span><span style=color:#ed9d13>            brakeman</span><span style=color:#666>            
+</span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Scan for bundled Ruby gem vulnerabilities<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
+</span><span style=color:#ed9d13>            gem install bundler-audit
+</span><span style=color:#ed9d13>            bundle audit check --update</span><span style=color:#666>            
+</span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Scan for Ruby and RubyGems system vulnerabilities<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
+</span><span style=color:#ed9d13>            bundle add ruby_audit --group &#34;test&#34;
+</span><span style=color:#ed9d13>            bundle exec ruby-audit check</span><span style=color:#666>            
+</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#999;font-style:italic>#</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#999;font-style:italic># Workflows are sequences of jobs. Both lint and test will run in parallel once</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#999;font-style:italic># setup completes.</span><span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>workflows</span>:<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>build</span>:<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>jobs</span>:<span style=color:#666>
+</span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>setup</span>:<span style=color:#666>
+</span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>lint</span>:<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>requires</span>:<span style=color:#666>
+</span><span style=color:#666>            </span>- setup<span style=color:#666>
+</span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>test</span>:<span style=color:#666>
+</span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>requires</span>:<span style=color:#666>
+</span><span style=color:#666>            </span>- setup<span style=color:#666>
+</span></code></pre></div><h3 id=require-all-pull-requests-have-your-lint-jobs-pass-before-merging>Require all Pull Requests have your lint jobs pass before merging</h3>
 <p>Update your GitHub repository Settings for Branches to &ldquo;Require status checks to pass before merging&rdquo;. Select the check that only passes in the lint job in your CI passes.</p>
 <p>This ensures your team writes consistent code, even as the team grows.</p>
-
-    </div>
-
-    
-
-    
-      
-      <div class="my-8">
-        <a href="https://briansigafoos.com/" class="btn btn-default">
-          Visit homepage
-        </a>
-      </div>
-    
-
-    
-      
-        
-        <div class="my-8">
-          <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "briansigafoos" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        </div>
-      
-    
-  </div>
-
-
-  <div class="border-t border-gray py-4 my-16 w-full text-sm text-faint">
-  <div class="container max-w-4xl text-center font-mono">
-    <div class="sm:flex items-center justify-between">
-      <span>
-        Made with
-        <a href="https://gohugo.io" rel="nofollow" target="hugo">Hugo</a> &
-        <a href="https://tailwindcss.com" rel="nofollow" target="tw">TailwindCSS</a>
-        ·
-        <a href="https://github.com/BrianSigafoos/hugo_site" class="text-faint" rel="nofollow" target="source">
-          Source code
-        </a>
-      </span>
-
-      <span class="block sm:inline mt-2 sm:mt-0">
-        By <a href="/about" class="font-black">Brian Sigafoos</a>
-      </span>
-    </div>
-  </div>
+</div>
+<div class=my-8>
+<a href=https://briansigafoos.com/ class="btn btn-default">
+Visit homepage
+</a>
+</div>
+<div class=my-8>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//briansigafoos.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+</div>
+<div class="border-t border-gray py-4 my-16 w-full text-sm text-faint">
+<div class="container max-w-4xl text-center font-mono">
+<div class="sm:flex items-center justify-between">
+<span>
+Made with
+<a href=https://gohugo.io rel=nofollow target=hugo>Hugo</a> &
+        <a href=https://tailwindcss.com rel=nofollow target=tw>TailwindCSS</a>
+·
+<a href=https://github.com/BrianSigafoos/hugo_site class=text-faint rel=nofollow target=source>
+Source code
+</a>
+</span>
+<span class="block sm:inline mt-2 sm:mt-0">
+By <a href=/about class=font-black>Brian Sigafoos</a>
+</span>
+</div>
+</div>
 </div>
 </body>
-
 </html>

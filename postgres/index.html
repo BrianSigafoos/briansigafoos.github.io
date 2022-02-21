@@ -1,188 +1,153 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
+<!doctype html><html lang=en-us>
 <head>
-  <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1">
 <title>Postgres tips - Brian Sigafoos</title>
-
-
-
-
-  
-  <link rel="stylesheet" href="/css/main.min.e6e8b99c028ec02238e47aa30146afa808df5116459c3f5efb81b0f96c74389a.css" integrity="sha256-5ui5nAKOwCI45HqjAUavqAjfURZFnD9e+4Gw+Wx0OJo="/>
-
-
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-42740116-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-<link rel="shortcut icon" href="/favicon.png?20190809" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?20190809" />
-
+<link rel=stylesheet href="/css/main.min.e6e8b99c028ec02238e47aa30146afa808df5116459c3f5efb81b0f96c74389a.css" integrity="sha256-5ui5nAKOwCI45HqjAUavqAjfURZFnD9e+4Gw+Wx0OJo=">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-42740116-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<link rel="shortcut icon" href=/favicon.png?20190809>
+<link rel=apple-touch-icon href=/apple-touch-icon.png?20190809>
 </head>
-
 <body class="antialiased leading-normal">
-  <div class="border-b border-gray py-4 w-full">
-  <div class="container max-w-4xl">
-    <div class="flex items-center justify-between font-mono">
-      <a href="https://briansigafoos.com/" class="font-black">
-        Brian Sigafoos
-      </a>
-
-      <a href="/about">About me</a>
-    </div>
-  </div>
+<div class="border-b border-gray py-4 w-full">
+<div class="container max-w-4xl">
+<div class="flex items-center justify-between font-mono">
+<a href=https://briansigafoos.com/ class=font-black>
+Brian Sigafoos
+</a>
+<a href=/about>About me</a>
 </div>
-
-  <div class="container my-16 max-w-4xl">
-    <h1 class="title">
-      Postgres tips
-    </h1>
-
-    <h3 class="subtitle">
-      A quick reference for working with PostgreSQL databases.
-    </h3>
-
-    <p class="font-mono text-faint text-sm">
-      
-        Oct 15, 2018
-        ·
-      
-
-      
-        3 min read
-      
-    </p>
-
-    <div class="border-t border-gray text-readable my-8 pt-4">
-      <h3 id="total-rows">Total rows</h3>
+</div>
+</div>
+<div class="container my-16 max-w-4xl">
+<h1 class=title>
+Postgres tips
+</h1>
+<h3 class=subtitle>
+A quick reference for working with PostgreSQL databases.
+</h3>
+<p class="font-mono text-faint text-sm">
+Oct 15, 2018
+·
+3 min read
+</p>
+<div class="border-t border-gray text-readable my-8 pt-4">
+<h3 id=total-rows>Total rows</h3>
 <p>Get an estimate of the number of rows for an enormous table called &ldquo;events&rdquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666"> </span>reltuples::<span style="color:#24909d">bigint</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>rows_estimate<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>pg_class<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">WHERE</span><span style="color:#666"> </span>relname=<span style="color:#ed9d13">&#34;events&#34;</span>;<span style="color:#666">
-</span></code></pre></div><h3 id="total-size">Total size</h3>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#6ab825;font-weight:700>SELECT</span><span style=color:#666> </span>reltuples::<span style=color:#24909d>bigint</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>rows_estimate<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>FROM</span><span style=color:#666> </span>pg_class<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>WHERE</span><span style=color:#666> </span>relname=<span style=color:#ed9d13>&#34;events&#34;</span>;<span style=color:#666>
+</span></code></pre></div><h3 id=total-size>Total size</h3>
 <p>Or get a table of a database&rsquo;s largest relations and their total size in bytes,
 total size pretty, and rows estimate.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666">
-</span><span style="color:#666">    </span>nspname<span style="color:#666"> </span>||<span style="color:#666"> </span><span style="color:#ed9d13">&#39;.&#39;</span><span style="color:#666"> </span>||<span style="color:#666"> </span>relname<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span><span style="color:#ed9d13">&#34;relation&#34;</span>,<span style="color:#666">
-</span><span style="color:#666">    </span>pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span><span style="color:#ed9d13">&#34;total_size_bytes&#34;</span>,<span style="color:#666">
-</span><span style="color:#666">    </span>pg_size_pretty(pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid))<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span><span style="color:#ed9d13">&#34;total_size_pretty&#34;</span>,<span style="color:#666">
-</span><span style="color:#666">    </span>reltuples::<span style="color:#24909d">BIGINT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span><span style="color:#ed9d13">&#34;rows_estimate&#34;</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>pg_class<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">C</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">LEFT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">JOIN</span><span style="color:#666"> </span>pg_namespace<span style="color:#666"> </span>N<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">ON</span><span style="color:#666"> </span>(N.oid<span style="color:#666"> </span>=<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">C</span>.relnamespace)<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">WHERE</span><span style="color:#666"> </span>nspname<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">IN</span><span style="color:#666"> </span>(<span style="color:#ed9d13">&#39;pg_catalog&#39;</span>,<span style="color:#666"> </span><span style="color:#ed9d13">&#39;information_schema&#39;</span>)<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">AND</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">C</span>.relkind<span style="color:#666"> </span>&lt;&gt;<span style="color:#666"> </span><span style="color:#ed9d13">&#39;i&#39;</span><span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">AND</span><span style="color:#666"> </span>nspname<span style="color:#666"> </span>!~<span style="color:#666"> </span><span style="color:#ed9d13">&#39;^pg_toast&#39;</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">ORDER</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">BY</span><span style="color:#666"> </span>pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">DESC</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">LIMIT</span><span style="color:#666"> </span><span style="color:#3677a9">200</span>;<span style="color:#666">
-</span></code></pre></div><h3 id="more-size-queries">More size queries</h3>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#6ab825;font-weight:700>SELECT</span><span style=color:#666>
+</span><span style=color:#666>    </span>nspname<span style=color:#666> </span>||<span style=color:#666> </span><span style=color:#ed9d13>&#39;.&#39;</span><span style=color:#666> </span>||<span style=color:#666> </span>relname<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span><span style=color:#ed9d13>&#34;relation&#34;</span>,<span style=color:#666>
+</span><span style=color:#666>    </span>pg_total_relation_size(<span style=color:#6ab825;font-weight:700>C</span>.oid)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span><span style=color:#ed9d13>&#34;total_size_bytes&#34;</span>,<span style=color:#666>
+</span><span style=color:#666>    </span>pg_size_pretty(pg_total_relation_size(<span style=color:#6ab825;font-weight:700>C</span>.oid))<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span><span style=color:#ed9d13>&#34;total_size_pretty&#34;</span>,<span style=color:#666>
+</span><span style=color:#666>    </span>reltuples::<span style=color:#24909d>BIGINT</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span><span style=color:#ed9d13>&#34;rows_estimate&#34;</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>FROM</span><span style=color:#666> </span>pg_class<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>C</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>LEFT</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>JOIN</span><span style=color:#666> </span>pg_namespace<span style=color:#666> </span>N<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>ON</span><span style=color:#666> </span>(N.oid<span style=color:#666> </span>=<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>C</span>.relnamespace)<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>WHERE</span><span style=color:#666> </span>nspname<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>NOT</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>IN</span><span style=color:#666> </span>(<span style=color:#ed9d13>&#39;pg_catalog&#39;</span>,<span style=color:#666> </span><span style=color:#ed9d13>&#39;information_schema&#39;</span>)<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>AND</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>C</span>.relkind<span style=color:#666> </span>&lt;&gt;<span style=color:#666> </span><span style=color:#ed9d13>&#39;i&#39;</span><span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>AND</span><span style=color:#666> </span>nspname<span style=color:#666> </span>!~<span style=color:#666> </span><span style=color:#ed9d13>&#39;^pg_toast&#39;</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>ORDER</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>BY</span><span style=color:#666> </span>pg_total_relation_size(<span style=color:#6ab825;font-weight:700>C</span>.oid)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>DESC</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>LIMIT</span><span style=color:#666> </span><span style=color:#3677a9>200</span>;<span style=color:#666>
+</span></code></pre></div><h3 id=more-size-queries>More size queries</h3>
 <p>Get table, index, and total size.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">table_name</span>,<span style="color:#666">
-</span><span style="color:#666">  </span>pg_size_pretty(table_size)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>table_size,<span style="color:#666">
-</span><span style="color:#666">  </span>pg_size_pretty(indexes_size)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>indexes_size,<span style="color:#666">
-</span><span style="color:#666">  </span>pg_size_pretty(total_size)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>total_size<span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>(<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">table_name</span>,<span style="color:#666">
-</span><span style="color:#666">    </span>pg_table_size(<span style="color:#6ab825;font-weight:bold">table_name</span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>table_size,<span style="color:#666">
-</span><span style="color:#666">    </span>pg_indexes_size(<span style="color:#6ab825;font-weight:bold">table_name</span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>indexes_size,<span style="color:#666">
-</span><span style="color:#666">    </span>pg_total_relation_size(<span style="color:#6ab825;font-weight:bold">table_name</span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>total_size<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>(<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666"> </span>(<span style="color:#ed9d13">&#39;&#34;&#39;</span><span style="color:#666"> </span>||<span style="color:#666"> </span>table_schema<span style="color:#666"> </span>||<span style="color:#666"> </span><span style="color:#ed9d13">&#39;&#34;.&#34;&#39;</span><span style="color:#666"> </span>||<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">table_name</span><span style="color:#666"> </span>||<span style="color:#666"> </span><span style="color:#ed9d13">&#39;&#34;&#39;</span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">table_name</span>,<span style="color:#666"> </span>table_catalog<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>information_schema.tables<span style="color:#666">
-</span><span style="color:#666">  </span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>all_tables<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">ORDER</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">BY</span><span style="color:#666"> </span>total_size<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">DESC</span><span style="color:#666">
-</span><span style="color:#666"></span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>pretty_sizes;<span style="color:#666">
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#6ab825;font-weight:700>SELECT</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>table_name</span>,<span style=color:#666>
+</span><span style=color:#666>  </span>pg_size_pretty(table_size)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>table_size,<span style=color:#666>
+</span><span style=color:#666>  </span>pg_size_pretty(indexes_size)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>indexes_size,<span style=color:#666>
+</span><span style=color:#666>  </span>pg_size_pretty(total_size)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>total_size<span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>FROM</span><span style=color:#666> </span>(<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>SELECT</span><span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>table_name</span>,<span style=color:#666>
+</span><span style=color:#666>    </span>pg_table_size(<span style=color:#6ab825;font-weight:700>table_name</span>)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>table_size,<span style=color:#666>
+</span><span style=color:#666>    </span>pg_indexes_size(<span style=color:#6ab825;font-weight:700>table_name</span>)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>indexes_size,<span style=color:#666>
+</span><span style=color:#666>    </span>pg_total_relation_size(<span style=color:#6ab825;font-weight:700>table_name</span>)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>total_size<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>FROM</span><span style=color:#666> </span>(<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>SELECT</span><span style=color:#666> </span>(<span style=color:#ed9d13>&#39;&#34;&#39;</span><span style=color:#666> </span>||<span style=color:#666> </span>table_schema<span style=color:#666> </span>||<span style=color:#666> </span><span style=color:#ed9d13>&#39;&#34;.&#34;&#39;</span><span style=color:#666> </span>||<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>table_name</span><span style=color:#666> </span>||<span style=color:#666> </span><span style=color:#ed9d13>&#39;&#34;&#39;</span>)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>table_name</span>,<span style=color:#666> </span>table_catalog<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>FROM</span><span style=color:#666> </span>information_schema.tables<span style=color:#666>
+</span><span style=color:#666>  </span>)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>all_tables<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>ORDER</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>BY</span><span style=color:#666> </span>total_size<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>DESC</span><span style=color:#666>
+</span><span style=color:#666></span>)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>pretty_sizes;<span style=color:#666>
 </span></code></pre></div><p>Or get the size of the largest relations.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666"> </span>nspname<span style="color:#666"> </span>||<span style="color:#666"> </span><span style="color:#ed9d13">&#39;.&#39;</span><span style="color:#666"> </span>||<span style="color:#666"> </span>relname<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span><span style="color:#ed9d13">&#34;relation&#34;</span>,<span style="color:#666">
-</span><span style="color:#666">    </span>pg_size_pretty(pg_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid))<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span><span style="color:#ed9d13">&#34;size&#34;</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>pg_class<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">C</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">LEFT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">JOIN</span><span style="color:#666"> </span>pg_namespace<span style="color:#666"> </span>N<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">ON</span><span style="color:#666"> </span>(N.oid<span style="color:#666"> </span>=<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">C</span>.relnamespace)<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">WHERE</span><span style="color:#666"> </span>nspname<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">IN</span><span style="color:#666"> </span>(<span style="color:#ed9d13">&#39;pg_catalog&#39;</span>,<span style="color:#666"> </span><span style="color:#ed9d13">&#39;information_schema&#39;</span>)<span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">ORDER</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">BY</span><span style="color:#666"> </span>pg_relation_size(<span style="color:#6ab825;font-weight:bold">C</span>.oid)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">DESC</span><span style="color:#666">
-</span><span style="color:#666">  </span><span style="color:#6ab825;font-weight:bold">LIMIT</span><span style="color:#666"> </span><span style="color:#3677a9">20</span>;<span style="color:#666">
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#6ab825;font-weight:700>SELECT</span><span style=color:#666> </span>nspname<span style=color:#666> </span>||<span style=color:#666> </span><span style=color:#ed9d13>&#39;.&#39;</span><span style=color:#666> </span>||<span style=color:#666> </span>relname<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span><span style=color:#ed9d13>&#34;relation&#34;</span>,<span style=color:#666>
+</span><span style=color:#666>    </span>pg_size_pretty(pg_relation_size(<span style=color:#6ab825;font-weight:700>C</span>.oid))<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span><span style=color:#ed9d13>&#34;size&#34;</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>FROM</span><span style=color:#666> </span>pg_class<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>C</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>LEFT</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>JOIN</span><span style=color:#666> </span>pg_namespace<span style=color:#666> </span>N<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>ON</span><span style=color:#666> </span>(N.oid<span style=color:#666> </span>=<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>C</span>.relnamespace)<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>WHERE</span><span style=color:#666> </span>nspname<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>NOT</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>IN</span><span style=color:#666> </span>(<span style=color:#ed9d13>&#39;pg_catalog&#39;</span>,<span style=color:#666> </span><span style=color:#ed9d13>&#39;information_schema&#39;</span>)<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>ORDER</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>BY</span><span style=color:#666> </span>pg_relation_size(<span style=color:#6ab825;font-weight:700>C</span>.oid)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>DESC</span><span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>LIMIT</span><span style=color:#666> </span><span style=color:#3677a9>20</span>;<span style=color:#666>
 </span></code></pre></div><p>Find more disk usage related queries at
-<a href="https://wiki.postgresql.org/wiki/Disk_Usage">PostgreSQL Disk Usage</a></p>
-<h3 id="pg_dump">pg_dump</h3>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat .../&lt;your-app&gt;/.../database.yml
-<span style="color:#40ffff">DB_HOST</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_NAME</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_USER</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_DUMP_FILE</span>=db.dump
-<span style="color:#999;font-style:italic"># -Fc format custom, -v verbose</span>
-<span style="color:#24909d">time</span> (pg_dump -Fc -v -U <span style="color:#40ffff">$DB_USER</span> -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -f <span style="color:#40ffff">$DB_DUMP_FILE</span>)
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">SERVER_USER</span>=&lt;ie deploy&gt;
-<span style="color:#40ffff">SERVER_IP</span>=&lt;ie 1.2.3.4 &gt;
-<span style="color:#40ffff">DB_NAME</span>=&lt;ie database_prod&gt;
-<span style="color:#40ffff">REMOTE_DB_DUMP_FILE</span>=db.dump
-<span style="color:#40ffff">DATE</span>=<span style="color:#6ab825;font-weight:bold">$(</span>date +<span style="color:#ed9d13">&#34;%Y%m%d%H%M&#34;</span><span style="color:#6ab825;font-weight:bold">)</span>
-<span style="color:#40ffff">LOCAL_DB_DUMP</span>=<span style="color:#40ffff">$HOME</span>/.../<span style="color:#40ffff">$DB_NAME</span><span style="color:#ed9d13">\-</span><span style="color:#40ffff">$DATE</span>.dump
+<a href=https://wiki.postgresql.org/wiki/Disk_Usage>PostgreSQL Disk Usage</a></p>
+<h3 id=pg_dump>pg_dump</h3>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cat .../&lt;your-app&gt;/.../database.yml
+<span style=color:#40ffff>DB_HOST</span>=&lt;from database.yml&gt;
+<span style=color:#40ffff>DB_NAME</span>=&lt;from database.yml&gt;
+<span style=color:#40ffff>DB_USER</span>=&lt;from database.yml&gt;
+<span style=color:#40ffff>DB_DUMP_FILE</span>=db.dump
+<span style=color:#999;font-style:italic># -Fc format custom, -v verbose</span>
+<span style=color:#24909d>time</span> (pg_dump -Fc -v -U <span style=color:#40ffff>$DB_USER</span> -h <span style=color:#40ffff>$DB_HOST</span> -d <span style=color:#40ffff>$DB_NAME</span> -f <span style=color:#40ffff>$DB_DUMP_FILE</span>)
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#40ffff>SERVER_USER</span>=&lt;ie deploy&gt;
+<span style=color:#40ffff>SERVER_IP</span>=&lt;ie 1.2.3.4 &gt;
+<span style=color:#40ffff>DB_NAME</span>=&lt;ie database_prod&gt;
+<span style=color:#40ffff>REMOTE_DB_DUMP_FILE</span>=db.dump
+<span style=color:#40ffff>DATE</span>=<span style=color:#6ab825;font-weight:700>$(</span>date +<span style=color:#ed9d13>&#34;%Y%m%d%H%M&#34;</span><span style=color:#6ab825;font-weight:700>)</span>
+<span style=color:#40ffff>LOCAL_DB_DUMP</span>=<span style=color:#40ffff>$HOME</span>/.../<span style=color:#40ffff>$DB_NAME</span><span style=color:#ed9d13>\-</span><span style=color:#40ffff>$DATE</span>.dump
 
-<span style="color:#24909d">echo</span> Fetching production database dump
-scp <span style="color:#40ffff">$SERVER_USER</span>@<span style="color:#40ffff">$SERVER_IP</span>:<span style="color:#40ffff">$REMOTE_DB_DUMP_FILE</span> <span style="color:#40ffff">$LOCAL_DB_DUMP</span>
-</code></pre></div><h3 id="pg_restore">pg_restore</h3>
+<span style=color:#24909d>echo</span> Fetching production database dump
+scp <span style=color:#40ffff>$SERVER_USER</span>@<span style=color:#40ffff>$SERVER_IP</span>:<span style=color:#40ffff>$REMOTE_DB_DUMP_FILE</span> <span style=color:#40ffff>$LOCAL_DB_DUMP</span>
+</code></pre></div><h3 id=pg_restore>pg_restore</h3>
 <p>Simple pg_restore for local development</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat .../&lt;your-app&gt;/.../database.yml
-<span style="color:#40ffff">DB_NAME</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_DUMP_FILE</span>=db.dump
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cat .../&lt;your-app&gt;/.../database.yml
+<span style=color:#40ffff>DB_NAME</span>=&lt;from database.yml&gt;
+<span style=color:#40ffff>DB_DUMP_FILE</span>=db.dump
 
-<span style="color:#999;font-style:italic"># -Fc --format=custom, -v --verbose</span>
-<span style="color:#999;font-style:italic"># -c --clean (clean/drop database objects before recreating them!)</span>
-<span style="color:#24909d">time</span> (pg_restore -Fc -v -c -d <span style="color:#40ffff">$DB_NAME</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)
+<span style=color:#999;font-style:italic># -Fc --format=custom, -v --verbose</span>
+<span style=color:#999;font-style:italic># -c --clean (clean/drop database objects before recreating them!)</span>
+<span style=color:#24909d>time</span> (pg_restore -Fc -v -c -d <span style=color:#40ffff>$DB_NAME</span> <span style=color:#40ffff>$DB_DUMP_FILE</span>)
 </code></pre></div><p>More realistic scenario on production or staging server, using a <code>pg_restore.list</code>
 option with <code>-L pg_restore.list</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">DB_HOST</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_NAME</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_USER</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_DUMP_FILE</span>=db.dump
-<span style="color:#40ffff">PG_RESTORE_LIST</span>=pg_restore.list
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#40ffff>DB_HOST</span>=&lt;from database.yml&gt;
+<span style=color:#40ffff>DB_NAME</span>=&lt;from database.yml&gt;
+<span style=color:#40ffff>DB_USER</span>=&lt;from database.yml&gt;
+<span style=color:#40ffff>DB_DUMP_FILE</span>=db.dump
+<span style=color:#40ffff>PG_RESTORE_LIST</span>=pg_restore.list
 
-pg_restore -l db.dump | grep -Fv -e <span style="color:#ed9d13">&#39;COMMENT - EXTENSION&#39;</span> -e <span style="color:#ed9d13">&#39;master&#39;</span> -e <span style="color:#ed9d13">&#39;rdsadmin&#39;</span> &gt; <span style="color:#40ffff">$PG_RESTORE_LIST</span>
-<span style="color:#999;font-style:italic"># -Fc --format=custom, -v --verbose, -O --no-owner, -1 --single-transaction</span>
-<span style="color:#999;font-style:italic"># -e --exit-on-error</span>
-<span style="color:#24909d">time</span> (pg_restore -Fc -v -O -1 -e -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -U <span style="color:#40ffff">$DB_USER</span> -L <span style="color:#40ffff">$PG_RESTORE_LIST</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)
-</code></pre></div><h4 id="restore-specific-tables">Restore specific table(s)</h4>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#40ffff">DB_HOST</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_NAME</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_USER</span>=&lt;from database.yml&gt;
-<span style="color:#40ffff">DB_DUMP_FILE</span>=db.dump
-<span style="color:#40ffff">DB_TABLE1</span>=&lt;ie users&gt;
-<span style="color:#40ffff">DB_TABLE2</span>=&lt;ie accounts&gt;
+pg_restore -l db.dump | grep -Fv -e <span style=color:#ed9d13>&#39;COMMENT - EXTENSION&#39;</span> -e <span style=color:#ed9d13>&#39;master&#39;</span> -e <span style=color:#ed9d13>&#39;rdsadmin&#39;</span> &gt; <span style=color:#40ffff>$PG_RESTORE_LIST</span>
+<span style=color:#999;font-style:italic># -Fc --format=custom, -v --verbose, -O --no-owner, -1 --single-transaction</span>
+<span style=color:#999;font-style:italic># -e --exit-on-error</span>
+<span style=color:#24909d>time</span> (pg_restore -Fc -v -O -1 -e -h <span style=color:#40ffff>$DB_HOST</span> -d <span style=color:#40ffff>$DB_NAME</span> -U <span style=color:#40ffff>$DB_USER</span> -L <span style=color:#40ffff>$PG_RESTORE_LIST</span> <span style=color:#40ffff>$DB_DUMP_FILE</span>)
+</code></pre></div><h4 id=restore-specific-tables>Restore specific table(s)</h4>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#40ffff>DB_HOST</span>=&lt;from database.yml&gt;
+<span style=color:#40ffff>DB_NAME</span>=&lt;from database.yml&gt;
+<span style=color:#40ffff>DB_USER</span>=&lt;from database.yml&gt;
+<span style=color:#40ffff>DB_DUMP_FILE</span>=db.dump
+<span style=color:#40ffff>DB_TABLE1</span>=&lt;ie users&gt;
+<span style=color:#40ffff>DB_TABLE2</span>=&lt;ie accounts&gt;
 
-<span style="color:#999;font-style:italic"># -Fc --format=custom, -v --verbose, -a --data-only, -1 --single-transaction</span>
-<span style="color:#999;font-style:italic"># -e --exit-on-error, -t --table (as many as needed)</span>
-<span style="color:#24909d">time</span> (pg_restore -Fc -v -a -1 -e -h <span style="color:#40ffff">$DB_HOST</span> -d <span style="color:#40ffff">$DB_NAME</span> -U <span style="color:#40ffff">$DB_USER</span> -t <span style="color:#40ffff">$DB_TABLE1</span> -t <span style="color:#40ffff">$DB_TABLE2</span> <span style="color:#40ffff">$DB_DUMP_FILE</span>)
-</code></pre></div><h3 id="explain">EXPLAIN</h3>
+<span style=color:#999;font-style:italic># -Fc --format=custom, -v --verbose, -a --data-only, -1 --single-transaction</span>
+<span style=color:#999;font-style:italic># -e --exit-on-error, -t --table (as many as needed)</span>
+<span style=color:#24909d>time</span> (pg_restore -Fc -v -a -1 -e -h <span style=color:#40ffff>$DB_HOST</span> -d <span style=color:#40ffff>$DB_NAME</span> -U <span style=color:#40ffff>$DB_USER</span> -t <span style=color:#40ffff>$DB_TABLE1</span> -t <span style=color:#40ffff>$DB_TABLE2</span> <span style=color:#40ffff>$DB_DUMP_FILE</span>)
+</code></pre></div><h3 id=explain>EXPLAIN</h3>
 <p>Add <code>EXPLAIN</code> before a query to get its execution plan.
 Example: <code>EXPLAIN SELECT * FROM users WHERE id = 42;</code></p>
 <p>Add <code>EXPLAIN ANALYZE</code> for the statement to be actually executed, not only
 planned. This is fine for <code>SELECT</code>. But, since the query is executed, be careful
 with <code>INSERT, UPDATE, DELETE, CREATE TABLE AS</code>. Wrap those with a <code>BEGIN</code>
 and <code>ROLLBACK</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">BEGIN</span>;<span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">EXPLAIN</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">ANALYZE</span><span style="color:#666"> </span>...;<span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">ROLLBACK</span>;<span style="color:#666">
-</span></code></pre></div><h3 id="vacuum">VACUUM</h3>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#6ab825;font-weight:700>BEGIN</span>;<span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>EXPLAIN</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>ANALYZE</span><span style=color:#666> </span>...;<span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>ROLLBACK</span>;<span style=color:#666>
+</span></code></pre></div><h3 id=vacuum>VACUUM</h3>
 <p>Why <code>VACUUM</code>?</p>
 <blockquote>
 <p>In normal PostgreSQL operation, tuples that are deleted or obsoleted by an
 update are not physically removed from their table; they remain present until
 a VACUUM is done. Therefore it&rsquo;s necessary to do VACUUM periodically,
 especially on frequently-updated tables.
-(<a href="https://www.postgresql.org/docs/11/sql-vacuum.html">reference</a>)</p>
+(<a href=https://www.postgresql.org/docs/11/sql-vacuum.html>reference</a>)</p>
 </blockquote>
 <p><code>VACUUM ANALYZE</code> performs a <code>VACUUM</code> and then an <code>ANALYZE</code> for each selected
 table.</p>
@@ -192,119 +157,86 @@ way to execute a query.</p>
 the table</strong>. This method also requires extra disk space, since it writes a new
 copy of the table and doesn&rsquo;t release the old copy until the operation is
 complete.</p>
-<h3 id="rails-console-sql-commands">Rails console SQL commands</h3>
-<p>From the Rails console, call <code>ActiveRecord::Base.connection.execute &quot;...&quot;</code>
+<h3 id=rails-console-sql-commands>Rails console SQL commands</h3>
+<p>From the Rails console, call <code>ActiveRecord::Base.connection.execute "..."</code>
 to execute arbitrary SQL commands:</p>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#40ffff">ActiveRecord</span>::<span style="color:#40ffff">Base</span>.connection.execute <span style="color:#ed9d13">&#34;VACUUM VERBOSE ANALYZE users&#34;</span>
-</code></pre></div><h3 id="maintaining-a-database">Maintaining a Database</h3>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=color:#40ffff>ActiveRecord</span>::<span style=color:#40ffff>Base</span>.connection.execute <span style=color:#ed9d13>&#34;VACUUM VERBOSE ANALYZE users&#34;</span>
+</code></pre></div><h3 id=maintaining-a-database>Maintaining a Database</h3>
 <p>Find unused indexes that can be pruned.</p>
 <blockquote>
 <p>Since indexes add significant overhead to any table change operation,
 they should be removed if they are not being used for either queries or
 constraint enforcement (such as making sure a value is unique).</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666">
-</span><span style="color:#666">    </span>t.schemaname,<span style="color:#666">
-</span><span style="color:#666">    </span>t.tablename,<span style="color:#666">
-</span><span style="color:#666">    </span>indexname,<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">c</span>.reltuples<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>num_rows,<span style="color:#666">
-</span><span style="color:#666">    </span>pg_size_pretty(pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span><span style="color:#666"> </span>||<span style="color:#666"> </span><span style="color:#ed9d13">&#39;.&#39;</span><span style="color:#666"> </span>||<span style="color:#666"> </span>quote_ident(t.tablename)::<span style="color:#24909d">text</span>))<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>table_size,<span style="color:#666">
-</span><span style="color:#666">    </span>pg_size_pretty(pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span><span style="color:#666"> </span>||<span style="color:#666"> </span><span style="color:#ed9d13">&#39;.&#39;</span><span style="color:#666"> </span>||<span style="color:#666"> </span>quote_ident(indexrelname)::<span style="color:#24909d">text</span>))<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>index_size,<span style="color:#666">
-</span><span style="color:#666">    </span>pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span><span style="color:#666"> </span>||<span style="color:#666"> </span><span style="color:#ed9d13">&#39;.&#39;</span><span style="color:#666"> </span>||<span style="color:#666"> </span>quote_ident(t.tablename)::<span style="color:#24909d">text</span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>table_size_raw,<span style="color:#666">
-</span><span style="color:#666">    </span>pg_relation_size(quote_ident(t.schemaname)::<span style="color:#24909d">text</span><span style="color:#666"> </span>||<span style="color:#666"> </span><span style="color:#ed9d13">&#39;.&#39;</span><span style="color:#666"> </span>||<span style="color:#666"> </span>quote_ident(indexrelname)::<span style="color:#24909d">text</span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>index_size_raw,<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">CASE</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">WHEN</span><span style="color:#666"> </span>indisunique<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">THEN</span><span style="color:#666"> </span><span style="color:#ed9d13">&#39;Y&#39;</span><span style="color:#666">
-</span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">ELSE</span><span style="color:#666"> </span><span style="color:#ed9d13">&#39;N&#39;</span><span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">END</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">UNIQUE</span>,<span style="color:#666">
-</span><span style="color:#666">    </span>number_of_scans,<span style="color:#666">
-</span><span style="color:#666">    </span>tuples_read,<span style="color:#666">
-</span><span style="color:#666">    </span>tuples_fetched<span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>pg_tables<span style="color:#666"> </span>t<span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">LEFT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">OUTER</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">JOIN</span><span style="color:#666"> </span>pg_class<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">c</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">ON</span><span style="color:#666"> </span>t.tablename<span style="color:#666"> </span>=<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">c</span>.relname<span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">LEFT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">OUTER</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">JOIN</span><span style="color:#666"> </span>(<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">SELECT</span><span style="color:#666">
-</span><span style="color:#666">        </span><span style="color:#6ab825;font-weight:bold">c</span>.relname<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>ctablename,<span style="color:#666">
-</span><span style="color:#666">        </span>ipg.relname<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>indexname,<span style="color:#666">
-</span><span style="color:#666">        </span>x.indnatts<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>number_of_columns,<span style="color:#666">
-</span><span style="color:#666">        </span>idx_scan<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>number_of_scans,<span style="color:#666">
-</span><span style="color:#666">        </span>idx_tup_read<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>tuples_read,<span style="color:#666">
-</span><span style="color:#666">        </span>idx_tup_fetch<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>tuples_fetched,<span style="color:#666">
-</span><span style="color:#666">        </span>indexrelname,<span style="color:#666">
-</span><span style="color:#666">        </span>indisunique,<span style="color:#666">
-</span><span style="color:#666">        </span>schemaname<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">FROM</span><span style="color:#666"> </span>pg_index<span style="color:#666"> </span>x<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">JOIN</span><span style="color:#666"> </span>pg_class<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">c</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">ON</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">c</span>.oid<span style="color:#666"> </span>=<span style="color:#666"> </span>x.indrelid<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">JOIN</span><span style="color:#666"> </span>pg_class<span style="color:#666"> </span>ipg<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">ON</span><span style="color:#666"> </span>ipg.oid<span style="color:#666"> </span>=<span style="color:#666"> </span>x.indexrelid<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">JOIN</span><span style="color:#666"> </span>pg_stat_all_indexes<span style="color:#666"> </span>psai<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">ON</span><span style="color:#666"> </span>x.indexrelid<span style="color:#666"> </span>=<span style="color:#666"> </span>psai.indexrelid<span style="color:#666">
-</span><span style="color:#666"></span>)<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AS</span><span style="color:#666"> </span>foo<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">ON</span><span style="color:#666"> </span>t.tablename<span style="color:#666"> </span>=<span style="color:#666"> </span>foo.ctablename<span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">AND</span><span style="color:#666"> </span>t.schemaname<span style="color:#666"> </span>=<span style="color:#666"> </span>foo.schemaname<span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#6ab825;font-weight:bold">WHERE</span><span style="color:#666"> </span>t.schemaname<span style="color:#666">
-</span><span style="color:#666">    </span><span style="color:#6ab825;font-weight:bold">NOT</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">IN</span><span style="color:#666"> </span>(<span style="color:#ed9d13">&#39;pg_catalog&#39;</span>,<span style="color:#666"> </span><span style="color:#ed9d13">&#39;information_schema&#39;</span>)<span style="color:#666">
-</span><span style="color:#666"></span><span style="color:#999;font-style:italic">--    AND number_of_scans &lt; 200
-</span><span style="color:#999;font-style:italic"></span><span style="color:#6ab825;font-weight:bold">ORDER</span><span style="color:#666"> </span><span style="color:#6ab825;font-weight:bold">BY</span><span style="color:#666"> </span>number_of_scans,<span style="color:#666"> </span><span style="color:#3677a9">1</span>,<span style="color:#666"> </span><span style="color:#3677a9">2</span>,<span style="color:#666"> </span><span style="color:#3677a9">3</span>;<span style="color:#666">
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#6ab825;font-weight:700>SELECT</span><span style=color:#666>
+</span><span style=color:#666>    </span>t.schemaname,<span style=color:#666>
+</span><span style=color:#666>    </span>t.tablename,<span style=color:#666>
+</span><span style=color:#666>    </span>indexname,<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>c</span>.reltuples<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>num_rows,<span style=color:#666>
+</span><span style=color:#666>    </span>pg_size_pretty(pg_relation_size(quote_ident(t.schemaname)::<span style=color:#24909d>text</span><span style=color:#666> </span>||<span style=color:#666> </span><span style=color:#ed9d13>&#39;.&#39;</span><span style=color:#666> </span>||<span style=color:#666> </span>quote_ident(t.tablename)::<span style=color:#24909d>text</span>))<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>table_size,<span style=color:#666>
+</span><span style=color:#666>    </span>pg_size_pretty(pg_relation_size(quote_ident(t.schemaname)::<span style=color:#24909d>text</span><span style=color:#666> </span>||<span style=color:#666> </span><span style=color:#ed9d13>&#39;.&#39;</span><span style=color:#666> </span>||<span style=color:#666> </span>quote_ident(indexrelname)::<span style=color:#24909d>text</span>))<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>index_size,<span style=color:#666>
+</span><span style=color:#666>    </span>pg_relation_size(quote_ident(t.schemaname)::<span style=color:#24909d>text</span><span style=color:#666> </span>||<span style=color:#666> </span><span style=color:#ed9d13>&#39;.&#39;</span><span style=color:#666> </span>||<span style=color:#666> </span>quote_ident(t.tablename)::<span style=color:#24909d>text</span>)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>table_size_raw,<span style=color:#666>
+</span><span style=color:#666>    </span>pg_relation_size(quote_ident(t.schemaname)::<span style=color:#24909d>text</span><span style=color:#666> </span>||<span style=color:#666> </span><span style=color:#ed9d13>&#39;.&#39;</span><span style=color:#666> </span>||<span style=color:#666> </span>quote_ident(indexrelname)::<span style=color:#24909d>text</span>)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>index_size_raw,<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>CASE</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>WHEN</span><span style=color:#666> </span>indisunique<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>THEN</span><span style=color:#666> </span><span style=color:#ed9d13>&#39;Y&#39;</span><span style=color:#666>
+</span><span style=color:#666>        </span><span style=color:#6ab825;font-weight:700>ELSE</span><span style=color:#666> </span><span style=color:#ed9d13>&#39;N&#39;</span><span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>END</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>UNIQUE</span>,<span style=color:#666>
+</span><span style=color:#666>    </span>number_of_scans,<span style=color:#666>
+</span><span style=color:#666>    </span>tuples_read,<span style=color:#666>
+</span><span style=color:#666>    </span>tuples_fetched<span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>FROM</span><span style=color:#666> </span>pg_tables<span style=color:#666> </span>t<span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>LEFT</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>OUTER</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>JOIN</span><span style=color:#666> </span>pg_class<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>c</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>ON</span><span style=color:#666> </span>t.tablename<span style=color:#666> </span>=<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>c</span>.relname<span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>LEFT</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>OUTER</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>JOIN</span><span style=color:#666> </span>(<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>SELECT</span><span style=color:#666>
+</span><span style=color:#666>        </span><span style=color:#6ab825;font-weight:700>c</span>.relname<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>ctablename,<span style=color:#666>
+</span><span style=color:#666>        </span>ipg.relname<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>indexname,<span style=color:#666>
+</span><span style=color:#666>        </span>x.indnatts<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>number_of_columns,<span style=color:#666>
+</span><span style=color:#666>        </span>idx_scan<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>number_of_scans,<span style=color:#666>
+</span><span style=color:#666>        </span>idx_tup_read<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>tuples_read,<span style=color:#666>
+</span><span style=color:#666>        </span>idx_tup_fetch<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>tuples_fetched,<span style=color:#666>
+</span><span style=color:#666>        </span>indexrelname,<span style=color:#666>
+</span><span style=color:#666>        </span>indisunique,<span style=color:#666>
+</span><span style=color:#666>        </span>schemaname<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>FROM</span><span style=color:#666> </span>pg_index<span style=color:#666> </span>x<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>JOIN</span><span style=color:#666> </span>pg_class<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>c</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>ON</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>c</span>.oid<span style=color:#666> </span>=<span style=color:#666> </span>x.indrelid<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>JOIN</span><span style=color:#666> </span>pg_class<span style=color:#666> </span>ipg<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>ON</span><span style=color:#666> </span>ipg.oid<span style=color:#666> </span>=<span style=color:#666> </span>x.indexrelid<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>JOIN</span><span style=color:#666> </span>pg_stat_all_indexes<span style=color:#666> </span>psai<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>ON</span><span style=color:#666> </span>x.indexrelid<span style=color:#666> </span>=<span style=color:#666> </span>psai.indexrelid<span style=color:#666>
+</span><span style=color:#666></span>)<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AS</span><span style=color:#666> </span>foo<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>ON</span><span style=color:#666> </span>t.tablename<span style=color:#666> </span>=<span style=color:#666> </span>foo.ctablename<span style=color:#666> </span><span style=color:#6ab825;font-weight:700>AND</span><span style=color:#666> </span>t.schemaname<span style=color:#666> </span>=<span style=color:#666> </span>foo.schemaname<span style=color:#666>
+</span><span style=color:#666></span><span style=color:#6ab825;font-weight:700>WHERE</span><span style=color:#666> </span>t.schemaname<span style=color:#666>
+</span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>NOT</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>IN</span><span style=color:#666> </span>(<span style=color:#ed9d13>&#39;pg_catalog&#39;</span>,<span style=color:#666> </span><span style=color:#ed9d13>&#39;information_schema&#39;</span>)<span style=color:#666>
+</span><span style=color:#666></span><span style=color:#999;font-style:italic>--    AND number_of_scans &lt; 200
+</span><span style=color:#999;font-style:italic></span><span style=color:#6ab825;font-weight:700>ORDER</span><span style=color:#666> </span><span style=color:#6ab825;font-weight:700>BY</span><span style=color:#666> </span>number_of_scans,<span style=color:#666> </span><span style=color:#3677a9>1</span>,<span style=color:#666> </span><span style=color:#3677a9>2</span>,<span style=color:#666> </span><span style=color:#3677a9>3</span>;<span style=color:#666>
 </span></code></pre></div><p>Find more index maintenance related queries at
-<a href="https://wiki.postgresql.org/wiki/Index_Maintenance">PostgreSQL Disk Usage</a></p>
-
-    </div>
-
-    
-
-    
-      
-      <div class="my-8">
-        <a href="https://briansigafoos.com/" class="btn btn-default">
-          Visit homepage
-        </a>
-      </div>
-    
-
-    
-      
-        
-        <div class="my-8">
-          <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "briansigafoos" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        </div>
-      
-    
-  </div>
-
-
-  <div class="border-t border-gray py-4 my-16 w-full text-sm text-faint">
-  <div class="container max-w-4xl text-center font-mono">
-    <div class="sm:flex items-center justify-between">
-      <span>
-        Made with
-        <a href="https://gohugo.io" rel="nofollow" target="hugo">Hugo</a> &
-        <a href="https://tailwindcss.com" rel="nofollow" target="tw">TailwindCSS</a>
-        ·
-        <a href="https://github.com/BrianSigafoos/hugo_site" class="text-faint" rel="nofollow" target="source">
-          Source code
-        </a>
-      </span>
-
-      <span class="block sm:inline mt-2 sm:mt-0">
-        By <a href="/about" class="font-black">Brian Sigafoos</a>
-      </span>
-    </div>
-  </div>
+<a href=https://wiki.postgresql.org/wiki/Index_Maintenance>PostgreSQL Disk Usage</a></p>
+</div>
+<div class=my-8>
+<a href=https://briansigafoos.com/ class="btn btn-default">
+Visit homepage
+</a>
+</div>
+<div class=my-8>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//briansigafoos.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+</div>
+<div class="border-t border-gray py-4 my-16 w-full text-sm text-faint">
+<div class="container max-w-4xl text-center font-mono">
+<div class="sm:flex items-center justify-between">
+<span>
+Made with
+<a href=https://gohugo.io rel=nofollow target=hugo>Hugo</a> &
+        <a href=https://tailwindcss.com rel=nofollow target=tw>TailwindCSS</a>
+·
+<a href=https://github.com/BrianSigafoos/hugo_site class=text-faint rel=nofollow target=source>
+Source code
+</a>
+</span>
+<span class="block sm:inline mt-2 sm:mt-0">
+By <a href=/about class=font-black>Brian Sigafoos</a>
+</span>
+</div>
+</div>
 </div>
 </body>
-
 </html>
