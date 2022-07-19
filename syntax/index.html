@@ -148,7 +148,15 @@
 </span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>for</span> (<span style=color:#6ab825;font-weight:700>let</span> pet <span style=color:#6ab825;font-weight:700>of</span> pets) {
 </span></span><span style=display:flex><span>  myPets += pet + <span style=color:#ed9d13>&#39; &#39;</span>
 </span></span><span style=display:flex><span>} <span style=color:#999;font-style:italic>// myPets = &#39;cat dog hamster hedgehog &#39;
-</span></span></span></code></pre></div><h4 id=hash-maps-in-javascript>Hash Maps in Javascript</h4><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#6ab825;font-weight:700>const</span> cache = <span style=color:#6ab825;font-weight:700>new</span> Map()
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>
+</span></span><span style=display:flex><span><span style=color:#999;font-style:italic>// Same for strings `let char of x`
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span><span style=color:#6ab825;font-weight:700>const</span> cache = {}
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>let</span> string = <span style=color:#ed9d13>&#39;abcd&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#999;font-style:italic>// Count character frequency
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span><span style=color:#6ab825;font-weight:700>for</span> (<span style=color:#6ab825;font-weight:700>let</span> <span style=color:#6ab825;font-weight:700>char</span> <span style=color:#6ab825;font-weight:700>of</span> string) {
+</span></span><span style=display:flex><span>  cache[<span style=color:#6ab825;font-weight:700>char</span>] = (cache[<span style=color:#6ab825;font-weight:700>char</span>] || <span style=color:#3677a9>0</span>) + <span style=color:#3677a9>1</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=hash-maps-in-javascript>Hash Maps in Javascript</h4><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#6ab825;font-weight:700>const</span> cache = <span style=color:#6ab825;font-weight:700>new</span> Map()
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>cache.set(<span style=color:#ed9d13>&#39;a&#39;</span>, <span style=color:#3677a9>1</span>) <span style=color:#999;font-style:italic>// Set key and value
 </span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>cache.has(<span style=color:#ed9d13>&#39;a&#39;</span>) <span style=color:#999;font-style:italic>// Key exists?
@@ -213,7 +221,18 @@
 </span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic>// oReq.addEventListener(&#39;load&#39;, reqListener)
 </span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic>// oReq.open(&#39;GET&#39;, API_URL_WITH_PARAMS)
 </span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic>// oReq.send()
-</span></span></span></code></pre></div><h4 id=references-for-javascript>References for Javascript</h4><ul><li><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript>MDN Javascript</a></li><li><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide>MDN Javascript Guide</a></li><li><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript>A Re-introduction to Javascript</a></li><li><a href=https://learnxinyminutes.com/docs/javascript/>Learn Javascript in Y Minutes</a></li></ul><p>Jump to <a href=#go>Go</a> · <a href=#javascript>Javascript</a> · <a href=#ruby>Ruby</a> · <a href=#rails>Rails</a> · <a href=#sql>SQL</a></p><hr><h3 id=ruby>Ruby</h3><h4 id=basics-of-ruby>Basics of Ruby</h4><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#999;font-style:italic># In Ruby, (almost) everything is an object.</span>
+</span></span></span></code></pre></div><h4 id=test-setup>Test Setup</h4><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#999;font-style:italic>// Using &#34;jest&#34; in package.json
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>import</span> { twoSum, isValid } from <span style=color:#ed9d13>&#39;./solution&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>test(<span style=color:#ed9d13>&#39;twoSum&#39;</span>, () =&gt; {
+</span></span><span style=display:flex><span>  expect(twoSum([<span style=color:#3677a9>2</span>, <span style=color:#3677a9>7</span>, <span style=color:#3677a9>11</span>], <span style=color:#3677a9>9</span>)).toEqual([<span style=color:#3677a9>0</span>, <span style=color:#3677a9>1</span>])
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>test(<span style=color:#ed9d13>&#39;isValid&#39;</span>, () =&gt; {
+</span></span><span style=display:flex><span>  expect(isValid(<span style=color:#ed9d13>&#39;{([])}&#39;</span>)).toBe(<span style=color:#6ab825;font-weight:700>true</span>)
+</span></span><span style=display:flex><span>})
+</span></span></code></pre></div><h4 id=references-for-javascript>References for Javascript</h4><ul><li><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript>MDN Javascript</a></li><li><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide>MDN Javascript Guide</a></li><li><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript>A Re-introduction to Javascript</a></li><li><a href=https://learnxinyminutes.com/docs/javascript/>Learn Javascript in Y Minutes</a></li></ul><p>Jump to <a href=#go>Go</a> · <a href=#javascript>Javascript</a> · <a href=#ruby>Ruby</a> · <a href=#rails>Rails</a> · <a href=#sql>SQL</a></p><hr><h3 id=ruby>Ruby</h3><h4 id=basics-of-ruby>Basics of Ruby</h4><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#999;font-style:italic># In Ruby, (almost) everything is an object.</span>
 </span></span><span style=display:flex><span><span style=color:#999;font-style:italic># This includes numbers...</span>
 </span></span><span style=display:flex><span><span style=color:#3677a9>3</span>.class <span style=color:#999;font-style:italic>#=&gt; Integer</span>
 </span></span><span style=display:flex><span>
@@ -325,6 +344,14 @@
 </span></span><span style=display:flex><span>res = <span style=color:#40ffff>Net</span>::<span style=color:#40ffff>HTTP</span>.get_response(uri)
 </span></span><span style=display:flex><span>parsed = <span style=color:#40ffff>JSON</span>.parse(res.body)
 </span></span><span style=display:flex><span><span style=color:#24909d>puts</span> parsed
+</span></span></code></pre></div><h4 id=test-setup-1>Test Setup</h4><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#24909d>require</span> <span style=color:#ed9d13>&#39;minitest/autorun&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#999;font-style:italic># require &#39;pry&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>class</span> <span style=color:#447fcf;text-decoration:underline>TestSolution</span> &lt; <span style=color:#40ffff>Minitest</span>::<span style=color:#40ffff>Test</span>
+</span></span><span style=display:flex><span>  <span style=color:#6ab825;font-weight:700>def</span> <span style=color:#447fcf>test_t1</span>
+</span></span><span style=display:flex><span>    assert_equal [<span style=color:#3677a9>0</span>, <span style=color:#3677a9>1</span>], two_sum([<span style=color:#3677a9>2</span>, <span style=color:#3677a9>7</span>, <span style=color:#3677a9>11</span>], <span style=color:#3677a9>9</span>)
+</span></span><span style=display:flex><span>  <span style=color:#6ab825;font-weight:700>end</span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>end</span>
 </span></span></code></pre></div><h4 id=references-for-ruby>References for Ruby</h4><ul><li><a href=https://ruby-doc.org/core-3.1.2/>Core Docs</a><ul><li><a href=https://ruby-doc.org/core-3.1.2/Hash.html>Hash</a></li><li><a href=https://ruby-doc.org/core-3.1.2/Array.html>Array</a></li></ul></li><li><a href=https://learnxinyminutes.com/docs/ruby/>Learn Ruby in Y Minutes</a></li></ul><p>Jump to <a href=#go>Go</a> · <a href=#javascript>Javascript</a> · <a href=#ruby>Ruby</a> · <a href=#rails>Rails</a> · <a href=#sql>SQL</a></p><hr><h3 id=rails>Rails</h3><h4 id=generators>Generators</h4><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=display:flex><span>rails generate &lt;type&gt; --help <span style=color:#999;font-style:italic># for examples</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#999;font-style:italic># Model (+ migration, test, fixtures)</span>
