@@ -1,0 +1,227 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><title>Dark mode with CSS variables and Stimulus - Brian Sigafoos</title><link rel=stylesheet href="/css/main.min.3a3e3c645507d28f53f02f0be65fd053113f44c0399a986d456cb2563df77bf6.css" integrity="sha256-Oj48ZFUH0o9T8C8L5l/QUxE/RMA5mphtRWyyVj33e/Y="><script src=/main.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-42740116-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<link rel="shortcut icon" href=/favicon.png?20190809><link rel=apple-touch-icon href=/apple-touch-icon.png?20190809></head><body data-controller=color-scheme class="text-color bg-bright antialiased leading-normal"><div class="border-b border-gray py-4 w-full"><div class="container max-w-4xl"><div class="flex items-center justify-between font-mono"><a href=https://briansigafoos.com/ class="text-primary font-extrabold">Brian Sigafoos</a><div class="flex items-center"><a href=/about class="text-color font-extrabold block">About me</a><div class="flex ml-4"><button type=button data-action=color-scheme#toggleScheme aria-label="Toggle dark mode" title="Toggle dark mode" class="py-1 px-2 cursor-pointer text-color"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentcolor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003.0 0012 21a9.003 9.003.0 008.354-5.646z"/></svg></button>
+<button type=button data-action=color-scheme#toggleColor aria-label="Change primary color" title="Change primary color" class="py-1 px-2 cursor-pointer text-primary"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentcolor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828.0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg></button></div></div></div></div></div><div class="container my-12 md:my-16 !max-w-4xl prose md:prose-lg lg:prose-xl prose-custom"><h1>Dark mode with CSS variables and Stimulus</h1><p class="mt-4 text-lg md:text-xl lg:text-2xl text-muted">How to add Dark Mode using CSS variables and Stimulus, plus a color palette picker</p><div class="font-mono text-sm mt-3 space-x-4"><span class=text-muted>Jul 22, 2022</span>
+<span class=text-muted>4 min read</span></div><div class="border-t border-gray my-8 pt-4"><h2 id=live-demo>Live Demo</h2><p>Click the buttons below for a live demo of toggling dark mode and changing the primary color of this site.</p><div class="space-y-6 sm:space-y-0 sm:flex sm:space-x-6 text-faint"><button type=button data-action=color-scheme#toggleScheme aria-label="Toggle dark mode" title="Toggle dark mode" class="py-4 px-6 cursor-pointer font-bold font-mono text-bright border border-solid border-gray bg-gray no-underline flex items-center truncate"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentcolor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003.0 0012 21a9.003 9.003.0 008.354-5.646z"/></svg>
+<span class="ml-3 truncate">Toggle dark mode</span></button>
+<button type=button data-action=color-scheme#toggleColor aria-label="Change primary color" title="Change primary color" class="py-4 px-6 cursor-pointer font-bold font-mono text-on-color-primary bg-primary no-underline flex items-center truncate"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentcolor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828.0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+<span class="ml-3 truncate">Change primary color</span></button></div><h2 id=the-power-of-css-variables>The Power of CSS Variables</h2><p>By using CSS variables we can write CSS/SCSS that references variables instead of hardcoded values.</p><p>For example, instead of specifying a value for every color, background-color, border-color, etc you can simply replace the values with <code>var(--&lt;VARIABLE_NAME>)</code> syntax.</p><p>Before using hardcoded values:</p><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scss data-lang=scss><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.color-primary</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>color</span>: <span style=color:#3677a9>#17bf63</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.text-bright</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>color</span>: <span style=color:#3677a9>#1a202c</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.text-color</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>color</span>: <span style=color:#3677a9>#4a5568</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.text-muted</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>color</span>: <span style=color:#3677a9>#718096</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.text-faint</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>color</span>: <span style=color:#3677a9>#a0aec0</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.bg-bright</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>background-color</span>: <span style=color:#3677a9>#fff</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.bg-gray</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>background-color</span>: <span style=color:#3677a9>#f7fafc</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.border-gray</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>border-color</span>: <span style=color:#3677a9>#edf2f7</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>After using CSS variables:</p><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scss data-lang=scss><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.color-primary</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>color</span>: <span style=color:#447fcf>var</span>(--color-primary);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.text-bright</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>color</span>: <span style=color:#447fcf>var</span>(--text-bright);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.text-color</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>color</span>: <span style=color:#447fcf>var</span>(--text-color);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.text-muted</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>color</span>: <span style=color:#447fcf>var</span>(--text-muted);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.bg-bright</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>background-color</span>: <span style=color:#447fcf>var</span>(--bg-bright);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.bg-gray</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>background-color</span>: <span style=color:#447fcf>var</span>(--bg-gray);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#447fcf;text-decoration:underline>.border-gray</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>border-color</span>: <span style=color:#447fcf>var</span>(--border-gray);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=use-root-in-css-to-set-up-the-toggle-ability>Use :root in CSS to set up the toggle-ability</h2><p>Then simply add CSS for <code>:root { ... }</code> as a base for color and dark mode. The below code sets the default dark mode to &ldquo;light&rdquo; and then only applies &ldquo;dark&rdquo; if the viewer&rsquo;s browser/OS &ldquo;prefers-color-scheme&rdquo; is &ldquo;dark&rdquo;.</p><p>The <code>body</code> tags allow using JS to add a user to set their preference to override the defaults.</p><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-scss data-lang=scss><span style=display:flex><span><span style=color:#999;font-style:italic>// Default colors
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span><span style=color:orange>:root</span> {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>--color-primary</span>: <span style=color:#3677a9>#17bf63</span>; <span style=color:#999;font-style:italic>// rgb(23, 191, 99, 1)
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>
+</span></span><span style=display:flex><span>  <span style=color:#999;font-style:italic>// Light is default
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--bg-bright</span>: <span style=color:#3677a9>#fff</span>; <span style=color:#999;font-style:italic>// bg-white
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--bg-gray</span>: <span style=color:#3677a9>#f7fafc</span>; <span style=color:#999;font-style:italic>// gray-100
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--border-gray</span>: <span style=color:#3677a9>#edf2f7</span>; <span style=color:#999;font-style:italic>// gray-200
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--text-bright</span>: <span style=color:#3677a9>#1a202c</span>; <span style=color:#999;font-style:italic>// gray-900
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--text-color</span>: <span style=color:#3677a9>#4a5568</span>; <span style=color:#999;font-style:italic>// gray-700
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--text-muted</span>: <span style=color:#3677a9>#718096</span>; <span style=color:#999;font-style:italic>// gray-600 -- Same for light/dark
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--text-faint</span>: <span style=color:#3677a9>#a0aec0</span>; <span style=color:#999;font-style:italic>// gray-500
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>
+</span></span><span style=display:flex><span>  <span style=color:#999;font-style:italic>// Dark if preferred at OS level by user
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#6ab825;font-weight:700>@media</span> (prefers-color-scheme: dark) {
+</span></span><span style=display:flex><span>    <span style=color:#bbb>--bg-bright</span>: <span style=color:#3677a9>#1a202c</span>; <span style=color:#999;font-style:italic>// gray-900
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>    <span style=color:#bbb>--bg-gray</span>: <span style=color:#3677a9>#131720</span>; <span style=color:#999;font-style:italic>// bg-gray-930
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>    <span style=color:#bbb>--border-gray</span>: <span style=color:#3677a9>#202837</span>; <span style=color:#999;font-style:italic>// gray-870
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>    <span style=color:#bbb>--text-bright</span>: <span style=color:#3677a9>#edf2f7</span>; <span style=color:#999;font-style:italic>// gray-200
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>    <span style=color:#bbb>--text-color</span>: <span style=color:#3677a9>#a0aec0</span>; <span style=color:#999;font-style:italic>// gray-500
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>    <span style=color:#999;font-style:italic>// --text-muted: #718096; // gray-600
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>    <span style=color:#bbb>--text-faint</span>: <span style=color:#3677a9>#4a5568</span>; <span style=color:#999;font-style:italic>// gray-700
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#999;font-style:italic>// If user toggles to &#34;light&#34; mode
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span><span style=color:#6ab825;font-weight:700>body</span>[<span style=color:#6ab825;font-weight:700>data-color-scheme</span>=<span style=color:#ed9d13>&#39;light&#39;</span>] {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>--bg-bright</span>: <span style=color:#3677a9>#fff</span>; <span style=color:#999;font-style:italic>// bg-white
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--bg-gray</span>: <span style=color:#3677a9>#f7fafc</span>; <span style=color:#999;font-style:italic>// gray-100
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--border-gray</span>: <span style=color:#3677a9>#edf2f7</span>; <span style=color:#999;font-style:italic>// gray-200
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--text-bright</span>: <span style=color:#3677a9>#1a202c</span>; <span style=color:#999;font-style:italic>// gray-900
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--text-color</span>: <span style=color:#3677a9>#4a5568</span>; <span style=color:#999;font-style:italic>// gray-700
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#999;font-style:italic>// --text-muted: #718096; // gray-600
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--text-faint</span>: <span style=color:#3677a9>#a0aec0</span>; <span style=color:#999;font-style:italic>// gray-500
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#999;font-style:italic>// If user toggles to &#34;dark&#34; mode
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span><span style=color:#6ab825;font-weight:700>body</span>[<span style=color:#6ab825;font-weight:700>data-color-scheme</span>=<span style=color:#ed9d13>&#39;dark&#39;</span>] {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>--bg-bright</span>: <span style=color:#3677a9>#1a202c</span>; <span style=color:#999;font-style:italic>// gray-900
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--bg-gray</span>: <span style=color:#3677a9>#131720</span>; <span style=color:#999;font-style:italic>// bg-gray-930
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--border-gray</span>: <span style=color:#3677a9>#202837</span>; <span style=color:#999;font-style:italic>// gray-870
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--text-bright</span>: <span style=color:#3677a9>#edf2f7</span>; <span style=color:#999;font-style:italic>// gray-200
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--text-color</span>: <span style=color:#3677a9>#a0aec0</span>; <span style=color:#999;font-style:italic>// gray-500
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#999;font-style:italic>// --text-muted: #718096; // gray-600
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  <span style=color:#bbb>--text-faint</span>: <span style=color:#3677a9>#4a5568</span>; <span style=color:#999;font-style:italic>// gray-700
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#999;font-style:italic>// If user toggles the color to ...
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span><span style=color:#6ab825;font-weight:700>body</span>[<span style=color:#6ab825;font-weight:700>data-color-primary</span>=<span style=color:#ed9d13>&#39;teal&#39;</span>] {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>--color-primary</span>: <span style=color:#3677a9>#00bcd4</span>; <span style=color:#999;font-style:italic>// rgb(0, 187, 211)
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>body</span>[<span style=color:#6ab825;font-weight:700>data-color-primary</span>=<span style=color:#ed9d13>&#39;pink&#39;</span>] {
+</span></span><span style=display:flex><span>  <span style=color:#bbb>--color-primary</span>: <span style=color:#3677a9>#ec407a</span>; <span style=color:#999;font-style:italic>// rgb(236, 64, 122)
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>}
+</span></span></code></pre></div><h2 id=add-stimulus-to-make-it-interactive>Add Stimulus to make it interactive</h2><p>To allow the user to pick dark mode or choose a color, we&rsquo;ll add <a href=https://stimulus.hotwired.dev/>Stimulus</a>.</p><p>To set up Stimulus you can follow their docs, or see <a href=https://github.com/BrianSigafoos/hugo_site/pull/72>the code powering this blog</a>.</p><p>First, add Stimulus <code>@hotwired/stimulus</code> to your package.json and create an entrypoint / main JS file similar to this:</p><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#6ab825;font-weight:700>import</span> { Application } from <span style=color:#ed9d13>&#39;@hotwired/stimulus&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>import</span> ColorSchemeController from <span style=color:#ed9d13>&#39;./controllers/color_scheme_controller&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#24909d>window</span>.Stimulus = Application.start()
+</span></span><span style=display:flex><span>Stimulus.register(<span style=color:#ed9d13>&#39;color-scheme&#39;</span>, ColorSchemeController)
+</span></span></code></pre></div><p>Then add to the HTML <code>body</code> tag in your app some code to tell Stimulus to interact with this <code>color-scheme</code> controller:</p><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>&lt;<span style=color:#6ab825;font-weight:700>body</span> <span style=color:#bbb>data-controller</span>=<span style=color:#ed9d13>&#34;color-scheme&#34;</span> <span style=color:#bbb>class</span>=<span style=color:#ed9d13>&#34;...&#34;</span>&gt;
+</span></span></code></pre></div><p>Then add a Stimulus controller similar to this one:</p><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#999;font-style:italic>// ./controllers/color_scheme_controller.js
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span><span style=color:#6ab825;font-weight:700>import</span> { Controller } from <span style=color:#ed9d13>&#39;@hotwired/stimulus&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>import</span> DevLog from <span style=color:#ed9d13>&#39;./shared/DevLog&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>const</span> COLORS = [<span style=color:#ed9d13>&#39;green&#39;</span>, <span style=color:#ed9d13>&#39;teal&#39;</span>, <span style=color:#ed9d13>&#39;pink&#39;</span>]
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>const</span> DARK_SCHEME = <span style=color:#ed9d13>&#39;dark&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>const</span> LIGHT_SCHEME = <span style=color:#ed9d13>&#39;light&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>const</span> SCHEME_KEY = <span style=color:#ed9d13>&#39;appScheme&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>const</span> COLOR_KEY = <span style=color:#ed9d13>&#39;appColor&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#6ab825;font-weight:700>export</span> <span style=color:#6ab825;font-weight:700>default</span> <span style=color:#6ab825;font-weight:700>class</span> <span style=color:#6ab825;font-weight:700>extends</span> Controller {
+</span></span><span style=display:flex><span>  <span style=color:#999;font-style:italic>// Read from the getter and write that value to the setter.
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  initialize() {
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>this</span>.appScheme = <span style=color:#6ab825;font-weight:700>this</span>.currentScheme
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>this</span>.appColor = <span style=color:#6ab825;font-weight:700>this</span>.currentColor
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#999;font-style:italic>// Unlike initialize, calling toggle persists the change in localStorage
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  toggleScheme(e) {
+</span></span><span style=display:flex><span>    e.preventDefault()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>let</span> scheme = <span style=color:#6ab825;font-weight:700>this</span>.currentScheme === DARK_SCHEME ? LIGHT_SCHEME : DARK_SCHEME
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>this</span>.appScheme = scheme
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>this</span>.storeScheme = scheme
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  toggleColor(e) {
+</span></span><span style=display:flex><span>    e.preventDefault()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>let</span> colorIndex = COLORS.findIndex((k) =&gt; k === <span style=color:#6ab825;font-weight:700>this</span>.currentColor)
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>let</span> color = COLORS[colorIndex + <span style=color:#3677a9>1</span>] || COLORS[<span style=color:#3677a9>0</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>this</span>.appColor = color
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>this</span>.storeColor = color
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#999;font-style:italic>// Private
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>
+</span></span><span style=display:flex><span>  <span style=color:#999;font-style:italic>/* eslint-disable class-methods-use-this */</span>
+</span></span><span style=display:flex><span>  set appScheme(val) {
+</span></span><span style=display:flex><span>    <span style=color:#24909d>document</span>.body.dataset.colorScheme = val
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  set appColor(val) {
+</span></span><span style=display:flex><span>    <span style=color:#24909d>document</span>.body.dataset.colorPrimary = val
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  set storeScheme(val) {
+</span></span><span style=display:flex><span>    localStorage.setItem(SCHEME_KEY, val)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  set storeColor(val) {
+</span></span><span style=display:flex><span>    localStorage.setItem(COLOR_KEY, val)
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#999;font-style:italic>// Check localStorage first for preference, then check OS.
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  get currentScheme() {
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>const</span> fromLocal = localStorage.getItem(SCHEME_KEY)
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>if</span> (fromLocal) {
+</span></span><span style=display:flex><span>      DevLog([<span style=color:#ed9d13>&#39;Color scheme found in localStorage&#39;</span>, fromLocal])
+</span></span><span style=display:flex><span>      <span style=color:#6ab825;font-weight:700>return</span> fromLocal
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>const</span> darkFromOS = <span style=color:#24909d>window</span>.matchMedia(<span style=color:#ed9d13>&#39;(prefers-color-scheme: dark)&#39;</span>).matches
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>if</span> (darkFromOS) {
+</span></span><span style=display:flex><span>      DevLog([<span style=color:#ed9d13>&#39;Color scheme found at OS level as dark&#39;</span>])
+</span></span><span style=display:flex><span>      <span style=color:#6ab825;font-weight:700>return</span> DARK_SCHEME
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#999;font-style:italic>// Default
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>    <span style=color:#6ab825;font-weight:700>return</span> LIGHT_SCHEME
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#999;font-style:italic>// Check localStorage first for preference.
+</span></span></span><span style=display:flex><span><span style=color:#999;font-style:italic></span>  get currentColor() {
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>const</span> fromLocal = localStorage.getItem(COLOR_KEY)
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>if</span> (fromLocal) {
+</span></span><span style=display:flex><span>      DevLog([<span style=color:#ed9d13>&#39;Color primary found in localStorage&#39;</span>, fromLocal])
+</span></span><span style=display:flex><span>      <span style=color:#6ab825;font-weight:700>return</span> fromLocal
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#6ab825;font-weight:700>return</span> COLORS[<span style=color:#3677a9>0</span>]
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#999;font-style:italic>/* eslint-enable class-methods-use-this */</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Finally add some HTML buttons to allow toggling:</p><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span>  &lt;<span style=color:#6ab825;font-weight:700>button</span> <span style=color:#bbb>type</span>=<span style=color:#ed9d13>&#34;button&#34;</span> <span style=color:#bbb>data-action</span>=<span style=color:#ed9d13>&#34;color-scheme#toggleScheme&#34;</span>&gt;
+</span></span><span style=display:flex><span>    Toggle dark mode
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#6ab825;font-weight:700>button</span>&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  &lt;<span style=color:#6ab825;font-weight:700>button</span> <span style=color:#bbb>type</span>=<span style=color:#ed9d13>&#34;button&#34;</span> <span style=color:#bbb>data-action</span>=<span style=color:#ed9d13>&#34;color-scheme#toggleColor&#34;</span>&gt;
+</span></span><span style=display:flex><span>    Change primary color
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#6ab825;font-weight:700>button</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#6ab825;font-weight:700>div</span>&gt;
+</span></span></code></pre></div><p>That&rsquo;s it! Try it out here: <a href=#live-demo>Live Demo</a></p></div><div class=my-8><a href=https://briansigafoos.com/ class="text-base inline-block mb-1 py-2 px-6 cursor-pointer font-mono font-bold text-primary border border-solid border-primary bg-bright no-underline">Visit homepage</a></div><div class=my-8><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//briansigafoos.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div></div><div class="border-t border-gray py-4 my-16 w-full text-sm text-faint"><div class="container max-w-4xl text-center font-mono"><div class="sm:flex items-center justify-between"><span>Made with
+<a href=https://gohugo.io rel=nofollow target=hugo class=underline>Hugo</a> &
+        <a href=https://tailwindcss.com rel=nofollow target=tw class=underline>TailwindCSS</a>
+·
+<a href=https://github.com/BrianSigafoos/hugo_site rel=nofollow target=source class=underline>Source code</a></span>
+<span class="block sm:inline mt-2 sm:mt-0">By <a href=/about class="text-primary font-black">Brian Sigafoos</a></span></div></div></div></body></html>
