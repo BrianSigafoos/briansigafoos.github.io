@@ -324,6 +324,9 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#999;font-style:italic># More</span>
 </span></span><span style=display:flex><span>queue.unshift(c) <span style=color:#999;font-style:italic># Prepend to array (aliased as .prepend)</span>
+</span></span></code></pre></div><h4 id=regex-in-ruby>Regex in Ruby</h4><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#ed9d13>&#39;ñ&#39;</span>.match?(<span style=color:#ed9d13>/[A-Za-z]/</span>)     <span style=color:#999;font-style:italic>#=&gt; false</span>
+</span></span><span style=display:flex><span><span style=color:#ed9d13>&#39;ñ&#39;</span>.match?(<span style=color:#ed9d13>/\w/</span>)           <span style=color:#999;font-style:italic>#=&gt; false</span>
+</span></span><span style=display:flex><span><span style=color:#ed9d13>&#39;ñ&#39;</span>.match?(<span style=color:#ed9d13>/[[:alpha:]]/</span>)  <span style=color:#999;font-style:italic>#=&gt; true</span>
 </span></span></code></pre></div><h4 id=api-call-and-parse-json-in-ruby>API Call and Parse JSON in Ruby</h4><div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#999;font-style:italic># A simple review of Ruby&#39;s built in net/http, uri, and json libraries</span>
 </span></span><span style=display:flex><span><span style=color:#999;font-style:italic># used to make API requests and parse the JSON response.</span>
 </span></span><span style=display:flex><span><span style=color:#999;font-style:italic># require &#39;pry&#39;</span>
