@@ -29,6 +29,9 @@
         }
       }
     }
+    hasBindings() {
+      return this.unorderedBindings.size > 0;
+    }
     get bindings() {
       return Array.from(this.unorderedBindings).sort((left, right) => {
         const leftIndex = left.index, rightIndex = right.index;
@@ -74,11 +77,28 @@
     bindingConnected(binding) {
       this.fetchEventListenerForBinding(binding).bindingConnected(binding);
     }
-    bindingDisconnected(binding) {
+    bindingDisconnected(binding, clearEventListeners = false) {
       this.fetchEventListenerForBinding(binding).bindingDisconnected(binding);
+      if (clearEventListeners)
+        this.clearEventListenersForBinding(binding);
     }
     handleError(error2, message, detail = {}) {
       this.application.handleError(error2, `Error ${message}`, detail);
+    }
+    clearEventListenersForBinding(binding) {
+      const eventListener = this.fetchEventListenerForBinding(binding);
+      if (!eventListener.hasBindings()) {
+        eventListener.disconnect();
+        this.removeMappedEventListenerFor(binding);
+      }
+    }
+    removeMappedEventListenerFor(binding) {
+      const { eventTarget, eventName, eventOptions } = binding;
+      const eventListenerMap = this.fetchEventListenerMapForEventTarget(eventTarget);
+      const cacheKey = this.cacheKey(eventName, eventOptions);
+      eventListenerMap.delete(cacheKey);
+      if (eventListenerMap.size == 0)
+        this.eventListenerMaps.delete(eventTarget);
     }
     fetchEventListenerForBinding(binding) {
       const { eventTarget, eventName, eventOptions } = binding;
@@ -115,6 +135,25 @@
         parts.push(`${eventOptions[key] ? "" : "!"}${key}`);
       });
       return parts.join(":");
+    }
+  };
+  var defaultActionDescriptorFilters = {
+    stop({ event, value }) {
+      if (value)
+        event.stopPropagation();
+      return true;
+    },
+    prevent({ event, value }) {
+      if (value)
+        event.preventDefault();
+      return true;
+    },
+    self({ event, value, element }) {
+      if (value) {
+        return element === event.target;
+      } else {
+        return true;
+      }
     }
   };
   var descriptorPattern = /^((.+?)(@(window|document))?->)?(.+?)(#([^:]+?))(:(.+))?$/;
@@ -177,7 +216,7 @@
     }
     get params() {
       const params = {};
-      const pattern = new RegExp(`^data-${this.identifier}-(.+)-param$`);
+      const pattern = new RegExp(`^data-${this.identifier}-(.+)-param$`, "i");
       for (const { name, value } of Array.from(this.element.attributes)) {
         const match = name.match(pattern);
         const key = match && match[1];
@@ -192,13 +231,13 @@
     }
   };
   var defaultEventNames = {
-    "a": (e) => "click",
-    "button": (e) => "click",
-    "form": (e) => "submit",
-    "details": (e) => "toggle",
-    "input": (e) => e.getAttribute("type") == "submit" ? "click" : "input",
-    "select": (e) => "change",
-    "textarea": (e) => "input"
+    a: () => "click",
+    button: () => "click",
+    form: () => "submit",
+    details: () => "toggle",
+    input: (e) => e.getAttribute("type") == "submit" ? "click" : "input",
+    select: () => "change",
+    textarea: () => "input"
   };
   function getDefaultEventNameForElement(element) {
     const tagName = element.tagName.toLowerCase();
@@ -234,9 +273,7 @@
       return this.context.identifier;
     }
     handleEvent(event) {
-      if (this.willBeInvokedByEvent(event) && this.shouldBeInvokedPerSelf(event)) {
-        this.processStopPropagation(event);
-        this.processPreventDefault(event);
+      if (this.willBeInvokedByEvent(event) && this.applyEventModifiers(event)) {
         this.invokeWithEvent(event);
       }
     }
@@ -250,15 +287,19 @@
       }
       throw new Error(`Action "${this.action}" references undefined method "${this.methodName}"`);
     }
-    processStopPropagation(event) {
-      if (this.eventOptions.stop) {
-        event.stopPropagation();
+    applyEventModifiers(event) {
+      const { element } = this.action;
+      const { actionDescriptorFilters } = this.context.application;
+      let passes = true;
+      for (const [name, value] of Object.entries(this.eventOptions)) {
+        if (name in actionDescriptorFilters) {
+          const filter = actionDescriptorFilters[name];
+          passes = passes && filter({ name, value, event, element });
+        } else {
+          continue;
+        }
       }
-    }
-    processPreventDefault(event) {
-      if (this.eventOptions.prevent) {
-        event.preventDefault();
-      }
+      return passes;
     }
     invokeWithEvent(event) {
       const { target, currentTarget } = event;
@@ -271,13 +312,6 @@
         const { identifier, controller, element, index } = this;
         const detail = { identifier, controller, element, index, event };
         this.context.handleError(error2, `invoking action "${this.action}"`, detail);
-      }
-    }
-    shouldBeInvokedPerSelf(event) {
-      if (this.action.eventOptions.self === true) {
-        return this.action.element === event.target;
-      } else {
-        return true;
       }
     }
     willBeInvokedByEvent(event) {
@@ -631,7 +665,7 @@
       return values ? Array.from(values) : [];
     }
     getKeysForValue(value) {
-      return Array.from(this.valuesByKey).filter(([key, values]) => values.has(value)).map(([key, values]) => key);
+      return Array.from(this.valuesByKey).filter(([_key, values]) => values.has(value)).map(([key, _values]) => key);
     }
   };
   var TokenListObserver = class {
@@ -825,7 +859,7 @@
       }
     }
     disconnectAllActions() {
-      this.bindings.forEach((binding) => this.delegate.bindingDisconnected(binding));
+      this.bindings.forEach((binding) => this.delegate.bindingDisconnected(binding, true));
       this.bindingsByAction.clear();
     }
     parseValueForToken(token) {
@@ -909,9 +943,10 @@
           }
           changedMethod.call(this.receiver, value, oldValue);
         } catch (error2) {
-          if (!(error2 instanceof TypeError))
-            throw error2;
-          throw new TypeError(`Stimulus Value "${this.context.identifier}.${descriptor.name}" - ${error2.message}`);
+          if (error2 instanceof TypeError) {
+            error2.message = `Stimulus Value "${this.context.identifier}.${descriptor.name}" - ${error2.message}`;
+          }
+          throw error2;
         }
       }
     }
@@ -1142,10 +1177,7 @@
   }
   var getOwnKeys = (() => {
     if (typeof Object.getOwnPropertySymbols == "function") {
-      return (object) => [
-        ...Object.getOwnPropertyNames(object),
-        ...Object.getOwnPropertySymbols(object)
-      ];
+      return (object) => [...Object.getOwnPropertyNames(object), ...Object.getOwnPropertySymbols(object)];
     } else {
       return Object.getOwnPropertyNames;
     }
@@ -1544,6 +1576,7 @@
       this.schema = schema;
       this.dispatcher = new Dispatcher(this);
       this.router = new Router(this);
+      this.actionDescriptorFilters = Object.assign({}, defaultActionDescriptorFilters);
     }
     static start(element, schema) {
       const application = new Application(element, schema);
@@ -1565,6 +1598,9 @@
     }
     register(identifier, controllerConstructor) {
       this.load({ identifier, controllerConstructor });
+    }
+    registerActionOption(name, filter) {
+      this.actionDescriptorFilters[name] = filter;
     }
     load(head, ...rest) {
       const definitions = Array.isArray(head) ? head : [head, ...rest];
