@@ -2308,10 +2308,12 @@
   var SCHEME_KEY = "appScheme";
   var COLOR_KEY = "appColor";
   var color_scheme_controller_default = class extends Controller {
+    // Read from the getter and write that value to the setter.
     initialize() {
       this.appScheme = this.currentScheme;
       this.appColor = this.currentColor;
     }
+    // Unlike initialize, calling toggle persists the change in localStorage
     toggleScheme(e) {
       e.preventDefault();
       let scheme = this.currentScheme === DARK_SCHEME ? LIGHT_SCHEME : DARK_SCHEME;
@@ -2325,6 +2327,8 @@
       this.appColor = color;
       this.storeColor = color;
     }
+    // Private
+    /* eslint-disable class-methods-use-this */
     set appScheme(val) {
       document.body.dataset.colorScheme = val;
     }
@@ -2337,6 +2341,7 @@
     set storeColor(val) {
       localStorage.setItem(COLOR_KEY, val);
     }
+    // Check localStorage first for preference, then check OS.
     get currentScheme() {
       const fromLocal = localStorage.getItem(SCHEME_KEY);
       if (fromLocal) {
@@ -2350,6 +2355,7 @@
       }
       return LIGHT_SCHEME;
     }
+    // Check localStorage first for preference.
     get currentColor() {
       const fromLocal = localStorage.getItem(COLOR_KEY);
       if (fromLocal) {
@@ -2358,6 +2364,7 @@
       }
       return COLORS[0];
     }
+    /* eslint-enable class-methods-use-this */
   };
 
   // <stdin>
