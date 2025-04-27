@@ -2447,13 +2447,13 @@
   Controller.outlets = [];
   Controller.values = {};
 
-  // ns-hugo:/home/runner/work/hugo_site/hugo_site/assets/js/controllers/shared/DevLog.js
+  // ns-hugo-imp:/home/runner/work/hugo_site/hugo_site/assets/js/controllers/shared/DevLog.js
   var DevLog = (args = []) => {
     console.log(...args);
   };
   var DevLog_default = DevLog;
 
-  // ns-hugo:/home/runner/work/hugo_site/hugo_site/assets/js/controllers/color_scheme_controller.js
+  // ns-hugo-imp:/home/runner/work/hugo_site/hugo_site/assets/js/controllers/color_scheme_controller.js
   var COLORS = ["green", "teal", "pink"];
   var DARK_SCHEME = "dark";
   var LIGHT_SCHEME = "light";

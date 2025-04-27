@@ -80,7 +80,7 @@ Then validate your repository&rsquo;s
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Set up database.yml<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            mv config/database.yml.example config/database.yml
-</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            sed -i &#39;s/\$USER/ubuntu/g&#39; config/database.yml</span><span style=color:#666>            
+</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            sed -i &#39;s/\$USER/ubuntu/g&#39; config/database.yml</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Compile webpacker packs<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>bundle exec rails webpacker:compile --trace<span style=color:#666>
@@ -89,7 +89,7 @@ Then validate your repository&rsquo;s
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            circleci tests glob &#34;test/**/*_test.rb&#34; &gt; test_all.txt
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            grep -v &#34;test/system&#34; test_all.txt &gt; test_main.txt
-</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            grep &#34;test/system&#34; test_all.txt &gt; test_system.txt</span><span style=color:#666>            
+</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            grep &#34;test/system&#34; test_all.txt &gt; test_system.txt</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>persist_to_workspace</span>:<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>root</span>:<span style=color:#666> </span>.<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>paths</span>:<span style=color:#666>
@@ -110,22 +110,22 @@ Then validate your repository&rsquo;s
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Scan for Rails code vulnerabilities<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            gem install brakeman
-</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            brakeman</span><span style=color:#666>            
+</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            brakeman</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Scan for bundled Ruby gem vulnerabilties<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            gem install bundler-audit
-</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle audit check --update</span><span style=color:#666>            
+</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle audit check --update</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Scan for Ruby and RubyGems system vulnerabilities<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle add ruby_audit --group &#34;test&#34;
-</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle exec ruby-audit check</span><span style=color:#666>            
+</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle exec ruby-audit check</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Analyze Ruby code quality<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            gem install rubycritic
-</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            rubycritic --minimum-score 90 --format json --no-browser app</span><span style=color:#666>            
+</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            rubycritic --minimum-score 90 --format json --no-browser app</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>test</span>:<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>    </span><span style=color:#6ab825;font-weight:700>resource_class</span>:<span style=color:#666> </span>small<span style=color:#666>
@@ -137,12 +137,12 @@ Then validate your repository&rsquo;s
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Create and load database<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle exec rails db:create --trace
-</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle exec rails db:schema:load --trace</span><span style=color:#666>            
+</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle exec rails db:schema:load --trace</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Run Rails non-system tests<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>command</span>:<span style=color:#666> </span>|<span style=color:#ed9d13>
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            TEST_FILES=&#34;$(circleci tests split test_main.txt --split-by=timings)&#34;
-</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle exec rails test $TEST_FILES</span><span style=color:#666>            
+</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle exec rails test $TEST_FILES</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>store_test_results</span>:<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>path</span>:<span style=color:#666> </span><span style=color:#cd2828;font-weight:700>*results_path</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666>
@@ -152,7 +152,7 @@ Then validate your repository&rsquo;s
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            bundle exec rails test $TEST_FILES
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>
 </span></span></span><span style=display:flex><span><span style=color:#ed9d13>            # Want to use RSpec instead of minitest? Try this:
-</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            # bundle exec rspec --format progress --format RspecJunitFormatter --out $RESULTS_PATH/rspec/core_results.xml $TEST_FILES</span><span style=color:#666>            
+</span></span></span><span style=display:flex><span><span style=color:#ed9d13>            # bundle exec rspec --format progress --format RspecJunitFormatter --out $RESULTS_PATH/rspec/core_results.xml $TEST_FILES</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>store_test_results</span>:<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>path</span>:<span style=color:#666> </span><span style=color:#cd2828;font-weight:700>*results_path</span><span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>      </span>- <span style=color:#6ab825;font-weight:700>store_artifacts</span>:<span style=color:#666>
@@ -171,9 +171,9 @@ Then validate your repository&rsquo;s
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>context</span>:<span style=color:#666> </span>saas-tokens<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>          </span><span style=color:#6ab825;font-weight:700>requires</span>:<span style=color:#666>
 </span></span></span><span style=display:flex><span><span style=color:#666>            </span>- setup<span style=color:#666>
-</span></span></span></code></pre></div></div><div class=my-8><a href=https://briansigafoos.com/ class="text-base inline-block mb-1 py-2 px-6 cursor-pointer font-mono font-bold text-primary border border-solid border-primary bg-bright no-underline">Visit homepage</a></div><div class=my-8><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//briansigafoos.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div></div><div class="border-t border-gray py-4 my-16 w-full text-sm text-faint"><div class="container max-w-4xl text-center font-mono"><div class="sm:flex items-center justify-between"><span>Made with
+</span></span></span></code></pre></div></div><div class=my-8><a href=https://briansigafoos.com/ class="text-base inline-block mb-1 py-2 px-6 cursor-pointer font-mono font-bold text-primary border border-solid border-primary bg-bright no-underline">Visit homepage</a></div><div class=my-8></div></div><div class="border-t border-gray py-4 my-16 w-full text-sm text-faint"><div class="container max-w-4xl text-center font-mono"><div class="sm:flex items-center justify-between"><span>Made with
 <a href=https://gohugo.io rel=nofollow target=hugo class=underline>Hugo</a> &
         <a href=https://tailwindcss.com rel=nofollow target=tw class=underline>TailwindCSS</a>
 ·
 <a href=https://github.com/BrianSigafoos/hugo_site rel=nofollow target=source class=underline>Source code
-</a></span><span class="block sm:inline mt-2 sm:mt-0">By <a href=/about class="text-primary font-black">Brian Sigafoos</a></span></div></div></div></body></html>
+</a></span><span class="block sm:inline mt-2 sm:mt-0">By <a href=/about class="text-primary font-black"></a></span></div></div></div></body></html>
